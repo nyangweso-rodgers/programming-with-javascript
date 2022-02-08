@@ -1,8 +1,61 @@
-# React
-__React__ is a __JavaScript library__ used to build User Interfaces with ease. It is developed and maintained by __Facebook__. It is capable of building complex and highly interactive single-page web applications and can be integrated with any backend.
+# React Roadmap
+1. React Basics:
+    * Props
+    * State
+    * Create React-App
+    * JSX
+2. Advanced
+    * Hooks
+    * Refs
+    * Higher-Order Components
+3. Ecosystem
+    * Routers
+    * API Calls
+    * State Management
+    * Styling
+4. Environment
+    * TypeScript
+    * Next.Js
+    * Gatsby.Js
+# Introduction to React
+__React__ is a __JavaScript library__ used to build _User Interfaces_. It is developed and maintained by __Facebook__. It is capable of building complex and highly interactive single-page web applications and can be integrated with any backend.
+
+# How does React Work?
+* __React__ creates a __VIRTUAL DOM__ in memory. Instead of manipulating the browser's DOM directly, __React__ creates a __virtual DOM__ in memory, where it does all the necessary manipulating, before making the changes in the browser DOM.
+* __React__ only changes what needs to be changed! __React__ finds out what changes have been made, and changes only what needs to be changed.
 
 # advantages of React
 * Very fast, gives smooth experience to users
 * Easy to develop and maintain due to its __Components__ based structure. A __component__ basically represent a piece of UI. Once a __component__ is created, it can be used as many times as you wish to.
 
+# Definition of Terms
+1. __Components__: simple function that you can call with some input and they render some output. __Components__ are of two types:
+    * Class based components: are defined using ES6 classes
+    * functional based components: aee basic JavaScript functions. A _Typical Function Component in React_ is as below:
+    ```js
+    import React from "react" // way of telling Babel that we are working with JSX filed so that it will not throw error while transforming code into the React.createElement calls
+    
+    '''
+    Below id a React function component:
+    This is quite similar to typical JavaScript functions. The only difference is, here we are returning HTML code because this is JSX(JavaScript XML)
+    '''
+    function componentName() {
+        return {
+            <h1>I am a function component</h1>
+        }
+    }
+
+    export default componentName; // Exporting the function (component) so that we can use it outside
+    ```
+2. __JSX (JavaScript XML)__: an extension of JavaScript which allow us to write HTML code in JavaScript file. E.g., consider the below variable declaration. It's neither JS nor HTML. This is the mixture of JavaScript + XML = JSX
+    ```js
+    cons element = <h1>Hello, World!</h1>
+    ```
+
+3. __Virtual DOM__: uses a strategy that updates the DOM without having to redraw all the webpage elements. Every time the DOM changes, browsers need to recalculate entire layout and then repaint the web page which makes the web app slow. To overcome this, we have __virtual DOM__. Evrey time the state of our application changes, the __virtual DOM__ gets updates instead of the real DOM.
+
+    Whenever the new element is added to the UI, a new __virtual DOM__ associated with that element is created. If state of this element chnages, a second new __virtual DOM__ is created which will be compared with the previous __virtual DOM__. It then updates ONLY the object on the real DOM.
+
 # References
+1. [W3 Schools - React Tutorial](https://www.w3schools.com/react/default.asp)
+2. [React Tutorial](https://react-tutorial.app/app.html)

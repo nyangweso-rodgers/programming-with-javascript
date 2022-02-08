@@ -1,0 +1,10 @@
+# Using React in VSCode
+
+# Test that you have Node.js and npm correctly installed on your machine, type the following on your terminal or command prompt:
+
+node --version
+or 
+npm --verrsion 
+
+# React Installation Steps - the tool helps to start building with React App. It sets up all the tools that you need in order to get started
+npx create-react-app my-app 
