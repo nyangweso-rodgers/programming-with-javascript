@@ -2,20 +2,33 @@
 
 ## Table of Contents
 - [Introduction to JavaScript](#Introduction-to-JavaScript)
+    - [Difference between Java and Javascript](#Difference-between-Java-and-Javascript)
+    - [Features of JavaScript](#Features-of-JavaScript)
     - [How do Engines work?](#How-do-Engines-work?)
     - [What CAN in-browser JavaScript do?](#What-CAN-in-browser-JavaScript-do?)
     - [What CAN'T in-browser JavaScript do?](#What-CAN'T-in-browser-JavaScript-do?)
     - [What makes JS unique?](#What-makes-JS-unique?)
+    - [Languages "over" JavaScript](#Languages-"over"-JavaScript)
     - [The Modern mode, "use strict"](#The-Modern-mode,-"use-strict")
+    - [Is JavaScript a case-sensitive language?](#Is-JavaScript-a-case-sensitive-language?)
+    - [Ways an HTML element can be accessed in JavaScript code](#Ways-an-HTML-element-can-be-accessed-in-JavaScript-code)
+    - [Definitions of Terms](#Definitions-of-Terms)
+    - [Attaching a script to a Webpage](#Attaching-a-script-to-a-Webpage)
 
 - [Variables in JavaScript](#Variables-in-JavaScript)
 - [Data Types in JavaScript](#Data-Types-in-JavaScript)
-    - [Types of Data Types in JavaScript](#Types-of-Data-Types-in-JavaScript)
     - [typeof operator](#typeof-operator)
     
 - [Comparisons Operators](#Comparisons-Operators)
 - [Operators in JavaScript](#Operators-in-JavaScript)
 - [Types Conversion in JavaScript](#Types-Conversion-in-JavaScript)
+- [Function Expressions and Arrow Function](#Function-Expressions-and-Arrow-Function)
+    - [Examples of functions](#Examples-of-functions)
+    - [Reverse Character Function](#Reverse-Character-Function)
+    - [FizzBuzz Function](#FizzBuzz-Function)
+
+- [Array Methods in JavaScript](#Array-Methods-in-JavaScript)
+
 - [References](#references)
 # Introduction to JavaScript
 __JavaScript__ was initially created to make "web pages alive". the programs in this langauge are called __scripts__. they can be written right in a web page's HTML and run automatically as the page loads. __Scripts__ are provided and executed as plain texts. they don't need special preparation or compilation to run. - in this aspect, JS is very different from another programming language called __Java__.
@@ -25,11 +38,23 @@ Today, __JS__ can execute not only in the browser, but also on the server, or ac
 2. SpiderMonkey - in Mozilla Firefox
 3. there are other codenames like "Trident" and "Chakra" for different versions of Internet Explorer, "ChakraCore" for Microsoft Edge, "Nitro" and "SquirellFish" for Safari, e.t.c.,
 
+__JavaScript__ is a lightweight, interpreted programming language with object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.
+
+# Difference between Java and Javascript
+__Java__ is an __OOP programming__. It creates applications that run in a _virtual machine_ or _browser_. __JavaScript__ is an __OOP scripting language__. The code is run on browser only.
+
+# Features of JavaScript
+* it is a lightweight, interpreted programming language
+* it is designed for creating network-centric applications
+* it is complementary to and integrated with Java
+* it is open and cross-platform scripting language
 # How do Engines work?
 Engines are complicated but the basics are easy:
 1. the engine (embeded if it's a browser) reads ('parses') the script
 2. then it converts ('compiles') the scripts to the machine language
 3. and then the machine code runs pretty fast.
+
+The __engine__ applies optimizations at each step of the process. it even watches the compiled scripts as it runs, analyzes the data that flows through it, and applies optimizations to the machine code based on that knowledge. when it's done, scripts run quite fast.
 
 # What CAN in browser JavaScript do?
 Modern __JS__ is a 'safe' programming language. it does not provide low-level access to memory or CPU, because it was initially created for browsers which do not require it. __JS__ capabilities greatly depend on the environment it's running in. For example, __Node.js__ supports functions that allow __JS__ to read/write arbitrary files , perform network requests e.t.c., __in-browser JS__ can do anything related to webpage manipulation, interaction with the user, and the webserver.
@@ -57,6 +82,13 @@ There are at least 3 great things about JS:
 
 __NOTE__: _JS is the only browser technology that combines these three things._
 
+# Languages "over" JavaScript
+Recently, plethora of new languages appeared, which _transpiled_ (converted) to JS before they run in the browser. Modern tools makes the _transpilation_ very fast and transparent, actually allowing developers to code in another language and auto-converting it "under the hood". __examples of such languages__:
+1. __CoffeeScript__ - is a "syntactic sugar" for JS. it intoduces shorter syntax, allowing us to write clearer and more precise code. usually, Ruby devs like it.
+2. __TypeScript__ - is concentrated on adding "_strict data typing_" to simplify the development and support of complex systems. it's developed by __Microsoft__.
+3. __Flow__ - also adds data typing but in a different way. it's developed by __Facebook__
+4. __Dart__ - is a standalone language that has its own engine that runs in non-browser environments (like mobile-apps), but also can be transpiled to JS. it's developed by __Google__.
+
 # The Modern mode, "use strict"
 For a long time, __JavaScript__ evolved without compatibility issues. new features were added to the language while old functionality didn't change. That had the benefit of never breaking existing code. but the downside was that any mistake or an imperfect decision made by JS creators got stuck in the language forever. This was the case until 2009 when __ECMAScript__ (ES5) appeared. it added new features to the language and modified the existing ones. to keep the old code working, most modifications are off by default. you need to explicitly enable them with a special directive "__use strict__"
 
@@ -66,6 +98,24 @@ _Remarks_:
 * only comments may appear above "use strict"
 * there is no directive like "no use strict" that reverts the engine to old behavior.once we enter strict mode, there's no return.
 * for the future, when you use a browser console to test features, please note that it doesn't "use strict" by default.
+
+# Is JavaScript a case-sensitive language?
+_JavaScript is a case-sensitive language. The language keywords, variables, function names, and any other identifiers must always be typed with a consistent capitalization of letters_
+
+# Ways an HTML element can be accessed in JavaScript code
+* getElementById('idname')
+* getElementByClass('classname')
+* getElementByTagName('tagname')
+* querySelector()
+
+# Attaching a script to a Webpage
+For server-side environments (like __Node.js__) you can execute the script by command like "node my.js"
+
+# the "script" tag
+JS programs can be attached to any part of an __HTML__ document with an help of a __< script >__ tag. the < script > tag contains JS code which is automatically executed when the browser processes the tag. The < script > tag has a few attributes that are rarely used nowadays but can still be found in old code.
+# Definitions of Terms
+1. __Callback__: is a plain __JavaScript__ function passed to some method as an argument or option. it is a function that is to be executed after another function has finished executing, hence the name _"call back"_
+2. __Closers__: are created whenever a variable that is defined outside the current scope is accessed from within some inner scope. ot gives you access to an outer function's scope from an inner function.
 
 # Variables in JavaScript
 __Variables__ are used to store information.
@@ -123,7 +173,6 @@ let message = 'Hello!';
 ```
 Programming languages that allow such things are called "__dynamically typed__", meaning that there are data types, but variables are not bound to any of them.
 
-# Types of Data Types in JavaScript
 1. __Number__: represents both _integer_ and _floating_ point numbers. there are many operations for numbers, e.g., 
     * multiplication (*), 
     * division (/), 
@@ -201,6 +250,13 @@ Programming languages that allow such things are called "__dynamically typed__",
     but it's not recommended to do that. normally, you should use __null__ to assign an "__empty__" or "__unknown__" value to a variable. and we use "__undefined__" for checks like seeing if a variable has ben assigned.
 
 6. __Objects and Symbols__: the object type is special. all the other types are called "__primitive__" because their value can contain only a single thing(be it a __string__, a __number__ or whatever). in contrast, __objects__ are used to store collections of data and more complex entities. the symbol type is used to create a unique identifier for objects.
+    ```js
+        // Creating an Object in JS
+        var emp = {
+            name: "Rodgers",
+            age: 26
+        };
+    ```
 
 # typeof operator
 the __typeof__ operator returns the type of an argument. it supports two types of syntax:
@@ -570,5 +626,257 @@ string | whitespaces from the start and end are removed. if the remaining string
         alert(Boolean("0")); // true
         alert(Boolean(" ")); // spaces, is also true
     ```
+# Function Expressions and Arrow Function
+In __JavaScript__, a function is not a “magical language structure”, but a special kind of value.
+
+# Function Expression vs Function Declaration
+Let’s formulate the key differences between Function Declarations and Expressions. 
+* __Function Declaration__: a function, declared as a separate statement, in the main code flow.
+* __Function Expression__: a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the “assignment expression” =:
+* The more subtle difference is when a function is created by the JavaScript engine. A __Function Expression__ is created when the execution reaches it and is usable only from that moment. Once the execution flow passes to the right side of the assignment let sum2 = function… – here we go, the function is created and can be used (assigned, called, etc. ) from now on. __Function Declarations__ are different. A __Function Declaration__ can be called earlier than it is defined. For example, a global Function Declaration is visible in the whole script, no matter where it is. That’s due to internal algorithms.When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an “initialization stage”. And after all Function Declarations are processed, the code is executed. So it has access to these functions.
+```js
+    // function declaration
+    function sayHi() {
+   console.log( 'Hi' ); // you can use alert
+    };
+    console.log(sayHi()); // 'Hi'
+```
+* There is another syntax for creating a function that is called a __Function Expression__.
+```js
+    // function expression
+    let sayHi2 = function() {
+        alert( 'Hi' );
+        // Here, the function is created and assigned to the variable explicitly, like any other value. 
+    };
+```
+_Remark_: _No matter how the function is defined, it’s just a value stored in the variable sayHi. The meaning of these code samples is the same: "create a function and put it into the variable sayHi"._
+
+* We can copy a function to another variable:
+```js
+  function sayHi3() { 
+    // create (1)
+      alert( 'Hello' );
+    }
+
+    let func = sayHi3; // copy (2)
+
+    func(); // Hello
+```
+
+* __Callback functions__: Let’s look at more examples of passing functions as values and using function expressions. We’ll write a function ask(question, yes, no) with three parameters:
+    * question: Text of the question
+    * yes: Function to run if the answer is “Yes”
+    * no Function to run if the answer is “No”
+    * The function should ask the question and, depending on the user’s answer, call yes() or no():
+    ```js
+        function ask(question, yes, no) {
+            if (confirm(question)) yes()
+            else no;
+        }
+
+        function showOk() {
+            alert('You agreed');
+        }
+
+        function showCancel() {
+            alert('You Cancelled the execution!');
+        }
+
+        // usage: functions showOk and showCancel are passed as atguments to as
+        // ask( 'Do you agree?', showOk, showCancel);
+    ```
+    * The arguments showOk and showCancel of ask are called callback functions or just callbacks.
+    * The idea is that we pass a function and expect it to be “called back” later if necessary. 
+    * In our case, showOk becomes the callback for “yes” answer, and showCancel for “no” answer.
+
+    * We can use __Function Expressions__ to write the same function much shorter:
+    ```js
+        function ask2(question, yes, no) {
+        if(confirm(question)) yes()
+        else no();
+        }
+
+        ask2(
+            "Do you agree?",
+            function() { alert("You agreed!") },
+            function() { alertt( "You cancelled the execution" ); }
+        );
+    ```
+    * Here, functions are declared right inside the ask2(...) call. 
+    * They have no name, and so are called __anonymous__. Such functions are not accessible outside of ask2 (because they are not assigned to variables), but that’s just what we want here.
+    * Such code appears in our scripts very naturally, it’s in the spirit of JavaScript.
+
+# Examples of functions
+```js
+    function getPerson() {
+    return
+    {
+        fullName: 'Rodgers Nyangweso'
+    }
+}
+
+console.log(getPerson()); // { fullName: 'Rodgers Nyangweso' }
+```
+# Reverse Character Function
+```js
+    function reverseCharacters(input) {
+    if(typeof input === 'string') {
+        return input.split('').reverse().join('');
+    } else if (typeof input === 'number') {
+        return Number(input.toString().split('').reverse().join(''));
+    }
+    };
+    console.log(reverseCharacters('rodgers')); // sregdor
+    console.log(reverseCharacters(45));
+
+    function completeReversal(arr) {
+        const retVal = [];
+        for (let i = 0; i< arr.length; i++) {      
+            const currentItem = arr[i];
+            const reversedItem = reverseCharacters(currentItem);
+            retVal.unshift(reversedItem);
+    
+        } return retVal;
+    };
+    let array1 = [1, 2, 3, 4, 5];
+    let array2 = ['rodgers', 'omondi', 'nyangweso'];
+    console.log(completeReversal(array1)); // [ 5, 4, 3, 2, 1 ]
+console.log(completeReversal(array2)); // [ 'osewgnayn', 'idnomo', 'sregdor' ]
+```
+# FizzBuzz Function
+```js
+    const upperBoundInclusive = 100;
+
+    for (let i = 1; i <= upperBoundInclusive; i++) {
+        if (i % 15 === 0) {
+            console.log('FizzBuzz');
+        } else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        } else {
+            console.log(i)
+        }
+    }
+```
+
+# Array Methods in JavaScript
+an __Array__ is a special variable which can hold more than one value at a time. an array can hold many values under a single name, and you can access the values by reffering to an index number.
+* __Length Property__ the length property of an array returns the length of an array(the number of array elements)
+* __Changing the Elements of an Array__ you can change an array element by referring to the index number
+* __Access the Elements of an Array__: you can access an array element by reffering to the index number. remember: array index are started from 0
+
+```js
+    let car = ['BMW', 'Honda', 'Volvo'];
+    console.log(car); // [ 'BMW', 'Honda', 'Volvo' ]
+    console.log(typeof(car)); // object
+
+    // length
+    console.log(car.length); // 3
+
+    // index
+    console.log(car[0]); // BMW
+    console.log(car[1]); // Honda
+    console.log(car[2]); // Volvo
+
+    // changing an element
+    car[0] = 'Renault';
+    console.log(car); // [ 'Renault', 'Honda', 'Volvo' ]
+
+    // accessing the last array element
+    console.log(car[car.length - 1]); // Volvo
+```
+# Array Methods
+1. __map__: the __map() method__ creates a new array populated with the return value of the __callback__ function for each element in the array
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const doubled = numbers.map(value => value * 2);
+    console.log(doubled); // [ 2, 4, 6, 8, 10 ]
+```
+2. __forEach__: the __forEach()__ method executes a provided function once for each array element. the __callback function__ does not expect a return value, and the __forEach()__ method itself also returns undefined.
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const allAboveThree = numbers.forEach(n => console.log(n)
+); 
+```
+3. __filter__:the __filter()__ method creates a new array containing only the elements that '_pass the test_' implemented by the __callback function__. we call this type of callback a __predicate function__
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const even = numbers.filter(n => n % 2 === 0);
+    const odd = numbers.filter(n => n % 2 !== 0);
+    console.log(even); // [2, 4]
+    console.log(odd); // [1, 3, 5]
+```
+4. __find__: the __find()__ method behaves similarly to the __filter()__ method, but it only returns a single element. this method will stop at the first element that 'pass the test' and return that. if none exists, it will return undefined.
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const even = numbers.find(n => n === 3);
+    console.log(even);
+```
+5. __findIndex__: the __findIndex()__ method behaves similarly to the __find()__ method, but it returns an index instead of the element. this method will stop at the first element that 'pass the test' and return the index. if none exists, it will return -1
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const indexOfThree = numbers.findIndex(n => n === 3);
+    console.log(indexOfThree);
+```
+6. __reduce__: the __reduce()__ method takes a callback with (at least) two arguments, an __accumulator__ and the __current element__. for each iteration, the return value of the __callback function__ is passed on as the __accumulator argument__ of the next iteration.
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const sum = numbers.reduce((acc, n) => acc + n);
+    console.log(sum); // 15
+```
+7. __some__: the __some()__ function takes a __predicate function__ and return  true if any of the elemnts in the array 'passes the test'
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const hasAboveThree = numbers.some(n => n > 3);
+    console.log(hasAboveThree); // true
+```
+8. __every__: the __every()__ method takes a __predicate function__ and returns true if all of the elemnts in the array 'pass the test'
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const allAboveThree = numbers.every(n => n > 3);
+    console.log(allAboveThree); // false
+```
+9. __includes__: the __includes()__ method checks if an array includes a certain value among its elements, returning true or false
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const hasNumberFour = numbers.includes(4);
+    console.log(hasNumberFour);
+```
+10. __fill__: the __fill()__ method replaces all the elemnts in an array to a given value
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const populateWithFour = numbers.fill(4);
+    console.log(populateWithFour); 
+```
+11. __reverse__: the __reverse()__ method reverses the order of the elements in the array
+```js
+    const numbers = [1, 2, 3, 4, 5];
+    const reversed = numbers.reverse();
+    console.log(reversed);
+```
+12. __flat__: the __flat()__ method creates a new array with all sub-array elements flattened into it. you can specify a depth. The default is 1
+```js
+    const numbers = [[1], [2], [3], [4], [5]];
+    const flattened = numbers.flat(2);
+    console.log(flattened); // [ 1, 2, 3, 4, 5 ]
+```
+13. __flatMap__: the __flatMap()__ method applies a __callback__ to each element of the array and then flatten the result into an array. it combines __flat()__ and __map()__ in one function
+```js
+    const numbers = [[1], [2], [3], [4], [5]];
+    const flattenedDoubles = numbers.flatMap((n) => n * 2);
+    console.log(flattenedDoubles);
+```
+14. __sort__: the __sort()__ method is used to sort the elements of an array and returning the sorting array. _NOTE:_ this method is mutating the original array
+```js
+    const numbers = [2, 9, 3, 5, 1, 8];
+    numbers.sort((a, b) => a - b);
+    console.log(numbers);
+```
+
+
+
+
 
 # References
