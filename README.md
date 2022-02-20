@@ -14,7 +14,7 @@
     - [Ways an HTML element can be accessed in JavaScript code](#Ways-an-HTML-element-can-be-accessed-in-JavaScript-code)
     - [Definitions of Terms](#Definitions-of-Terms)
     - [Attaching a script to a Webpage](#Attaching-a-script-to-a-Webpage)
-
+- [Alert, Prompt, and Confirm boxes](#Alert,-Prompt,-and-Confirm-boxes)
 - [Variables in JavaScript](#Variables-in-JavaScript)
 - [Data Types in JavaScript](#Data-Types-in-JavaScript)
     - [typeof operator](#typeof-operator)
@@ -27,9 +27,33 @@
     - [Reverse Character Function](#Reverse-Character-Function)
     - [FizzBuzz Function](#FizzBuzz-Function)
 
-- [Array Methods in JavaScript](#Array-Methods-in-JavaScript)
+- [Control Structure in JavaScript - Conditonal and Loops](#Control-Structure-in-JavaScript)
+    - [if statement](#if-statement)
+    - [else statement](#else-statement)
+    - [else if statement](#else-if-statement)
+    - [switch statement](#switch-statement)
+    - [for loops](#for-loops)
+    - [while Loop](#while-Loop)
+    - [do..while Loop](#do..while-Loop)
 
-- [References](#references)
+- [Objects in JavaScript](#Objects-in-JavaScript)
+    - [Creating objects using object literal (initializer)](#Creating-objects-using-object-literal-(initializer))
+    - [creating objects using object constructor function](#creating-objects-using-object-constructor-function)
+    - [Objects Methods](#Object-methods)
+    - [Core Objects 1: Arrays](#Core-Objects-1:-Arrays)
+        - [Ways of Creating Arrays](#Ways-of-Creating-Arrays)
+        - [accessing Array elements](#accessing-Array-elements)
+        - [changing Array elements](#changing-Array-elements)
+        - [Array Methods](#Array-Methods)
+    
+    - [Core Objects 2: Math Object](#Core-Objects-2:-Math-Object)
+        - [Math Object Methods](#Math-Object-Methods)
+
+    - [Core Objects 2: Date Object](#Core-Objects-2:-Date-Object)
+        - [Date Methods](#Date-Methods)
+
+
+
 # Introduction to JavaScript
 __JavaScript__ was initially created to make "web pages alive". the programs in this langauge are called __scripts__. they can be written right in a web page's HTML and run automatically as the page loads. __Scripts__ are provided and executed as plain texts. they don't need special preparation or compilation to run. - in this aspect, JS is very different from another programming language called __Java__.
 
@@ -117,6 +141,34 @@ JS programs can be attached to any part of an __HTML__ document with an help of 
 1. __Callback__: is a plain __JavaScript__ function passed to some method as an argument or option. it is a function that is to be executed after another function has finished executing, hence the name _"call back"_
 2. __Closers__: are created whenever a variable that is defined outside the current scope is accessed from within some inner scope. ot gives you access to an outer function's scope from an inner function.
 
+# Alert, Prompt, and Confirm boxes
+* an __alert__ box is used when you want to ensure that information gets through to the user when an alert box pops up, the user must click OK to proceed. the alert function takes a single parameter, which is the text displayed on the pop up boxes.
+```js
+    alert("Dou you really love me?");
+
+    // to display line breaks within a popup box, use the backlash followed by the character n
+    alert("do you really love him?\nmaybe")
+```
+* the __prompt__ often used to have a user input a value before entering a page. when a __prompt box__ pops up, the user will have to click Ok or Cancel to proceed after entering the input value. if the user clicks OK, the box returns the input value if the user clicks CANCEL, the box returns null.
+```js
+    // the prompt() method takes two parameters:
+    // .the first is the label, which you want to display in the text box
+    // .the second is a default string to display in the text box (optional)
+    var user = prompt('kindly, enter your name to proceed');
+    alert(user);
+```
+* __Confirm box__: is often used to have the user verify or accept something. when a confirm box pops up, the user must either click OK or Cancel to proceed.
+```js
+    // ..if the user clicks OK, the box returns true.
+    // .if the user clicks Cancel. the box returns false
+    var result = confirm("do yoy really want to leave this page?");
+    if (result == true) {
+    alert("Thank you for visiting this page");
+    }
+    else {
+    alert("Thank for staying with us.ENJOY OUR SITE");
+    };
+```
 # Variables in JavaScript
 __Variables__ are used to store information.
 
@@ -166,7 +218,7 @@ const myBirthDay = '25.03.1994';
 variables declared using __const__ are called "constants". they cannot be changed. any attempt to change a contant would cause an error. when a programmer is sure that a variable will never change, they can declare it with const to guarantee and clearly communicate the fact to everyone
 
 # Data Types in JavaScript
-A __variable__ in JS can contain any data type. a variable can at one moment be a string and at another be a number
+A __variable__ in JS can contain any data type. a variable can at one moment be a __string__ and at another be a __number__
 ```js
 let message = 'Hello!';
     message = 123;
@@ -180,7 +232,7 @@ Programming languages that allow such things are called "__dynamically typed__",
     * subtraction (-) and so on
     ```js
     let n = 35;
-    n = 35.76;
+        n = 35.76;
     ```
     Besides regular numbers, there are so-called "special numeric values" which also belong to this data type
     * __Infinity__ - represents a number whose value is greater than any other number.  we can get as a result of division by zero:
@@ -559,6 +611,14 @@ _Remark_:
         }
         // such tricks are used in JavaScript 
     ```
+# Math Operations
+* addition (+)
+* subtraction ( - )
+* multiplication (*)
+* division (/)
+* modulo (%)
+* increment (++)
+* decrement (--)
 
 # Types Conversion in JavaScript
 Most of the time, operators and functions automatically converts the values given to them to the right type. for example, __alert__ automatically converts any value to a string to show it. mathematical operations converts values to numbers. there are also cases where we have to explicitly convert a value to an expected type.  
@@ -637,7 +697,7 @@ Let’s formulate the key differences between Function Declarations and Expressi
 ```js
     // function declaration
     function sayHi() {
-   console.log( 'Hi' ); // you can use alert
+     console.log( 'Hi' ); // you can use alert
     };
     console.log(sayHi()); // 'Hi'
 ```
@@ -705,7 +765,20 @@ _Remark_: _No matter how the function is defined, it’s just a value stored in 
     * Here, functions are declared right inside the ask2(...) call. 
     * They have no name, and so are called __anonymous__. Such functions are not accessible outside of ask2 (because they are not assigned to variables), but that’s just what we want here.
     * Such code appears in our scripts very naturally, it’s in the spirit of JavaScript.
-
+* __document.write() function__: writes a _string_ to the __HTML__ document. This function can be used to write _text_, _HTML_, or Both. The __document.write()__ method should be used for testing.
+    ```js
+        document.write('This is a document dot write function');
+    ```
+    Just like HTML, we can use HTML tags to format texts in JS. we can output the text as a heading
+    ```js
+        document.write("Hello, world!");
+        document.write("<h1>Using document dot write function to format texts</h1>")
+    ```
+# Types of JS Functions
+1. __eval() function__: You can get the result of a __string expression__ using the __eval() function__, which takes a string expression argument and returns the result. If the argument is empty, it returns __undefined__.
+```js
+    eval("10 * 20 + 8"); // 208
+```
 # Examples of functions
 ```js
     function getPerson() {
@@ -760,47 +833,447 @@ console.log(completeReversal(array2)); // [ 'osewgnayn', 'idnomo', 'sregdor' ]
         }
     }
 ```
-
-# Array Methods in JavaScript
-an __Array__ is a special variable which can hold more than one value at a time. an array can hold many values under a single name, and you can access the values by reffering to an index number.
-* __Length Property__ the length property of an array returns the length of an array(the number of array elements)
-* __Changing the Elements of an Array__ you can change an array element by referring to the index number
-* __Access the Elements of an Array__: you can access an array element by reffering to the index number. remember: array index are started from 0
-
+# Control Structure in JavaScript
+# if statement
+use if to specify a block of code that will be executed if a specified condition is true:
 ```js
-    let car = ['BMW', 'Honda', 'Volvo'];
-    console.log(car); // [ 'BMW', 'Honda', 'Volvo' ]
-    console.log(typeof(car)); // object
+    // this statement will be executed only if a specified conditin is true
+    if (condition) {
+        statements;
+    }
+```
+```js
+    var a = 7;
+    var b = 10;
 
-    // length
-    console.log(car.length); // 3
+    if (a < b) {
+        document.write("JS is starting to get easier");
+    }; // JS is starting to get easier
+```
+# else statement
+```js
+    // syntax
+    if (condition) {
+        // executed if conditon is true
+    }
+    else {
+        // executed if conditon is false
+    }
+    // you can skip the curly braces if your code under tyhe condition contains only one command
+```
+```js
+    var a = 7;
+    var b = 10;
 
-    // index
-    console.log(car[0]); // BMW
-    console.log(car[1]); // Honda
-    console.log(car[2]); // Volvo
+    if (a > b) {
+        document.write("A is greater than B");
+    }
+    else {
+        document.write("A is less than B");
+    };
+    // A is less than B
+```
+_Remark_: _there is also another way to do this check using the ? operator:_
+```js
+    a > b? document.write("A is greater than B"): document.write("Not Allowed!"); // A is less than B
+```
 
-    // changing an element
-    car[0] = 'Renault';
-    console.log(car); // [ 'Renault', 'Honda', 'Volvo' ]
+# else if statement
+you can use the else if statement to specify a new condition if the first condition is FALSE
+```js
+    var dayOfWeek = 'Monday';
 
-    // accessing the last array element
-    console.log(car[car.length - 1]); // Volvo
+    if (dayOfWeek == 'Monday') {
+        document.write(`Today is ${dayOfWeek}, we are eating Pizza and Soda`);
+    }
+    else if (dayOfWeek == 'Tuesday') {
+        document.write(`Today is ${dayOfWeek}, we are eating Ugali and Kales`);
+    }
+    else {
+        document.write("Day is not specififed");
+        // THE FINAL else block will be executed when none of the conditions is true
+    };
+```
+```js
+    var onLineStatus = 1;
+    var message;
+
+    if (onLineStatus == 1) {
+        message = "User is online!";
+    } else if (onLineStatus == 0) {
+        message = "User is Offline!";
+    } else {
+        message = "User is away";
+    };
+    document.write(message);
+```
+# switch statement
+in cases when you need to test for multiple conditions, writing _if else statements_ for each condition might not be the best solution. the _switch statement_ is used to perform  different actions based on the different conditions.
+```js
+    // syntax
+    switch (expression) {
+        case n1:
+            statements
+            break // when JS code reaches a break keyword, it breaks out of the switch block .this will stop the executuion of more code and case testing inside the block
+        case n2:
+            statements
+            break; // usually, a break should be put in each case statement
+        default: // the default keyword specifies the code to run if there is no case match
+            statements
+    }
+```
+the __switch expression__ is evaluated once. The value of the expression is compared with the values of each case. if there is a match, the associated block of code is executed.
+```js
+    var day = 8;
+    switch (day) {
+        case 1:
+            document.write("Monday");
+            break;
+        case 2:
+            document.write("Tuesday");
+            break;
+        case 3:
+            document.write("Wednesday");
+            break;
+        case 4:
+            document.write("Thursday");
+            break;
+        case 5:
+            document.write("Friday");
+            break;
+        case 6:
+            document.write("Saturday");
+            break;
+        case 7:
+            document.write("Sunday");
+            break;
+        default:
+            document.write("Error in the specified date!")
+    }; // Error in the specified date!
+```
+```js
+    var c = 4;
+
+    switch (c) {
+        case 1:
+            document.write(c + 1);
+            break;
+        case 2:
+            document.write(c + 2);
+            break;
+        default:
+            document.write(c + 1);
+    }; // Output: 5
+```
+```js
+    var color = 'yellow';
+
+    switch(color) {
+        case "blue":
+        document.write(`The color is ${color}`);
+        break;
+
+        case "green":
+            document.write(`The color is ${color}`);
+            break;
+        default: // the default block can be omitted, if there is no need to handle the case when no match is found
+            document.write(`The color is ${color}`);
+    }; // The color is yellow
+```
+```js
+    var day_of_week = 1;
+
+    switch (day_of_week) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        document.write("working days");
+        break;
+        case 6:
+        document.write("saturday")
+        break;
+        default:
+        document.write('today is sunday');
+    }; // Outpout: working days
+```
+# for loops
+__loops__ can execute a block of code a number of times. they are handy in cases inwhich you want to run the same code repeatedly,adding a different value each time. JS has three types of loops: 
+* for, 
+* while, and 
+* do while.
+```js
+    // syntax
+    for (statement 1: statemtn 2: statement 3) {
+        // code block to be executed
+    };
+    // statement 1 is executed before the loop  (the code block) starts
+    // statement 2 defines the condition for running the loop (the code block)
+    // statement 3 is executed each time after the loop (the code block) has been executed
+```
+```js
+    // lists numbers between 1 to 10
+    for (i=1; i<=10; i++) {
+        if (i == 5) { // once it reaches 5, it will break out of the loop
+            break; // the break statement jumps out of a loop and continues executing the code after the loops
+        }
+    document.write(i + "<br/>");
+    };
+    // statement 1 sets a variable before the for loop starts (var i = 1)
+    // statement 2 defines the condition for the for loop to run ( i must be less than or equal to 10)
+    // statement 3 increases a value (i++) each time the code block in the loop has been executed
+
+    // statement 1 is optional, and can be omitted, if your values are set before the loop starts
+    var i = 1;
+    for (; i<=10; i++) {
+    document.write(i + "<br/>");
+    };
+
+    // also, you can initiate more than one value in statement 1, using commas to seperate them
+    for (i =1, text=""; i <= 5; i++){
+    text = i;
+    document.write(i + "<br/>");
+    };
+```
+* _Remark_: _you can use the __return__ keyword to return some value immediately from the loop inside of a fuction. This will also break the loop_
+```js
+    for (i = 0; i <= 10; i++) {
+    if (i == 5) {
+        continue; // the continue statement breaks only one iteration in the loop, and continues with the next iteration
+    }
+    document.write(i + "<br/>"); // the value 5 is not printed because continue skips that iteration of the loop
+    }
+```
+## Examples: for loops
+```js
+    # Example 1:
+    var sum = 0;
+    for (i = 4; i < 8; i++) {
+    if (i == 6) {
+        continue;
+    }
+    sum += i;
+    }
+    document.write(sum); // Output: 16
+```
+# while Loop
+the __while loop__ repetas through a block of code as long as a specified condition is true.
+```js
+    // syntax
+    while (conditon) {
+        // code block
+    };
+    // the condition can be any conditional statement that returns true or false
+```
+```js
+    var c = 1;
+
+    while (c<=10) {
+        document.write(c + "<br/>");
+        c++;
+
+        // the loop will continue to run as long as c is less than, or equal 10. each time the loop runs, it increases by 1
+        // be careful writing conditions, if a condition is always true, the loop will run forever
+        // if you fail to increase the variable used in the condition, the loop willl neer end
+        // make sure that the condition in a while loop eventually becomes false
+    };
+```
+# do..while Loop
+the __do..while loop__ is a variant of the __while loop__. this loop will execute the code block once, before checking if the condition is true and then it will repeat the loop as long as the condition is true.
+```js
+    // syntax
+    do {
+        // code block
+    }
+    while (condition);
+```
+```js
+    var d = 20;
+
+    do {
+        document.write(d + "<br/>");
+        d++;
+    }
+    while (d <= 25); // this prints out numbers from 20 to 25
+    // the loop will always be executed at least  once, even if the condition is false, ..............because the code block is executed  before the condition is tested
+```
+# Objects in JavaScript
+__JS variables__ are containers for data values. __Objects__ are variables too but they contain many values. think of an object as q list of values that are written as name:value pairs, seperated by colons.
+# Creating objects using object literal (initializer)
+this allows you to create only a single object
+```js
+    var person = {
+    name : "Rodgers",
+    age : 28,
+    favColor : "blue",
+    height : 23
+    };
+    // these values are called properties
+```
+* you can access properties in two ways:
+    * objectName.propertyName
+    * objectName['propertyName']
+```js
+    var person = {
+    name : "Rodgers",
+    age : 28,
+    favColor : "blue",
+    height : 23
+    };
+
+    var x = person.age;
+    var y = person['age'];
+
+    document.write(x); // 28
+    document.write(y); // 28
+
+    // JS built-in length property is used to count the number of characters in a property string
+    document.write(person['name'].length); // 7
+```
+
+# creating objects using object constructor function
+sometimes we need to set an "object type" that can be used to create a number of objects of a single type. this standard way to create an "object type" is to use an object constructor function.
+```js
+    // this function (person) is an object constructor, which takes parameters and assigns them to object properties
+    // the this keyword refers to the current object
+    // Note that this is not a variable. its a keyword, and its value cannot be changed
+    function person(name, age, favColor, height) {
+        this.name = name;
+        this.age = age;
+        this.favColor = favColor;
+        this.height = height;
+    };
+
+    // once you have an object constructor, you can use the new keyword to create new objects of the same type
+    // p1 and p2 are now objects of the person type. their properties are assigned to the corresponding value
+    var p1 = new person("Rodgers", 28, "blue", 43);
+    var p2 = new person("Harvey", 1, "green", 10);
+
+    document.write(p1.age); // 28
+    document.write(p2.age); // 1
+```
+# Object Methods
+an __object method__ is a property that contains a function definition. use the following syntax to access an object method.
+```js
+    objectName.methodName();
+```
+* a __method__ is a function, belonging to an object. it can be referenced using __this__ keyword. the __this__ keyword is used as a reference to the current object meaning that you can access the objects properties and methods using it. defining methods is done inside the constructor function.
+```js
+    function persons(firstName, lastName, dateOfBirth) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dateOfBirth = dateOfBirth;
+    // we have defined a method changeFirstName for our person, which is a function that takes a parameter firstName and assigns to it the firstName property of the object.
+    this.changeFirstName = function (firstName) {
+        this.firstName = firstName;
+    }
+    };
+
+
+    var p3 = new persons("Damaris", "Awuor", "11-11-1993");
+    p3.changeFirstName("Oballa");
+
+    document.write(p3.firstName); // Oballa
+```
+* you can also define the function outside of the constructor function and associate it with the object
+```js
+    function persons(firstName, lastName, age) {
+    this.firstName  = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.yearOfBirth = bornYear;
+
+    };
+    // we've assigned the object's yearOfBirth property to the bornYear function
+    // the this keyword is used to access the age property of the object which is going to call the method
+    function bornYear() {
+        return 2022 - this.age;
+    };
+
+    var p4 = new persons("Rodgers", "Nyangweso", 28);
+    document.write(p4.yearOfBirth()); // 1994
+```
+
+# Core Objects 1: Arrays
+* JS arrays store multiple values in a single variable. an __Array__ is a special type of __object__, it uses numbers to access its elements and an object uses name to access its members
+# Ways of Creating Arrays
+1. using new Array: 
+```js
+    var courses = new Array("HTML", "JavaScript", "CSS");
+```
+2.  you can also declear an array, tell it the number of elements it will store, and add thr elements later
+```js
+    var courses = new Array(3);
+        courses[0] = "HTML";
+        courses[1] = "CSS";
+        courses[2] = "JS";
+```
+_Remark_:  _JS arrays are dynamic, so you can declear an array an array and not pass any arguments with the array() constructor. You can then add elements dynamically_
+```js
+     var courses = new Array();
+        courses[0] = "HTML";
+        courses[1] = "CSS";
+        courses[2] = "JS";
+        courses[3] = "c++"; 
+```
+3. using __Array literal__: _used for greater simplicity, readability, and execution speed,_
+```js
+    var courses = ["HTML", "CSS", "JavaScript"];
+```
+_Remark_: _Remember that JS does not support arrays with named indexes. in JS, arrays always use numbered indexes. it is better to use an object when you want the to index to be a string(text).use an array when you want the index to be a number_
+# accessing Array elements
+you refer to an array element by refering to the index number written in square brackets.
+```js
+    var courses = new Array("HTML", "CSS", "JavaScript");
+    // [0] is the first element in an array. [1] is the second element. array indexes start with 0
+    document.write(courses[0]); // HTML
+
+    // attempting to access an index outside of the array, returns the value undefined
+    document.write(courses[4]); // undefined
+```
+# changing Array elements
+```js
+    var courses = new Array("HTML", "CSS", "JavaScript");
+    // [0] is the first element in an array. [1] is the second element. array indexes start with 0
+
+    document.write(courses[0]); // HTML
+
+    courses[0] = ["C++"];
+    document.write(courses[0]);  // C++
 ```
 # Array Methods
-1. __map__: the __map() method__ creates a new array populated with the return value of the __callback__ function for each element in the array
+1. __Length Property__ the length property of an array returns the length of an array(the number of array elements)
+```js
+    var courses = new Array("HTML", "CSS", "JavaScript");
+
+    document.write(courses.length); // 3
+    // if the array is empty, the length property returns 0
+```
+
+2. __concat() method__: allows you to join arrays and create an entirely new array
+```js
+    var languages = ["HTML", "CSS", "JavaSvript"];
+
+    var javascriptFrameworks = ["React", "Aangular", "Vue"];
+
+    var courses = languages.concat(javascriptFrameworks);
+
+    document.write(courses); //  HTML,CSS,JavaSvript,React,Aangular,Vue
+```
+3. __map__: the __map() method__ creates a new array populated with the return value of the __callback__ function for each element in the array
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const doubled = numbers.map(value => value * 2);
     console.log(doubled); // [ 2, 4, 6, 8, 10 ]
 ```
-2. __forEach__: the __forEach()__ method executes a provided function once for each array element. the __callback function__ does not expect a return value, and the __forEach()__ method itself also returns undefined.
+4. __forEach__: the __forEach()__ method executes a provided function once for each array element. the __callback function__ does not expect a return value, and the __forEach()__ method itself also returns undefined.
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const allAboveThree = numbers.forEach(n => console.log(n)
 ); 
 ```
-3. __filter__:the __filter()__ method creates a new array containing only the elements that '_pass the test_' implemented by the __callback function__. we call this type of callback a __predicate function__
+5. __filter__:the __filter()__ method creates a new array containing only the elements that '_pass the test_' implemented by the __callback function__. we call this type of callback a __predicate function__
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const even = numbers.filter(n => n % 2 === 0);
@@ -808,67 +1281,67 @@ an __Array__ is a special variable which can hold more than one value at a time.
     console.log(even); // [2, 4]
     console.log(odd); // [1, 3, 5]
 ```
-4. __find__: the __find()__ method behaves similarly to the __filter()__ method, but it only returns a single element. this method will stop at the first element that 'pass the test' and return that. if none exists, it will return undefined.
+6. __find__: the __find()__ method behaves similarly to the __filter()__ method, but it only returns a single element. this method will stop at the first element that 'pass the test' and return that. if none exists, it will return undefined.
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const even = numbers.find(n => n === 3);
     console.log(even);
 ```
-5. __findIndex__: the __findIndex()__ method behaves similarly to the __find()__ method, but it returns an index instead of the element. this method will stop at the first element that 'pass the test' and return the index. if none exists, it will return -1
+7. __findIndex__: the __findIndex()__ method behaves similarly to the __find()__ method, but it returns an index instead of the element. this method will stop at the first element that 'pass the test' and return the index. if none exists, it will return -1
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const indexOfThree = numbers.findIndex(n => n === 3);
     console.log(indexOfThree);
 ```
-6. __reduce__: the __reduce()__ method takes a callback with (at least) two arguments, an __accumulator__ and the __current element__. for each iteration, the return value of the __callback function__ is passed on as the __accumulator argument__ of the next iteration.
+8. __reduce__: the __reduce()__ method takes a callback with (at least) two arguments, an __accumulator__ and the __current element__. for each iteration, the return value of the __callback function__ is passed on as the __accumulator argument__ of the next iteration.
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const sum = numbers.reduce((acc, n) => acc + n);
     console.log(sum); // 15
 ```
-7. __some__: the __some()__ function takes a __predicate function__ and return  true if any of the elemnts in the array 'passes the test'
+9. __some__: the __some()__ function takes a __predicate function__ and return  true if any of the elemnts in the array 'passes the test'
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const hasAboveThree = numbers.some(n => n > 3);
     console.log(hasAboveThree); // true
 ```
-8. __every__: the __every()__ method takes a __predicate function__ and returns true if all of the elemnts in the array 'pass the test'
+10. __every__: the __every()__ method takes a __predicate function__ and returns true if all of the elemnts in the array 'pass the test'
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const allAboveThree = numbers.every(n => n > 3);
     console.log(allAboveThree); // false
 ```
-9. __includes__: the __includes()__ method checks if an array includes a certain value among its elements, returning true or false
+11. __includes__: the __includes()__ method checks if an array includes a certain value among its elements, returning true or false
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const hasNumberFour = numbers.includes(4);
     console.log(hasNumberFour);
 ```
-10. __fill__: the __fill()__ method replaces all the elemnts in an array to a given value
+12. __fill__: the __fill()__ method replaces all the elemnts in an array to a given value
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const populateWithFour = numbers.fill(4);
     console.log(populateWithFour); 
 ```
-11. __reverse__: the __reverse()__ method reverses the order of the elements in the array
+13. __reverse__: the __reverse()__ method reverses the order of the elements in the array
 ```js
     const numbers = [1, 2, 3, 4, 5];
     const reversed = numbers.reverse();
     console.log(reversed);
 ```
-12. __flat__: the __flat()__ method creates a new array with all sub-array elements flattened into it. you can specify a depth. The default is 1
+14. __flat__: the __flat()__ method creates a new array with all sub-array elements flattened into it. you can specify a depth. The default is 1
 ```js
     const numbers = [[1], [2], [3], [4], [5]];
     const flattened = numbers.flat(2);
     console.log(flattened); // [ 1, 2, 3, 4, 5 ]
 ```
-13. __flatMap__: the __flatMap()__ method applies a __callback__ to each element of the array and then flatten the result into an array. it combines __flat()__ and __map()__ in one function
+15. __flatMap__: the __flatMap()__ method applies a __callback__ to each element of the array and then flatten the result into an array. it combines __flat()__ and __map()__ in one function
 ```js
     const numbers = [[1], [2], [3], [4], [5]];
     const flattenedDoubles = numbers.flatMap((n) => n * 2);
     console.log(flattenedDoubles);
 ```
-14. __sort__: the __sort()__ method is used to sort the elements of an array and returning the sorting array. _NOTE:_ this method is mutating the original array
+16. __sort__: the __sort()__ method is used to sort the elements of an array and returning the sorting array. _NOTE:_ this method is mutating the original array
 ```js
     const numbers = [2, 9, 3, 5, 1, 8];
     numbers.sort((a, b) => a - b);
@@ -876,7 +1349,106 @@ an __Array__ is a special variable which can hold more than one value at a time.
 ```
 
 
+# Core Objects 2: Math Object
+the __Math object__ allows you to perform mathematical tasks, and include several __properties__:
+* E - Euler's constant
+* LN2 - Natural log of the value 2
+* LN10 - Natural log of the value 10
+* LOG2E - the base 2log of Euler constant
+* LOG10E - the base 10 log of Euler constant (E)
+* PI - returns the constant pi
+```js
+    document.write(Math.PI); // 3.141592653589793
+    document.write(Math.E); // 2.718281828459045
+```
 
+# Math Object Methods
+The Math object cntains a number of methods that are used for calculations
+* abs(x) - returns the absolute value of x
+* acos(x) - returns the arccosine of x, in radians
+* asin(x) - returns the arcsine of x, in radians
+* atan(x) - returns the arctangent of x as a numeric value between  -PI/2 and PI/2 radians
+* atan2(y, x) - returns the arctangent of the quotient of its arguments
+* ceil(x) - returns x, rounded upwords to the nearest integer
+* cos(x) - returns the cosine of x (x in radians)
+* exp(x) - returns the value E**2
+* floor(x) - returns x, rounded downwards to the nearest integer
+* log(x) - returns the natural logarithm (base E) of x
+* max(x, y, z, ..., n) - returns the number with the highest value
+* min(x, y, z, ..., n) - returns the number with the lowest value
+* pow(x, y) - returns the vaLUE OF X TO POWER Y
+* random() - returns a random number between 0 and 1
+* sin(x) - returns the sin of x (x in radians)
+* sqrt(x) - returns the square root of x
+* tan(x)- returns the tangen5t of an angle
+```js
+    var number = Math.random();
+    document.write(number); // 0.061984262288161895
+```
+* create a program that asks a user to enter a number and computes its square root
+```js
+    var n = prompt("Enter a random number: ", " ");
+    var answer = Math.sqrt(n);
 
+    document.write("The Square root of " + n + " is " + answer); 
+```
 
-# References
+# Core Objects 2: Date Object
+the __Date object__ enables us to work with dates
+# Date Objects
+1. __setInterval()__ method: calls a function or evaluates an expression at specified intervals (in milliseconds).
+```js
+    function myAlert () {
+    alert('Hi');
+    };
+    setInterval(myAlert, 3000); // this will call myAlert function every 3 seconds (1000 ms = 1 second)
+    myAlert(); 
+```
+2. __newDate()__: creates a new date object with current date and time. JS dates are calculated in milliseconds from __01 January, 1970 00:00:00 Universal Time(UTC)__. one day contains 86, 400, 000 milliseconds
+```js
+    var currentDate = new Date()
+    document.write(currentDate); // Sun Feb 20 2022 21:15:59 GMT+0300 (East Africa Time)
+```
+_Remark_: _the other ways to initialize dates allow for the creation of new date objects from the specified date and time_
+```js
+    var d1 = new Date(86400000);
+    document.write(d1); // Fri Jan 02 1970 03:00:00 GMT+0300 (East Africa Time)
+
+    var d2 = new Date("January 2, 2015 10:42:00");
+    document.write(d2); // Fri Jan 02 2015 10:42:00 GMT+0300 (East Africa Time)
+
+    var d3 = new Date(88,5,11,11,42,0,0);
+    document.write(d3); // Sat Jun 11 1988 11:42:00 GMT+0300 (East Africa Time)
+```
+_Remark_: _JS counts months from 0 to 11. Date objects are static , rather than dynamic. the computer time is ticking, but date objects dont'd change, once created_
+
+# Date Methods
+* getFullYear() - gets the year
+* getMonth() - gets the month
+* getDate() - gets the day of the month
+* getHours() - gets the hour
+* getMinutes() - gets the minutes
+* getSeconds() - gets the seconds
+* getsMillisecond() - gets the milliseconds
+```js
+    var d4 = new Date();
+
+    var hours = d4.getHours();
+    document.write(hours); // gets the hour
+```
+* create a program that prints the current time in the browser every second
+```js
+    function printTime(){
+     // we declared a function printTime(), which gets the current time from the date object, and prints it to the screen once every second, using the setInterval method
+    var d5 = new Date();
+    var hours = d5.getHours();
+    var mins = d5.getMinutes();
+    var secs = d5.getSeconds();
+    document.body.innerHTML = hours + ":" + mins + ":" + secs; 
+   }
+   setInterval(printTime, 1000);
+
+   // the innerHTML property sets or returns the HTML content of the element.
+    // in our case, we are changing the HTML content of our document's body.
+    // this overwrites the content eery second, instead of printing it repeatedly to the screen
+```
