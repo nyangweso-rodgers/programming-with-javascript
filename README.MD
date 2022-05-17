@@ -7,13 +7,11 @@
     - [How do Engines work?](#How-do-Engines-work?)
     - [What CAN in-browser JavaScript do?](#What-CAN-in-browser-JavaScript-do?)
     - [What CAN'T in-browser JavaScript do?](#What-CAN'T-in-browser-JavaScript-do?)
-    - [What makes JS unique?](#What-makes-JS-unique?)
     - [Languages "over" JavaScript](#Languages-"over"-JavaScript)
     - [The Modern mode, "use strict"](#The-Modern-mode,-"use-strict")
-    - [Is JavaScript a case-sensitive language?](#Is-JavaScript-a-case-sensitive-language?)
-    - [Ways an HTML element can be accessed in JavaScript code](#Ways-an-HTML-element-can-be-accessed-in-JavaScript-code)
     - [Definitions of Terms](#Definitions-of-Terms)
-    - [Attaching a script to a Webpage](#Attaching-a-script-to-a-Webpage)
+    - [Attaching Scripts to a Webpage](#Attaching-a-script-to-a-Webpage)
+
 - [Alert, Prompt, and Confirm boxes](#Alert,-Prompt,-and-Confirm-boxes)
 - [Variables in JavaScript](#Variables-in-JavaScript)
 - [Data Types in JavaScript](#Data-Types-in-JavaScript)
@@ -42,8 +40,6 @@
     - [Objects Methods](#Object-methods)
     - [Core Objects 1: Arrays](#Core-Objects-1:-Arrays)
         - [Ways of Creating Arrays](#Ways-of-Creating-Arrays)
-        - [accessing Array elements](#accessing-Array-elements)
-        - [changing Array elements](#changing-Array-elements)
         - [Array Methods](#Array-Methods)
     
     - [Core Objects 2: Math Object](#Core-Objects-2:-Math-Object)
@@ -51,6 +47,17 @@
 
     - [Core Objects 2: Date Object](#Core-Objects-2:-Date-Object)
         - [Date Methods](#Date-Methods)
+    
+- [JavaScript Frameworks](#JavaScript-Frameworks)
+    - [Angular vs React](#Angular-vs-React)
+    - [PROS OF ANGULAR](#PROS-OF-ANGULAR)
+    - [CONS OF ANGULAR](#CONS-OF-ANGULAR)
+    - [PROS OF REACT](#PROS-OF-REACT)
+    - [CONS OF REACT](#CONS-OF-REACT)
+    - [Angular](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/AngularJS)
+    - [React](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/React)
+
+- [References](#References)
 
 
 
@@ -72,13 +79,28 @@ __Java__ is an __OOP programming__. It creates applications that run in a _virtu
 * it is designed for creating network-centric applications
 * it is complementary to and integrated with Java
 * it is open and cross-platform scripting language
+
 # How do Engines work?
-Engines are complicated but the basics are easy:
+Basics of Engines are as follows:
 1. the engine (embeded if it's a browser) reads ('parses') the script
 2. then it converts ('compiles') the scripts to the machine language
 3. and then the machine code runs pretty fast.
 
 The __engine__ applies optimizations at each step of the process. it even watches the compiled scripts as it runs, analyzes the data that flows through it, and applies optimizations to the machine code based on that knowledge. when it's done, scripts run quite fast.
+
+# How Does JS work?
+When you write JS, how does the browser understands what has been written? This is handled by a __JS Engine__ and different browsers have different __JS Engine__. 
+
+# V8 Engine
+the purpose of __v8 Engine__ is to convert JS code into a binary so that the computer can understand. Components of the __v8 Engine__ are as follows:
+* __Memory Heap__: this is where memory allocation happens
+* __Call Stack__: this is to keep track of where we are in the code execution.
+
+_Remarks_: 
+* _How do we get to machine code?_: To get to machine code, JS file will either have to be __compiled__ or __interpreted__.
+* _Compilation_: the entire source code is converted to machine code at once.
+* _Interpretation_: there is an interpreter which runs through the source code and executes it line by line.
+* _Is JS compiled or interpreted?_: JS used to be purely interpreted language  but the problem with an __interpreted__ language is that they are much, much slower than the __compiled__ languages. Modern __JS Engine__ now uses both a mix between _compilation_ and _interpretation_ which is J-I-T (Just In Time) compilation.
 
 # What CAN in browser JavaScript do?
 Modern __JS__ is a 'safe' programming language. it does not provide low-level access to memory or CPU, because it was initially created for browsers which do not require it. __JS__ capabilities greatly depend on the environment it's running in. For example, __Node.js__ supports functions that allow __JS__ to read/write arbitrary files , perform network requests e.t.c., __in-browser JS__ can do anything related to webpage manipulation, interaction with the user, and the webserver.
@@ -96,15 +118,14 @@ __JS's__ abilities in the browser are limited for the sake of the user's safety.
 * different tabs/windows generally do not know about each other. sometimes they do, for example when one window uses JS to open the other one. but even in this case, JS in from one page may not access the other if they come from different sites (from a different domain, protocol or port). This is called the "__Same Origin Policy__". To work around that, both pages must agree for data exchange and contain a special JS code that handles it.
 * JS can easily communicate over the net to the server where the current page came from. but its ability to receive data from other sites/domains is crippled. thouh possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. once again, that's a safety limitation.
 
-__REMARK__: _such limits do not exist if JS is used outside of the browser, for example on a server. modern browsers also allow plugins/extensions which may ask for extended permissions._
-
-# What makes JS unique?
-There are at least 3 great things about JS:
-* full integraton with HTML/CSS
-* simple things are done simply
-* support all major browsers and enabled by default.
-
-__NOTE__: _JS is the only browser technology that combines these three things._
+_REMARKS_: 
+* _such limits do not exist if JS is used outside of the browser, for example on a server. modern browsers also allow plugins/extensions which may ask for extended permissions._
+* _What makes JS unique?_: There are at least 3 great things about JS:
+    * full integraton with HTML/CSS
+    * simple things are done simply
+    * support all major browsers and enabled by default.
+* _JS is the only browser technology that combines these three things._
+* _JavaScript is a case-sensitive language. The language keywords, variables, function names, and any other identifiers must always be typed with a consistent capitalization of letters_
 
 # Languages "over" JavaScript
 Recently, plethora of new languages appeared, which _transpiled_ (converted) to JS before they run in the browser. Modern tools makes the _transpilation_ very fast and transparent, actually allowing developers to code in another language and auto-converting it "under the hood". __examples of such languages__:
@@ -123,20 +144,9 @@ _Remarks_:
 * there is no directive like "no use strict" that reverts the engine to old behavior.once we enter strict mode, there's no return.
 * for the future, when you use a browser console to test features, please note that it doesn't "use strict" by default.
 
-# Is JavaScript a case-sensitive language?
-_JavaScript is a case-sensitive language. The language keywords, variables, function names, and any other identifiers must always be typed with a consistent capitalization of letters_
-
-# Ways an HTML element can be accessed in JavaScript code
-* getElementById('idname')
-* getElementByClass('classname')
-* getElementByTagName('tagname')
-* querySelector()
 
 # Attaching a script to a Webpage
-For server-side environments (like __Node.js__) you can execute the script by command like "node my.js"
-
-# the "script" tag
-JS programs can be attached to any part of an __HTML__ document with an help of a __< script >__ tag. the < script > tag contains JS code which is automatically executed when the browser processes the tag. The < script > tag has a few attributes that are rarely used nowadays but can still be found in old code.
+For server-side environments (like __Node.js__) you can execute the script by command like "__node my.js__". JS programs can be attached to any part of an __HTML__ document with an help of a __< script >__ tag which contains JS code which is automatically executed when the browser processes the tag. The __< script >__ tag has a few attributes that are rarely used nowadays but can still be found in old code.
 # Definitions of Terms
 1. __Callback__: is a plain __JavaScript__ function passed to some method as an argument or option. it is a function that is to be executed after another function has finished executing, hence the name _"call back"_
 2. __Closers__: are created whenever a variable that is defined outside the current scope is accessed from within some inner scope. ot gives you access to an outer function's scope from an inner function.
@@ -1036,27 +1046,28 @@ __loops__ can execute a block of code a number of times. they are handy in cases
     document.write(i + "<br/>");
     };
 ```
-* _Remark_: _you can use the __return__ keyword to return some value immediately from the loop inside of a fuction. This will also break the loop_
-```js
-    for (i = 0; i <= 10; i++) {
-    if (i == 5) {
-        continue; // the continue statement breaks only one iteration in the loop, and continues with the next iteration
-    }
-    document.write(i + "<br/>"); // the value 5 is not printed because continue skips that iteration of the loop
-    }
-```
-## Examples: for loops
-```js
-    # Example 1:
-    var sum = 0;
-    for (i = 4; i < 8; i++) {
-    if (i == 6) {
-        continue;
-    }
-    sum += i;
-    }
-    document.write(sum); // Output: 16
-```
+ _Remarks_:
+    *  _you can use the __return__ keyword to return some value immediately from the loop inside of a fuction. This will also break the loop_
+    ```js
+        for (i = 0; i <= 10; i++) {
+        if (i == 5) {
+            continue; // the continue statement breaks only one iteration in the loop, and continues with the next iteration
+        }
+        document.write(i + "<br/>"); // the value 5 is not printed because continue skips that iteration of the loop
+        }
+    ```
+    * _Example 1_: for loops
+    ```js
+        # Example 1:
+        var sum = 0;
+        for (i = 4; i < 8; i++) {
+        if (i == 6) {
+            continue;
+        }
+        sum += i;
+        }
+        document.write(sum); // Output: 16
+    ```
 # while Loop
 the __while loop__ repetas through a block of code as long as a specified condition is true.
 ```js
@@ -1221,27 +1232,27 @@ _Remark_:  _JS arrays are dynamic, so you can declear an array an array and not 
 ```js
     var courses = ["HTML", "CSS", "JavaScript"];
 ```
-_Remark_: _Remember that JS does not support arrays with named indexes. in JS, arrays always use numbered indexes. it is better to use an object when you want the to index to be a string(text).use an array when you want the index to be a number_
-# accessing Array elements
-you refer to an array element by refering to the index number written in square brackets.
-```js
-    var courses = new Array("HTML", "CSS", "JavaScript");
-    // [0] is the first element in an array. [1] is the second element. array indexes start with 0
-    document.write(courses[0]); // HTML
+_Remarks_:
+* _Remember that JS does not support arrays with named indexes. in JS, arrays always use numbered indexes. it is better to use an object when you want the to index to be a string(text).use an array when you want the index to be a number_
+* _accessing Array elements_: you refer to an array element by refering to the index number written in square brackets.
+    ```js
+        var courses = new Array("HTML", "CSS", "JavaScript");
+        // [0] is the first element in an array. [1] is the second element. array indexes start with 0
+        document.write(courses[0]); // HTML
 
-    // attempting to access an index outside of the array, returns the value undefined
-    document.write(courses[4]); // undefined
-```
-# changing Array elements
-```js
-    var courses = new Array("HTML", "CSS", "JavaScript");
-    // [0] is the first element in an array. [1] is the second element. array indexes start with 0
+        // attempting to access an index outside of the array, returns the value undefined
+        document.write(courses[4]); // undefined
+    ```
+* _changing Array elements_: example
+    ```js
+        var courses = new Array("HTML", "CSS", "JavaScript");
+        // [0] is the first element in an array. [1] is the second element. array indexes start with 0
 
-    document.write(courses[0]); // HTML
+        document.write(courses[0]); // HTML
 
-    courses[0] = ["C++"];
-    document.write(courses[0]);  // C++
-```
+        courses[0] = ["C++"];
+        document.write(courses[0]);  // C++
+    ```
 # Array Methods
 1. __Length Property__ the length property of an array returns the length of an array(the number of array elements)
 ```js
@@ -1347,6 +1358,30 @@ you refer to an array element by refering to the index number written in square 
     numbers.sort((a, b) => a - b);
     console.log(numbers);
 ```
+_Remarks_:
+* Define the following array:
+```js
+    const companies = [
+        {name : "Company One", category : "Finance", start : 1981, end : 2000 },
+        {name : "Company Two", category : "Agriculture", start : 1982, end : 2001},
+        {name : "Company Three", category : "Manfacturung", start : 1983, end : 2002},
+        {name : "Company Four", category : "Technology", start : 1984, end : 2003},
+        {name : "Company Five", category : "Retail", start : 1985, end : 2004},
+        {name : "Company Six", category : "Auto", start : 1986, end  : 2005 },
+        {name : "Company Seven", category : "Transport", start :1987, end : 2006 },
+        {name : "Company Eight", category : "Finance", start : 1988, end : 2007 },
+        {name : "Company Nine", category : "Hospitality", start : 1989, end : 2008},
+        {name : "Company Ten", category : "NGO", start : 1990, end : 2009}
+    ];
+```
+* _using forEach_
+```js
+    // forEach
+    companies.forEach(function(company) {
+        console.log(company);
+        console.log(company.name);
+    });
+```
 
 
 # Core Objects 2: Math Object
@@ -1436,19 +1471,408 @@ _Remark_: _JS counts months from 0 to 11. Date objects are static , rather than 
     var hours = d4.getHours();
     document.write(hours); // gets the hour
 ```
+_Remarks_:
 * create a program that prints the current time in the browser every second
-```js
-    function printTime(){
-     // we declared a function printTime(), which gets the current time from the date object, and prints it to the screen once every second, using the setInterval method
-    var d5 = new Date();
-    var hours = d5.getHours();
-    var mins = d5.getMinutes();
-    var secs = d5.getSeconds();
-    document.body.innerHTML = hours + ":" + mins + ":" + secs; 
-   }
-   setInterval(printTime, 1000);
+    ```js
+        function printTime(){
+        // we declared a function printTime(), which gets the current time from the date object, and prints it to the screen once every second, using the setInterval method
+        var d5 = new Date();
+        var hours = d5.getHours();
+        var mins = d5.getMinutes();
+        var secs = d5.getSeconds();
+        document.body.innerHTML = hours + ":" + mins + ":" + secs; 
+    }
+    setInterval(printTime, 1000);
 
-   // the innerHTML property sets or returns the HTML content of the element.
-    // in our case, we are changing the HTML content of our document's body.
-    // this overwrites the content eery second, instead of printing it repeatedly to the screen
+    // the innerHTML property sets or returns the HTML content of the element.
+        // in our case, we are changing the HTML content of our document's body.
+        // this overwrites the content eery second, instead of printing it repeatedly to the screen
+    ```
+# JavaScript HTML DOM
+When a web page is loaded, the browser creates a __Document Object Model__ of the page. With the object model, __JavaScript__ gets all the power it needs to create dynamic HTML:
+* JavaScript can change all the HTML elements in the page
+* JavaScript can change all the HTML attributes in the page
+* JavaScript can change all the CSS styles in the page
+* JavaScript can remove existing HTML elements and attributes
+* JavaScript can add new HTML elements and attributes
+* JavaScript can react to all existing HTML events in the page
+* JavaScript can create new HTML events in the page
+
+# The document Object
+there are predefined document object in JS, which can be used to access all elements on the DOM. i.e., the document object is the owner (or root) of all objects in your page. so if you want to access objects in an HTML page, you always start with accessing the document object, _for example_:
+```js
+    document.body.innerHTML = "One, Two, Testing";
 ```
+_Remarks:_
+* _as the body is an element of the DOM, we can access it using the document object and change the content of the innerHTML property_
+* _the innerHTML property can be used on almost all HTML elements to change its content_
+
+# Selecting Elements
+all __HTML elements__ are objects. and as we know, every object has __property__ and __methods__. the __document object__ has methods that allows you to select the desired HTML element. these _three methods_ are the most used for __selecting HTML elements__:
+1. __finds element by id__:
+    ```js
+        document.getElementById('id')
+    ```
+2. __finds element by class name__
+    ```js
+        document.getElementByClassName('name')
+    ```
+3. __finds element by tag name__
+    ```js
+        document.getElementByTagName(name)
+    ```
+    _Remarks_:
+    * _in the example below, getElementById method is used to select the element with id='demo' and change its content_
+        ```js
+            var elem = document.getElementById("demo");
+            elem.innerHTML = "Rodgers Nyangweso";
+        ```
+    * _the __getElementByClassName()__ method returns a collection of all elements in the document with the specified name_. for example, if our HTML page contained three elements with class="demo2", the following  code would return all those elements as an array:
+        ```js
+            var arr = document.getElementByClassName("p");
+            // accessing the second element
+            arr[1].innerHTML = 'Hi';
+        ```
+    * _similarly, the __getElementByTagName__ method returns all of the elements of the specified tag name as an array_. the following example gets all paragraph elements of the page and changes their content.
+        ```js
+            var allParagraphs = document.getElementsByTagName("p");
+
+            for (var x = 0; x < allParagraphs.length; x++) {
+                allParagraphs[x].innerHTML = 'Hi there!'
+            }
+        ```
+
+# Working with DOM
+EACH element in the DOM has a set of properties that provide information about their relationships in the DOM:
+* element __childNodes__ returns an array of an element child nodes
+* element __firstChild__ returns the first child node of the element
+* element __lastChild__ returns the last child node  of the element
+* element __hasChildNodes__ returns true if an element has any child nodes. otherwise, false
+* element __nextSibling__ returns the next node at the same tree level
+* element __previousSibling__ returns the previous node at the same tree level
+* element __parentNode__ returns the parent node of an element
+
+_Remarks_:
+* _example_: we can select all child nodes of an element and change their content.
+```js
+    var a = document.getElementById('demo2');
+    var arr = a.childNodes; // selecting all the child nodes
+    for (var x = 0; x<arr.length; x++) {
+        arr[x].innerHTML = "new text";
+    };
+```
+
+# Changing Attributes
+once you have selected the element(s) you want to work with, you can change their attributes, we can change the text content of an element suing the innerHTML property. for example:
+* _we can change the src attribute of an image_
+    ```js
+        var img = document.getElementById("my_img");
+        img.src = "‪rodgers_image2.jpg";
+    ```
+* _we can change the href attribute of a link_
+    ```js
+        var el2 = document.getElementsByTagName('a');
+        el2[0].href = "specify the url";
+    ```
+
+* _practically, all attributes of an element can be changed using JS_
+
+# Changing Style
+all the styles can also be changed using JS. all style attributes can be accessed using the style object of the element. __for example__:
+```js
+    var x = document.getElementById("style-demo");
+    x.style.color = "#649272";
+    x.style.width = "100px";
+```
+_Remarks_:
+* _the above code will change the text color and width of the div element_
+* _all CSS properties can be modified using JS. just remember that you cannot use dashes (-) in the property names: these are replaced with camelCase versions where the compound word begins with a capital letter_. for example
+    ```js
+        x.style.backgroundColor = "#33EA73";
+    ```
+# Adding and Removing Elements
+
+# Creating Elements
+using the following methods to create new nodes:
+* __element.cloneNode()__ -  clones an element and returns the resulting node
+* __document.createElement(element)__ - creates a new element node 
+* __document.createTextNode(text)__ - creates a new text node
+
+_Remarks_:
+* for example:
+    ```js
+        var node = document.createTextNode("a new text node has been created successfully");
+    ```
+* _this will create a new text node, but it will not appear in the document until you apped it to an existing element with one of the following methods:_
+    * __element.appendChild(newNode)__ - adds a new child node to an element as the last child node
+    * __element.insertBefore(node1, node2)__ - inserts bode1 as a child before node2
+
+# creating a new paragraph
+```js
+    var p = document.createElement("p"); 
+    var node = document.createTextNode("Creating a text node");
+
+    // adding the text to the paragraph
+    p.appendChild(node);
+
+    var div = document.getElementById("adding-nodes");
+    // adding the paragraph to the div
+    div.appendChild(p);
+    // this creates a new paragraph and adds it to the existing div element on the page
+```
+
+# Removing Element
+to remove an __HTML element__, you must select the parent of the element and use the __removeChild(node)__ method.
+```js
+    var parent = document.getElementById("remove-demo");
+    var child = document.getElementById("p1");
+    parent.removeChild(child); 
+```
+
+_Remark_:
+* _an alternatie way to achieving the same result would be the use of the __parentNode__ property to get the parent of the element we want to remove._
+    ```js
+        var child = document.getElementById("p1");
+        child.parentNode.removeChild(child);
+    ```
+
+# Replacing Elements
+to replace an HTML element, the element __replaceChild(newNode, oldNode)__ method is used:
+```js
+    var p = document.createElement("p");
+    var secondNode = document.createTextNode("This is a replaced text");
+    p.appendChild(secondNode);
+
+    var secondParent = document.getElementById("replace-demo");
+    var secondChild = document.getElementById("p3");
+    secondParent.replaceChild(p, secondChild);
+```
+
+# Creating Animations - Project
+lets create a simple HTML page with a box element that will be animated using JS. to create an animation, we need to change the properties of an element at small intervals of the time. we can achieve this by using the __setInterval()__ method which allows us to create a btimer and call a function to change properties repeatedly at defined intervals (in milliseconds). _For Example_:
+```js
+    // this code creates a timer that calls a move() function every 500 miilliseconds
+    var t = setInterval(move, 500);
+
+    // now we need to define the move() function that changes the position of the box
+    // starting position
+    var pos = 0;
+
+    // our box element
+    var box = document.getElementById('box');
+
+    function move() {
+	pos += 1;
+	box.style.left = pos+"px"; // px = pixels
+    } // the move() function increments the left property of the box element by one each time its called
+
+    // the following code defines a timer that calls the move() function every 10 milliseconds
+    var t = setInterval(move, 10);
+
+     /**
+     however this makes our box moves to the right forever. 
+     to stop the animation when the box reaches the end of the container, we add a simpl cheeck to the 
+     move() function and use the clearInterval() method to stop the timer
+    **/
+
+    function move(){
+        if (pos >=150) {
+            clearInterval(t);
+        }
+        else {
+            pos += 1;
+            box.style.left = pos+"px";
+        }
+    } 
+        //  when the left attribute of the box reaches the value of 150, the box reaches the end of the container based on a container width of 200 and a box width of 50
+```
+
+# Handling Events
+you can write JS code that executes when an event occurs, such as when a user clicks an HTML element, move the mouse, or submits a form. when an event occurs on an a target element, a handler function is executed: Common HTML events include:
+* __onclick__ - occurs when the user clicks on an element
+* __onload__ - occurs when an object has loaded
+* __onunload__ - occurs once a page has unloaded (for $<$ body $>$)
+* __onchange__ - occurs when the content of a form element, the selection, or the checked state have changed. (for $<$ input $>$, $<$ keygen $>$, $<$ select $>$, and $ <
+$ textarea $>$)
+* __onmouseover__ - occurs when the pointer is moved onto an element, or out of one of its children
+* __onmouseout__ - occurs when a user moves the mouse pointer out of an element, or out of one of its children
+* __onmousedown__ - occurs when the user presses a mouse button over an element
+* __onmouseup__ - occurs when a user releaees a mouse button over an element
+* __onblur__ - occurs when an element loses focus
+* __onfocus__ - occurs when an element gets focus
+
+_Remarks_:
+* _corresponding events can be added to HTML elements as attributes_. for example:
+    ```html
+        <p onclick="someFunc()">some text</p>
+    ```
+* _let's display an alert popup when a user clicks a specified button_
+    ```js
+        function show(){
+            alert("Hi there");
+        } 
+    ```
+* _the onload and onunload events are triggered when the user enters or leaves the page. these can be useful when performing actions after the page is loaded_
+* _similarly, the window.onload event can be used to run code after the whole page is loaded_
+    ```js
+        window.onload = function() {
+            // some code
+        }
+    ```
+* _the __onchange__ event is mostly used on textboxes. the event handler gets called when the text inside the the text box changes and focus is lost from the element_. for example
+    ```js
+        function change(){
+            var x = document.getElementById("name");
+            x.value = x.value.toUpperCase();
+        }
+    ```
+* _the __addEventListener()__ method attaches an event handler to an element without overwriting existing event handlers. you can add many event handlers to one element. you can also add many event handlers of the same type to one element, i.e., two "click" events_
+    ```js
+        element.addEventListener(event, function, useCapture);
+    ```
+* _the first parameter is the event's type (like 'click', or, 'mousedown'); the second parameter is the function we want to call when the event occurs; the third parameter is a Boolean value specifying whether to use event bubbling or event capturing. this parameter is optional_.
+* _you don't use the 'on' prefix for this event; use 'click' instead of 'onclick'_. for example:
+    ```js
+        element.addEventListener("click", myFunction);
+        element.addEventListener("mouseover", myFunction);
+        function myFunction(){
+            alert("hello world");
+        } // this adds two event listeners to the element
+    ```
+* _we can remove one of the listeners_
+    ```js
+        element.removeEventListener("mouseover", myFunction);
+    ```
+* _let's create an event handler that removes itself after being executed:_
+    ```js
+        var btn = document.getElementById("event");
+        btn.addEventListener("click", myFunction);
+        function myFunction(){
+            alert(Math.random());
+
+            btn.removeEventListener("click", myFunction);
+        }
+        // after clicking the button, an alert with a random number displays and the event listener is removed
+    ```
+# Event Propagation
+there are two ways of __event propagation__ in the HTML DOM: 
+    * bubbling and 
+    * capturing
+_Remarks_
+* _event propagation allows for the definition of the element order when an event occurs. if you have a $<$ p $>$ element inside a $<$ div $>$ element, and the user clicks on the $<$ p $>$ element, which element's 'click' event should be handled first?_
+* _in __bubbling__, the innermost element's event is handled first and then the outer element's event is handled. the $<$ p $>$ element's click event is handled first, followed by the $<$ div $>$ element's click event._
+* _in capturing, the outermost element's event is handled first and then the inner. the $<$ div $>$ element's click event is handled first, followed by the  $<$ p $>$ element's click event_
+* _capturing goes down the DOM. bubbling goes up the DOM._
+
+# Form Validation
+HTML5 adds some attributes that allow form validation. for example, the required attribute can be added to an input field to make it mandatory to fill in. More complex form validation can be done using JS: _the form element has an onsubmit event that can be handled to perform validation._. for example:
+```js
+    // let's create a form with two inputs and one button 
+    function validate() {
+    var n1 = document.getElementById('num1');
+    var n2 = document.getElementById("num2");
+
+    if (n1.value != "" && n2.value != "") {
+        if (n1.value == n2.value) {
+        return true;
+        }
+    }
+    alert("The values should be equal and not blank");
+    return false;
+    } // we return true when the values are not blank and are equal
+    // the form will not get submitted if its onsub,it event returns false.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# HTML DOM Document Object
+The document object represents your web page. If you want to access any element in an HTML page, you always start with accessing the document object. 
+
+# Finding HTML Elements (Methods)
+Method | Description 
+|:-------------:|:------------:|
+document.getElementById(id) | Find an element by element id
+document.getElementsByTagName(name) | Find elements by tag name
+document.getElementsByClassName(name) | Find elements by class name
+
+# Changing HTML Elements
+Property | Description 
+|:-------------:|:------------:|
+element.innerHTML =  new html content | Change the inner HTML of an element
+element.attribute = new value | Change the attribute value of an HTML element
+element.style.property = new style | Change the style of an HTML element
+
+Method | Description 
+|:-------------:|:------------:|
+element.setAttribute(attribute, value) | Change the attribute value of an HTML element
+
+# Adding and Deleting Elements
+Method | Description 
+|:-------------:|:------------:|
+document.createElement(element) | 	Create an HTML element
+document.removeChild(element) | Remove an HTML element
+document.appendChild(element) | Add an HTML element
+document.replaceChild(new, old) | Replace an HTML element
+document.write(text) | Write into the HTML output stream
+
+# Adding Event Handlers
+Method | Description 
+|:-------------:|:------------:|
+document.getElementById(id).onclick = function(){code} | Adding event handler code to an onclick event
+
+# JavaScript Frameworks
+# Angular vs React
+Parameter | Angular | React
+|:----------:|:-----------:|:-------------:|
+Type | Complete framework (everything is inbuilt including Routers, HTTP e.t.c) | __React__ is a JS library and is much older compared to __React__
+Use of Libraries | __Angular__ is a complete solution in itself | ___React JS__ can be packaged with other programming libraries. (Since it is just a library it doesn’t have much of inbuilt functionalities)
+Learning curve | Learning Angular is not easy for beginners. Thus, it requires lots of training. But it includes most of the concepts and thus you don’t need any external tools | It is easier to grasp compared Angular. However, it is difficult to learn when augmented with Redux. Quick to learn React whereas it takes time to learn external tools such as redux which is essential.
+Installation Time | __Angular__ is easy to set up but may lead to an increase in coding time which also results in delayed project deliveries. | __React__ takes longer to set up. But, it is really fast for delivering projects and building apps.
+Best Feature | __Angular__ offers a limited amount of freedom and flexibility. | __React__ gives you the freedom to choose the tools, architecture, and libraries, for developing an app.
+Data Binding | __Angular__ uses the two-way data binding method. It helps you to ensure that the model state automatically changes when any change is made. | __React__ language uses one-way data binding, which means that the UI elements can’t be changed without updating the corresponding model state.
+Testing and Debugging | In ___Angular__, testing and debugging for a complete project is possible with a single tool. | __React__ requires a set of tools to perform different types of testing.
+Application Types | You should __Angular__ framework If you want to develop a SPA(Single Page Application) and mobile apps. | Use __React__ if you want to develop Native apps, hybrid apps, or web apps
+Language used | __Angular__ uses Typescript which requires a bit of prior learning to be done. | __React__ is written in JavaScript which many programmers are familiar with, hence faster learning
+
+# Pros and Cons of Angular
+* Offers clean code development
+* has a high performance
+* has a Material Design-like interface
+* has a Material Design-like interface
+* Seamless updates using Angular CLI
+
+# CONS OF ANGULAR
+* It can be difficult to get a grip of especially for beginners
+* Steep learning curve
+* No clear manual and extensive
+* Third party integration becomes very difficult
+* It is difficult to switch to newer versions as compared to React
+
+# PROS OF REACT
+* easier to learn as compared to Angular.
+* has HTML like syntax which helps in templating and makes the code easier to read.
+* Native development is easier if you acquire React skills
+* good for management of heavy loads with ease
+
+# CONS OF REACT
+* React uses traditional MVC framework and hence requires complex configuration.
+* An in depth knowledge is required for integration the UI into MVC framework
+* __Redux__ and Routing are external tools that need to be learnt, whereas Angular has most of these tools inbuilt.
+# References
+1. [JavaScript Tutorial - W3Schools](https://www.w3schools.com/js)
+2. [Angular vs React, which is better?](https://medium.com/@shrusti.sangodkar11/react-vs-angular-which-is-better-a74cfe9941bb)
