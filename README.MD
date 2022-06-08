@@ -24,15 +24,19 @@
     - console.trace()
     - console.count()
     - console.dir()
-3. [Variables in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Variables_in_JavaScript)
-4. [Data Types in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Data_Types_in_JavaScript)
+4. [Scope in JavaScript](#Scope-in-JavaScript)
+    - Block Scope
+    - Function (Local) Scope
+    - Global Scope
+5. [Variables in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Variables_in_JavaScript)
+6. [Data Types in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Data_Types_in_JavaScript)
     - Number
     - String
     - Boolean
     - null
     - Undefined
     - object
-5. [Operators & Type Conversions](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Operators_and_Type_Conversions)
+7. [Operators & Type Conversions](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Operators_and_Type_Conversions)
     - Assignment Operator
     - Remainder
     - Exponentiation
@@ -42,7 +46,7 @@
     - Math Operators
     - Type Conversions
 
-6. [Control Flow in JavaScript]()
+8. [Control Flow in JavaScript]()
     - [Examples of functions]()
     - [Reverse Character Function]()
     - [FizzBuzz Function]()
@@ -53,25 +57,25 @@
     - [for loops]()
     - [while Loop]()
     - [do..while Loop]()
-7. [Functional Programming in JavaScript]()
+9. [Functional Programming in JavaScript]()
 
-8. [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
+10. [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
 
-9. [Objects Oriented Programming in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript)
+11. [Objects Oriented Programming in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript)
     - [Arrays](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript/Array_Objects)
     - [Math Object](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript/Math_Objects)
     - [Date Object](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript/Date_Objects)
     
-10. [JavaScript Frameworks Comparisons](#JavaScript-Frameworks)
+12. [JavaScript Frameworks Comparisons](#JavaScript-Frameworks)
     - [Angular vs React](#Angular-vs-React)
     - [PROS OF ANGULAR](#PROS-OF-ANGULAR)
     - [CONS OF ANGULAR](#CONS-OF-ANGULAR)
     - [PROS OF REACT](#PROS-OF-REACT)
     - [CONS OF REACT](#CONS-OF-REACT)
 
-11. [Angular](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/AngularJS)
-12. [React](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/React)
-13. [References](#References)
+13. [Angular](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/AngularJS)
+14. [React](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/React)
+15. [References](#References)
 
 # Introduction to JavaScript
 __JavaScript__ was initially created to make "web pages alive". the programs in this langauge are called __scripts__. they can be written right in a web page's HTML and run automatically as the page loads. __Scripts__ are provided and executed as plain texts. they don't need special preparation or compilation to run. - in this aspect, __JS__ is very different from another programming language called __Java__.
@@ -262,6 +266,45 @@ For server-side environments (like __Node.js__) you can execute the script by co
     console.log(person); // Outputs: { firstName: 'Rodgers', lastName: 'Nyangweso' }
     console.dir(person); // Output: 
 ```
+# Scope in JavaScript
+__Scope in JS__ determines the accessibility (visibility) of the variables. 3 types of __scope__ include:
+1. __Block scope__: means dclaring variables inside a block or curly brackets {}. Trying to access it outside the block throws an error. Variables declared with the __var__ keyword can NOT have block scope.
+```js
+    // Block Scope
+    {
+        var estate = 'Kitengela';
+    }
+    console.log(estate); // Output: Kitengela
+
+    {
+        let country = 'Kenya';
+    }
+    console.log(country);  // ReferenceError: country is not defined
+```
+2. __Function (Local) Scope__: variables defined inside a function are not accessible (visible) from outside the function. Example:
+```js
+    // Here, we CANNOT use the Name variable
+    function myFunction() {
+        let Name = 'Rodgers';
+        // Here, we can use the Name variable
+    };
+    // Here we cannot use the Name variable
+```
+Variables declared within a function are known as _local variables_. Variables declared with var, let, and const are pretty similar when declared inside a function. They all have a __Function Scope__.
+
+3. __Global Scope__: variables declared Globally (outside any function) have a __Global Scope__. Global variables can be accessed from anywhere in a JS program.
+```js
+    let message = 'This is a global variable';
+
+    function myFunction() {
+        console.log(message);
+        // code here can also be used
+    }
+    consolde.log(message);
+```
+
+
+
 # JavaScript Frameworks
 # Angular vs React
 Parameter | Angular | React
