@@ -1,9 +1,40 @@
 # Cascading Style Sheets (CSS)
 
 ## Table of Contents
-- []
+- [CSS Layout]()
+    - [CSS Display](#CSS-Display)
+    - [width and max-width](#width-and-max-width)
+
+
+
 - [References](#References)
 
+# CSS Layout
+# CSS Display
+The _display_ property specifies if/how an element is displayed. The default _display_ value for most elements is __block__ or __inline__. __Display__ values include:
+    * inline
+    * block
+    * none
+
+_Remarks_:
+* __Block-level Elements__: _always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can)._ Examples include:
+    * div
+    * h1 - h6
+    * p
+    * form
+    * header
+    * footer
+    * section
+* __Inline Elements__: _does not start on a new line and only takes up as much width as necessary._ Examples include:
+    * span
+    * a
+    * img
+* __Display: none__: _commonly used with JavaScript to hide and show elements without deleting and recreating them._
+
+# width and max-width
+Setting the _width_ of a block-level element will prevent it from stretching out to the edges of its container. Then, you can set the _margins_ to auto, to horizontally center the element within its container. Using __max-width__, will improve the browser's handling of small windows. This is important when making a site usable on small devices:
+
+# CSS Align
 
 # Inline CSS:
 with an __inline CSS__, a unique style is applied to a single element. in order to use an inline style, add the style attribute to the relevant tag.
