@@ -1,0 +1,19 @@
+# React Roadmap
+1. React Basics:
+    * Props
+    * State
+    * Create React-App
+    * JSX
+2. Advanced
+    * Hooks
+    * Refs
+    * Higher-Order Components
+3. Ecosystem
+    * Routers
+    * API Calls
+    * State Management
+    * Styling
+4. Environment
+    * TypeScript
+    * Next.Js
+    * Gatsby.Js

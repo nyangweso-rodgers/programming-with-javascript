@@ -1,22 +1,16 @@
-# React Roadmap
-1. React Basics:
-    * Props
-    * State
-    * Create React-App
-    * JSX
-2. Advanced
-    * Hooks
-    * Refs
-    * Higher-Order Components
-3. Ecosystem
-    * Routers
-    * API Calls
-    * State Management
-    * Styling
-4. Environment
-    * TypeScript
-    * Next.Js
-    * Gatsby.Js
+# ReactJS
+
+## Table of Contents
+1. [Introduction to React](#Introduction-to-React)
+2. [How does React Work?](#How-does-React-Work?)
+3. [Advantages of React](#advantages-of-React)
+    - [Popular Apps using React](#Popular-Apps-using-React)
+4. [Definition of Terms](#Definition-of-Terms)
+    - Components
+    - JSX (JavaScript XML)
+    - Virtual DOM
+5. [References](#References)
+
 # Introduction to React
 __React__ is a __JavaScript library__ used to build _User Interfaces_. It is developed and maintained by __Facebook__. It is capable of building complex and highly interactive single-page web applications and can be integrated with any backend.
 
@@ -27,7 +21,16 @@ __React__ is a __JavaScript library__ used to build _User Interfaces_. It is dev
 # advantages of React
 * Very fast, gives smooth experience to users
 * Easy to develop and maintain due to its __Components__ based structure. A __component__ basically represent a piece of UI. Once a __component__ is created, it can be used as many times as you wish to.
+* can be use on client-side and server-side devices
+* reusable components rduce development time and help build complex functionalities
+* data is updated by refreshing UI, making it efficient
 
+# Popular Apps using React
+* PayPal
+* BBC
+* Facebook
+* Netflix
+* Twitter
 # Definition of Terms
 1. __Components__: simple function that you can call with some input and they render some output. __Components__ are of two types:
     * Class based components: are defined using ES6 classes
@@ -47,10 +50,27 @@ __React__ is a __JavaScript library__ used to build _User Interfaces_. It is dev
 
     export default componentName; // Exporting the function (component) so that we can use it outside
     ```
-2. __JSX (JavaScript XML)__: an extension of JavaScript which allow us to write HTML code in JavaScript file. E.g., consider the below variable declaration. It's neither JS nor HTML. This is the mixture of JavaScript + XML = JSX
-    ```js
+    There are two ways to create __components__:
+    * Using ES6 classes
+    * Using Functions
+2. __JSX (JavaScript XML)__: an extension of JavaScript which allow us to write HTML code in JavaScript file. E.g., consider the below variable declaration. It's neither JS nor HTML. This is the mixture of JavaScript + XML = JSX. It is not necessary to work with JSX, but is recommended as it makes the code easier to understand.
+```js
     cons element = <h1>Hello, World!</h1>
-    ```
+```
+_Why use JSX?_
+* As it basically helps us write HTML tags inside JS, which ultimately makes __React__ faster.
+* JSX makes the code easier to understand and visually attractive.
+```js
+    class Hey extends React.Component {
+        render(){
+            return <div> Hello {this.props.iDontKnow}</div>;
+        }
+    }
+    ReactDOM.render{
+        <Hey iDontKnow="World"/>,
+        document.getElementById('root')
+    };
+```
 
 3. __Virtual DOM__: uses a strategy that updates the DOM without having to redraw all the webpage elements. Every time the DOM changes, browsers need to recalculate entire layout and then repaint the web page which makes the web app slow. To overcome this, we have __virtual DOM__. Evrey time the state of our application changes, the __virtual DOM__ gets updates instead of the real DOM.
 
