@@ -1,10 +1,37 @@
 # Using React in VSCode
 
-# Test that you have Node.js and npm correctly installed on your machine, type the following on your terminal or command prompt:
+# How to setup React.js on Windows
+# NODE.JS AND NPM ON WINDOWS
+- The underlying node package manager (NPM) is used to install libraries, such as React.js, to your project on the command line
+- Installation of NodeJS: https://nodejs.org/en/
 
-node --version
-or 
-npm --verrsion 
 
-# React Installation Steps - the tool helps to start building with React App. It sets up all the tools that you need in order to get started
-npx create-react-app my-app 
+
+
+# VISUAL STUDIO CODE FOR REACT ON WINDOWS
+# NODE AND NPM FOR REACT
+### Test that you have Node.js and npm correctly installed on your machine, type the following on your terminal or command prompt:
+>> $ node --version
+>> $ npm --version 
+
+# CREATE-REACT-APP FOR REACT ON WINDOWS
+* Now you can install your first node package with npm on the command line.
+* You will install it globally with a -g flag
+* Because of installing it globally, you will always have access to it on the command line.
+* Later on, when you install a node package for your project without the -g flag, you will only have access to the node package (node module) in your project.
+* on the command line (in Visual Studio Code), type the following command to install [create-react-app](https://github.com/facebook/create-react-app):
+
+>> $ npm install -g create-react-app 
+
+* the tool helps to start building with React App. It sets up all the tools that you need in order to get started
+>> $ npx create-react-app my-app 
+
+* Afterward, you can navigate into the project on the command line and start it with npm:
+
+>> $ cd my-app
+>> npm start 
+
+* The command line should give you an output where you can find the application in the browser. The default should be localhost:8080
+
+# References
+1. https://www.robinwieruch.de/react-js-windows-setup/
