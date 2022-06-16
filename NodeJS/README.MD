@@ -1,13 +1,15 @@
 # NodeJS
+## Table of Contents
+1. [What is nodejs?](#What-is-nodejs?)
+2. [Advantages of NodeJS](#Advantages-of-NodeJS)
 # What is nodejs?
-__Node.js__ is __javascript__ runtime environment that runs on V8 engine, a engine that helps chrome to understand javascript. i.e., __nodejs__ is interpreter just like compiler instead of relying on browser you can run __javascript__ on your machine. __Node.js__ allows you to run your __JavaScript__ code on the server like any other server-side technology. It uses V8 and adds some extra features. For example:
+__Node.js__ is __javascript__ runtime environment that runs on __V8 engine__, a engine that helps chrome to understand javascript. i.e., __nodejs__ is interpreter just like compiler instead of relying on browser you can run __javascript__ on your machine. __Node.js__ allows you to run your __JavaScript__ code on the server like any other server-side technology. It uses V8 and adds some extra features. For example:
 - working with your local file system
 - opening and modifying files
 - adding data in your database
 - e.t.c.,
-
-# what are the benefit of it?
-__Nodejs__ expanded scope of javscript from frontend to backend, mobile app etc. Before Nodejs developing backend app with javascript was pain in butt. so, Nodejs eliminates the requirement of knowing third party programming language to develop such apps. Some of the advantages of __NodeJS__ include:
+# Advantages of NodeJS
+__Nodejs__ expanded scope of JS from frontend to backend, mobile app etc. Before Nodejs developing backend app with JS was pain in butt. so, Nodejs eliminates the requirement of knowing third party programming language to develop such apps. Some of the advantages of __NodeJS__ include:
 * Reduces loading time
 * High Performance. __Node.js__ is extremely fast and great for building real-time web apps
 * Node.js is event-driven
