@@ -5,7 +5,7 @@
 {
 	var estate = 'Kitengela';
 }
-console.log(estate); // Output: Kitengela
+// console.log(estate); // Output: Kitengela
 
 {
 	let country = 'Kenya';
@@ -19,7 +19,11 @@ function myFunction() {
 	console.log(myMessage);
 	// code here can also be used
 };
-console.log(myMessage);
+//console.log(myMessage);
+
+// Hoisting in JS
+console.log(hoistedName); // undefined
+var hoistedName = 'Hoisted JS variabe';
 
 // console methods in JS
 // console.log() - prints the message on the console

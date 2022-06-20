@@ -28,15 +28,16 @@
     - Block Scope
     - Function (Local) Scope
     - Global Scope
-5. [Variables in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Variables_in_JavaScript)
-6. [Data Types in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Data_Types_in_JavaScript)
+5. [Hoisting in JavaScript](#Hoisting-in-JavaScript)
+6. [Variables in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Variables_in_JavaScript)
+7. [Data Types in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Data_Types_in_JavaScript)
     - Number
     - String
     - Boolean
     - null
     - Undefined
     - object
-7. [Operators & Type Conversions](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Operators_and_Type_Conversions)
+8. [Operators & Type Conversions](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Operators_and_Type_Conversions)
     - Assignment Operator
     - Remainder
     - Exponentiation
@@ -46,7 +47,7 @@
     - Math Operators
     - Type Conversions
 
-8. [Control Flow in JavaScript]()
+9. [Control Flow in JavaScript]()
     - [Examples of functions]()
     - [Reverse Character Function]()
     - [FizzBuzz Function]()
@@ -57,25 +58,31 @@
     - [for loops]()
     - [while Loop]()
     - [do..while Loop]()
-9. [Functional Programming in JavaScript]()
+    
+10. [Functional Programming in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Functional_Programming_in_JavaScript)
+    - Function Declaration and Expression
+    - Callback Function
+    - Higher Order Functions
+    - Arrow Functions
+    - Other Types of Functions
 
-10. [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
+11. [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
 
-11. [Objects Oriented Programming in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript)
+12. [Objects Oriented Programming in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript)
     - [Arrays](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript/Array_Objects)
     - [Math Object](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript/Math_Objects)
     - [Date Object](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript/Date_Objects)
     
-12. [JavaScript Frameworks Comparisons](#JavaScript-Frameworks)
+13. [JavaScript Frameworks Comparisons](#JavaScript-Frameworks)
     - [Angular vs React](#Angular-vs-React)
     - [PROS OF ANGULAR](#PROS-OF-ANGULAR)
     - [CONS OF ANGULAR](#CONS-OF-ANGULAR)
     - [PROS OF REACT](#PROS-OF-REACT)
     - [CONS OF REACT](#CONS-OF-REACT)
 
-13. [Angular](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/AngularJS)
-14. [React](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/React)
-15. [References](#References)
+14. [Angular](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/AngularJS)
+15. [React](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/React)
+16. [References](#References)
 
 # Introduction to JavaScript
 __JavaScript__ was initially created to make "web pages alive". the programs in this langauge are called __scripts__. they can be written right in a web page's HTML and run automatically as the page loads. __Scripts__ are provided and executed as plain texts. they don't need special preparation or compilation to run. - in this aspect, __JS__ is very different from another programming language called __Java__.
@@ -302,8 +309,8 @@ Variables declared within a function are known as _local variables_. Variables d
     }
     consolde.log(message);
 ```
-
-
+# Hoisting in JavaScript
+__Hoisting__ is a JS behavior in which a function or variable can be accessed or used before the declaration. But it's not going to work with __let__ and __const__ keywords but only works with __var__ keyword.
 
 # JavaScript Frameworks
 # Angular vs React

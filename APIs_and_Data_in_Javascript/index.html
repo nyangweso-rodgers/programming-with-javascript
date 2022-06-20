@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Data and API in JavaScript</title>
+</head>
+<body>
+    <img src="" id = "rainbow"/>
+    <script>
+        console.log('about to fetch a raibow');
+        fetch('rainbow.jpeg').then(response => {
+            console.log(response);
+            return response.blob();
+        });
+    </script>
+</body>
+</html>
