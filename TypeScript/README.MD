@@ -5,6 +5,7 @@
     - [TypeScript Basics](https://dev.to/pranta07/typescript-basics-3g9i)
     - [TypeScript Tutorial for Beginners [2022]](https://www.youtube.com/watch?v=d56mG7DezGs)
     - [Typescript vs Javascript](https://dev.to/jordandev/typescript-vs-javascript-4iee)
+    - [Learn TypeScript – The Ultimate Beginners Guide](https://www.freecodecamp.org/news/learn-typescript-beginners-guide/)
 
 # Introduction to TypeScript
 __TypeScript__ is a language made by __Microsoft__. It is a superset of __JavaScript__ meaning it _adds features to vanilla JavaScript_. __TypeScript__ adds static typing to JavaScript. What the does this mean?
