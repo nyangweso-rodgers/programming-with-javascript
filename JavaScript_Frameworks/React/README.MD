@@ -15,6 +15,7 @@
     - [W3 Schools - React Tutorial](https://www.w3schools.com/react/default.asp)
     - [React Tutorial](https://react-tutorial.app/app.html)
     - [Learn React](https://reactjs.org/)
+    - [React Tutorial](https://react-tutorial.app/app.html)
 
 
 # Introduction to React
