@@ -51,3 +51,13 @@
     * for, 
     * while, and 
     * do while.
+
+    ```js
+    // syntax
+    for (statement 1: statemtn 2: statement 3) {
+        // code block to be executed
+    };
+    // statement 1 is executed before the loop  (the code block) starts
+    // statement 2 defines the condition for running the loop (the code block)
+    // statement 3 is executed each time after the loop (the code block) has been executed
+    ```
