@@ -71,3 +71,14 @@
         };
         // the condition can be any conditional statement that returns true or false
     ```
+
+# do..while loop
+* the __do..while loop__ is a variant of the __while loop__. this loop will execute the code block once, before checking if the condition is true and then it will repeat the loop as long as the condition is true.
+
+    ```js
+    // syntax
+    do {
+        // code block
+    }
+    while (condition);
+```
