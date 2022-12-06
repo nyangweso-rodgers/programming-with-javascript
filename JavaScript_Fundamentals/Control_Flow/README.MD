@@ -31,6 +31,21 @@
 # switch statement
 * in cases when you need to test for multiple conditions, writing _if else statements_ for each condition might not be the best solution. the _switch statement_ is used to perform  different actions based on the different conditions.
 
+    ```js
+        // syntax
+        switch (expression) {
+            case n1:
+                statements
+                break // when JS code reaches a break keyword, it breaks out of the switch block .this will stop the executuion of more code and case testing inside the block
+            case n2:
+                statements
+                break; // usually, a break should be put in each case statement
+            default: // the default keyword specifies the code to run if there is no case match
+                statements
+        }
+    ```
+* the __switch expression__ is evaluated once. The value of the expression is compared with the values of each case. if there is a match, the associated block of code is executed.
+
 # for loops
 * __loops__ can execute a block of code a number of times. they are handy in cases in which you want to run the same code repeatedly,adding a different value each time. JS has three types of loops:
     * for, 
