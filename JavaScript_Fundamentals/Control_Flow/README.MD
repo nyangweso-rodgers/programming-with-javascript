@@ -61,3 +61,13 @@
     // statement 2 defines the condition for running the loop (the code block)
     // statement 3 is executed each time after the loop (the code block) has been executed
     ```
+
+# while loops
+* the __while loop__ repetas through a block of code as long as a specified condition is true.
+    ```js
+        // syntax
+        while (conditon) {
+            // code block
+        };
+        // the condition can be any conditional statement that returns true or false
+    ```
