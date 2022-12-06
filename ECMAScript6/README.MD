@@ -1,28 +1,24 @@
 # ECMAScript 6
 
+## Table Of Contents
+- [Introduction to ES6](#Introduction-to-ES6)
+
 # Introduction to ES6
-__ECMAScript (ES)__ is a scripting language specification created to standardize __JavaScript__. The sixth edition, initially known as __ECMAScript 6__ (ES6) and later renamed to __ECMAScript 2015__, adds significant new syntax for writing complex applications, including classes and modules, iterators  and for/of loops, generators, arrow functions, binary data, typed arrays, collections (maps,sets and weak maps), promises, number and math enhancements, reflections, proxies. i.e., __ES6__ is a superset of __JavaScript (ES5)__. the reason that __ES6__ became so popular is that it introduced new conventions and OOP concepts such as classes.
+* __ECMAScript (ES)__ is a scripting language specification created to standardize __JavaScript__. The sixth edition, initially known as __ECMAScript 6__ (ES6) and later renamed to __ECMAScript 2015__, adds significant new syntax for writing complex applications, including:
+    * classes and modules, 
+    * iterators  and for/of loops, 
+    * generators, 
+    * arrow functions, 
+    * binary data, 
+    * typed arrays, 
+    * collections (maps,sets and weak maps), 
+    * promises, 
+    * number and math enhancements, 
+    * reflections, proxies. 
 
-_Remarks_:
+* i.e., __ES6__ is a superset of __JavaScript (ES5)__. the reason that __ES6__ became so popular is that it introduced new conventions and OOP concepts such as classes.
+
 * _ES6 code will run only in browsers that support it older devices and browsers that do not support ES6 will return a syntax error_
-
-# ES6 Variables and Strings
-in ES6, we have three ways of declaring variables. the type of the declaration used depends on the necessary scope. __Scope__ is the fundamental concept in all programming languages that defines the visibility of a variable.
-```js
-    var a = 10;
-    const b = 'hello';
-    let c = true;
-```
-__Remarks__:
-    * _unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope, __let__ allows you to declare variables that are limited in scope to the block, statement, or expression in whcich they are used._
-    * _const variable have the  same scope as variables declared using let. the difference is that const variables are immutable - they are not allowed to be reassigned_
-    ```js
-        if (true) {
-        let name = 'Rodgers';
-        } 
-        alert(name); // generates an error
-        // in this case, the name variable is only accesible in the scope of the if statement because it was declared as let
-    ```
 
 # Template Literals in ES6
 __Template literals__ are a way to output variables in a string. prior to __ES6__ we had to break the string for example:
