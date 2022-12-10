@@ -1,6 +1,7 @@
 # Dates
 
 ## Table Of Contents
+- [Introduction to Dates Objects in JS](#Introduction-to-Dates-Objects-in-JS)
 
 # Introduction to Dates Objects in JS
 * __JS Date objects__ represent a single moment in time in a platform-independent format. __Date objects__ contain a Number that represents milliseconds since 1 January 1970 UTC.
@@ -57,3 +58,5 @@ There are 4 ways to create a date object.
 8. __toDateString()__: It returns the date portion of a Date object.
 9. __toJSON()__: It returns a string representing the Date object. It also serializes the Date object during JSON serialization.
 10. __toString()__: It returns the date in the form of string.
+
+11. __setInterval()__: method calls a __function__ at specified intervals (in milliseconds). The __setInterval()__ method continues calling the function until __clearInterval()__ is called, or the window is closed.
