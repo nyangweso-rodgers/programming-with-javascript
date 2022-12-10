@@ -59,4 +59,8 @@ There are 4 ways to create a date object.
 9. __toJSON()__: It returns a string representing the Date object. It also serializes the Date object during JSON serialization.
 10. __toString()__: It returns the date in the form of string.
 
+11. __setTimeout()__: allow us to schedule a __function__. We willingly introduce delays in the execution of some functions to ensure a smooth & crash-free user experience. Potential use cases include:
+    - _f we've requested some data to be fetched from an API & we've to run a function whose execution depends on the results from that API_
+    - _If there's an authentication system & we've to show some sensitive data, we'll have to wait while the user credentials are being checked_
+
 11. __setInterval()__: method calls a __function__ at specified intervals (in milliseconds). The __setInterval()__ method continues calling the function until __clearInterval()__ is called, or the window is closed.
