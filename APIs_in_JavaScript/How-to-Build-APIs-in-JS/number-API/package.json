@@ -1,0 +1,15 @@
+{
+  "name": "number-api",
+  "version": "1.0.0",
+  "description": "* Let's create a quick __number API__ using which we can fetch even, odd, and prime numbers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
