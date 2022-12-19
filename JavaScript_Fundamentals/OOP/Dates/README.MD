@@ -1,4 +1,4 @@
-# Dates
+# Date Object
 
 ## Table Of Contents
 - [Introduction to Dates Objects in JS](#Introduction-to-Dates-Objects-in-JS)
