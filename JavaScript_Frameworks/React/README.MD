@@ -16,6 +16,7 @@
     - [React Tutorial](https://react-tutorial.app/app.html)
     - [Learn React](https://reactjs.org/)
     - [React Tutorial](https://react-tutorial.app/app.html)
+    - [React JavaScript Framework for Beginners – Project-Based Course](https://www.youtube.com/watch?v=u6gSSpfsoOQ&t=35s)
 
 
 # Introduction to React
