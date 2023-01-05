@@ -1,6 +1,6 @@
 # Closures
 
-* A __closure__ can be defined as a JavaScript feature in which the inner function has access to the outer function variable.
+* A __closure__ can be defined as a JavaScript feature in which the inner function has access to the outer function variable. i.e., __Closers__ are created whenever a variable that is defined outside the current scope is accessed from within some inner scope. ot gives you access to an outer function's scope from an inner function.
 
 * In JavaScript, a function can also contain another function. This is called a __nested function__. For example,
     ```js
