@@ -11,11 +11,19 @@
 # Universal benefits of Angular
 These are benefits that apply no matter what kind of application you are buiding and no matter what kind of development team or compnay you work at:
 * _Reduction of cost_: using a framework to build a web application over building everything yourself is simply going to reduce the amount of cost that it takes to build the application. that's going to be realized in developer time, and bug fixing, instability.
+
 * _Angular is very Standards Compliance_: standard compliance means that your website is going to run in more browsers and be able to reach more users. this includes things like ES6 or better, modules, internationalization and accessibility
 * Angular is extremely performant: it's as fast or faster than any other frameworks.
 * Angular is open source
 * Angular is very Popular (popularity)
 * Documentation
+
+# CONS OF ANGULAR
+* It can be difficult to get a grip of especially for beginners
+* Steep learning curve
+* No clear manual and extensive
+* Third party integration becomes very difficult
+* It is difficult to switch to newer versions as compared to React
 
 # Subjective and Situational benefits of Angular
 * _Angular is a Framework_: i.e., it comes with pieces will need to build a website built right right into it. for example, __Angular__ comes with a _Router_, _http_, _forms handling_ library, rxjs which is a way to handle asynchronous data, e.t.c. these are benefits because you have to make less decisions .
