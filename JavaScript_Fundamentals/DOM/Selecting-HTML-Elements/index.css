@@ -1,0 +1,14 @@
+
+.selecting-elements-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 40px 40px;
+    background-color: gray;
+    padding: 10px;
+    gap: 20px;
+}
+
+.selecting-elements-container > div {
+    background-color: antiquewhite;
+    text-align: center;
+}
