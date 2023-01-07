@@ -1,6 +1,8 @@
 
-// setInterval()
-var hello = setInterval(helloFunction, 1000);
+// setInterval() Method
+
+// Program to Print Hello every 1 Minute = 60 Seconds = 1000 Milliseconds
+var hello = setInterval(helloFunction, 60000);
 var x = document.getElementById("set-interval");
 
 function helloFunction() {
