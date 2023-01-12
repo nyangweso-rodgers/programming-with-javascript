@@ -1,7 +1,0 @@
-# Website using HTML, CSS and JavaScript
-
-# Font Awesome Account
-1. https://fontawesome.com/account
-
-# Font Awesome Kits Link
-1. https://fontawesome.com/kits
