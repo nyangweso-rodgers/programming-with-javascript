@@ -20,14 +20,41 @@
     - opening & modifying files, 
     - adding data in your database, etc.
 
-# Why Node JS?
-* Node.js is open-source and free
-* Node.js is cross-platform
-* Node.js is extremely fast and great for building real-time web apps
-* Node.js is event-driven
-* Node.js uses a non-blocking I/O model
-* Experience with Node.js is one of the top skills
+# Why use Node.js?
+* Node.js is an open source server environment
+* Node.js is free
+* Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.) i.e., cross-platform
+* Node.js uses JavaScript on the server
 
+# Why Node.js?
+* A common task for a web server can be to open a file on the server and return the content to the client.
+
+* Here is how __PHP__ or ASP handles a file request:
+    1. Sends the task to the computer's file system.
+    2. Waits while the file system opens and reads the file.
+    3. Returns the content to the client.
+    4. Ready to handle the next request.
+
+* Here is how Node.js handles a file request:
+    1. Sends the task to the computer's file system.
+    2. Ready to handle the next request.
+    3. When the file system has opened and read the file, the server returns the content to the client.
+
+* __Node.js__ eliminates the waiting, and simply continues with the next request.
+
+* __Node.js__ runs _single-threaded_, _non-blocking_, _asynchronous_ programming, which is very memory efficient.
+
+# What Can Node.js Do?
+* __Node.js__ can generate dynamic page content
+* Node.js can create, open, read, write, delete, and close files on the server
+* Node.js can collect form data
+* Node.js can add, delete, modify data in your database
+
+# What is a Node.js File?
+* Node.js files contain tasks that will be executed on certain events
+* A typical event is someone trying to access a port on the server
+* Node.js files must be initiated on the server before having any effect
+* Node.js files have extension "__.js__"
 # Disadvantages of NodeJs
 * Unstable API
 * Lack of library support
