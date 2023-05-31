@@ -1,14 +1,31 @@
 # Operators in JS
 
 ## Table Of Contents
-- [Introduction to JS Operators](#Introduction-to-JS-Operators)
-- [Operator Precendence](#Operator-Precendence)
-- [typeof operator](#typeof-operator)
-- [Comparisons Operators](#Comparisons-Operators)
-- [Assignment Operator](#Assignment-Operator)
-- [Remainder Operator](#Remainder)
+- [Operators in JS](#operators-in-js)
+  - [Table Of Contents](#table-of-contents)
+- [Operator?](#operator)
+- [Introduction to JS Operators](#introduction-to-js-operators)
+- [Operator Precendence](#operator-precendence)
+- [The typeof Operator](#the-typeof-operator)
+- [Comparisons Operators](#comparisons-operators)
+- [Assignment Operator](#assignment-operator)
+- [Remainder](#remainder)
+- [Exponentiation](#exponentiation)
+- [Increment/Decrement](#incrementdecrement)
+- [Bitwise Operators](#bitwise-operators)
+- [Comma Operator](#comma-operator)
+- [Math Operations](#math-operations)
+- [Types Conversions](#types-conversions)
 
 
+# Operator?
+* __Operator__ is a special symbol used to perform operations on __operands__ (values and variables).
+* JavaScript Operator Types are:
+    1. Assignment operator
+    2. Arithmetic operator
+    3. Comparison operator
+    4. Logical operator
+    5. Bitwise operator
 # Introduction to JS Operators
 * An __operand__ is what operators are applied to.
     ```js
