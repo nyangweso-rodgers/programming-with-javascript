@@ -1,2 +1,0 @@
-// clearInterval() Method
-
