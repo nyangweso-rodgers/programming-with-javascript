@@ -1,4 +1,4 @@
-# APIs and Web Services in JavaScript
+# APIs and Web Services with JavaScript
 
 ## Table Of Contents
 - [Different ways to call API in JavaScript](#Different-ways-to-call-API-in-JavaScript)
@@ -7,6 +7,8 @@
     
 - [Further Reading]()
     - [How to get data from an API in JavaScript?](https://rapidapi.com/guides/how-to-get-data-from-api-javascript?utm_source=twitter.com%2FRapid_API&utm_medium=DevRel&utm_campaign=DevRel)
+    - [Medium - Most Common Ways to Make HTTP Requests in JavaScript](https://javascript.plainenglish.io/most-common-ways-to-make-http-requests-in-javascript-85c112ecf48a)
+    - [freeCodeCamp - HTTP Networking in JavaScript –Handbook for Beginners](https://www.freecodecamp.org/news/http-full-course/)
 
 # Different ways to call API in JavaScript
 There are multiple ways to call APIs in JavaScript:
