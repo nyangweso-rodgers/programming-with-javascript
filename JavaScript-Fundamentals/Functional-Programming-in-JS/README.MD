@@ -1,15 +1,18 @@
-# Functions
+# Functional Programming in JavaScript
 
 ## Table Of Contents
 1. [5 Ways to Define Functions in JS]()
-    - [Function Expression]()
-    - [Function Declaration]()
-    - [Arrow Function]()
-    - [Function Constructor]()
-    - [IIEF Functions]()
+    1. [Function Expression](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Function-Expression)
+    2. [Function Declaration](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Function-Declaration)
+    3. [Arrow Function](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Arrow-Function)
+    4. [Function Constructor](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Function-Constructor)
+    5. [IIEF Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/IIEF-Function)
 
-- [Callback Functions]()
-- [Recursive Functions]()
+2. [Higher Order Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Higher-Order-Functions)
+   1. forEach()
+   2. map()
+   3. filter()
+   4. reduce()
 
 # Types of JS Functions
 1. __eval() function__: You can get the result of a __string expression__ using the __eval() function__, which takes a string expression argument and returns the result. If the argument is empty, it returns __undefined__.

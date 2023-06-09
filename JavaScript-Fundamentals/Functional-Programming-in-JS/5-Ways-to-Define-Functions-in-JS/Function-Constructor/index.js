@@ -1,5 +1,4 @@
-
-
+// Function Definitions - Function Constructor
 // sum function
 
 let sum = new Function(

@@ -1,4 +1,4 @@
-# Function Expression
+# Function Definition in JavaScript - Function Expression
 
 * A __Function Expression__ is created when the execution reaches it and is usable only from that moment. 
 

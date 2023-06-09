@@ -1,4 +1,4 @@
-# Function Declaration
+# Function Definition in JavaScript - Function Declaration
 
 * __Function Declarations__ are different. A __Function Declaration__ can be called earlier than it is defined. For example, a global Function Declaration is visible in the whole script, no matter where it is. That’s due to internal algorithms.
 

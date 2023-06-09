@@ -1,2 +1,2 @@
-# Arrow Functions
+# Function Definition in JavaScript - Arrow Functions
 
