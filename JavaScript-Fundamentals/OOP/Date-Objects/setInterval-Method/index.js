@@ -13,4 +13,4 @@ function greetMe() {
     console.log(`greetings, ${name}!`);
 }
 
-setInterval(greetMe, 1000, 'Nyangweso'); // uncomment
+// setInterval(greetMe, 1000, 'Nyangweso'); // uncomment
