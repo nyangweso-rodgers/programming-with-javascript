@@ -14,6 +14,13 @@
    3. filter()
    4. reduce()
 
+3. [JavaScript Functions Programs](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions)
+   1. [FizzBuzz Function](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/FizzBuzz-Function)
+   2. [Random Number Generator Program](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/Random-Number-Generator-Function)
+   3. [Reverse Character Function Program](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/Reverse-Character-Function)
+   4. [Countdown Function](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/countdown-function)
+   5. [Sum of Natural Numbers Program](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/sum-of-natural-numbers-using-recursion)
+
 # Introduction
 
 # Syntax
