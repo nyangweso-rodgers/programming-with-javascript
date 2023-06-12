@@ -1,15 +1,20 @@
 
 // console.log(Math.random());
 
-function getRandomNumber(min, max) {
-    const floatRandomNumber = Math.random();
-    const difference = max - min;
+getRandomNumberFunction = function getRandomNumber(min = 0, max = 1000) {
+        const floatRandomNumber = Math.random();
+        const randomAboveMin = min + floatRandomNumber;
+        const delta = max - min;
 
-    const random = Math.floor(difference * floatRandomNumber);
-    const randomAboveMin = random + min;
-    return randomAboveMin;
-};
+        var theRandomNumber = Math.ceil(randomAboveMin * delta);
+        //console.log(theRandomNumber);
+        return theRandomNumber;
+    };
 
-console.log(Math.random());
-console.log(getRandomNumber(10, 20)); // Output: 16
-console.log(getRandomNumber(300, 500)); // Output: 497
+//console.log(getRandomNumber(10, 20)); // Output: 16
+//console.log(getRandomNumberFunction(109, 200)); // Output:
+
+// using setInterval() method to print a random number every 2 seconds
+setInterval(function() {
+    getRandomNumberFunction(100, 200); // Calls the function with parameters 100 and 2000
+}, 1000); // Calls the function with parameters
