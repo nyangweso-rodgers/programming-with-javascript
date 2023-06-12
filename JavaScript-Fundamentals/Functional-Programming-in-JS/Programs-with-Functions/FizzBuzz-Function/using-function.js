@@ -1,6 +1,6 @@
 
 // using function
-function fizzBuzz (n) {
+fizzBuzzFunction = function fizzBuzz (n) {
     const upperBoundInclusive = n;
     for (let i = 1; i <= upperBoundInclusive; i++) {
         if (i % 15 === 0) {
@@ -17,4 +17,8 @@ function fizzBuzz (n) {
         }
     }
 };
-console.log(fizzBuzz(100));
+// calling the function once
+// fizzBuzzFunction(10);
+
+// we can use the setInterval Method to print the results every 2 seconds
+setInterval(fizzBuzzFunction, 2000, 10);
