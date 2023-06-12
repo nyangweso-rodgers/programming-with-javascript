@@ -12,8 +12,10 @@
       4. null
       5. undefined
       6. object
-   3. [Functional Programming with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS)
-   4. [Object Oriented Programming with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP)
+
+   3. [JavaScript Control Flow]()
+   4. [Functional Programming with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS)
+   5. [Object Oriented Programming with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP)
 
 3. [JavaScript Frameworks](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Frameworks)
 
