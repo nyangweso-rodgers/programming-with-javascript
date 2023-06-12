@@ -1,0 +1,1 @@
+# Program - Summation Function from 1 to N, natural numbers
