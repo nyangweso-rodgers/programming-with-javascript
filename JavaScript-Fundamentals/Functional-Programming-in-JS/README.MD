@@ -14,6 +14,36 @@
    3. filter()
    4. reduce()
 
+# Introduction
+
+# Syntax
+```js
+    function exampleFunction() {
+        console.log("example function");
+    };
+```
+
+* Functions can also be assigned to variables, i.e., `Function Expression`
+
+    ```js
+        var x = function exampleFunction() {
+            console.log("example function");
+        }
+    ```
+
+# Function Scope
+* Functions in JavaScript are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
+# Anonymous functions
+* `Anonymous function` is a function without a name. These types of functions are typically assigned to variables or passed as parameters to other functions. E.g., 
+
+    ```js
+        // example - anonymous function
+        let double = (num) => num * 2;
+    ```
+* `Anonymous functions` are often used in the following scenarios:
+  * They can be defined within another function call.
+  * They can be stored in a variable.
+  * They can be assigned to events.
 # Types of JS Functions
 1. __eval() function__: You can get the result of a __string expression__ using the __eval() function__, which takes a string expression argument and returns the result. If the argument is empty, it returns __undefined__.
 ```js
