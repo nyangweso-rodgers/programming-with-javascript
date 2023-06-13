@@ -16,6 +16,9 @@
    3. [JavaScript Control Flow]()
    4. [Functional Programming with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS)
    5. [Object Oriented Programming with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP)
+      1. [Array Objects](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP/Array-Objects)
+      2. [Date Objects](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP/Date-Objects)
+      3. [Math Objects](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP/Math-Objects)
 
 3. [JavaScript Frameworks](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Frameworks)
 
