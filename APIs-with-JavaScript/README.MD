@@ -10,6 +10,7 @@
     - [Medium - Most Common Ways to Make HTTP Requests in JavaScript](https://javascript.plainenglish.io/most-common-ways-to-make-http-requests-in-javascript-85c112ecf48a)
     - [freeCodeCamp - HTTP Networking in JavaScript –Handbook for Beginners](https://www.freecodecamp.org/news/http-full-course/)
     - [freeCodeCamp - JavaScript Post Request – How to Send an HTTP Post Request in JS](https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/)
+    - [Hashnode - Working with APIs In Javascript](https://shreya-trivedi.hashnode.dev/working-with-apis-in-javascript)
 
 # Different ways to call API in JavaScript
 There are multiple ways to call APIs in JavaScript:
