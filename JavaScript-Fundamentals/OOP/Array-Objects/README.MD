@@ -43,15 +43,6 @@ you refer to an array element by refering to the index number written in square 
     courses[0] = ["C++"];
     console.log(courses[0]);  // C++
 ```
-# Array Properties
-```js
-    // Array Properties
-    var courses = new Array("HTML", "JavaScript", "CSS");
-
-    // length - returns the length of an array(the number of array elements)
-    // length
-    console.log(courses.length); // Output: 3
-```
 
 # Array Methods
 ```js
