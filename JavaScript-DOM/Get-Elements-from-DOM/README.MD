@@ -1,6 +1,10 @@
 # Get Elements From the DOM Using JavaScript
 
 ## Table Of Contents
+- [Different Ways to Get Elements From the DOM Using JavaScript]()
+    1. [querySelector()](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Get-Elements-from-DOM/Project-querySelector)
+
+
 - [Further Reading]()
   - [dev community - How to Get Elements From the DOM Using JavaScript](https://dev.to/shahednasser/how-to-get-elements-from-the-dom-using-javascript-1676)
 
@@ -41,15 +45,6 @@
         // syntax: getElementsByName
         const emailElements = document.getElementsByName('email');
         console.log(emailElements.item(0));
-    ```
-
-# Method 5: `querySelector`
-* `querySelector()`  retrieves the first element that matches the specified selector. The selector can be any `CSS selector`.
-
-    ```js
-        // syntax: querySelector
-        const elm = document.querySelector('.main > p');
-        console.log(elm);
     ```
 
 # Method 6: `querySelectorAll` 
