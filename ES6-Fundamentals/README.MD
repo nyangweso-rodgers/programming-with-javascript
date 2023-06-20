@@ -1,10 +1,18 @@
 # ECMAScript 6
 
 ## Table Of Contents
-- [Introduction to ES6](#Introduction-to-ES6)
+- [Introduction to `ES6`](#Introduction-to-`ES6`)
 
-# Introduction to ES6
-* __ECMAScript (ES)__ is a scripting language specification created to standardize __JavaScript__. The sixth edition, initially known as __ECMAScript 6__ (ES6) and later renamed to __ECMAScript 2015__, adds significant new syntax for writing complex applications, including:
+- [ES6 Fundamentals](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals)
+   1. [ES6 Variables](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Variables)
+   2. [ES6 Control Flow](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Control-Flow)
+   3. [ES6 Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Functions)
+
+- [Further Reading]()
+    1. []()
+
+# Introduction to `ES6`
+* `ECMAScript` (`ES`) is a scripting language specification created to standardize `JavaScript`. The sixth edition, initially known as `ECMAScript 6` (`ES6`) and later renamed to `ECMAScript 2015`, adds significant new syntax for writing complex applications, including:
     * classes and modules, 
     * iterators  and for/of loops, 
     * generators, 
@@ -16,9 +24,9 @@
     * number and math enhancements, 
     * reflections, proxies. 
 
-* i.e., __ES6__ is a superset of __JavaScript (ES5)__. the reason that __ES6__ became so popular is that it introduced new conventions and OOP concepts such as classes.
+* i.e., `ES6` is a superset of `JavaScript` (`ES5`). the reason that `ES6` became so popular is that it introduced new conventions and OOP concepts such as classes.
 
-* _ES6 code will run only in browsers that support it older devices and browsers that do not support ES6 will return a syntax error_
+* _`ES6` code will run only in browsers that support it older devices and browsers that do not support ES6 will return a syntax error_
 
 # Functions in ECMAScript 6
 
