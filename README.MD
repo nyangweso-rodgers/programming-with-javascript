@@ -25,6 +25,9 @@
    2. [ES6 Control Flow](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Control-Flow)
    3. [ES6 Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Functions)
 
+- [JavaScript DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM)
+   1. []()
+
 - [JavaScript Frameworks](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Frameworks)
     1. [NodeJS](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Frameworks/NodeJS)
 
