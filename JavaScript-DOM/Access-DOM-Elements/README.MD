@@ -2,7 +2,21 @@
 
 ## Table Of Contents
 - [Different Ways to Get Elements From the DOM Using JavaScript]()
-    1. [querySelector()](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Get-Elements-from-DOM/Project-querySelector)
+    1. Access DOM Elements Properties with GetElements
+       1. `document.getElementById()`
+       2. `document.getElementsByTagName()`
+       3. `document.getElementsByClassName()`
+       4. `document.getElementsByName()`
+       5. `document.querySelector()`
+       6. `document.querySelectorAll()`
+
+    2. DOM Traversal Properties
+       1. `parentElement`
+       2. `children`
+       3. `firstElementChild`
+       4. `lastElementChild`
+       5. `previousElementSibling`
+       6. `nextElementSibling`
 
 
 - [Further Reading]()
@@ -18,7 +32,6 @@
         // syntax: getElementById
         const mainElement = document.getElementById('main');
     ```
-
 # Method 2: `getElementsByTagName`
 ```js
     // syntax: getElementsByTagName
@@ -29,14 +42,12 @@
     const pElements = divElements[0].getElementsByTagName('p');
     console.log(pElements);
 ```
-
 # Method 3: `getElementsByClassName()`
 ```js
     // syntax: getElementsByClassName
     const mainElements = document.getElementsByClassName('main');
     console.log(mainElements);
 ```
-
 # Method 4: `getElementsByName()`
 * You can retrieve elements by the value of the `name` attribute.
 * or example, you can use it to retrieve input elements that have the `name` attribute set to `email`.
@@ -47,7 +58,7 @@
         console.log(emailElements.item(0));
     ```
 
-# Method 6: `querySelector()`
+# Method 5: `querySelector()`
 * `querySelector()`  retrieves the first element that matches the specified `CSS` selector. 
 
     ```js
@@ -58,7 +69,7 @@
 
 * When `document.querySelector() `is called, it traverses the document starting from the root element (`html`) and returns the first element that matches the specified selector. If no element is found, it returns `null`.
 
-# Method 7: `querySelectorAll` 
+# Method 6: `querySelectorAll` 
 * `querySelectorAll()` retrieves all elements that match the specified selector. This method returns a `NodeList`.
 
     ```js
@@ -67,37 +78,31 @@
         console.log(elms.item(0));
     ```
 
-# Method 7: `children`
+# DOM Traversal
+* __DOM traversal__ simply means moving up and down the `DOM`, checking for an element to match.
+* Some properties for DOM traversal include:
+    1. `parentElement`
+    2. `children`
+    3. `firstElementChild`
+    4. `lastElementChild`
+    5. `previousElementSibling`
+    6. `nextElementSibling`
+
+# DOM Traversal 1: Access parent node with `parentElement` Property
+* access the actual element in which a particular child is nested (i.e., parent element).
+
+# DOM Traversal 2: Access all the children elements within a parent with `children` Property
+* access all elements nested within a particular parent.
 * The `children` property allows you to retrieve all immediate child elements of the `document` or any element. This property's type is a live `HTMLCollection`.
 
-    ```js
-        // syntax: children
-        const rows = document.querySelectorAll('table tr');
-        for (const row of rows) {
-            console.log(row.children);
-        };
-    ```
-
-# Method 8: `firstElementChild`
+# DOM Traversal 3: Access first child of a parent with `firstElementChild` Property
 * The `firstElementChild` property allows you to retrieve the `first child element` of the `document` or any `element`.
-* If the element does not have children, the value of `firstElementChild` is `null`.
 
-    ```js
-        // syntax: firstElementChild
-        const rows = document.querySelectorAll('table tr');
-        for (const row of rows) {
-            console.log(row.firstElementChild);
-        }
-    ```
+# DOM Traversal 4: Access next sibling element with `nextElementSibling` property
+* access the immediate sibling element next to (downwards) a particular parent.
 
-# Method 9: `lastElementChild`
+# DOM Traversal 5: Access previous sibling element with `previousElementSibling` property
+* access the immediate sibling element previous to (upwards) a particular parent.
+
+# DOM Traversal 6: Access the last child element with `lastElementChild` property
 * The `lastElementChild` property allows you to retrieve the `last child element` of the `document` or any element.
-* If the element does not have children, the value of `lastElementChild` is `null`:
-
-    ```js
-        // syntax: lastElementChild
-        const rows = document.querySelectorAll('table tr');
-        for (const row of rows) {
-            console.log(row.lastElementChild);
-        }
-    ```
