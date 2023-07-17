@@ -1,4 +1,4 @@
-# Get Elements From the DOM Using JavaScript
+# Accessing DOM Elements
 
 ## Table Of Contents
 - [Different Ways to Get Elements From the DOM Using JavaScript]()
@@ -6,23 +6,23 @@
 
 
 - [Further Reading]()
-  - [dev community - How to Get Elements From the DOM Using JavaScript](https://dev.to/shahednasser/how-to-get-elements-from-the-dom-using-javascript-1676)
+  1. [dev community - How to Get Elements From the DOM Using JavaScript](https://dev.to/shahednasser/how-to-get-elements-from-the-dom-using-javascript-1676)
 
 
-# Different Ways to Get Elements from the DOM Using JavaScript
+# Accessing DOM Elements
 
 # Method 1: `getElementById()`
 * [`getElementById()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) rettrieves and element from the DOM using element't ID. If no element exists in the DOM with the supplied ID, `null` will be returned instead.
 
     ```js
         // syntax: getElementById
-        const mainElement = document.getElementById('main);
+        const mainElement = document.getElementById('main');
     ```
 
 # Method 2: `getElementsByTagName`
 ```js
     // syntax: getElementsByTagName
-    const devElement = document.getElementsByTagName('dev');
+    const devElement = document.getElementsByTagName('div');
     console.log(devElement[0]);
 
     // retrieve paragraph elements
@@ -47,7 +47,18 @@
         console.log(emailElements.item(0));
     ```
 
-# Method 6: `querySelectorAll` 
+# Method 6: `querySelector()`
+* `querySelector()`  retrieves the first element that matches the specified `CSS` selector. 
+
+    ```js
+        // syntax:
+        const elm = document.querySelector(selector);
+    ```
+* The `selector` parameter represents the `CSS` selector that you want to use to find the desired element. It can be any valid `CSS` selector, such as a class name (`.class-name`), an ID (`#element-id`), an element type (`div`, `p`, etc.), or a combination of selectors.
+
+* When `document.querySelector() `is called, it traverses the document starting from the root element (`html`) and returns the first element that matches the specified selector. If no element is found, it returns `null`.
+
+# Method 7: `querySelectorAll` 
 * `querySelectorAll()` retrieves all elements that match the specified selector. This method returns a `NodeList`.
 
     ```js
@@ -89,12 +100,4 @@
         for (const row of rows) {
             console.log(row.lastElementChild);
         }
-    ```
-
-# Method 10: `scripts`
-* The `scripts` property allows you to retrieve all `script` elements in the document. It returns an `HTMLCollection` of elements.
-
-    ```js
-        // syntax: scripts
-        console.log(document.scripts);
     ```
