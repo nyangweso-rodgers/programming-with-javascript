@@ -1,5 +1,34 @@
 # JavaScript Methods for DOM manipulation
 
+## Table Of Contents
+
+# Working with Texts
+* Three properties for text manipulation:
+    1. textContent
+    2. innerText
+    3. innerHTML
+
+# Working with Text 1: `textContent`
+* `textContent` property gets the inner text of a HTML element.
+
+# Working with Text 2: `innerText`
+* `innerText` property works similarly to `textContent` with minor differences.
+
+# Working with Text 3: `innerHTML`
+* While you could only alter texts with `textContent` and `innerText`, you can pass in an entire element into a target element inside the DOM with the `innerHTML` property.
+
+
+# Working with Styles
+* all `css` properties can be modified using `JS`. just remember that you cannot use dashes (-) in the property names: these are replaced with camelCase versions where the compound word begins with a capital letter.
+  
+    ```js
+        var x = document.getElementById("style-demo");
+        // change the text color and width of the div elements
+        x.style.color = "#649272";
+        x.style.width = "100px";
+        x.style.backgroundColor = "#33EA73";
+    ```
+
 # 7 javascript methods to carryout DOM manipulation
 
 # Method 1: `document.createElement()`
