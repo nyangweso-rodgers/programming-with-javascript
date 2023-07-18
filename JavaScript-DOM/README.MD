@@ -1,46 +1,49 @@
 # JavaScript DOM
 
 ## Table of Contents
-- [Getting Started with JavaScript DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Getting-Started-with-DOM)
+1. [Examining the DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Examining-the-DOM)
+   1. `document.doctype`
+   2. `document.url`
+   3. `document.lastModified`
+   4. `document.head`
+   5. `document.body`
+   6. `document.forms`
+   7. `document.all`
+   8. `document.scripts`
+
+
+2. [Access DOM Elements](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Access-DOM-Elements)
+   1. `document.getElementById()`
+   2. `document.getElementsByTagName()`
+   3. `document.getElementsByClassName()`
+   4. `document.getElementsByName()`
+   5. `document.querySelector()-`
+   6. `document.querySelectorAll()`
+
+3. [DOM Traversal]()
+   1. `parentElement`
+   2. `children`
+   3. `firstElementChild`
+   4. `lastElementChild`
+
+
 - [Get Elements from DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Get-Elements-from-DOM)
-  1. [getElementById]()
-  2. [getElementsByTagName]()
-  3. [getElementsByClassName]()
-  4. [getElementsByName]()
-  5. [querySelector]()
-  6. [childNodes]()
-  7. [firstElementChild]()
-  8. [lastElementChild]()
-  9. [scripts]()
 
 - [Further Reading]()
   1. [Dev.to - The Ultimate Tutorial on JavaScript DOM - JS DOM with Examples](https://dev.to/ubahthebuilder/the-ultimate-tutorial-on-javascript-dom-js-dom-with-examples-1b47)
 
-# Examining the DOM
-# `console.dir(document)`
-* gives an interactive representation of our document. Interactive because it becomes very easy to expand the document object and inspect the properties and methods inside the document object.
+# Overview of DOM
 
-# DOM Properties and Methods
-* The document object contains a set of information pertaining to that document, such as its __properties__ as well as __methods__ to interact with it from our script.
-*  We can check for any __property__ by using the `document.property `syntax. 
+# DOM Methods vs. DOM Properties
+* __DOM methods__ are functions provided by the __DOM API__ that allow you to interact with and manipulate elements in the __DOM__. i.e., manipulate content, style, or behavior.
+* These methods are typically called using the `dot` notation on specific DOM elements or the document object. E,g.,
+    1. `document.getElementById()`
+    2. `document.createElement()`
+    3. `document.appendChild()`
+    4. e.t.c.,
 
-# DOM Property 1: Check the Document Type: `console.log(document.doctype)`
-* get information about the type and version of the HTML Markup being used in the document. e.g., `<!DOCTYPE html>`
-
-# DOM Property 2: Getting the page's URL: `console.log(document.URL)`
-* Sample Output: `https://twitter.com/home`
-
-# DOM Property 3: Time of last modification: `console.log(document.lastModified)`
-* see when last a document (`HTML`) was modified.
-
-# DOM Property 4: View the head part of the HTML Document `console.log(document.head)`
-* This will log the `HTML` head tag as well as every other tags nested inside of it.
-
-# DOM Property 5: Get the Body of the document: `console.log(document.body)`
-* This logs a `HTML` representation of the body tag and all nested tags, onto the browser console.
-
-# DOM Property 6: Get the form(s) of the document: `console.log(document.forms)`
-* This will return a `HTMLCollection` (similar to an array) showing the number of forms (if any) present in the document as well as their index properties.
-
-# DOM Property 7: Get the entire HTML markup: `console.log(document.all)`
-* This will log the entire markup within the `HTML` document.
+* __DOM Properties__ represent attributes or characteristics of DOM elements. Examples include:
+  1. `textContent` - represents text with an element
+  2. `innerHTML` - represents the `HTML` content within an element
+  3. `id` - represents the unique identifier of an element
+  4. `className` - represents the css classes applied to the element
