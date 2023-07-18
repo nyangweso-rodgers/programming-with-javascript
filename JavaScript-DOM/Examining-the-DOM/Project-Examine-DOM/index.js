@@ -1,1 +1,2 @@
-console.log(document.scripts);
+// console.log(document.scripts);
+
