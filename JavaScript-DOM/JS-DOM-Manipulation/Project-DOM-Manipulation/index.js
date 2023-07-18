@@ -14,7 +14,8 @@ firstRowParagraph.textContent = "This is a new paragraph from DOM Manipulation u
 // add p to the first .row class using innerHTML
 firstRowParagraph.innerHTML = "<p>Added paragraph using innerHTML property</p>";
 
-// Working with Styles: change the background color of .about-section class to #02343F
+// Working with Styles: 
+// Task: change the background color of .about-section class to #02343F
 let myAboutSection = document.querySelector(".about-section");
 //console.log(myAboutSection.textContent); //TODO: 
 
