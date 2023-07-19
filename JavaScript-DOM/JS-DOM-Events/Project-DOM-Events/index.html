@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Google Fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Trirong|Actor">
+
+      <!-- Latest compiled and minified CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Latest compiled JavaScript -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-lg bg-success">
+            <div class="container">
+                <a class="navbar-brand text-white" href="">Project: DOM Events</a>
+            </div>
+        </nav>
+    </header>
+    <section class="section">
+        <div class="container-fluid">
+            <div class="row">
+                <h3><code>click</code> Events</h3>
+            </div>
+            <div class="row border">
+                <div class="col-sm-3 border p-2">
+                    <p class="">Click the button to alert <i>button Clicked!</i></p>
+                    <button id="buttonOne" class="btn btn-success">Button 1</button>
+                </div>
+                <div class="col-sm-3 border p-2">
+                    <p>Click the button to display <i>"Button Successfully Clicked!"</i></p>
+                    <button id="buttonTwo" class="btn btn-success">Button 2</button>
+                </div>
+                <div class="col-sm-3 border p-2">
+                    <p>Click the button to display current datetime.</p>
+                    <button id="buttonThree" class="btn btn-success">Button 3</button>
+                    <p id="btnThreeP"></p>
+                </div>
+                <div class="col-sm-3 border p-2">
+                    <p>Click the button to display a random number!</p>
+                    <button id="buttonFour" class="btn btn-success">Button 4</button>
+                    <p id="btnFourP"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <h3>Arithmetic Calculations</h3>
+                <p>Use <code>click</code> event to perform some calculations!</p>
+            </div>
+            <div class="row p-4 border">
+                <div class="col">
+                    <div class="row">
+                        <label class="col-sm-8 text-end form-label" for="">Enter the first number</label>
+                        <div class="col-sm-4">
+                            <input id="firstNumber" class="form-control" type="number">
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-sm-8 text-end form-label" for="">Enter the second number</label>
+                        <div class="col-sm-4">
+                            <input id="secondNumber" class="form-control" type="number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input id="add" type="radio" class="btn-check" name="btnradio" autocomplete="off" checked>
+                            <label id="addBtn" class="btn btn-outline-primary" for="add">+</label>
+
+                            <input id="sub" type="radio" class="btn-check" name="btnradio">
+                            <label id="subBtn" class="btn btn-outline-primary" for="sub">-</label>
+
+                            <input id="divide" type="radio" class="btn-check" name="btnradio">
+                            <label id="divBtn" class="btn btn-outline-primary" for="divide">/</label>
+
+                            <input id="multiply" type="radio" class="btn-check" name="btnradio">
+                            <label id="mulBtn" class="btn btn-outline-primary" for="multiply">x</label>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <label class="col-sm-8 text-end form-label" for="">Result:</label>
+                        <p id="result" class="col-sm-4 border p-3"></p>
+                    </div>
+                </div>
+        </div>
+    </section>
+      <script src="index.js" async defer></script>
+  </body>
+</html>
