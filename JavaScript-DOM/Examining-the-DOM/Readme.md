@@ -1,6 +1,8 @@
 # Examining the DOM
 
 ## Table Of Contents
+- [Further Reading]()
+    1. [w3Schools - DOM Document](https://www.w3schools.com/js/js_htmldom_document.asp)
 
 # DOM Properties for Examining the DOM.
 * The document object contains a set of information pertaining to that document, such as its __properties__ as well as __methods__ to interact with it from our script.
@@ -70,3 +72,6 @@
     ```js
         console.log(document.scripts);
     ```
+
+# Examining the DOM: Property 10: `document.cookie`
+* Returns the document's cookie
