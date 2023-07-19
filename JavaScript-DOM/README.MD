@@ -26,6 +26,9 @@
    3. `firstElementChild`
    4. `lastElementChild`
 
+4. [DOM Events](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/JS-DOM-Events)
+   1. [Project - Working with JavaScript DOM Events](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/JS-DOM-Events/Project-DOM-Events)
+
 
 - [Get Elements from DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM/Get-Elements-from-DOM)
 
@@ -33,6 +36,7 @@
   1. [Dev.to - The Ultimate Tutorial on JavaScript DOM - JS DOM with Examples](https://dev.to/ubahthebuilder/the-ultimate-tutorial-on-javascript-dom-js-dom-with-examples-1b47)
 
 # Overview of DOM
+* Document Object Model (DOM) is an interface that enables manipulation of the content, structure and style of a web page.
 
 # DOM Methods vs. DOM Properties
 * __DOM methods__ are functions provided by the __DOM API__ that allow you to interact with and manipulate elements in the __DOM__. i.e., manipulate content, style, or behavior.
