@@ -11,23 +11,6 @@
 - [Further Reading]()
     1. []()
 
-# Introduction to `ES6`
-* `ECMAScript` (`ES`) is a scripting language specification created to standardize `JavaScript`. The sixth edition, initially known as `ECMAScript 6` (`ES6`) and later renamed to `ECMAScript 2015`, adds significant new syntax for writing complex applications, including:
-    * classes and modules, 
-    * iterators  and for/of loops, 
-    * generators, 
-    * arrow functions, 
-    * binary data, 
-    * typed arrays, 
-    * collections (maps,sets and weak maps), 
-    * promises, 
-    * number and math enhancements, 
-    * reflections, proxies. 
-
-* i.e., `ES6` is a superset of `JavaScript` (`ES5`). the reason that `ES6` became so popular is that it introduced new conventions and OOP concepts such as classes.
-
-* _`ES6` code will run only in browsers that support it older devices and browsers that do not support ES6 will return a syntax error_
-
 
 # ES6 Rest Parameters
 prior to __ES6__,  if we wanted to pass a variable number of arguments to a function, we could use the arguments object, an array-like object, to access the parameters passed to the function. __for example__:
