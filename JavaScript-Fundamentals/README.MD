@@ -14,3 +14,8 @@
        4. `swicth` statements
        5. `while` loop
     4. [JavaScript Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/js-Functions)
+       1. [How to Define Functions]()
+          1. `function declarations`
+          2. `function constructors`
+          3. `function expressions`
+          4. `arrow functions`
