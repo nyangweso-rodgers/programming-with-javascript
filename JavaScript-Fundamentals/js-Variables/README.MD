@@ -76,3 +76,25 @@
     };
     //console.log(myMessage);
 ```
+
+# `js` Variable Hoisting
+* __Hoisting__ is a `js` behavior in which a `function` or `variable` can be accessed or used before the declaration. 
+* But it's not going to work with `let` and `const` keywords but only works with `var` keyword.
+
+* `js` "initialization" is not hoisted but "declarations" are hoisted. See in this example, the only declaration is hoisted not the value. Variable declared with "`var`" keyword is initialized with "undefined" value by default.
+
+    ```js
+        // js variable hoisting
+        console.log(my_country); // Output: undefined
+
+        var my_country = "Kenya"; 
+    ```
+
+    ```js
+        console.log(sumArrow(10, 20)); // sumArrow is not a function
+        console.log(sumArrow); // undefined
+
+        var sumArrow = (x, y) => {
+            return x + y;
+        };
+    ```

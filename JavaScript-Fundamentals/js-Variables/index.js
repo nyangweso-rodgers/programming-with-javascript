@@ -1,9 +1,9 @@
 // js variables
 
-let myMessage = 'This is a global variable';
 
-function myFunction() {
-	console.log(myMessage);
-	// code here can also be used
+console.log(sumArrow(10, 20)); // sumArrow is not a function
+console.log(sumArrow); // undefined
+
+var sumArrow = (x, y) => {
+	return x + y;
 };
-console.log(myMessage);
