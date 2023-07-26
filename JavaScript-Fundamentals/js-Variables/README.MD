@@ -48,7 +48,11 @@
     ```
 
 # Variables Scope in `js`
-# Variables Scope in `js`: Block Scope
+* __`js` Scope__ determines the accessibility (visibility) of the `variables`. 3 types of __scope__ include:
+  * 
+# Variables Scope in `js` 1: `Block Scope`
+* __Block scope__: means declaring `variables` inside a block or curly brackets `{}`. Trying to access it outside the block throws an error. 
+* `Variables` declared with the `let` keyword can NOT have block scope.
 * Case 1:
   
     ```js
@@ -66,17 +70,32 @@
     // console.log(country);  // ReferenceError: country is not defined
   ```
 
-# Variables Scope in `js`: Global Scope
-```js
-    let myMessage = 'This is a global variable';
+# Variables Scope in `js` 2: `Global Scope`
+* __Global Scope__: variables declared Globally (outside any function) have a __Global Scope__. Global variables can be accessed from anywhere in a `JS` program.
 
-    function myFunction() {
-        console.log(myMessage);
-        // code here can also be used
-    };
-    //console.log(myMessage);
-```
+    ```js
+        let myMessage = 'This is a global variable';
 
+        function myFunction() {
+            console.log(myMessage);
+            // code here can also be used
+        };
+        //console.log(myMessage);
+    ```
+
+# Variables Scope in `js` 3: `Function/Local Scope`
+* __Function (Local) Scope__: variables defined inside a `function` are not accessible (visible) from outside the `function`. 
+* Example:
+  
+    ```js
+        // Here, we CANNOT use the Name variable
+        function myFunction() {
+            let Name = 'Rodgers';
+            // Here, we can use the Name variable
+        };
+        // Here we cannot use the Name variable
+    ```
+* Variables declared within a function are known as _local variables_. Variables declared with __var__, __let__, and __const__ are pretty similar when declared inside a function. They all have a __Function Scope__.
 # `js` Variable Hoisting
 * __Hoisting__ is a `js` behavior in which a `function` or `variable` can be accessed or used before the declaration. 
 * But it's not going to work with `let` and `const` keywords but only works with `var` keyword.
