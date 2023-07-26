@@ -1,12 +1,11 @@
 # Functional Programming in JavaScript
 
 ## Table Of Contents
-1. [5 Ways to Define Functions in JS]()
-    1. [Function Expression](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Function-Expression)
-    2. [Function Declaration](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Function-Declaration)
-    3. [Arrow Function](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Arrow-Function)
-    4. [Function Constructor](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/Function-Constructor)
-    5. [IIEF Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/5-Ways-to-Define-Functions-in-JS/IIEF-Function)
+1. [Method To Define Functions](#Method-To-Define-Functions)
+    1. `function declarations`
+    2. `function constructors`
+    3. `function expressions`
+    4. `arrow functions`
 
 2. [Higher Order Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Higher-Order-Functions)
    1. forEach()
@@ -30,14 +29,78 @@
     };
 ```
 
-* Functions can also be assigned to variables, i.e., `Function Expression`
+# Method To Define Functions
+# Define Function Method 1: `Function Declaration`
+* A `Function Declaration` can be called earlier than it is defined. For example, a global Function Declaration is visible in the whole script, no matter where it is. That’s due to internal algorithms.
+  
+* When `JavaScript` prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an “initialization stage”. And after all Function Declarations are processed, the code is executed. So it has access to these functions.
+
+* `Function Declarations` load before the code is executed. The function in `function declartion` can be accessed before and after the function definiton. consists of the `function` keyword, followed by:
+    * Name of the function
+    * lists of parameters to the function, enclosed in a parenthesis
+    * JS statements that define the function, enclosed in curly brackets
+
+* Syntax:
+
+    ```js
+        // function declaration syntax
+        function functionName(params) {
+            // code to be executed goes here
+        };
+    ```
+* Example: sum function
+
+    ```js
+        function sumFunction(a, b) {
+            return(a + b);
+        };
+
+        console.log(sumFunction(1, 2)); // Output: 3
+    ```
+# Define Functions Method 2: `Function Constructor`
+* Example Function with `constructor`
+  
+    ```js
+        let sum = new Function(
+            'a',
+            'b',
+            'return a + b'
+        );
+
+        console.log(sum(5, 6)); // Output: 11
+    ```
+# Define Functions Method 3: `Function Expression`
+* Functions can also be assigned to `variables`, i.e., `Function Expression`
+* Syntax:
 
     ```js
         var x = function exampleFunction() {
             console.log("example function");
         }
     ```
+* `Function Expression` load when the interpreter reaches that line of code. If it's called before then it leads to an error. Why? _because the Interpreter will only hoist variable declaration to the top but keeps assignment at the same line._ The function in `Function Expression` can be accessed only after the function definition.
 
+* Example:
+
+    ```js
+        // function expressions
+        let sumFunction = function (a, b) {
+            return a + b;
+        };
+
+        console.log(sumFunction(1, 2)); // Output: 3
+    ```
+# Define Functions Method 4: `Arrow Function`
+* Example:
+
+    ```js
+        // Array functions
+        let sumFunction = (a, b) => {
+            return a + b;
+        };
+
+        console.log(sumFunction(1, 2)); // Output: 3
+    ```
 # Function Scope
 * Functions in JavaScript are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
 # Anonymous functions
