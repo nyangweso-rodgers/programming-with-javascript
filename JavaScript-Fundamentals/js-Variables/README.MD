@@ -11,7 +11,7 @@
     message = 'Hallo World!'; // store the string
 ```
 
-# Method 2: using `var` keyword\
+# Method 2: using `var` keyword
 * the `var` keyword is almost the same as `let`. it also declares a variable but in an old fashioned way. there are subtle differences between "`var`" and "`let`" 
 
     ```js
@@ -47,4 +47,32 @@
         alert(secondName); // Output: 'rodgers'
     ```
 
-  * __Functional languages__: _it is intersting to note that there exist __functional programming languages__ like __Scala__ and __Erlang__ that forbid changing variable values. in such languages, once tha value is stored, it's there forever. if we need to store something else, the language forces us to create/declare a new variable. we can't reuse the old one. though it may seem a little odd at first sight, these languages are quite capable of serious development_
+# Variables Scope in `js`
+# Variables Scope in `js`: Block Scope
+* Case 1:
+  
+    ```js
+        {
+            var estate = 'Kitengela';
+        }
+        // console.log(estate); // Output: Kitengela
+    ```
+* Case 2:
+  
+  ```js
+    {
+	    let country = 'Kenya';
+    }
+    // console.log(country);  // ReferenceError: country is not defined
+  ```
+
+# Variables Scope in `js`: Global Scope
+```js
+    let myMessage = 'This is a global variable';
+
+    function myFunction() {
+        console.log(myMessage);
+        // code here can also be used
+    };
+    //console.log(myMessage);
+```
