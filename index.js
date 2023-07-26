@@ -1,30 +1,5 @@
 // JavaScript Projects
 
-// Scope in JS
-// Block Scope
-{
-	var estate = 'Kitengela';
-}
-// console.log(estate); // Output: Kitengela
-
-{
-	let country = 'Kenya';
-}
-// console.log(country);  // ReferenceError: country is not defined
-
-// Global Scope
-let myMessage = 'This is a global variable';
-
-function myFunction() {
-	console.log(myMessage);
-	// code here can also be used
-};
-//console.log(myMessage);
-
-// Hoisting in JS
-console.log(hoistedName); // undefined
-var hoistedName = 'Hoisted JS variabe';
-
 // console methods in JS
 // console.log() - prints the message on the console
 const sampleObject = {firstName : "Rodgers", lastName : "Nyangweso"};
