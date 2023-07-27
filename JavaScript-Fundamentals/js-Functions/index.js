@@ -7,8 +7,16 @@
 
 
 // Array functions
-let sumFunction = (a, b) => {
-    return a + b;
+
+
+// Nested Functions
+function greetMe(name) {
+    // inner function
+    function displayName() {
+        console.log("Hello " + ' ' + name);
+    };
+    displayName();
 };
 
-console.log(sumFunction(1, 2)); // Output: 3
+// calling the outer function
+greetMe("Rodgers"); // Output: "Hello Rodgers"

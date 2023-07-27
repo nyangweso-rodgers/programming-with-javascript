@@ -7,6 +7,8 @@
     3. `function expressions`
     4. `arrow functions`
 
+2. JavaScript Closure
+
 2. [Higher Order Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Higher-Order-Functions)
    1. forEach()
    2. map()
@@ -20,14 +22,6 @@
    4. [Countdown Function](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/countdown-function)
    5. [Sum of Natural Numbers Program](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/sum-of-natural-numbers-using-recursion)
 
-# Introduction
-
-# Syntax
-```js
-    function exampleFunction() {
-        console.log("example function");
-    };
-```
 
 # Method To Define Functions
 # Define Function Method 1: `Function Declaration`
@@ -101,8 +95,57 @@
 
         console.log(sumFunction(1, 2)); // Output: 3
     ```
+
+# Nested Functions
+* In `js`, a function can also contain another function. 
+* Example,
+    ```js
+        // Nested Functions
+        // outer function
+        function greetMe(name) {
+            // inner function
+            function displayName() {
+                console.log("Hello " + ' ' + name);
+            };
+            displayName();
+        };
+
+        // calling the outer function
+        greetMe("Rodgers"); // Output: "Hello Rodgers"
+    ```
+
+# `js` Closure
+* In `js`, __closure__ provides access to the outer scope of a function from inside the inner function, even after the outer function has closed. 
+* For example
+    ```js
+        function greet() {
+
+            // variable defined outside the inner function
+            let name = 'Rodgers';
+
+            // inner function
+            function displayName() {
+
+                // accessing name variable
+                return 'Hi' + ' ' + name;
+            };
+
+            return displayName;
+        };
+
+        const g1 = greet(); 
+        console.log(g1); // return the function definition
+        console.log(g1()); // returns the value
+    ```
+* Advantages of using __closures__ include:
+  * __Closures__ can be used to simulate private variables and methods
+  * __closures__ help in maintaining the state between function calls without using a global variable
+
+
 # Function Scope
-* Functions in JavaScript are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
+* Functions in `js` are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
+
+
 # Anonymous functions
 * `Anonymous function` is a function without a name. These types of functions are typically assigned to variables or passed as parameters to other functions. E.g., 
 
