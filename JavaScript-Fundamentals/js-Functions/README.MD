@@ -113,7 +113,19 @@
         // calling the outer function
         greetMe("Rodgers"); // Output: "Hello Rodgers"
     ```
+# Functions with Default Parameter
+* default value expressions are evaluated at function call time from left to right. this also means that default expressions can use the values previously-filled parameterts.
+  
+    ```js
+        // default parameter
+        // Functions with Default Parameters
+        function test(a, b = 3,  c= 4) {
+            var result = a + b + c;
+            return result;
+        };
 
+        console.log(test(5)); // Output: 12
+    ```
 # `js` Closure
 * In `js`, __closure__ provides access to the outer scope of a function from inside the inner function, even after the outer function has closed. 
 * For example

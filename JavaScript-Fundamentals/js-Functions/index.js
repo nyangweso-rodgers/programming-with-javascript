@@ -19,4 +19,12 @@ function greetMe(name) {
 };
 
 // calling the outer function
-greetMe("Rodgers"); // Output: "Hello Rodgers"
+// greetMe("Rodgers"); // Output: "Hello Rodgers"
+
+// Functions with Default Parameters
+function test(a, b = 3,  c= 4) {
+    var result = a + b + c;
+    return result;
+};
+
+console.log(test(5)); // Output: 12
