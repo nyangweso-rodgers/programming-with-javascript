@@ -1,4 +1,4 @@
-# Functional Programming in JavaScript
+# `js` Functions
 
 ## Table Of Contents
 1. [Method To Define Functions](#Method-To-Define-Functions)
@@ -8,12 +8,6 @@
     4. `arrow functions`
 
 2. JavaScript Closure
-
-2. [Higher Order Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Higher-Order-Functions)
-   1. forEach()
-   2. map()
-   3. filter()
-   4. reduce()
 
 3. [JavaScript Functions Programs](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions)
    1. [FizzBuzz Function](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/Functional-Programming-in-JS/Programs-with-Functions/FizzBuzz-Function)
