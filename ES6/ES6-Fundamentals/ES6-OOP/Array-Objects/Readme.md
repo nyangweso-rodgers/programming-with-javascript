@@ -61,7 +61,7 @@
 
         console.log(doublePriceList); // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
     ```
-
+# Array Function: `forEach()`
 # Array Function: `reduce()`
 
 # Array Function: `filter()`
