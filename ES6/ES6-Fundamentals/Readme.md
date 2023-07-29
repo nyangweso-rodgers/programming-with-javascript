@@ -1,4 +1,4 @@
-# `ES6` Getting Started
+# `ES6` Fundamentals
 
 ## Table of Contents
 - [Further Reading]()

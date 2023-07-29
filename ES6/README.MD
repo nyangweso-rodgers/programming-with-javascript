@@ -1,15 +1,6 @@
-# ECMAScript 6
+# ECMAScript 6 (ES6)
 
 ## Table Of Contents
-- [Introduction to `ES6`](#Introduction-to-`ES6`)
-
-- [ES6 Fundamentals](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals)
-   1. [ES6 Variables](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Variables)
-   2. [ES6 Control Flow](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Control-Flow)
-   3. [ES6 Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Functions)
-
-- [Further Reading]()
-    1. []()
 
 
 # ES6 Rest Parameters
@@ -294,8 +285,3 @@ _Remarks_:
 * we create an object of 7 elements by using Symbol.iterator and generator functions.
 * in the second part, we assign our object to a constant all_1.
 * at the end we print its value
-
-
-
-# Built-in Methods
-__ES6__ also introduced new built-in methods to make several tasks easier
