@@ -20,19 +20,9 @@
         2. [Date Objects](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP/Date-Objects)
         3. [Math Objects](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/OOP/Math-Objects)
 
-- [ES6 Fundamentals](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals)
+- [ES6](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals)
    1. [ES6 Variables](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Variables)
    2. [ES6 Control Flow](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Control-Flow)
    3. [ES6 Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Functions)
 
 - [JavaScript DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM)
-   1. []()
-
-- [JavaScript Frameworks](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Frameworks)
-    1. [NodeJS](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Frameworks/NodeJS)
-
-- [JavaScript Libraries]()
-   1. [ReactJS](https://github.com/nyangweso-rodgers/Web-Applications-with-ReactJS)
-
-- [Further Reading]()
-   1. []()
