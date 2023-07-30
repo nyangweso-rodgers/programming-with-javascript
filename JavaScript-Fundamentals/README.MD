@@ -19,3 +19,16 @@
           2. `function constructors`
           3. `function expressions`
           4. `arrow functions`
+
+# Error Handling in `js`
+* `js` used `try...catch` construct to handle errors.
+
+   ```js
+      try {
+         console.log("get's executed successfully without error");
+         // no error here, so the catch will be skipped
+      } catch (e) {
+         console.log("no error, catch is skipped");
+      };
+   ```
+* if the `try` block doesn't run successfully and leads to an error, then the code inside `catch` block will be executed.
