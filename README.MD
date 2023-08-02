@@ -26,3 +26,7 @@
    3. [ES6 Functions](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/ES6-Fundamentals/ES6-Functions)
 
 - [JavaScript DOM](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-DOM)
+
+
+- [Further Reading]()
+   1. [javascript.info](https://javascript.info/)
