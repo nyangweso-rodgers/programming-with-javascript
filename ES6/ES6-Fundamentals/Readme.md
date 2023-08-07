@@ -84,11 +84,11 @@
         let lastName = "Nyangweso";
 
         function displayFullName(firstName, lastName) {
-        const fullName = `${firstName} ${lastName}`;
-        return fullName;
-    };
+            const fullName = `${firstName} ${lastName}`;
+            return fullName;
+        };
 
-    console.log(displayFullName(firstName, lastName)); // Output: "Rodgers Nyangweso"
+        console.log(displayFullName(firstName, lastName)); // Output: "Rodgers Nyangweso"
     ```
 * __Arrow Functions__ provide a more coincise syntax for writing functions expressions by removing the "__function__" and "__return__" keywords. 
 * __Arrow Functions__ are defined using the __fat arrow__ (=>) notation.
