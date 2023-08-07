@@ -18,7 +18,7 @@ getRandomUserData(); //TODO: Uncomment to run
 
 // OpenWheather API
 const getOpenWheatherData = () => {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=London&appid=777ea2ebd636019f4ed684c275b8df6c")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=London&appid=API_KEY")
     .then(response => response.json())
     .then(openWeatherMapData => console.log(openWeatherMapData))
     .catch(error => console.log(error));

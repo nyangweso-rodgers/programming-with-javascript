@@ -1,0 +1,20 @@
+body {
+    font-family: "Trirong", serif;
+}
+
+.navbar {
+    background: #0A2647;
+    font-size: 20px;
+    font-family: "Trirong", serif;
+    /*padding-top: 15px;*/
+    letter-spacing: 1px;
+    /*margin-bottom: 0;*/
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #fff;
+}
+
+.section {
+    padding: 40px 0;
+}
