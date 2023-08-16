@@ -5,16 +5,16 @@
 * an __Array__ is a special type of `Object`, it uses numbers to access its elements and an `Object` uses name to access its members
 
 # Creating JS Arrays
-## Creating a `js` Array: Method 1 (using `new Array()`)
-```js
-    // using new Array
-    var courses = new Array("HTML", "JavaScript", "CSS");
-    console.log(courses); // Output: [ 'HTML', 'JavaScript', 'CSS' ]
-    console.log(typeof(courses)); // object
-```
-## Creating a `js` Array: Method 2
-* you can also declear an array, tell it the number of elements it will store, and add the elements later.
-
+* __Method 1__:
+  * using `new Array()`
+    ```js
+        // using `new Array()`
+        let names = new Array("Rodgers", "Nyangweso");
+        console.log(names); // Output: [ 'Rodgers', 'Nyangweso' ]
+        console.log(typeof(names)); // Output: object
+    ```
+* __Method 2__:
+  * you can also declear an array, tell it the number of elements it will store, and add the elements later.
     ```js
         var priceList = new Array();
 
@@ -26,14 +26,13 @@
         // display the price list
         console.log(priceList); // Output: [ 10, 20, 30 ]
     ```
-
-## Creating a `js` Array: Method 3 (Using `array literals`)
-* this is used for greater simplicity, readability and execution speed
-
+* __Method 3__:
+  * using `array literal`
+  * this is used for greater simplicity, readability and execution speed
     ```js
         // declare a new array using `array literals`
         var priceList = [ 10, 20, 30]
-         var familyMembers = ['Rodgers', 'Wilson', 'Robert'];
+        var familyMembers = ['Rodgers', 'Wilson', 'Robert'];
     ```
 
 # Accessing Array Elements
@@ -200,7 +199,7 @@
         const flattenedDoubles = numbers.flatMap((n) => n * 2);
         console.log(flattenedDoubles); // Output: [ 2, 4, 6, 8, 10 ]
     ```
-## Array Method 15: `sort()`
+## Array Method 15: `.sort()`
 * `sort()` used to sort the elements of an array and returning the sorting array. 
 * _NOTE:_ this method is mutating the original array
 
@@ -209,3 +208,29 @@
         numbers.sort((a, b) => a - b);
         console.log(numbers); // Output: [ 1, 2, 3, 5, 8, 9 ]
     ``` 
+
+## Array Method 16: `.indexOf()`
+```js
+    let names = ["Rodgers", "Nyangweso"];
+    // find the index where Rodgers occurs for the first time
+    console.log(names.indexOf("Rodgers")); // Output: 0
+```
+
+## Array Method 17: `.push()` and `.pop()`
+* `js` arrays are dynamic, hence we can add elements using the `push()` method and remove the last element using the `pop()` method
+* An important note is that both of those methods mutate the original array.
+* Examples:
+    * using `.push()`
+    ```js
+        let names = ["Rodgers", "Nyangweso"];
+
+        names.push("Omondi");
+        console.log(names); // Output: [ 'Rodgers', 'Nyangweso', 'Omondi' ]
+    ```
+    * using `.pop()`
+    ```js
+        let names = ["Rodgers", "Nyangweso"];
+
+        names.pop();
+        console.log(names); // Output: [ 'Rodgers']
+    ```
