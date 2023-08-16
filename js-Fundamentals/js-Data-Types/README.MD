@@ -1,14 +1,15 @@
 # Data Types
 
 ## Table of Contents
-- [Introduction to Data Types](#Introduction-to-Data-Types)
-- [Data Types in JS](#Data-Types-in-JS)
-    - [Number](#Number)
-    - [String](#String)
-    - [Boolean](#Boolean)
-    - [null](#null)
-    - [undefined](#undefined)
-    - [object](#Object)
+- [Data Types](#data-types)
+  - [Table of Contents](#table-of-contents)
+- [Introduction to Data Types](#introduction-to-data-types)
+- [Data Types in JS](#data-types-in-js)
+- [Number](#number)
+- [Boolean](#boolean)
+- [null](#null)
+- [undefined](#undefined)
+- [Object](#object)
 
 # Introduction to Data Types
 A __variable__ in JS can contain any data type. a variable can at one moment be a __string__ and at another be a __number__. Programming languages that allow such things are called "__dynamically typed__", meaning that there are data types, but variables are not bound to any of them.
@@ -49,24 +50,7 @@ _Remarks_:
 ```
 * __Mathematical Operations are safe__: _doing maths is 'safe' in javascript. we can do anything, divide by zero, treat non-numeric strings as numbers, e.t.c., the script will never stop with a fatal error ("die"). at worst, we'll get __NaN__ as a result_
 
-# String
-__String__: _double_ and _single quotes_ are "simple" quotes. there is no difference between them in javascript
-```js
-    // String
-    let str = 'hello';
-    let str1 = "double quotes are ok too";
-    let phrase = `can embed ${str}`
-    console.log(phrase); // Output: can embed hello
 
-    // backsticks_ are "extended functionality" quotes, they allow us to embed variables and expressions into a string by wrapping them in ${...}, for example:
-    let name = 'john';
-
-    // embed a variable
-    console.log(`hello, ${name}!`); // Output: hello, john
-
-    // embed an expression
-    console.log(`the result is ${1 + 2}`); // Output: the result is 3
-```
 # Boolean
 __Boolean__ (logical type) has only two values: _true_ and _false_. this type is mostyly used to store yes/no values
 ```js
