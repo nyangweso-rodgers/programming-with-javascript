@@ -90,8 +90,9 @@
 
         console.log(displayFullName(firstName, lastName)); // Output: "Rodgers Nyangweso"
     ```
-* __Arrow Functions__ provide a more coincise syntax for writing functions expressions by removing the "__function__" and "__return__" keywords. 
-* __Arrow Functions__ are defined using the __fat arrow__ (=>) notation.
+* __Arrow Functions__
+  * provide a more coincise syntax for writing functions expressions by removing the "__function__" and "__return__" keywords. 
+  * __Arrow Functions__ are defined using the __fat arrow__ (=>) notation.
 
     ```js
         let firstName = "Rodgers";
@@ -107,21 +108,27 @@
         console.log(displayFullName(firstName, lastName)); // Output: "Rodgers Nyangweso"
     ```
 
-* if there are _no parameters_, an empty pair of parentheseses should be used:
+  * if there are _no parameters_, an empty pair of parentheseses should be used:
 
-    ```js
-        const x = () => {
-            return "My name is Rodgers Nyangweso";
-        };
-        console.log(x()); // Output: "My name is Rodgers Nyangweso"
-    ```
+      ```js
+          const x = () => {
+              return "My name is Rodgers Nyangweso";
+          };
+          console.log(x()); // Output: "My name is Rodgers Nyangweso"
+      ```
 
 * this new syntax is quite handy when you just need a simple function with _one argument_. you can skip typing `function` and `return`, as well as some parentheseses and `braces`. E.g.,
-  
     ```js
         // the code below defines a function named greet that has one argument and returns a message
         const greetMe = firstName => "welcome " + firstName;
         console.log(greetMe("Rodgers")); // Output: welcome Rodgers
+    ```
+  * OR,
+    ```JS
+        // Arrow function with one parameter
+        const doubleDigit = y => y * 2;
+        // OR: 
+        // const double = (y) => y * 2; console.log(double(2)); // Output: 4
     ```
 * Arrow Function with _default parameters_:
 
