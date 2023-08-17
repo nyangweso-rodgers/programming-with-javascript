@@ -1,12 +1,20 @@
 // Array Objects
 
 
-let priceList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let doublePriceList = priceList.map(
-    doubleFunction = (i) => {
-        return i* 2;
+const users = [
+    {
+        id: 0,
+        firstName: 'Rodgers',
+        lastName: 'Nyangweso',
+        age: 20
+    },
+    {
+        id: 1,
+        firstName: 'Wilson',
+        lastName: 'Oyare',
+        age: 21,
     }
-);
+]
 
-console.log(doublePriceList); // Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-
+const double = (y) => y * 2;
+console.log(double(2)); // Output: 4
