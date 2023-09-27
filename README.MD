@@ -1,7 +1,6 @@
 # Programming with `JavaScript`
 
 ## Table of Contents
-- [Getting Started with JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Getting-Started-with-JavaScript)
 
 - [JavaScript Fundamentals](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/JavaScript_Fundamentals)
      1. [JavaScript Variables](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/JavaScript-Fundamentals/JavaScript-Variables)
@@ -29,4 +28,5 @@
 
 
 - [Further Reading]()
-   1. [javascript.info](https://javascript.info/)
+   1. [nyangweso-rodgers.hashnode.dev - Is JavaScript a Compiled or Interpreted Language?](https://nyangweso-rodgers.hashnode.dev/javascript-series-part-1-is-javascript-a-compiled-or-interpreted-language)
+   2. [javascript.info](https://javascript.info/)
