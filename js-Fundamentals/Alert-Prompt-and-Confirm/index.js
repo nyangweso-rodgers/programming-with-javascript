@@ -1,1 +1,0 @@
-// Alert, Prompt and Confirm
