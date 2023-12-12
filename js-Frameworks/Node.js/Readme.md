@@ -71,6 +71,9 @@
        "license": "MIT"
      }
      ```
+   - An alternatives to running `npm init` is to run `npm init -y`:
+     - the `-y` flag stands for `"yes` and is a shortcut for automatically accepting all default values for the `npm init` questions.
+     - This means that when you run `npm init -y`, `npm` will generate a `package.json` file for your project using default values for all the configuration options without asking you to confirm each one.
 
 2. Add a new dependency:
 
