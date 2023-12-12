@@ -2,6 +2,12 @@
 
 ## Table of Contents
 
+- [Further Reading]()
+  1. [Node.js official website](https://nodejs.org/en)
+  2. [Node.js Documentation](https://nodejs.org/docs/)
+  3. [npm website](https://www.npmjs.com/)
+  4. [Node.js cheatsheet - javacodegeeks.com](https://www.javacodegeeks.com/node-js-cheatsheet.html?ref=dailydev)
+
 # Introduction to `Node.js`
 
 - `Node.js` is used to run backend applications written in `js`
@@ -40,103 +46,128 @@
      - When you run `npm install`, NPM reads the `package.json` and downloads the specified dependencies from the registry.
      - Managing dependencies ensures that your application can be easily replicated on different systems.
 
-## Installing dependencies
+## Working with `npm`
 
-- if a project has a `package.json` file, by running
-  ```
-  #
-  npm install
-  ```
-  it will install everything the project needs, in the `node_modules` folder, creating it if it's not existing already.
-- to install a specific package, run
+1. Create a new `npm` Package
 
-  ```sh
-    # install a single package
-    npm install <package-name>
-  ```
+   - to create a new `NPM` package based on existing files in your project directory, just navigate inside that directory and type the following command:
+     ```sh
+       npm init
+     ```
+   - Running this command will prompt you to answer a series of questions to create a `package.json` file for your project. You can press `Enter` to accept the default values or provide your own answers.
+   - After completing the initialization, NPM will generate a `package.json` file in your project directory e.g.,
+     ```json
+     // package.json
+     {
+       "name": "<package-name>",
+       "version": "1.0.0",
+       "description": "<description>",
+       "main": "index.js",
+       "scripts": {
+         "test": ""
+       },
+       "keywords": [],
+       "authors": "<author>",
+       "license": "MIT"
+     }
+     ```
 
-  - since, `npm` 5, this command adds `<package-name>` to the `package.json` file dependencies. Before version 5, you needed to add the flag `--save`.
-  - often, additional flags are added to this command:
-    - `--save-dev`: installs and adds the entry to the `package.json` file devDependencies
-    - `--no-save` installs but does not add the entry to the `package.json` file dependencies
-    - `--save-optional` installs and adds the entry to the `package.json` file optionalDependencies
-    - `--no-optional` will prevent optional dependencies from being installed
-  - shorthands for the above flags are:
-    - `-S` for `--save`
-    - `-D` for `--save-dev`
-    - `O` for `--save-optional`
+2. Add a new dependency:
 
-- The difference between `devDependencies` and `dependencies` is that the former contains **development tools**, like a testing library, while the latter is bundled with the app in production.
-- As for the `optionalDependencies` the difference is that build failure of the dependency will not cause installation to fail. But it is your program's responsibility to handle the lack of the dependency.
-- you can also install multiple dependencies all at once
+   - To add a new dependency to your `Node.js` project, you can use the `npm install` command followed by the name of the package you want to install. E.g.,
+     ```sh
+       npm install lodash
+     ```
+   - Under the hood, the `npm install` command downloads the designated package from the registry and installs it, along with all of its dependencies, to the `node_modules/ `directory inside your project folder; it then updates your project’s `package.json` file to include the newly added dependency.
+   - since, `npm` 5, this command adds `<package-name>` to the `package.json` file dependencies. Before version 5, you needed to add the flag `--save`.
+   - often, additional flags are added to this command:
+     - `--save-dev`: installs and adds the entry to the `package.json` file devDependencies
+     - `--no-save` installs but does not add the entry to the `package.json` file dependencies
+     - `--save-optional` installs and adds the entry to the `package.json` file optionalDependencies
+     - `--no-optional` will prevent optional dependencies from being installed
+   - shorthands for the above flags are:
+     - `-S` for `--save`
+     - `-D` for `--save-dev`
+     - `O` for `--save-optional`
+   - The difference between `devDependencies` and `dependencies` is that the former contains **development tools**, like a testing library, while the latter is bundled with the app in production.
+   - As for the `optionalDependencies` the difference is that build failure of the dependency will not cause installation to fail. But it is your program's responsibility to handle the lack of the dependency.
+   - you can also install multiple dependencies all at once
 
-  ```sh
-    # install multiple dependencie
-    npm install uuid mongooose
-  ```
+     ```sh
+       # install multiple dependencie
+       npm install uuid mongooose
+     ```
 
-- **NOTE**
+   - **NOTE**
+     - the `install` command can be replaced with `i` for convenience. e.g.,
+       ```sh
+         # install  dependencie
+         npm i <package-name>
+       ```
+     - Dependencies Versioning: You can install a specific version of a package, by running
+       ```sh
+           # install a specific version of a package
+          npm install <package-name>@<version>
+       ```
 
-  - the `install` command can be replaced with `i` for convenience. e.g.,
+3. Updating Dependencies:
 
-    ```sh
-      # install  dependencie
-      npm i <package-name>
-    ```
+   - run the following command to update dependencies
+     ```sh
+       # update dependencies
+       npm update
+     ```
+   - `npm` will check all packages for a newer version that satisfies your versioning constraints.
+   - You can specify a single package to update as well:
+     ```sh
+       # update a single dependency
+       npm update <package-name>
+     ```
 
-## Updating Dependencies
+4. Running Tasks
 
-- run the following command to update dependencies
-  ```sh
-    # update dependencies
-    npm update
-  ```
-- `npm` will check all packages for a newer version that satisfies your versioning constraints.
-- You can specify a single package to update as well:
-  ```sh
-    # update a single dependency
-    npm update <package-name>
-  ```
+   - `NPM` also allows you to define and execute scripts in your `Node.js` project.
+   - These scripts are defined as key-value pairs in the `scripts` section of your `package.json` file. The key is the script name, and the value is the command to execute when the script is run.
+   - Example:
 
-## Dependencies Versioning
+     - let's create a new custom script called `"start"` that will run our `Node.js` application by executing the command `node app.js` (assuming our application is contained in `app.js`):
+       ```json
+        // package.json
+        "scripts": {
+          "start": "node app.js"
+        }
+       ```
+     - To run the script, use the `npm run `command followed by the script name like this: `npm run start`
 
-- You can install a specific version of a package, by running
-  ```sh
-    # install a specific version of a package
-    npm install <package-name>@<version>
-  ```
-
-# Running Tasks
-
-- `package.json` file supports a format for specifying command line tasks that can be run by using
-  ```sh
-    npm run <task-name>
-  ```
-- Example:
-  ```json
-  {
-    "scripts": {
-      "start-dev": "node lib/server-development",
-      "start": "node lib/server-production"
-    }
-  }
-  ```
-- it is very common to use this feature to run **webpack**
-  ```json
-  {
-    "scripts": {
-      "watch": "webpack --watch --progress --colors --config webpack.conf.js",
-      "dev": "webpack --progress --colors --config webpack.conf.js",
-      "prod": "NODE_ENV=production webpack -p --config webpack.conf.js"
-    }
-  }
-  ```
-- So instead of typing those long commands, which are easy to forget or mistype, you can run
-  ```sh
-    npm run watch
-    npm run dev
-    npm run prod
-  ```
+   - `package.json` file supports a format for specifying command line tasks that can be run by using
+     ```sh
+       npm run <task-name>
+     ```
+   - Example:
+     ```json
+     {
+       "scripts": {
+         "start-dev": "node lib/server-development",
+         "start": "node lib/server-production"
+       }
+     }
+     ```
+   - it is very common to use this feature to run **webpack**
+     ```json
+     {
+       "scripts": {
+         "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+         "dev": "webpack --progress --colors --config webpack.conf.js",
+         "prod": "NODE_ENV=production webpack -p --config webpack.conf.js"
+       }
+     }
+     ```
+   - So instead of typing those long commands, which are easy to forget or mistype, you can run
+     ```sh
+       npm run watch
+       npm run dev
+       npm run prod
+     ```
 
 # How to setup a `Node.js` project
 
