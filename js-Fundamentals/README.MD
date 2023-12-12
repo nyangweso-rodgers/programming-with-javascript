@@ -5,6 +5,7 @@
 - [Console Methods in `js`](#Console-Methods-in-`js`)
 - [`alert`, `confirm`, and `confirm` Boxes in `js`](#`alert`,-`confirm`,-and-`confirm`-Boxes-in-`js`)
 - [Error Handling in `js`](#Error-Handling-in-`js`)
+- [Local vs. Session Storage in `js`](#Local-vs.-Session-Storage-in-`js`)
 - [Promises in `js`](#Promises-in-`js`)
 - [`js` Modules](#`js`-Modules)
 - [JavaScript Fundamentals]()
@@ -183,6 +184,22 @@
   }
   ```
 
+# Local vs. Session Storage in `js`
+
+- Both **local** and **session storage** are properties of the window object that let web applications store data locally within the user's browser.
+  ```js
+  myStorage = window.localStorage;
+  /*myStorage object can be used to access the current origin's local storage space */
+  ```
+- In **Local Storage**:
+
+  - data has no expiration date
+  - When using **local storage** every tab with the same origin can access it's data.
+
+- In **session storage**:
+  - data gets cleared when the tab or browser is closed.
+  - When using **session storage** every tab with the same origin creates a new session storage, **getItem('fruit')** can result in two different values in two tabs with the same origin.
+
 # Error Handling in `js`
 
 - `js` use `try...catch` construct to handle errors.
@@ -195,6 +212,8 @@
     console.log("no error, catch is skipped");
   }
   ```
+
+````
 
 - if the `try` block doesn't run successfully and leads to an error, then the code inside `catch` block will be executed.
 
@@ -279,3 +298,4 @@
     ```
 
   - Instead of having all of those unrelated programs together in one module/file, it is a better practice to create several files, or modules, for each of those tasks. In such a case, the modules become dependencies. Then from the main app or program, you simply import/load the dependencies (i.e the modules you need) and execute them accordingly. As a result, your main app becomes cleaner and more minimal.
+````
