@@ -163,3 +163,19 @@
 - `public/`: acts like a storage for files everyone can see, like images, styles and scripts.
 - `app.js`: acts like a control center of web applications. It's where you set up and manage everything.
 - `utils/`: These are like handy tools you use to make your website better, like checking if someone's email is valid or formatting dates nicely.
+
+# `Node.js` Frameworks and Libraries
+
+- Here is a list of frameworks/libraries built on `Node.js`
+
+  1. `Express.js`
+
+     - framework for building APIs and adding backend features for web and mobile applications.
+     - It is minimalistic, efficient and saves a lot of coding time. Features include:
+       - routing URLs,
+       - templating HTML pages and
+       - debugging server sides.
+
+  2. `Next.js`
+     - Next can be used to create full-stack web applications by extending React features with server-side functionalities.
+     - It uses a structural approach to build complex backend consistently and supports modules to integrate other technologies.
