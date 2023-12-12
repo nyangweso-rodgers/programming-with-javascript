@@ -1,2 +1,0 @@
-// Local vs Session Storage
-
