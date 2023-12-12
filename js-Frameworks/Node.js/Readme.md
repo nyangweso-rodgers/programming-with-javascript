@@ -19,9 +19,26 @@
 
 # Introduction to `npm` package manager
 
-- `npm` is the standard package manager for `Node.js`.
+- `npm` is the standard package manager for `Node.js` and `js`. It is the default package manager that comes bundled with `Node.js`.
 - `yarn` and `pnpm` are alternatives to `npm`
 - `npm` manages downloads of dependencies of your project.
+- Main components of `npm` include:
+  1. **Packages**:
+     - **Packages** are reusable `js` modules or libraries.
+     - A package typically includes JavaScript files, documentation, and metadata.
+     - These packages can be installed in `Node.js` applications, allowing developers to leverage existing code to build applications more efficiently.
+  2. **Registry**:
+     - The NPM registry is a massive online collection of public JavaScript packages. It is the central repository where package authors publish their code for others to use. The registry hosts a wide variety of items, ranging from small utility libraries to entire web frameworks.
+  3. **CLI**:
+     - The NPM CLI is a command-line tool that you can use to interact with the registry and manage packages. It provides commands for installing, updating, publishing, and managing dependencies.
+  4. `package.json` **File**:
+     - Every `Node.js` project typically includes a `package.json` file, which serves as a manifest for the project.
+     - This file contains metadata about the project, including its name, version, dependencies, and scripts.
+     - The `package.json` file helps NPM understand the project’s requirements and facilitates version management.
+  5. **Dependencies**
+     - **Dependencies** are packages that a `Node.js` project relies on to function correctly. These dependencies are listed in the project’s `package.json` file.
+     - When you run `npm install`, NPM reads the `package.json` and downloads the specified dependencies from the registry.
+     - Managing dependencies ensures that your application can be easily replicated on different systems.
 
 ## Installing dependencies
 
@@ -179,3 +196,5 @@
   2. `Next.js`
      - Next can be used to create full-stack web applications by extending React features with server-side functionalities.
      - It uses a structural approach to build complex backend consistently and supports modules to integrate other technologies.
+
+# Common APIs in `Node.js`
