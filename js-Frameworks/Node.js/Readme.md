@@ -215,6 +215,17 @@
 - `app.js`: acts like a control center of web applications. It's where you set up and manage everything.
 - `utils/`: These are like handy tools you use to make your website better, like checking if someone's email is valid or formatting dates nicely.
 
+# `Node.js` Utilities
+
+1. `nodemon`
+   - this is a utility that monitors for changes in your source code files and automatically restarts the `Node.js` application when changes are detected
+   - Example:
+     ```json
+      "scripts": {
+        "dev": "nodemon index.js"
+     ```
+   - In this case, it's configured to run `index.js` with `nodemon`, allowing you to have an automatic restart of your server whenever you make changes to your code. This is beneficial because you don't have to manually stop and restart your server after every code modification during development.
+
 # `Node.js` Frameworks and Libraries
 
 - Here is a list of frameworks/libraries built on `Node.js`
