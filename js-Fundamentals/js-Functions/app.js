@@ -1,6 +1,6 @@
 // Functions
 
-// Function Declaration
+// Functions with Function Declaration
 function divideFunctionWithFunctionDeclaration(dividend, divisor) {
   try {
     // Attempt the division
@@ -20,9 +20,9 @@ function divideFunctionWithFunctionDeclaration(dividend, divisor) {
   }
 }
 
-// console.log(divideFunctionWithFunctionDeclaration(6, 2));
+console.log(divideFunctionWithFunctionDeclaration(6, 2));
 
-// Constructor
+// Functions with Function Constructor
 let divideFunctionWithConstructor = new Function(
   "dividend",
   "divisor",
@@ -31,12 +31,21 @@ let divideFunctionWithConstructor = new Function(
 
 console.log(divideFunctionWithConstructor(7, 2)); // Output: 3.5
 
-// Function Expression
+// Functions with Function Expression
 let divideFunctionWithExpression = function (dividend, divisor) {
   const result = dividend / divisor;
-  return result;
+  //return result;
+  console.log("Result from Function Expression: " + result);
 };
 
-console.log(divideFunctionWithExpression(8, 2)); // Output: 4
+divideFunctionWithExpression(2, 2); // Output: 4
 
-// Arrow Functions
+// Functions with Arrow Functions
+let divideFunctionWithArrow = (dividend, divisor) => {
+  const result = dividend / divisor;
+  // return result;
+  // Or
+  console.log("Result from Arrow Function: ", result);
+};
+
+divideFunctionWithArrow(3, 2); // Output: 1.5
