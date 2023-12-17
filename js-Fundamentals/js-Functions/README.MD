@@ -44,7 +44,7 @@
 
        ```js
        // Function Declaration
-       function divideFunction(dividend, divisor) {
+       function divideFunctionWithFunctionDeclaration(dividend, divisor) {
          try {
            // Attempt the division
            if (divisor === 0) {
@@ -63,7 +63,7 @@
          }
        }
 
-       console.log(divideFunction(6, 2));
+       console.log(divideFunctionWithFunctionDeclaration(6, 2));
        ```
 
 ## `Function Constructor`
