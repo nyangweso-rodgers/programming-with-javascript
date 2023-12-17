@@ -213,8 +213,6 @@
   }
   ```
 
-````
-
 - if the `try` block doesn't run successfully and leads to an error, then the code inside `catch` block will be executed.
 
 # Promises in `js`
@@ -298,4 +296,7 @@
     ```
 
   - Instead of having all of those unrelated programs together in one module/file, it is a better practice to create several files, or modules, for each of those tasks. In such a case, the modules become dependencies. Then from the main app or program, you simply import/load the dependencies (i.e the modules you need) and execute them accordingly. As a result, your main app becomes cleaner and more minimal.
-````
+
+```
+
+```
