@@ -200,6 +200,9 @@
 # Error Handling in `js`
 
 - `js` use `try...catch` construct to handle errors.
+- The `try` statement allows you to define a block of code to be tested for errors while it is being executed.
+- The `catch` statement allows you to define a block of code to be executed, if an error occurs in the try block.
+- The `finally` statement lets you execute code, after try and catch, regardless of the result:
 
   ```js
   try {
@@ -207,6 +210,8 @@
     // no error here, so the catch will be skipped
   } catch (e) {
     console.log("no error, catch is skipped");
+  } finally {
+    // 
   }
   ```
 
