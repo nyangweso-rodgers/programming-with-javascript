@@ -28,9 +28,6 @@
         3. `function expressions`
         4. `arrow functions`
 
-- [Further Reading]()
-  1. [JavaScript Modules – Explained with Examples](https://www.freecodecamp.org/news/javascript-modules-explained-with-examples/)
-
 # Console Methods in `js`
 
 1. Console Method 1: `console.log()`
@@ -300,3 +297,7 @@
 ```
 
 ```
+
+# Resources
+
+1. [JavaScript Modules – Explained with Examples](https://www.freecodecamp.org/news/javascript-modules-explained-with-examples/)
