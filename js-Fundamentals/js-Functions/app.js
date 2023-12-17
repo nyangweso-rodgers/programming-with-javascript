@@ -22,6 +22,21 @@ function divideFunctionWithFunctionDeclaration(dividend, divisor) {
 
 // console.log(divideFunctionWithFunctionDeclaration(6, 2));
 
+// Constructor
+let divideFunctionWithConstructor = new Function(
+  "dividend",
+  "divisor",
+  "return dividend / divisor"
+);
+
+console.log(divideFunctionWithConstructor(7, 2)); // Output: 3.5
+
 // Function Expression
+let divideFunctionWithExpression = function (dividend, divisor) {
+  const result = dividend / divisor;
+  return result;
+};
+
+console.log(divideFunctionWithExpression(8, 2)); // Output: 4
 
 // Arrow Functions

@@ -68,13 +68,19 @@
 
 ## `Function Constructor`
 
-- Example Function with `constructor`
+- Examples:
 
-  ```js
-  let sum = new Function("a", "b", "return a + b");
+  1. `sumFunction` using Constructor
 
-  console.log(sum(5, 6)); // Output: 11
-  ```
+     ```js
+     let divideFunctionWithConstructor = new Function(
+       "dividend",
+       "divisor",
+       "return dividend / divisor"
+     );
+
+     console.log(divideFunctionWithConstructor(7, 2)); // Output: 3.5
+     ```
 
 ## `Function Expression`
 
@@ -91,14 +97,17 @@
 
 - Example:
 
-  ```js
-  // function expressions
-  let sumFunction = function (a, b) {
-    return a + b;
-  };
+  1. `divideFunction` using Function Expression
 
-  console.log(sumFunction(1, 2)); // Output: 3
-  ```
+     ```js
+     // Function Expression
+     let divideFunctionWithExpression = function (dividend, divisor) {
+       const result = dividend / divisor;
+       return result;
+     };
+
+     console.log(divideFunctionWithExpression(8, 2)); // Output: 4
+     ```
 
 ## `Arrow Function`
 
