@@ -100,13 +100,14 @@
   1. `divideFunction` using Function Expression
 
      ```js
-     // Function Expression
+     // Functions with Function Expression
      let divideFunctionWithExpression = function (dividend, divisor) {
        const result = dividend / divisor;
-       return result;
+       //return result;
+       console.log("Result from Function Expression: " + result);
      };
 
-     console.log(divideFunctionWithExpression(8, 2)); // Output: 4
+     divideFunctionWithExpression(2, 2); // Output: 4
      ```
 
 ## `Arrow Function`
@@ -127,40 +128,37 @@
      divideFunctionWithArrow(3, 2); // Output: 1.5
      ```
 
-# Nested Functions
+  2. using default parameter in **Array Function**
 
-- In `js`, a function can also contain another function.
-- Example,
+- Remarks:
 
-  ```js
-  // Nested Functions
-  // outer function
-  function greetMe(name) {
-    // inner function
-    function displayName() {
-      console.log("Hello " + " " + name);
+  - default value expressions are evaluated at function call time from left to right. this also means that default expressions can use the values previously-filled parameterts.
+
+    ```js
+    // Functions with Default Parameters
+    function test(a, b = 3, c = 4) {
+      var result = a + b + c;
+      return result;
     }
-    displayName();
-  }
+    console.log(test(5)); // Output: 12
+    ```
 
-  // calling the outer function
-  greetMe("Rodgers"); // Output: "Hello Rodgers"
-  ```
+  - **Nestsed functions**: In `js`, a function can also contain another function.
 
-# Functions with Default Parameter
+    ```js
+    // Nested Functions
+    // outer function
+    function greetMe(name) {
+      // inner function
+      function displayName() {
+        console.log("Hello " + " " + name);
+      }
+      displayName();
+    }
 
-- default value expressions are evaluated at function call time from left to right. this also means that default expressions can use the values previously-filled parameterts.
-
-  ```js
-  // default parameter
-  // Functions with Default Parameters
-  function test(a, b = 3, c = 4) {
-    var result = a + b + c;
-    return result;
-  }
-
-  console.log(test(5)); // Output: 12
-  ```
+    // calling the outer function
+    greetMe("Rodgers"); // Output: "Hello Rodgers"
+    ```
 
 # `js` Closure
 
@@ -208,45 +206,6 @@
   - They can be stored in a variable.
   - They can be assigned to events.
 
-# `Aync`/`Await` Functions
-
-- `async` function is a function declared with the `async` keyword that makes a normal function to return a `promise`.
-- Suppose you have a simple or regular `function`:
-
-  ```js
-  function show() {
-    return "hello";
-  }
-  ```
-
-- Then you added the `async` hello keyword before it. Now it will return you a promise instead of a simple value return "hello"; after printing.
-
-  ```js
-  async function print() {
-    return "hello";
-  }
-  ```
-
-- Because the code the above code is the same as the below:
-
-  ```js
-  function show() {
-    return new Promise((resolve, reject) => {
-      resolve("hello");
-    });
-  }
-  ```
-
-- You could say `async` made it easier to write `promises` without writing the `promise` syntax.
-- `Await` is a keyword that makes the `async function` wait for the `promise` inside it to complete its execution.
-- It can't be used in a regular function or anywhere in the code other than `async` function.
-- wherever `await` is used inside an `async` function, `await` will put the `async` function on hold until the p`romise inside the `async` function has finished running.
-- However, when `await` places the `async` function on hold, it will send the control to execute the statements after the async function so that promise can finish running in that time.
-
-# Callback Functions
-
-- `Callback` is a function that is passed as a parameter to another function and then invoked or executed inside that function. `Callback` is commonly used in JavaScript's asynchronous operations to provide synchronous functionality.
-
 # Recursive Functions
 
 - `Recursion` is a process of calling itself. A `function` that calls itself is called a `recursive function`. A `recursive function` always has a condition that stops the function from calling itself.
@@ -280,6 +239,106 @@ document.write("This is a document dot write function");
 document.write("Hello, world!");
 document.write("<h1>Using document dot write function to format texts</h1>");
 ```
+
+# Synchronous and Asynchronous Functions
+
+## Synchronous Functions
+
+- **Blocking Execution**: In a **synchronous** execution model, each operation is performed one after the other in a sequential manner. If one operation takes time to complete (e.g., a network request or a file read), the entire program execution is blocked until that operation finishes.
+- **Sequential Flow**: **Synchronous** functions have a straightforward, sequential flow. Each line of code is executed in order.
+
+## Asynchronous Functions
+
+- **Non-blocking Execution**: **Asynchronous** functions allow operations to be initiated and continue processing other tasks without waiting for the completion of the asynchronous operation.
+- **Event-Driven**: **Asynchronous** operations are often used in event-driven environments, such as handling user input, responding to network requests, or reading files.
+- `js` provides several mechanisms for handling asynchronous code:
+  1. Callbacks
+  2. Promises, and
+  3. `Async/Await`
+- **Asynchronous** programming allows developers to create responsive and efficient applications by avoiding unnecessary blocking.
+
+### Handling Asynchronous Functions 1: Callbacks
+
+- `Callback` is a function that is passed as a **parameter** to another function and then invoked or executed inside that function.
+- `Callback` is commonly used in JavaScript's **asynchronous** operations to provide synchronous functionality.
+
+### Handling Asynchronous Functions 2: Promises
+
+- **Promises** are used to handle **asynchronous** operations in `js`.
+- They are easy to manage when dealing with multiple **asynchronous** operations where **callbacks** can create callback hell leading to unmanageable code.
+- The most common use case of **Promise** is fetching data from a **REST API**. The **fetch API** from `js` returns a **Promise** because the `HTTP` request can take a lot of time and then we can call functions depending on whether the request succeeds or failed.
+
+  ```js
+  fetch("http://example.com/movies.json")
+    // Handle success
+    .then((response) => response.json())
+
+    // Handle error
+    .catch((error) => console.log(error));
+  ```
+
+* A **Promise** is in one of these states:
+  - **pending**: initial state, neither fulfilled nor rejected.
+  - **fulfilled**: meaning that the operation was completed successfully.
+  - **rejected**: meaning that the operation failed.
+
+- Syntax:
+
+  ```js
+      let myPromise = new Promise(function(myResolve, myReject) {
+         // "Producing Code" (may take sometime)
+
+         myResolve(); // when successful
+         myReject(); // when error
+      });
+
+      // "Consuming Code" (Must wait for a fulfilled Proise)
+      myPromise.then{
+         function(value) {/* code if successful */}
+         function(error) { /* code if some error */}
+      }
+  ```
+
+- Benefits of **promises** include:
+  - Improves Code Readability
+  - Better handling of asynchronous operations
+  - Better flow of control definition in asynchronous logic
+  - Better Error Handling
+
+### Handling Asynchronous Functions 3: `Asyc`/`Await`
+
+- `async` function is a function declared with the `async` keyword that makes a normal function to return a `promise`.
+- Suppose you have a simple or regular `function`:
+
+  ```js
+  function show() {
+    return "hello";
+  }
+  ```
+
+- Then you added the `async` hello keyword before it. Now it will return you a promise instead of a simple value return "hello"; after printing.
+
+  ```js
+  async function print() {
+    return "hello";
+  }
+  ```
+
+- Because the code the above code is the same as the below:
+
+  ```js
+  function show() {
+    return new Promise((resolve, reject) => {
+      resolve("hello");
+    });
+  }
+  ```
+
+- You could say `async` made it easier to write `promises` without writing the `promise` syntax.
+- `Await` is a keyword that makes the `async function` wait for the `promise` inside it to complete its execution.
+- It can't be used in a regular function or anywhere in the code other than `async` function.
+- wherever `await` is used inside an `async` function, `await` will put the `async` function on hold until the p`romise inside the `async` function has finished running.
+- However, when `await` places the `async` function on hold, it will send the control to execute the statements after the async function so that promise can finish running in that time.
 
 # Resources
 
