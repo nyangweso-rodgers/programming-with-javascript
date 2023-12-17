@@ -6,7 +6,6 @@
 - [`alert`, `confirm`, and `confirm` Boxes in `js`](#`alert`,-`confirm`,-and-`confirm`-Boxes-in-`js`)
 - [Error Handling in `js`](#Error-Handling-in-`js`)
 - [Local vs. Session Storage in `js`](#Local-vs.-Session-Storage-in-`js`)
-- [Promises in `js`](#Promises-in-`js`)
 - [`js` Modules](#`js`-Modules)
 - [JavaScript Fundamentals]()
 
@@ -211,54 +210,11 @@
   } catch (e) {
     console.log("no error, catch is skipped");
   } finally {
-    // 
+    //
   }
   ```
 
 - if the `try` block doesn't run successfully and leads to an error, then the code inside `catch` block will be executed.
-
-# Promises in `js`
-
-- **Promises** are used to handle **asynchronous** operations in `js`.
-- They are easy to manage when dealing with multiple **asynchronous** operations where callbacks can create callback hell leading to unmanageable code.
-- The most common use case of **Promise** is fetching data from a **REST API**. The **fetch API** from `js` returns a **Promise** because the `HTTP` request can take a lot of time and then we can call functions depending on whether the request succeeds or failed.
-
-  ```js
-  fetch("http://example.com/movies.json")
-    // Handle success
-    .then((response) => response.json())
-
-    // Handle error
-    .catch((error) => console.log(error));
-  ```
-
-* A **Promise** is in one of these states:
-  - pending: initial state, neither fulfilled nor rejected.
-  - fulfilled: meaning that the operation was completed successfully.
-  - rejected: meaning that the operation failed.
-
-- Syntax:
-
-  ```js
-      let myPromise = new Promise(function(myResolve, myReject) {
-         // "Producing Code" (may take sometime)
-
-         myResolve(); // when successful
-         myReject(); // when error
-      });
-
-      // "Consuming Code" (Must wait for a fulfilled Proise)
-      myPromise.then{
-         function(value) {/* code if successful */}
-         function(error) { /* code if some error */}
-      }
-  ```
-
-- Benefits of **promises** include:
-  - Improves Code Readability
-  - Better handling of asynchronous operations
-  - Better flow of control definition in asynchronous logic
-  - Better Error Handling
 
 # `js` Modules
 
