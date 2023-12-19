@@ -130,8 +130,29 @@
 
   2. using default parameter in **Array Function**
 
-- Remarks:
+- **Remarks**:
 
+  - **Function Sequence**:
+
+    - js functions are executed in the sequence they are called and not in the sequence they are defined.
+    - example:
+
+      ```js
+      function myFirstFunction() {
+        console.log("myFirstFunction");
+      }
+
+      function mySecondFunction() {
+        console.log("mySecondFunction");
+      }
+      mySecondFunction();
+      myFirstFunction();
+      ```
+
+    - this example will end up with the `myFirstFunction` output
+
+  - **Function Scope**:
+    - Functions in `js` are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
   - default value expressions are evaluated at function call time from left to right. this also means that default expressions can use the values previously-filled parameterts.
 
     ```js
@@ -141,23 +162,6 @@
       return result;
     }
     console.log(test(5)); // Output: 12
-    ```
-
-  - **Nestsed functions**: In `js`, a function can also contain another function.
-
-    ```js
-    // Nested Functions
-    // outer function
-    function greetMe(name) {
-      // inner function
-      function displayName() {
-        console.log("Hello " + " " + name);
-      }
-      displayName();
-    }
-
-    // calling the outer function
-    greetMe("Rodgers"); // Output: "Hello Rodgers"
     ```
 
 # `js` Closure
@@ -187,10 +191,6 @@
 - Advantages of using **closures** include:
   - **Closures** can be used to simulate private variables and methods
   - **closures** help in maintaining the state between function calls without using a global variable
-
-# Function Scope
-
-- Functions in `js` are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
 
 # Anonymous functions
 
@@ -222,24 +222,6 @@
   var varName = require(localName);
   ```
 
-# Types of JS Functions
-
-1. **eval() function**: You can get the result of a **string expression** using the **eval() function**, which takes a string expression argument and returns the result. If the argument is empty, it returns **undefined**.
-
-```js
-eval("10 * 20 + 8"); // 208
-```
-
-2. **document.write() function**: writes a _string_ to the **HTML** document. This function can be used to write _text_, _HTML_, or Both. The **document.write()** method should be used for testing.
-
-```js
-document.write("This is a document dot write function");
-
-// Just like HTML, we can use HTML tags to format texts in JS. we can output the text as a heading
-document.write("Hello, world!");
-document.write("<h1>Using document dot write function to format texts</h1>");
-```
-
 # Synchronous and Asynchronous Functions
 
 ## Synchronous Functions
@@ -260,7 +242,7 @@ document.write("<h1>Using document dot write function to format texts</h1>");
 ### Handling Asynchronous Functions 1: Callbacks
 
 - `Callback` is a function that is passed as a **parameter** to another function and then invoked or executed inside that function.
-- `Callback` is commonly used in JavaScript's **asynchronous** operations to provide synchronous functionality.
+- `Callback` is commonly used in JavaScript's **asynchronous** operations to provide synchronous functionality. A typical example is JavaScript `setTimeout()`
 
 ### Handling Asynchronous Functions 2: Promises
 
@@ -339,6 +321,24 @@ document.write("<h1>Using document dot write function to format texts</h1>");
 - It can't be used in a regular function or anywhere in the code other than `async` function.
 - wherever `await` is used inside an `async` function, `await` will put the `async` function on hold until the p`romise inside the `async` function has finished running.
 - However, when `await` places the `async` function on hold, it will send the control to execute the statements after the async function so that promise can finish running in that time.
+
+# Types of JS Functions
+
+1. **eval() function**: You can get the result of a **string expression** using the **eval() function**, which takes a string expression argument and returns the result. If the argument is empty, it returns **undefined**.
+
+```js
+eval("10 * 20 + 8"); // 208
+```
+
+2. **document.write() function**: writes a _string_ to the **HTML** document. This function can be used to write _text_, _HTML_, or Both. The **document.write()** method should be used for testing.
+
+```js
+document.write("This is a document dot write function");
+
+// Just like HTML, we can use HTML tags to format texts in JS. we can output the text as a heading
+document.write("Hello, world!");
+document.write("<h1>Using document dot write function to format texts</h1>");
+```
 
 # Resources
 
