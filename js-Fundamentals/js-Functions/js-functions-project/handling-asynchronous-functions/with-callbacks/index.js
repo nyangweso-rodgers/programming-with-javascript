@@ -1,10 +1,11 @@
-function displayResult(result) {
-  console.log(result);
+// Handling Asynchronous Requests using Callbacks
+
+function greetMe(myName) {
+  console.log("Hello, " + myName);
 }
 
-function calculateSum(num1, num2, myCallback) {
-  let sum = num1 + num2;
-  myCallback(sum);
-}
-
-calculateSum(1, 1, displayResult); // Output: 2
+// Execute the greetMe function after a delay of 2000 milliseconds (2 seconds)
+//setTimeout(greetMe, 2000, "Rodgers Nyangweso");
+var timeId = setTimeout(greetMe, 2000, "Rodgers Nyangweso");
+// cancell the execution of the scheduled function
+clearTimeout(timeId);

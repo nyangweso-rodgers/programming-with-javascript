@@ -61,3 +61,45 @@
 
 - Here,
   - `displayResult` is called a **callback**, it is passed to `calculateSum` as an argument
+
+# Typical Use Case with `setTimeout()`
+
+- the `setTimeout()` function is used to schedule the execution of a function or the execution of a specified code block after a specified amount of time has elapsed. It allows you to introduce a delay in the execution of a particular piece of code.
+- Syntax:
+  ```js
+    // setTimeout() syntax
+    setTimeout(function, delay, parameter1, parameter2, ...);
+  ```
+  - where:
+    - `delay`: The time (in milliseconds) to wait before the execution of the function or code block.
+    - `function`: The function or code block to be executed after the specified delay.
+    - `parameter1`, `parameter2`, ...: Optional parameters that can be passed to the function when it is executed.
+- Example1:
+
+  - Print `Rodgers Nyangweso` after 2 seconds:
+
+    ```js
+    function greetMe(myName) {
+      console.log("Hello, " + myName);
+    }
+
+    // Execute the greetMe function after a delay of 2000 milliseconds (2 seconds)
+    setTimeout(greetMe, 2000, "Rodgers Nyangweso");
+    ```
+
+  - **note**:
+
+    - note that the delay is not guaranteed to be precise. The actual delay may be longer if the browser or the environment is busy with other tasks.
+    - Additionally, `setTimeout()` returns a unique identifier (a timer ID) that can be used with the `clearTimeout()` function to cancel the execution of the scheduled function before it occurs.
+
+      ```js
+      function greetMe(myName) {
+        console.log("Hello, " + myName);
+      }
+
+      var timeId = setTimeout(greetMe, 2000, "Rodgers Nyangweso");
+      // cancell the execution of the scheduled function
+      clearTimeout(timeId);
+      ```
+
+    - This is useful if, for some reason, you want to cancel the execution of the scheduled code before it runs.
