@@ -8,15 +8,5 @@
 
 // Functions with Arrow Functions
 
-// Callbacks
-function fetchData(callback) {
-  setTimeout(() => {
-    const data = 'Async Data';
-    callback(data);
-  }, 1000);
-}
 
-// usage 
-fetchData((result) => {
-  console.log(result);
-})
+
