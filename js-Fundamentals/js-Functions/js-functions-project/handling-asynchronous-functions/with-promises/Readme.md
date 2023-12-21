@@ -6,7 +6,7 @@
 
   - we create a Promise using a `Promise` Constructor which takes a function as its argument, called **executor function**
   - **executor function** starts the synchronous operation and **resolving** or **rejecting** the **promise**
-  - Syntax 1:
+  - Syntax 1 (using **Arrow Functions**):
     ```js
     // using Arrow Function
     const myPromise = new Promise((myResolved, myRejected) => {
@@ -14,7 +14,7 @@
       myResolve("Value");
     });
     ```
-  - Syntax 2:
+  - Syntax 2 (using **Function Expression**):
 
     ```js
     // Promise Syntax
@@ -156,6 +156,42 @@ const fetchData = new Promise((myResolve, myReject) => {
 
 1. Using promises for Synchronous operations
 2. (Not)Handling Errors with Promises
+
+## Use Case 4: User Authentication Using Promise
+
+- Assume we have a function that validates if the `userId` and `password` are blank. If so, throw an error by rejecting the **promise**. Otherwise, resolve it with a success message.
+
+  ```js
+  // Authenticate User using a Promise
+  const validateUser = ({ userId, userPassword }) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (userId && userPassword) {
+          resolve(`${userId} Successfully authenticated`);
+        } else {
+          reject({ message: "Authentication failed" });
+        }
+      }, 2000);
+    });
+  };
+
+  const app = () => {
+    inputData = {
+      userId: "Rodgers Nyangweso",
+      userPassword: "testPassword",
+    };
+    validateUser(inputData)
+      .then((result) => {
+        console.log("Initializing ...");
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  app();
+  ```
 
 # Resources
 
