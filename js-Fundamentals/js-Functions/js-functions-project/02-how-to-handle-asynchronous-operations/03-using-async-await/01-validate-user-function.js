@@ -28,4 +28,4 @@ const app = async () => {
 };
 
 // invoke the function
-app()
+app();

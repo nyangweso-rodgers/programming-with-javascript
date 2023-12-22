@@ -8,6 +8,7 @@
 - `async` makes a function return a **Promise**
   - The `async` keyword is for a function that is supposed to perform an asynchronous operation. It means the function may be taking a while before it finishes execution, returns a result, or throw an error.
 - `await` makes a function wait and handle a **Promise**
+  - The `await` tells the JavaScript engine to ensure that the execution is paused until the function completes execution and returns a **promise**.
 
 # `Async` Syntax
 
@@ -21,6 +22,22 @@
   ```
 
 - So, what does the `async` function `myFunction` returns when we invoke it? It returns a **Promise**.
+
+# Async Returns a Promise by default
+
+- the below code will return a **Promise** when the `async` keyword is added:
+  ```js
+  const displayName = async () => {
+    // some operations
+  };
+  ```
+- the above code is the same as below:
+  ```js
+  //
+  const displayName = new Promise((resolve, reject) => {
+    // perform an operation
+  });
+  ```
 
 # Rules About `async/await`
 
@@ -56,37 +73,38 @@
 ## Use Case 1: User Authentication Using `async/await`
 
 - Assume we have a function that validates if the `userId` and `puserPassword` are blank. If so, throw an error by rejecting the **promise**. Otherwise, resolve it with a success message.
-  ```js
-    // Validate User using async/Await Functiona
-    const validateUser = ({ userId, userPassword }) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-        if (userId && userPassword) {
-            resolve(`${userId} successfully authenticated`);
-        } else {
-            reject({ message: "Authentication failed" });
-        }
-        }, 2000);
-    });
-    };
 
-    const app = async () => {
+  ```js
+  // Validate User using async/Await Functiona
+  const validateUser = ({ userId, userPassword }) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (userId && userPassword) {
+          resolve(`${userId} successfully authenticated`);
+        } else {
+          reject({ message: "Authentication failed" });
+        }
+      }, 2000);
+    });
+  };
+
+  const app = async () => {
     const data = {
-        userId: "Rodgers",
-        userPassword: "Rodgers",
+      userId: "Rodgers",
+      userPassword: "Rodgers",
     };
     try {
-        console.log("Initializing ...................");
-        const result = await validateUser(data);
-        console.log(result);
+      console.log("Initializing ...................");
+      const result = await validateUser(data);
+      console.log(result);
     } catch (err) {
-        console.log(err.message);
+      console.log(err.message);
     }
-    };
+  };
 
-    // invoke the function
-    app()
-  ``` 
+  // invoke the function
+  app();
+  ```
 
 # Resources
 
