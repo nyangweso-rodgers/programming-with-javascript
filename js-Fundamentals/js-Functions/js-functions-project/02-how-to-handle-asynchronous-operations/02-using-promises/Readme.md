@@ -182,6 +182,67 @@ const fetchData = new Promise((myResolve, myReject) => {
 });
 ```
 
+# Real World Use Cases of a Promise
+
+## Fetching Data from APIs
+
+- The `fetch` API returns a Promise that resolves to the response:
+  ```js
+  //
+  fetch("example.com")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  ```
+
+## Reading/Writing Files with `Node.js`
+
+- The `fs.promises` the module provides Promisified file system functions:
+  ```js
+  // reading/Writing files in Node.js
+  const fs = require("fs");
+  fs.readFile("example.js", "utf8")
+    .then((data) => {
+      console.log("File contents: ", data);
+    })
+    .catch((err) => {
+      console.error("Error reading a file: ", err);
+    });
+  ```
+
+## Promises in Browser APIs
+
+- Browser APIs often return Promises. For example, the `geolocation` API's
+
+  ```js
+  //
+  let getUserLocation = () => {
+    return new Promise((resolve, reject) => {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      } else {
+        reject(new Error("Geolocation not supported"));
+      }
+    });
+  };
+
+  getUserLocation()
+    .then((position) => {
+      console.log("User location", position.coords);
+    })
+    .catch((error) => {
+      console.error("Error while getting geolocation data: ", error);
+    });
+  ```
+
+- trying to run the above code in VS code throws an exception: "**Error while getting geolocation data: ReferenceError: navigator is not defined**"
+  - The error typically occurs when the navigator object is not available. This can happen in environments where the navigator object is not supported or when running the code in a context that does not have access to browser features, such as a Node.js environment.
+  - To avoid this error, make sure your code is running in a browser environment that supports geolocation. If you're using this code in a Node.js environment, you might want to consider using a library that simulates geolocation or find an alternative solution that fits your specific use case.
+
 # Mistakes when using Promises
 
 1. Using promises for Synchronous operations
