@@ -1,5 +1,5 @@
 // Example: Promises in action
-let targetAchieved = false;
+let targetAchieved = true;
 
 const unlockBonus = new Promise((myResolve, myReject) => {
   if (targetAchieved) {
