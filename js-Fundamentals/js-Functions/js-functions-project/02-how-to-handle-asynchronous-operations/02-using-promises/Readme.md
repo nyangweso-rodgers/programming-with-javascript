@@ -141,48 +141,24 @@
 
 3. Chaining **Promises**
 
-# Use Case of Promise: using `setTimeout()`
+# Real World Use Cases of a Promise
 
-- when using a **callback**, we have the following:
+## Using Promises with Timeout and Delays
 
-  ```js
-  // displayName function using a callback
-  function displayName(myName) {
-    console.log(myName);
-  }
-
-  setTimeout(displayName, 2000, "Rodgers Nyangweso");
-  ```
-
-- when using a **Promise** object:
+- **Promises** can be combined with `setTimeout` to create delays:
 
   ```js
-  // using a Promise object to displayName
-  let myPromise = new Promise(function (myResolve, myReject) {
-    myResolve("Rodgers Nyangweo");
-    setTimeout(myResolve, 2000, "Rodgers Nyangweo");
+  // Using Promises with setTimeout() and Delays
+
+  const displayName = new Promise((myResolve, myReject) => {
+    myResolve("Rodgers Nyangweso");
+    setTimeout(myResolve, 2000, "Rodgers Nyangweso");
   });
 
-  myPromise.then(function (value) {
+  displayName.then((value) => {
     console.log(value);
   });
   ```
-
-# Use Case 2: Fetch Data from Server/Database
-
-```js
-// using Promise to fetch data from server
-const fetchData = new Promise((myResolve, myReject) => {
-  // fetch data from server
-  setTimeout(() => {
-    const data = { id: 1, name: "Rodgers Nyangweo" };
-    myResolve(data); // fulfilled promise using the fectched data
-    // // myReject(new Error("Failed to fetch data")); // Alternatively, reject the promise with an error
-  }, 2000);
-});
-```
-
-# Real World Use Cases of a Promise
 
 ## Fetching Data from APIs
 
