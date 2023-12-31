@@ -5,9 +5,9 @@
 - [Resources]()
   1. [Reading and writing JSON files in Node.js: A complete tutorial](https://blog.logrocket.com/reading-writing-json-files-node-js-complete-tutorial/)
 
-# Getting Started with this Project
+# Setup
 
-- from the command line, create a `node-project` folder and navigate to the project
+- from the command line, create a `working-with-Node.js-File-System` folder and navigate to the project
   ```sh
       # create a project
       mkdir Working-with-Node.js-File-System
@@ -70,6 +70,7 @@
 
 # Working with `JSON` Files
 
+- When you read a `JSON` file into your `Node.js` app using the standard `fs` (file system) module or any other relevant module, the data is initially read as a `string`. The reason is that the file content is read as raw bytes, and it's up to your code to interpret it in the desired format.
 - The Node runtime environment has the built-in `fs` module specifically for working with files.
 
 ## Load a `JSON` file using `require` Module
@@ -105,6 +106,11 @@ fs.readFile(path, (err, fileData) => {
 - `(err, fileData) => {}` is the callback function that runs after the file has been read.
 - Before we can use the data from the callback in our code, we must turn it into an object. `JSON.parse()` takes `JSON` data as input and returns a new JavaScript object. Otherwise, we would just have a string of data with properties we can’t access.
 - `JSON.parse `can throw exception errors and crash our program if passed an invalid `JSON` string. To prevent crashing we wrap `JSON.parse` in a `try` --- `catch` statement to gracefully catch any errors.
+- Remark:
+  - using function declaration:
+    ```js
+
+    ```
 
 ## Read `JSON` file Synchronously using `fs.readFileSync`
 

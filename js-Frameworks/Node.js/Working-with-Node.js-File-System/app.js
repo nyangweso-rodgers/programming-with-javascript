@@ -1,4 +1,6 @@
 import fs from "fs";
+
+/*
 const filePath = "./my-files/config.json";
 
 function jsonReader(path, myCallback) {
@@ -22,3 +24,15 @@ jsonReader(filePath, (err, jsonData) => {
   }
   console.log(jsonData);
 });
+*/
+
+function readAndParseJsonFile(filePath, callback) {
+  fs.readFile(filePath, "utf8", (err, jsonStringFile) => {
+    if (err) {
+      // handle any errors that occur during file reading
+      console.error("Error reading JSON file: ", err.message);
+      return;
+    }
+    //
+  });
+}
