@@ -3,12 +3,6 @@
 ## Table Of Contents
 - [Different ways to call API in JavaScript](#Different-ways-to-call-API-in-JavaScript)
     
-- [Further Reading]()
-    1. [W3Schools - Web Geolocation API](https://www.w3schools.com/js/js_api_geolocation.asp)
-    - [Medium - Most Common Ways to Make HTTP Requests in JavaScript](https://javascript.plainenglish.io/most-common-ways-to-make-http-requests-in-javascript-85c112ecf48a)
-    - [freeCodeCamp - HTTP Networking in JavaScript –Handbook for Beginners](https://www.freecodecamp.org/news/http-full-course/)
-    - [freeCodeCamp - JavaScript Post Request – How to Send an HTTP Post Request in JS](https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/)
-    - [Hashnode - Working with APIs In Javascript](https://shreya-trivedi.hashnode.dev/working-with-apis-in-javascript)
 
 # Making `HTTP` Requests (Fetch, Axios)
 
@@ -51,12 +45,6 @@
     * The first `then` method calls `response.json()` to parse the response as `JSON`, and the second `then` method logs the response data to the `console`.
     * The `catch` method is used to handle any `errors` that occur during the request. 
 
-## `XMLHttpRequest`
-* `XMLHttpRequest` API is another web API that lets you get data from an API using `js` without refreshing the web page. 
-* Despite its name, the `XMLHttpRequest` API is not limited to `XML` data. You can also request `JSON` data via this API.
-
-## `Axios`
-* `Axios` is an open-source, promise-based `HTTP` client. It uses JavaScript’s promises to send `HTTP` requests and manage their responses.
 
 # `js` Web APIs
 ## `js` Web APIs: Web Geolocation API
@@ -92,10 +80,3 @@
             "<br>Accuracy: " + position.coords.accuracy;
         }
     ```
-
-# Lists Of Sample `APIs`
-Index | API | Description | Requires API Key |
-| ----------- | -------------- | ----------------- | ------------- |
-1 | [RANDOM USER GENERATOR](https://randomuser.me/) API | A free, open-source API for generating random user data. | False |
-2 | [OpenWeatherMap](https://openweathermap.org/api) API | | True
-3 | [API-FOOTBALL (3.9.2)](https://www.api-football.com/) | Restful API for football data | 
