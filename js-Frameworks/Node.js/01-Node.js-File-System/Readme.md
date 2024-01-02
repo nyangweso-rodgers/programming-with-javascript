@@ -2,30 +2,109 @@
 
 ## Table Of Contents
 
-- [Resources]()
-  1. [Reading and writing JSON files in Node.js: A complete tutorial](https://blog.logrocket.com/reading-writing-json-files-node-js-complete-tutorial/)
+# Working with `JSON` Files with `Node.js`
 
-# Setup
+## Interact with `JSON` Files using `fs` Module in `Node.js`
 
-- from the command line, create a `working-with-Node.js-File-System` folder and navigate to the project
-  ```sh
-      # create a project
-      mkdir Working-with-Node.js-File-System
-      # navigate to the project
-      cd Working-with-Node.js-File-System
-  ```
-- initialize the project
-  ```sh
-      # initialize the project
-      npm init
-  ```
-- a new file, `package.json` is added to the project. we use this file to add modules to the project.
-- add the following line before the closing curly brace to enable `ES6` import:
-  ```json
-      "type": "module"
+- `fs` Module is a native module with functions to watch, read, and write files.
+- Because it’s a native module, we can require it in our code without installing it. Just call `const fs = require(‘fs’)`.
+- The `fs` module gives us the option of **synchronous** or **asynchronous** versions of many of its functions. The **synchronous** versions block execution of other code until they are done accessing the filesystem. An `async` function will run without blocking other code.
+- This **synchronous** behavior can be useful in some places, like at startup when reading a config file before any other code is run, but becomes a big issue when used in a webserver where all incoming requests would be blocked while a **synchronous** file read is running. For this reason, you generally want to use the async versions of `fs` functions in your code.
+- To read and write files **asynchronously** with `fs` we use `fs.readFile` and `fs.writeFile`.
+
+### Read a JSON file Asynchronously
+
+- The simplest way to read a `JSON` file is to require it. Passing `require()` with the path to a `JSON` file will **synchronously** read and parse the data into a JavaScript object.
+
+  ```js
+  // Read the JSON file
+  import customerJsonFile from "./01-example-customer.json" assert { type: "json" };
+  console.log(customerJsonFile);
   ```
 
-# `fs` Module
+- But reading `JSON` files with `require` has its downsides. The file will only be read once; requiring it again returns the cached data from the first time `require` was run. This is fine for loading static data on startup (like `.config` data). But for reading a file that changes on disk, like our `customer.json` might, we need to manually read the file using the asynchronous `fs.readFile.`
+
+## Read `.json` File using `fs.readFile`
+
+- To load the data from `01-example-customer.json` file, we use `fs.readFile`, passing it the path to our file, an optional encoding type, and a callback to receive the file data.
+
+  ```js
+  // Read file
+
+  import fs from "fs";
+
+  const readJsonFile = (path) => {
+    fs.readFile(path, (err, jsonStringFile) => {
+      if (err) {
+        console.log("Failed to read a file: ", err);
+        return;
+      }
+      console.log(jsonStringFile);
+    });
+  };
+
+  // file path
+  const sampleFilePath = "./01-example-customer.json";
+
+  readJsonFile(sampleFilePath);
+  ```
+
+- Running the above code, returns the following results:
+
+  ```js
+  // output: <Buffer 5b 0d 0a 20 20 7b 0d 0a 20 20 20 20 22 66 69 72 73 74 4e 61 6d 65 22 3a 20 22 52 6f 64 67 65 72 73 22 2c 0d 0a 20 20 20 20 22 6c 61 73 74 4e 61 6d 65 ... 24 more bytes>
+  ```
+
+  - The above output is the raw binary data of the file represented as a **Buffer** object. **Buffers** are used in `Node.js` to represent binary data, and what you're seeing is not the human-readable content of the `JSON` file.
+  - If you want to see the actual content of the file as a `string`, you need to convert the **Buffer** to a `string`. You can do this using the `toString()` method.
+
+    ```js
+    // Read file
+
+    import fs from "fs";
+
+    const readJsonFile = (path) => {
+      fs.readFile(path, (err, jsonStringFile) => {
+        if (err) {
+          console.log("Failed to read a file: ", err);
+          return;
+        }
+        const jsonObject = JSON.parse(jsonStringFile);
+        console.log(jsonObject);
+      });
+    };
+
+    // file path
+    const sampleFilePath = "./01-example-customer.json";
+
+    readJsonFile(sampleFilePath); // Output: [ { firstName: 'Rodgers', lastName: 'Nyangweso' } ]
+    ```
+
+- we can get a specific value from a `json` key as follows:
+
+  ```js
+  // Read file
+
+  import fs from "fs";
+
+  const readJsonFile = (path) => {
+    fs.readFile(path, (err, jsonStringFile) => {
+      if (err) {
+        console.log("Failed to read a file: ", err);
+        return;
+      }
+      const jsonObject = JSON.parse(jsonStringFile);
+      console.log("Customer First Name:", jsonObject[0].firstName);
+    });
+  };
+
+  // file path
+  const sampleFilePath = "./01-example-customer.json";
+
+  readJsonFile(sampleFilePath); // Output: Customer First Name: Rodgers
+  ```
+
+# Remarks
 
 - Each function exposed by the `fs` module has the **synchronous**, **callback**, and **promise**-based forms.
 
@@ -68,68 +147,6 @@
 - Remarks:
   - According to the Node documentation, the **callback API** of the built-in `fs` module is more performant than the **promise-based API**.
 
-# Working with `JSON` Files
+# Resources
 
-- When you read a `JSON` file into your `Node.js` app using the standard `fs` (file system) module or any other relevant module, the data is initially read as a `string`. The reason is that the file content is read as raw bytes, and it's up to your code to interpret it in the desired format.
-- The Node runtime environment has the built-in `fs` module specifically for working with files.
-
-## Load a `JSON` file using `require` Module
-
-- You can use the `require` function to synchronously load `JSON` files in Node. After loading a file using `require`, it is cached. Therefore, loading the file again using require will load the cached version. In a server environment, the file will be loaded again in the next server restart.
-- It is therefore advisable to use `require` for loading static `JSON` files such as configuration files that do not change often. Do not use require if the `JSON` file you load keeps changing, because it will cache the loaded file and use the cached version if you require the same file again. Your latest changes will not be reflected.
-
-## Read `JSON` File using the `fs.readFile` Method
-
-```js
-// app.js
-import fs from "fs";
-const path = "./my-files/config.json";
-
-fs.readFile(path, (err, fileData) => {
-  // check for any errors
-  if (err) {
-    console.error("Error while reading the file", err);
-    return;
-  }
-  let jsonData;
-  try {
-    // output the parsed data
-    jsonData = JSON.parse(fileData);
-
-    console.log(jsonData);
-  } catch (parseError) {
-    console.error("Error while parsing JSON data", parseError);
-  }
-});
-```
-
-- `(err, fileData) => {}` is the callback function that runs after the file has been read.
-- Before we can use the data from the callback in our code, we must turn it into an object. `JSON.parse()` takes `JSON` data as input and returns a new JavaScript object. Otherwise, we would just have a string of data with properties we can’t access.
-- `JSON.parse `can throw exception errors and crash our program if passed an invalid `JSON` string. To prevent crashing we wrap `JSON.parse` in a `try` --- `catch` statement to gracefully catch any errors.
-- Remark:
-  - using function declaration:
-    ```js
-
-    ```
-
-## Read `JSON` file Synchronously using `fs.readFileSync`
-
-- Instead of taking a **callback**, `readFileSync` returns the file content after reading the file.
-  ```js
-  import fs from "fs";
-  const path = "./my-files/config.json";
-  let jsonData;
-  try {
-    const jsonStringFile = fs.readFileSync(path);
-    const jsonData = JSON.parse(jsonStringFile);
-    console.log(jsonData);
-  } catch (e) {
-    console.log(e);
-  }
-  ```
-- **Remarks**:
-  - we can create a re-usable helper function to read and parse a `JSON` file.
-  - Here, we create a `jsonReader` function to read and parse a `JSON` file
-  - It takes the path to the file and a **callback** to receive the parsed object and any errors.
-
-## Write `JSON` Files in `Node.js`
+1. [Reading and writing JSON files in Node.js: A complete tutorial](https://blog.logrocket.com/reading-writing-json-files-node-js-complete-tutorial/)
