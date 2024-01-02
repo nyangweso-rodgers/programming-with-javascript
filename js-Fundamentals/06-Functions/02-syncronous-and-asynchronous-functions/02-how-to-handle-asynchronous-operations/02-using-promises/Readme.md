@@ -4,7 +4,7 @@
 
 # Understanding JavaScript Promises
 
-- **Promises** are used to handle asynchronous operations in JavaScript.
+- **Promises** are used to handle **asynchronous** operations in JavaScript.
 - A **promise** is a JavaScript object that links **producing** code and **consuming** code.
   - **Producing** code is code that can take some time.
   - **Consuming** code is code that must wait for some time.
