@@ -79,12 +79,6 @@
   - They can be stored in a variable.
   - They can be assigned to events.
 
-# Recursive Functions
-
-- `Recursion` is a process of calling itself. A `function` that calls itself is called a `recursive function`. A `recursive function` always has a condition that stops the function from calling itself.
-
-- To prevent infinite recursion, you can use `if...else statement` where one branch makes the recursive call, and the other doesn't.
-
 # `require()` function
 
 - `require()` function is a built-in `CommonJS` module function supported in `Node.js` that lets you include modules within your project. This is because, by default, `Node.js` treats JavaScript code as `CommonJS` modules.
