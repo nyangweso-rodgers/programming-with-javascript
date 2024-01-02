@@ -4,132 +4,38 @@
 
 # How to define `js` Functions
 
-## `Function Declaration`
+# Function Sequence
 
-- `Function Declaration` can be called earlier than it is defined. For example, a global Function Declaration is visible in the whole script, no matter where it is.
-- When `JavaScript` prepares to run the script, it first looks for global Function Declarations in it and creates the functions.
-
-- `Function Declarations` load before the code is executed. The function in `function declartion` can be accessed before and after the function definiton. consists of the `function` keyword, followed by:
-
-  - Name of the function
-  - lists of parameters to the function, enclosed in a parenthesis
-  - JS statements that define the function, enclosed in curly brackets
-
-- Syntax:
+- js functions are executed in the sequence they are called and not in the sequence they are defined.
+- example:
 
   ```js
-  // function declaration syntax
-  function functionName(params) {
-    // code to be executed goes here
+  function myFirstFunction() {
+    console.log("myFirstFunction");
   }
+
+  function mySecondFunction() {
+    console.log("mySecondFunction");
+  }
+  mySecondFunction();
+  myFirstFunction();
   ```
 
-- Examples:
+- this example will end up with the `myFirstFunction` output
 
-  1. `sumFunction`
+# Function Scope
 
-     - define a `sumFunction` which takes two integers and returns the sum
-
-       ```js
-       function sumFunction(a, b) {
-         return a + b;
-       }
-
-       console.log(sumFunction(1, 2)); // Output: 3
-       ```
-
-  2. `divideFunction` with Error Handling
-
-     - defines a division function while handling errors
-
-       ```js
-       // Function Declaration
-       function divideFunctionWithFunctionDeclaration(dividend, divisor) {
-         try {
-           // Attempt the division
-           if (divisor === 0) {
-             throw new Error("Division by zero is not allowed.");
-           }
-
-           const result = dividend / divisor;
-           return result;
-         } catch (error) {
-           // handle error
-           console.error("Error: ", error.message);
-           return undefined; // or any other value to indicate failure
-         } finally {
-           // Code in this block will execute regardless of whether an error occurred or not
-           console.log("Division operation completed.");
-         }
-       }
-
-       console.log(divideFunctionWithFunctionDeclaration(6, 2));
-       ```
-
-## `Function Constructor`
-
-- **Examples**:
-
-  1. `sumFunction` using Constructor
-
-     ```js
-     let divideFunctionWithConstructor = new Function(
-       "dividend",
-       "divisor",
-       "return dividend / divisor"
-     );
-
-     console.log(divideFunctionWithConstructor(7, 2)); // Output: 3.5
-     ```
-
-## `Function Expression`
-
-- Functions can also be assigned to `variables`, i.e., `Function Expression`
-- Syntax:
+- Functions in `js` are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
+- default value expressions are evaluated at function call time from left to right. this also means that default expressions can use the values previously-filled parameterts.
 
   ```js
-  var x = function exampleFunction() {
-    console.log("example function");
-  };
+  // Functions with Default Parameters
+  function test(a, b = 3, c = 4) {
+    var result = a + b + c;
+    return result;
+  }
+  console.log(test(5)); // Output: 12
   ```
-
-- `Function Expression` load when the interpreter reaches that line of code. If it's called before then it leads to an error. Why? _because the Interpreter will only hoist variable declaration to the top but keeps assignment at the same line._ The function in `Function Expression` can be accessed only after the function definition.
-
-
-
-- **Remarks**:
-
-  - **Function Sequence**:
-
-    - js functions are executed in the sequence they are called and not in the sequence they are defined.
-    - example:
-
-      ```js
-      function myFirstFunction() {
-        console.log("myFirstFunction");
-      }
-
-      function mySecondFunction() {
-        console.log("mySecondFunction");
-      }
-      mySecondFunction();
-      myFirstFunction();
-      ```
-
-    - this example will end up with the `myFirstFunction` output
-
-  - **Function Scope**:
-    - Functions in `js` are `block scoped`, meaning that any variable declared inside the function's blocks is part of the function's block scope and is not accessible outside of the function.
-  - default value expressions are evaluated at function call time from left to right. this also means that default expressions can use the values previously-filled parameterts.
-
-    ```js
-    // Functions with Default Parameters
-    function test(a, b = 3, c = 4) {
-      var result = a + b + c;
-      return result;
-    }
-    console.log(test(5)); // Output: 12
-    ```
 
 # `js` Closure
 
@@ -161,14 +67,14 @@
 
 # Anonymous functions
 
-- `Anonymous function` is a function without a name. These types of functions are typically assigned to variables or passed as parameters to other functions. E.g.,
+- **Anonymous function** is a function without a name. These types of functions are typically assigned to variables or passed as parameters to other functions. E.g.,
 
   ```js
   // example - anonymous function
   let double = (num) => num * 2;
   ```
 
-- `Anonymous functions` are often used in the following scenarios:
+- **Anonymous functions** are often used in the following scenarios:
   - They can be defined within another function call.
   - They can be stored in a variable.
   - They can be assigned to events.
