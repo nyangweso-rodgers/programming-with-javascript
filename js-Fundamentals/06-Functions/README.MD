@@ -95,40 +95,7 @@
 
 - `Function Expression` load when the interpreter reaches that line of code. If it's called before then it leads to an error. Why? _because the Interpreter will only hoist variable declaration to the top but keeps assignment at the same line._ The function in `Function Expression` can be accessed only after the function definition.
 
-- **Examples**:
 
-  1. `divideFunction` using Function Expression
-
-     ```js
-     // Functions with Function Expression
-     let divideFunctionWithExpression = function (dividend, divisor) {
-       const result = dividend / divisor;
-       //return result;
-       console.log("Result from Function Expression: " + result);
-     };
-
-     divideFunctionWithExpression(2, 2); // Output: 4
-     ```
-
-## `Arrow Function`
-
-- **Examples**:
-
-  1. define a function using Arrow Function.
-
-     ```js
-     // Functions with Arrow Functions
-     let divideFunctionWithArrow = (dividend, divisor) => {
-       const result = dividend / divisor;
-       // return result;
-       // Or
-       console.log("Result from Arrow Function: ", result);
-     };
-
-     divideFunctionWithArrow(3, 2); // Output: 1.5
-     ```
-
-  2. using default parameter in **Array Function**
 
 - **Remarks**:
 
