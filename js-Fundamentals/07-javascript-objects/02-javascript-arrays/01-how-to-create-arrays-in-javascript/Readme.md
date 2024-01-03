@@ -56,6 +56,18 @@ priceList[1] = 90;
 console.log(priceList); // Output: 90
 ```
 
+# Use Cases
+
+## Generate Array of Positive Integers
+
+```js
+// generate array of positive numbers
+let arrayOfPositiveNumbers = [];
+for (var i = 0; arrayOfPositiveNumbers.push(i++) < 100; );
+
+console.log(arrayOfPositiveNumbers);
+```
+
 # Array Methods
 
 ## Array Method 1: `concat()`
