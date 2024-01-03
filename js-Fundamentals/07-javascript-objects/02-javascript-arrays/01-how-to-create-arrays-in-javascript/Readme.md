@@ -85,17 +85,6 @@ console.log(priceList); // Output: 90
   console.log(priceList); // Output: [ 10, 20, 30, 40, 50, 35 ]
   ```
 
-## Array Method 2: `map()`
-
-- `map()` creates a new array populated with the return value of the `callback function` for each element in the array
-
-  ```js
-  var priceList = [10, 20, 30, 40, 50];
-
-  var doublePriceList = priceList.map((value) => value * 2);
-  console.log(doublePriceList); // Output: [ 20, 40, 60, 80, 100 ]
-  ```
-
 ## Array Method 3: `forEach()`
 
 - `forEach()` executes the given function once for each of the array elements. The `callback function` does not expect a `return` value, and the `forEach()` method itself also returns `undefined`.
