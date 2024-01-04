@@ -68,6 +68,21 @@ for (var i = 0; arrayOfPositiveNumbers.push(i++) < 100; );
 console.log(arrayOfPositiveNumbers);
 ```
 
+- or, using Arrow Functions:
+
+  ```js
+  let arrayOfPositiveNumbers = [];
+
+  const positiveIntegerNumbers = () => {
+    let max = 100;
+    for (let i = 0; i < max; i++) {
+      arrayOfPositiveNumbers.push(i);
+    }
+  };
+  positiveIntegerNumbers(); // Call the function to populate the array
+  console.log(arrayOfPositiveNumbers);
+  ```
+
 # Array Methods
 
 ## Array Method 1: `concat()`
