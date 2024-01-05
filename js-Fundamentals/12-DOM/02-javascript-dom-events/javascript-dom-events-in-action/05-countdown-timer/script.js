@@ -28,8 +28,8 @@ const countDownTimer = () => {
 
   getDaysElement.innerHTML = remainingDays;
   getHoursElement.innerHTML = formatTime(remainingHours);
-  getMinutesElement.innerHTML = remainingMinutes;
-  getSecondsElement.innerHTML = remainingSeconds;
+  getMinutesElement.innerHTML = formatTime(remainingMinutes);
+  getSecondsElement.innerHTML = formatTime(remainingSeconds);
 };
 
 // Formatting the Time - Formatting the time and adding zero if it is below 10
