@@ -5,6 +5,7 @@ const getGreenBtn = document.getElementById("greenBtn");
 
 const paintCircle = (color) => {
   getCircleId.style.backgroundColor = color;
+  getCircleId.textContent = `Circle painted ${color}`;
 };
 
 getBlackBtn.addEventListener("click", () => {
