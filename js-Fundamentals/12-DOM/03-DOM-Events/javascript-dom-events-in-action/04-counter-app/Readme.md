@@ -2,7 +2,11 @@
 
 ## Description
 
-- Create a Counter Application to add or remove 1 from a button click.
+- Create a Counter Application to add or remove 1 when a user clicks a button.
+
+## User Story
+
+- As a user I need to add or subract 1 when I click a button. The result should be displayed at the center of a circle.
 
   ```js
   // Counter Application

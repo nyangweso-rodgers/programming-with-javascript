@@ -8,9 +8,10 @@ let count = 0; // Initialize the count variable
 
 // function to increase the counter
 const addCount = () => {
+  console.log("Add button clicked");
   count++;
   getCircleId.innerHTML = count;
-  getAddBtn.style.color = 'black';
+  getAddBtn.style.color = "black";
 };
 
 // function to decrease the counter
