@@ -36,13 +36,6 @@
 
 # Types of Events
 
-## 1. `DOMContentLoaded`
-
-- The `DOMContentLoaded` is an event that is fired when the `HTML` document has been completely loaded and parsed, without waiting for **stylesheets**, **images**, and **subframes** to finish loading. It ensures that the **DOM** is fully constructed and ready for manipulation using **JavaScript**.
-- By wrapping JavaScript code inside an event listener for `DOMContentLoaded`, you ensure that your code runs only after the entire `HTML` document has been loaded. This helps prevent issues where your `JavaScript` code is trying to interact with `HTML` elements that haven't been created yet.
-- Example:
-  ```js``` 
-
 ## 2. `onclick`
 
 - `onclick` event occurs when the user clicks on an element.
