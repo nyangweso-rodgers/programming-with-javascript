@@ -6,6 +6,8 @@
 
 - we use the [OpenWeatherMap Api](https://openweathermap.org/api) to fetch weather data for a selected location in our Weather App.
 
+![](./images/weather-app.png)
+
 # OpenWeatherMap API
 
 - To get weather data, we use the [OpenWeatherMap](https://openweathermap.org/), a service providing various weather information using an API.
