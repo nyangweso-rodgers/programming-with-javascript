@@ -1,4 +1,48 @@
 body {
+  font-family: "Trirong", serif;
+  /*background-color: #255e7b;*/
+  /*color: #47dac1;*/
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  padding: 40px 0;
+  margin: 20px 0;
+}
+
+.form-floating {
+  font-size: 1.5rem;
+  padding: 50px 15px 15px;
+}
+#selectCity {
+  padding: 10px 15px;
+  background-color: lightgray;
+  border-radius: 20px 8px 20px 8px;
+  font-size: 24px;
+  border: 2px solid rgba(9, 0, 14, 0.589);
+  font-weight: 400;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-shadow: 5px 5px 30px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 2rem;
   background-color: #255e7b;
   color: #47dac1;
+}
+.card-body {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.card-title {
+  font-weight: bold;
+  line-height: 1;
 }

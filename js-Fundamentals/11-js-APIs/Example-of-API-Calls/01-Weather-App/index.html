@@ -33,34 +33,76 @@
     <header>
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
-          <span class="navbar-brand">My Weather App</span>
+          <span class="navbar-brand">Weather App</span>
         </div>
       </nav>
     </header>
-    <section class="border border-primary p-5">
-      <div class="container border border-secondary p-4">
-        <div class="row">
-          <div class="col">
-            <h2>Current weather in Nairobi</h2>
-            <div id="nairobiCityElement" class=""></div>
+    <main>
+      <section class="border p-5">
+        <div class="container">
+          <div class="row">
+            <div class="border">
+              <div class="form-floating">
+                <select
+                  name=""
+                  id="selectCity"
+                  class="form-select"
+                  aria-label="Floating label select"
+                >
+                  <option value="" selected>Select city</option>
+                  <option value="1">Nairobi</option>
+                  <option value="2">London</option>
+                </select>
+                <label for="selectCity"
+                  >Select city to display weather details</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row border border-danger">
+            <div class="col-sm-3 card-col">
+              <div class="card h-100">
+                <div class="card-header"><h3 class="card-title">City</h3></div>
+                <div class="card-body">
+                  <p id="displayCity"></p>
+                  <img id="imgIcon" srcset="" src="" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 card-col">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h3 class="card-title">Weather Description</h3>
+                </div>
+                <div class="card-body">
+                  <p id="displayDescription"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 card-col">
+              <div class="card h-100">
+                <div class="card-header">
+                  <h3 class="card-title">Temperature</h3>
+                </div>
+                <div class="card-body">
+                  <p id="displayTemprature"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 card-col">
+              <div class="card h-100">
+                <div class="card-header"><h3 class="card-title">Main</h3></div>
+                <div class="card-body">
+                  <p id="displayMain"></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container border border-secondary p-4">
-        <div class="row border border-danger p-3 text-center">
-          <h2>Click each button to get weather of each city!</h2>
-          <div class="col-sm-4 border p-2">
-            <button class="btn btn-lg btn-info">Nairobi</button>
-          </div>
-          <div class="col-sm-4 border p-2">
-            <button class="btn btn-lg btn-info">Kampala</button>
-          </div>
-          <div class="col-sm-4 border p-2">
-            <button class="btn btn-lg btn-info">London</button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="script.js" async defer></script>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="script.js" async defer type="module"></script>
   </body>
 </html>

@@ -4,10 +4,11 @@
 
 # Description
 
-- we use the [OpenWeatherMap Api](https://openweathermap.org/api) to fetch weather data for a specific location.
--
+- we use the [OpenWeatherMap Api](https://openweathermap.org/api) to fetch weather data for a selected location in our Weather App.
 
 # OpenWeatherMap API
+
+- To get weather data, we use the [OpenWeatherMap](https://openweathermap.org/), a service providing various weather information using an API.
 
 - The [OpenWeatherMap API](https://openweathermap.org/api) has the following endpoints:
   1. [Current weather data](https://openweathermap.org/current)
@@ -53,7 +54,7 @@
     });
   ```
 
-- Sample data:
+- A single HTTP request returns this data:
   ```js
     {
     coord: { lon: -0.1257, lat: 51.5085 },
@@ -98,7 +99,7 @@
 
 ## Handle Response
 
-- From the above sample output, we can parse the JSON data and extract specific information neeeded for our App.
+- From the above sample output, we can parse the `JSON` data and extract specific information neeeded for our App.
 - Examples:
 
   ```js
@@ -127,31 +128,50 @@
 
 ## Handling Response - Using Response Information to Update an application UI
 
-- Use the response to update the application UI:
+- Use the response to update our Weather App UI:
 
   ```js
   // Weather App
+  import config from "./config.js";
 
-  const apiKey = ""; // TODO: replace with your own key
-  const apiUrlForNairobiCity = `https://api.openweathermap.org/data/2.5/weather?q=Nairobi&appid=${apiKey}`;
+  const selectCity = document.getElementById("selectCity");
+  const iconImg = document.getElementById("weather-icon");
+  const displayCity = document.getElementById("displayCity");
+  const displayDescription = document.getElementById("displayDescription");
+  const displayTemperature = document.getElementById("displayTemprature");
+  const displayMain = document.getElementById("displayMain");
 
-  const nairobiCityElement = document.getElementById("nairobiCityElement");
+  const selectAndDisplayCity = () => {
+    let selectedCity = selectCity.options[selectCity.selectedIndex].text;
+    // log the selected city to the console if needed
+    console.log("Selected City: " + selectedCity);
 
-  fetch(apiUrlForNairobiCity)
-    .then((response) => response.json())
-    .then((data) => {
-      const location = data.name;
-      const description = data.weather[0].description;
-      const temperature = data.main.temp;
-      const humidity = data.main.humidity;
-      const windSpeed = data.wind.speed;
+    //const apiKey = ""; //TODO:
+    // or, using API key from config.js file
+    const apiKey = config.apiKey;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${apiKey}`;
 
-      // update weather
-      nairobiCityElement.innerHTML = `<p>Temperature in ${location}: ${temperature}</p> <p>Weather: ${description}</p>`;
-    });
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        //const icon = data.weather[0].icon;
+        //const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        //iconImg.src = iconUrl;
+        displayCity.textContent = data.name;
+        displayDescription.textContent = data.weather[0].description;
+        displayTemperature.textContent =
+          (data.main.temp - 273.15).toFixed(2) + " °C"; // Adjust units if needed
+        displayMain.textContent = data.weather[0].main;
+      })
+      .catch((error) => {
+        console.error("Error while fethcing weather data!", error);
+      });
+  };
+
+  selectCity.addEventListener("change", selectAndDisplayCity);
   ```
 
-- Here, we make a `GET` request to the **OpenWeatherMap API**, pass the API key as a parameter in the URL, and display the temperature and weather description on a webpage.
+- Here, we make a `GET` request to the **OpenWeatherMap API**, pass the API key as a parameter in the URL, and display the City, weather Description, Temperature and main on a webpage.
 
 # Resources
 
