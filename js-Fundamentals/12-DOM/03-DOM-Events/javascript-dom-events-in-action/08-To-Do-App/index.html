@@ -13,6 +13,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Sofia|Trirong|Actor"
     />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
 
     <!-- Bootstrap icons -->
     <link
@@ -37,7 +42,113 @@
         </div>
       </nav>
     </header>
-    <section></section>
-    <script src="index.js" async defer></script>
+    <main>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="border border-primary">
+              <div class=""><h1>TODO App</h1></div>
+              <div class="add-new-tasks-container border">
+                <h2>Add New Task</h2>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addTaskModal"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <!-- Add Task Modal -->
+                <div
+                  id="addTaskModal"
+                  class="modal "
+                  tabindex="-1"
+                  aria-hidden="true"
+                  aria-labelledby="modalTitle"
+                >
+                  <div
+                    class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+                  >
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 id="modalTitle" class="modal-title">
+                          Add New Task
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action=""></form>
+                        <div class="form-row">
+                          <label class="form-label" for="taskTitleInput"
+                            >Task Title</label
+                          ><input
+                            id="titleInput"
+                            class="form-control"
+                            type="text"
+                          />
+                        </div>
+                        <div class="form-row">
+                          <label for="dueDateInput" class="form-label"
+                            >Due Date</label
+                          >
+                          <input
+                            id="dueDateInput"
+                            class="form-control"
+                            type="date"
+                          />
+                        </div>
+                        <div class="form-row">
+                          <label for="descriptionInput" class="form-label"
+                            >Description</label
+                          >
+                          <textarea
+                            id="descriptionInput"
+                            class="form-control"
+                            rows="3"
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          class="btn btn-secondary"
+                          type="button"
+                          data-bs-dismiss="modal"
+                        >
+                          Close</button
+                        ><button
+                          id="addTaskBtn"
+                          class="btn btn-primary"
+                          type="button"
+                        >
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row box border p-2">
+            <div class=""><h2>My Tasks</h2></div>
+          </div>
+          <div class="row box border border-danger p-5 display-tasks-row">
+            <div id="" class=""></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row"><hr class="hr" /></div>
+      </div>
+    </footer>
+    <script src="script.js" async defer></script>
   </body>
 </html>

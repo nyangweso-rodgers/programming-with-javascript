@@ -1,0 +1,28 @@
+body {
+  font-family: "Trirong", serif;
+}
+section {
+  border: 2px dotted #ff004d;
+  padding: 40px 0;
+}
+.add-new-tasks-container {
+  background-color: #e2eede;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.tasks-container {
+  text-align: center;
+}
+
+.form-row {
+  margin: 12px 0;
+}
+
+.box {
+  text-align: center;
+}
+
+.btn {
+  cursor: pointer;
+}
