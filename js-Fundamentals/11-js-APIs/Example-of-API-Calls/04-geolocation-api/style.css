@@ -1,14 +1,14 @@
 body {
   font-family: "Trirong", serif;
+  background-color: #EEF5FF;
+  height: 100vh;
 }
 
 .navbar {
   background: #0a2647;
   font-size: 20px;
   font-family: "Trirong", serif;
-  /*padding-top: 15px;*/
   letter-spacing: 1px;
-  /*margin-bottom: 0;*/
 }
 
 .navbar li a,
@@ -16,6 +16,15 @@ body {
   color: #fff;
 }
 
-.section {
+section {
   padding: 40px 0;
+}
+
+.show-coordinates-container {
+  text-align: center;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 10px 5px;
 }
