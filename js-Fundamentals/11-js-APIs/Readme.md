@@ -5,8 +5,11 @@
 # Fetch API
 
 - **Fetch API** is an interface through which `js` can make `HTTP` requests.
-- **Fetch API Syntax:**
-  - The browser exposes it by giving out a `fetch` method that takes multiple parameters. The first is the `API` you want to call, whereas the second optional parameter is an object that holds all the information you need to make the request successful.
+
+## Fetch API Syntax
+
+- The browser exposes it by giving out a `fetch` method that takes multiple parameters. The first is the **API** you want to call, whereas the second optional parameter is an object that holds all the information you need to make the request successful.
+
   ```js
   // fetch syntax
   fetch("API URL")
@@ -17,6 +20,7 @@
       // handle any error that
     });
   ```
+
 - `fetch` function returns a **Promise** that resolves to the response from the server. You can then use the `.json()` method of the response object to parse the response as `JSON`.
 
 ## Working with API Keys
@@ -122,7 +126,7 @@
 
 | Index | API                                                   | Description                   | Requires API Key |
 | ----- | ----------------------------------------------------- | ----------------------------- | ---------------- |
-| 3     | [API-FOOTBALL (3.9.2)](https://www.api-football.com/) | Restful API for football data |
+| 1     | [API-FOOTBALL (3.9.2)](https://www.api-football.com/) | Restful API for football data |
 
 # Resources
 
