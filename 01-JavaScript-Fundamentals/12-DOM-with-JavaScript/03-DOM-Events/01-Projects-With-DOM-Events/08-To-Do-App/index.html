@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>To Do App</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -46,89 +46,84 @@
       <section>
         <div class="container">
           <div class="row">
-            <div class="border border-primary">
-              <div class=""><h1>TODO App</h1></div>
-              <div class="add-new-tasks-container border">
-                <h2>Add New Task</h2>
-
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#addTaskModal"
-                >
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <!-- Add Task Modal -->
+            <div><h1>To Do App</h1></div>
+          </div>
+          <div class="row">
+            <div class="border p-3">
+              <button
+                id="test"
+                type="button"
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#modalToAddTask"
+              >
+                Click To Add A New Task
+              </button>
+              <!-- Modal -->
+              <div
+                id="modalToAddTask"
+                class="modal"
+                tabindex="-1"
+                aria-hidden="true"
+                aria-labelledby="modalLabel"
+              >
                 <div
-                  id="addTaskModal"
-                  class="modal"
-                  tabindex="-1"
-                  aria-hidden="true"
-                  aria-labelledby="modalTitle"
+                  class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                 >
-                  <div
-                    class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
-                  >
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 id="modalTitle" class="modal-title">
-                          Add New Task
-                        </h5>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        <form action=""></form>
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 id="modalLabel" class="modal-title">Add New Task</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="">
                         <div class="form-row">
-                          <label class="form-label" for="taskTitleInput"
+                          <label class="form-label" for="taskTitle"
                             >Task Title</label
                           ><input
-                            id="titleInput"
+                            id="taskTitle"
                             class="form-control"
                             type="text"
                           />
                         </div>
                         <div class="form-row">
-                          <label for="dueDateInput" class="form-label"
+                          <label for="dueDate" class="form-label"
                             >Due Date</label
                           >
                           <input
-                            id="dueDateInput"
+                            id="dueDate"
                             class="form-control"
                             type="date"
                           />
                         </div>
                         <div class="form-row">
-                          <label for="descriptionInput" class="form-label"
+                          <label for="description" class="form-label"
                             >Description</label
                           >
                           <textarea
-                            id="descriptionInput"
+                            id="description"
                             class="form-control"
                             rows="3"
                           ></textarea>
                         </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          class="btn btn-secondary"
-                          type="button"
-                          data-bs-dismiss="modal"
-                        >
-                          Close</button
-                        ><button
-                          id="addTaskBtn"
-                          class="btn btn-primary"
-                          type="button"
-                        >
-                          Add
-                        </button>
-                      </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-outline-danger"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button id="addTaskBtn" type="button" class="btn btn-outline-success">
+                        Add Task
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -138,12 +133,10 @@
           <div class="row box border p-2">
             <div class=""><h2>List My Tasks</h2></div>
           </div>
-          <div class="row box border border-danger p-5 display-tasks-row">
-            <div id="" class=""></div>
-          </div>
+          <div id="displayTasksRow" class="row box border border-danger p-5"></div>
         </div>
       </section>
     </main>
-    <script src="script.js" async defer></script>
+    <script src="script-v2.js" async defer></script>
   </body>
 </html>

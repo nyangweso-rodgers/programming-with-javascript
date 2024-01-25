@@ -2,7 +2,7 @@
 
 ## Description
 
-- Design a simple to-do app
+- Design to-do app
 
 # Objective
 
