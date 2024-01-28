@@ -83,45 +83,53 @@
                     <div class="modal-body">
                       <form action="">
                         <div class="form-row">
-                          <label class="form-label" for="taskTitle"
+                          <label class="form-label" for="modalTitleInput"
                             >Task Title</label
                           ><input
-                            id="taskTitle"
+                            id="modalTitleInput"
                             class="form-control"
                             type="text"
+                            required
                           />
                         </div>
                         <div class="form-row">
-                          <label for="dueDate" class="form-label"
+                          <label for="modalDueDateInput" class="form-label"
                             >Due Date</label
                           >
                           <input
-                            id="dueDate"
+                            id="modalDueDateInput"
                             class="form-control"
                             type="date"
+                            required
                           />
                         </div>
                         <div class="form-row">
-                          <label for="description" class="form-label"
+                          <label for="modalDescriptionInput" class="form-label"
                             >Description</label
                           >
                           <textarea
-                            id="description"
+                            id="modalDescriptionInput"
                             class="form-control"
                             rows="3"
+                            required
                           ></textarea>
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button
+                        id="modalButtonToClose"
                         type="button"
                         class="btn btn-outline-danger"
                         data-bs-dismiss="modal"
                       >
                         Close
                       </button>
-                      <button id="addTaskBtn" type="button" class="btn btn-outline-success">
+                      <button
+                        id="modalButtonToAddTask"
+                        type="button"
+                        class="btn btn-outline-success"
+                      >
                         Add Task
                       </button>
                     </div>
@@ -133,10 +141,13 @@
           <div class="row box border p-2">
             <div class=""><h2>List My Tasks</h2></div>
           </div>
-          <div id="displayTasksRow" class="row box border border-danger p-5"></div>
+          <div
+            id="containerToDisplayTasks"
+            class="row box border border-danger p-5"
+          ></div>
         </div>
       </section>
     </main>
-    <script src="script-v2.js" async defer></script>
+    <script src="script-v4.js" async defer></script>
   </body>
 </html>
