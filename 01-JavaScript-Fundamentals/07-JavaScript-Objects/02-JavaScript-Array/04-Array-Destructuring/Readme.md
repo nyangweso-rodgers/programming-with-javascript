@@ -4,7 +4,7 @@
 
 # Introduction to Array Destructuring
 
-- allows us to unpack **Arrays** or **Objects** into a bunch of distinct `variables`.
+- allows us to unpack **Arrays** or **Objects** into a bunch of distinct **variables**.
 - **Example**:
 
   ```js
