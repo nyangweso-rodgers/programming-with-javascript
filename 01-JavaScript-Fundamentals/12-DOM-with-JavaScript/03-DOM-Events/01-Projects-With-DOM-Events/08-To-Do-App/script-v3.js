@@ -41,55 +41,6 @@ const functionTogetDataFromModalForm = () => {
     description: modalDescriptionInput.value.trim(),
   };
 };
-/*
-// Function to validate form inputs
-const functionToValidateFormInputs = () => {
-  // get values from form data elements
-  const getTitleValue = modalTitleInput.value;
-  const getDueDateValue = modalDueDateInput.value;
-  const getDescriptionValue = modalDescriptionInput.value;
-  /*
-  // valdate task title
-  if (!getTitleValue) {
-    errorMessagesArray.push("Task title is required!");
-  } else if (getTitleValue.length > 99) {
-    errorMessagesArray.push("Title must be less than 100 characters.");
-  }
-  */
-/*
-  // validate due date
-  try {
-    const currentDate = new Date();
-    const dateObj = new Date(getDueDateValue);
-
-    // Set hours, minutes, seconds, and milliseconds to 0 for both dates
-    currentDate.setHours(0, 0, 0, 0);
-    dateObj.setHours(0, 0, 0, 0);
-
-    if (dateObj < currentDate) {
-      errorMessagesArray.push("Date cannot be in the past.");
-    }
-  } catch (error) {
-    errorMessagesArray.push("Invalid Due Date!");
-  }
-*/
-/*
-  // validate description
-  if (!getDescriptionValue) {
-    errorMessagesArray.push("Description is required!");
-  } else if (getDescriptionValue.length > 201) {
-    errorMessagesArray.push("Description must be less than 201 characters.");
-  }
-  */
-/*
-  // Display the error messages
-  if (errorMessagesArray.length > 0) {
-    alert(errorMessagesArray.join("\n"));
-    return false; // return false when validation failes
-  }
-  return true; // Return true when validation is successful
-};
-*/
 // Function to store form data
 const functionToStoreFormData = (modalFormData) => {
   arrayForModalFormData.push(modalFormData);

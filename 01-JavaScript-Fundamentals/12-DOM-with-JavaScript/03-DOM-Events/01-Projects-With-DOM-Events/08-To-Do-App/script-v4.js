@@ -4,7 +4,7 @@
 const modalTitleInput = document.getElementById("modalTitleInput");
 const modalDueDateInput = document.getElementById("modalDueDateInput");
 const modalDescriptionInput = document.getElementById("modalDescriptionInput");
-const submitTaskButton = document.getElementById("submitTaskButton");
+const modalSubmitButton = document.getElementById("modalSubmitButton");
 const containerToDisplayTasks = document.getElementById(
   "containerToDisplayTasks"
 );

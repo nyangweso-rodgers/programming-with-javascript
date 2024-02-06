@@ -55,13 +55,13 @@
                 type="button"
                 class="btn btn-danger"
                 data-bs-toggle="modal"
-                data-bs-target="#modalToAddTask"
+                data-bs-target="#modalForAddingTask"
               >
                 Click To Add A New Task
               </button>
               <!-- Modal -->
-              <div
-                id="modalToAddTask"
+              <form
+                id="modalForAddingTask"
                 class="modal"
                 tabindex="-1"
                 aria-hidden="true"
@@ -118,7 +118,7 @@
                     </div>
                     <div class="modal-footer">
                       <button
-                        id="modalButtonToClose"
+                        id="modalCloseButton"
                         type="button"
                         class="btn btn-outline-danger"
                         data-bs-dismiss="modal"
@@ -126,7 +126,7 @@
                         Close
                       </button>
                       <button
-                        id="submitTaskButton"
+                        id="modalSubmitButton"
                         type="submit"
                         class="btn btn-outline-success"
                       >
@@ -135,7 +135,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
           <div class="row box border p-2">
@@ -148,6 +148,6 @@
         </div>
       </section>
     </main>
-    <script src="script-v4.js" async defer></script>
+    <script src="01-form-validation.js" async defer></script>
   </body>
 </html>
