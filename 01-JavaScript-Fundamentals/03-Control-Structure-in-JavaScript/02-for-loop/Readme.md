@@ -100,3 +100,24 @@ for (i = 0; i <= 10; i++) {
     console.log(objectElement); // Output: a, b, c
   }
   ```
+
+# Remarks
+
+## Remark 1
+
+- the `for...in` loop should NOT be used to iterate over arrays becaues, depending on the JS engine, it could iterate in an arbitrary order also, the iterating variable is a string, not a number, so if you try to do any math with the variable, you'll be performing string concatenation instead of addition
+- **ES6** introduces the new `for...of` loop, which creates a loop iterating over iterable objects for example:
+  ```js
+  let list = ["x", "y", "z"];
+  for (let val of list) {
+    console.log(val);
+  }
+  ```
+  - during each iteration the `val` variable is assigned the corresponding element in the list
+- the `for...of` loop works for other iterable objects as well, including strings:
+  ```js
+  for (let ch of "Hello") {
+    console.log(ch);
+  }
+  ```
+- the `for...of` loop also works on the newly introduced collections (`Map`, `Set`, `WeakMap`, and `WeakSet`)
