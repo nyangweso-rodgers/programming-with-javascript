@@ -33,86 +33,70 @@
     <header>
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
-          <span class="navbar-brand">Display Data App.</span>
+          <span class="navbar-brand">App To Display Data</span>
         </div>
       </nav>
     </header>
-    <section class="border">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Alert Box When Button Is Clicked!</h5>
-                <p class="card-text">
-                  Click the below button for an alert message!
-                </p>
-                <button id="btnForAlertMessage" class="btn btn-primary">
-                  Display alert box!
-                </button>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last Updated: 2024-01-04</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">
-                  Display Hello World When Button Is Clicked!
-                </h5>
-                <p class="card-text">
-                  Click the below button to display <small>Hello World!</small>
-                </p>
-                <button id="btnToDisplayText" class="btn btn-success">
-                  Display hello world!
-                </button>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last Updated: 2024-01-04</small>
+    <main>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Alert Box When Button Is Clicked!</h5>
+                  <button id="btnForAlertMessage" class="btn btn-primary">
+                    Click for alert box!
+                  </button>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last Updated: 2024-01-04</small>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">
-                  Display Current Date And Time When Button Is Clicked!
-                </h5>
-                <p class="card-text">
-                  Click the below button to display current date and time!
-                </p>
-                <button id="btnToDisplayDateAndTime" class="btn btn-info">
-                  Display date and time!
-                </button>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last Updated: 2024-01-04</small>
+            <div class="col-sm-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Display Hello World.</h5>
+                  <button id="btnToDisplayText" class="btn btn-success">
+                    Click to display hello world!
+                  </button>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last Updated: 2024-01-04</small>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">
-                  Display Random Number When Button Is Clicked!
-                </h5>
-                <p class="card-text">
-                  Click below button to generate a random number!
-                </p>
-                <button id="btnToDisplayRandomNumber" class="btn btn-warning">
-                  Display random number!
-                </button>
+            <div class="col-sm-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Display Current Date And Time</h5>
+                  <button id="btnToDisplayDateAndTime" class="btn btn-info">
+                    Get Current Date And Time
+                  </button>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last Updated: 2024-01-04</small>
+                </div>
               </div>
-              <div class="card-footer">
-                <small class="text-muted">Last Updated: 2024-01-04</small>
+            </div>
+            <div class="col-sm-3">
+              <div class="card h-100">
+                <div id="randomNumberCard" class="card-body">
+                  <h5 class="card-title">Display Random Number</h5>
+                  <button id="btnToDisplayRandomNumber" class="btn btn-warning">
+                    Get Random Number
+                  </button>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last Updated: 2024-01-04</small>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
     <script src="script.js" async defer></script>
   </body>
 </html>
