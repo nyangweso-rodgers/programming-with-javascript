@@ -1,0 +1,46 @@
+body {
+    font-family: "Trirong", serif;
+    height: 100vh;
+    justify-content: center;
+  }
+  
+  .navbar {
+    background: #0a2647;
+    font-size: 20px;
+    font-family: "Trirong", serif;
+    /*padding-top: 15px;*/
+    letter-spacing: 1px;
+    /*margin-bottom: 0;*/
+  }
+  
+  .navbar li a,
+  .navbar .navbar-brand {
+    color: #fff;
+  }
+  
+  .section {
+    padding: 40px 0;
+    border: 1px solid purple;
+  }
+  
+  .card {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    /*box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card h5 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .card .button {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
