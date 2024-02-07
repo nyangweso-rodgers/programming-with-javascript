@@ -88,3 +88,15 @@ for (i = 0; i <= 10; i++) {
   ```
 
 ## 2. Iterate keys in an Object
+
+- The `for`...in loop is intended for iterating over the enumerable keys of an object.
+
+  ```javascript
+  // iterate keys in an object
+
+  let sampleObject = { a: 1, b: 2, c: 3 };
+
+  for (let objectElement in sampleObject) {
+    console.log(objectElement); // Output: a, b, c
+  }
+  ```
