@@ -71,3 +71,20 @@ for (i = 0; i <= 10; i++) {
   document.write(i + "<br/>"); // the value 5 is not printed because continue skips that iteration of the loop
 }
 ```
+
+# `for` Loop Use Cases
+
+## 1. Iterate Values in a List
+
+- in JavaScript, we commonly use the `for` loop to iterate over values in a list
+
+  ```javascript
+  // iterate a list using a for loop
+  let sampleLists = [1, 2, 3];
+
+  for (let i = 0; i < sampleLists.length; i++) {
+    console.log(sampleLists[i]);
+  }
+  ```
+
+## 2. Iterate keys in an Object
