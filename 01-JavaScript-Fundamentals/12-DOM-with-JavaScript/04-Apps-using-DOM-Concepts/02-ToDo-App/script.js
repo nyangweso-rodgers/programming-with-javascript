@@ -13,6 +13,9 @@ const descriptionErrorElement = document.getElementById(
   "descriptionErrorElement"
 );
 
+// get task container element
+const tasksContainer = document.querySelector(".tasks-container");
+
 // validate task title
 const validateModalTitleInput = (titleInput) => {
   if (titleInput.trim() === "") {
@@ -82,6 +85,11 @@ const modalFormValidation = (event) => {
     modalDueDateInputIsValid &&
     modalDescriptionInputIsValid
   ) {
+    // Hanlde form submission
+
+    // Call a separate helper function for clearing
+    clearFormFields();
+
     // create a data object
     const newModalFormEntry = {
       title: modalTitleInput.value,
@@ -104,7 +112,7 @@ const modalFormValidation = (event) => {
     <p>Description: ${latestEntry.description}</p><div class="task-actions"></div>`;
 
     // append the new task to the container
-    document.querySelector(".tasks-container").appendChild(newTaskDiv);
+    tasksContainer.appendChild(newTaskDiv);
 
     // create then editIcon element
     const editIcon = document.createElement("i");
@@ -117,40 +125,37 @@ const modalFormValidation = (event) => {
     deleteIcon.className = "fas fa-trash delete-icon";
     // Append the delete icon after the edit icon
     newTaskDiv.querySelector(".task-actions").appendChild(deleteIcon);
+
+    // attach an event handler to delete a task
+    // event delegation for deleting tasks
+    tasksContainer.addEventListener("click", (event) => {
+      const clickedElement = event.target;
+      if (clickedElement.classList.contains("delete-icon")) {
+        handleDeleteTask(clickedElement.closest(".task-item"));
+      }
+    });
   } else {
     // Display an appropriate message if form submission is blocked due to errors
     console.log("Form submission failed due to validation errors!");
     // You can also display an alert or message to the user here
   }
 };
-
+// Attach event listener
 modalFormToAddTasks.addEventListener("submit", modalFormValidation);
 
-// add event listeners
-// Get all delete icons using querySelectorAll
-const deleteIcons = document.querySelectorAll(".delete-icon");
-
-// Loop through each delete icon and add click event listener
-deleteIcons.forEach((icon) => {
-  icon.addEventListener("click", handleDeleteTask);
-});
-
-const handleDeleteTask = (event) => {
-  // Identify the clicked task element
-  const clickedTask = event.target.closest(".task-item");
-
-  // Find the corresponding data index in modalFormData
-  const taskIndex = modalFormData.findIndex(
-    (task) =>
-      task.title ===
-      clickedTask.querySelector("h3").textContent.split(":")[1].trim()
-  );
-
-  // Remove the data object from modalFormData
-  modalFormData.splice(taskIndex, 1);
-
-  // Remove the associated task element from the DOM
-  clickedTask.remove();
+// define delete task functionality
+const handleDeleteTask = (taskToBeDeleted) => {
+  tasksContainer.removeChild(taskToBeDeleted);
 };
 
-handleDeleteTask();
+// clear form fields
+const clearFormFields = () => {
+  modalTitleInput.value = "";
+  modalDueDateInput.value = "";
+  modalDescriptionInput.value = "";
+
+  // reset any error message
+  titleErrorElement.innerHTML = "";
+  dueDateErrorElement.innerHTML = "";
+  descriptionErrorElement.innerHTML = "";
+};
