@@ -10,11 +10,13 @@
     ```js
     // using the `String()` constructor
     let firstName = String("Rodgers");
+    console.log(typeof firstName); // Output: string
     ```
   - Using string literals
     ```js
     // using the `String()` constructor
     let firstName = "Rodgers";
+    console.log(typeof firstName); // Output: string
     ```
 
 # Template Strings/Literals in ES6
@@ -41,9 +43,11 @@
   console.log(myName); // Output: "Rodgers Nyangweso"
   ```
 
-# `string` Instance Methods
+# JavaScript `String` Methods
 
-## 1. `.charAt` Method
+## 1. `string` Instance Methods
+
+### 1.1 `.charAt` Method
 
 - access a character at a certain index in the string.
 
@@ -52,8 +56,14 @@
   let firstName = "Rodgers";
   // using indexing
   let firstLetter = firstName[0];
+  ```
+
+- or,
+  ```js
   // using .charAt
+  let firstName = "Rodgers";
   let firstLetter = firstName.charAt(0);
+  console.log(firstLetter);
   ```
 
 ## 2. `.toUpperCase()` Method
