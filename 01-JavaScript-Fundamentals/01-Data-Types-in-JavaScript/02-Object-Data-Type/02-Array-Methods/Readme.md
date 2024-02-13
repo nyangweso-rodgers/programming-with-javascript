@@ -27,6 +27,12 @@
 
 ## Array Method 2: `indexOf()`
 
+- find the index of the first occurance of array element.
+  ```js
+  let names = ["Rodgers", "Nyangweso"];
+  console.log(names.indexOf("Rodgers")); // Output: 0
+  ```
+
 ## Array Method 1: `forEach()`
 
 - `forEach()` executes the given function once for each of the array elements. The **callback function** does not expect a `return` value, and the `forEach()` method itself also returns `undefined`.
@@ -42,7 +48,7 @@
     });
   };
   itemPrices(); // Output: 10, 20, 30, 40, 50
-  ```
+````
 
 ## Array Method 2: `filter()`
 
