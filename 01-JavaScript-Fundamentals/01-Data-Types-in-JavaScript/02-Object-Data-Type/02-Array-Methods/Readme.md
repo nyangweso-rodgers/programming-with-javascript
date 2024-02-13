@@ -86,6 +86,22 @@
       console.log(sortNumbers(numbersArray)); // Output: [ 9, 8, 5, 3, 2, 1 ]
       ```
 
+## Array Method 4: `reverse()`
+
+- `reverse()` reverses the order of the elements in the array
+
+  ```js
+  // reverse() Method
+
+  var priceList = [10, 20, 30, 40, 50];
+
+  const reverseFunction = (array) => {
+    return array.reverse();
+  };
+
+  console.log(reverseFunction(priceList)); // Output: [ 50, 40, 30, 20, 10 ]
+  ```
+
 ## Array Method 1: `forEach()`
 
 - `forEach()` executes the given function once for each of the array elements. The **callback function** does not expect a `return` value, and the `forEach()` method itself also returns `undefined`.
@@ -145,8 +161,6 @@
 ## Array Method 7: `flat`
 
 ## Array Method 8: `flatMap`
-
-## Array Method 9: `reverse`
 
 ## Array Method 10: `fill`
 
