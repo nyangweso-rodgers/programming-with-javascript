@@ -44,6 +44,48 @@
   console.log(numbers); // Output: [ 1, 2, 3, 5, 8, 9 ]
   ```
 
+- Examples:
+
+  - Define a `sortNumbers` function to sort arrays of numbers in Accessing order.
+
+    ```js
+    // sort() method
+    const numbersArray = [2, 9, 3, 5, 1, 8];
+
+    const sortNumbers = (array) => {
+      array.sort((a, b) => {
+        return a - b;
+      });
+      return array;
+    };
+    console.log(sortNumbers(numbersArray)); // Output: [ 1, 2, 3, 5, 8, 9 ]
+    ```
+
+    - Note: the above `sortNumbers` function is sorting the array in ascending order, which is the default behavior of the `sort()` method when no compare function is provided. So, we might not need to explicitly specify the **compare function**.
+    - Here is a simplified version:
+
+      ```js
+      // sort() method
+      const numbersArray = [2, 9, 3, 5, 1, 8];
+
+      const sortNumbers = (array) => {
+        return array.sort();
+      };
+      console.log(sortNumbers(numbersArray)); // Output: [ 1, 2, 3, 5, 8, 9 ]
+      ```
+
+    - If we want to sort the numbers in descending order, we can use `reverse()` method.
+
+      ```js
+      // sort() method
+      const numbersArray = [2, 9, 3, 5, 1, 8];
+
+      const sortNumbers = (array) => {
+        return array.sort().reverse();
+      };
+      console.log(sortNumbers(numbersArray)); // Output: [ 9, 8, 5, 3, 2, 1 ]
+      ```
+
 ## Array Method 1: `forEach()`
 
 - `forEach()` executes the given function once for each of the array elements. The **callback function** does not expect a `return` value, and the `forEach()` method itself also returns `undefined`.
