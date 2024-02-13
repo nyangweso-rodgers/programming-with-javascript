@@ -67,6 +67,22 @@
   console.log(removeAndReplaceArrayElementsUsingSplice(arrayOfPositiveNumbers)); // Output: [ 'New Element', 5, 6, 7, 8, 9, 10 ]
   ```
 
+## Array Method 3: `slice()`
+
+- `slice(start, end)` is similar to a `string` method `.slice()`, but instead of substrings it makes subarrays. Itreturns a new array containing items from index `start` to `end` (not including `end`).
+- Both `start` and `end` can be negative, in that case position from array `end` is assumed.
+
+  ```js
+  generatePositiveNumbers(start, end); // Output: [1,2,3,4,5,6,7,8,9,10]
+
+  // using slice()
+  const sliceFunction = (array) => {
+    return array.slice(1, 3);
+  };
+
+  console.log(sliceFunction(arrayOfPositiveNumbers)); // Output: [ 2, 3 ]
+  ```
+
 # Methods To Search Array
 
 # Methods to Iterate Array Objects
