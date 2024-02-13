@@ -94,17 +94,3 @@ console.log(-Infinity); // -Infinity
   y = undefined;
   console.log(y); // undefined
   ```
-
-## 7. Object Data Type
-
-- the **object** type is special. all the other types are called "**primitive**" because their value can contain only a single thing(be it a **string**, a **number** or whatever). in contrast, **objects** are used to store collections of data and more complex entities. the symbol type is used to create a unique identifier for objects.
-
-```js
-// Creating an Object in JS
-var emp = {
-  name: "Rodgers",
-  age: 26,
-};
-
-console.log(emp); // Output: { name: 'Rodgers', age: 26 }
-```
