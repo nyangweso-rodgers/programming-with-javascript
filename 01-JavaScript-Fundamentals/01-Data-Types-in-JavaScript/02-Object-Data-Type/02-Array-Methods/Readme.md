@@ -2,6 +2,26 @@
 
 ## Table Of Contents
 
+## Array Method 1: `includes()`
+
+- `includes()` checks if an array includes a certain value among its elements, returning true or false
+
+  ```js
+  // includes() Method
+  var priceList = [10, 20, 30, 40, 50];
+
+  console.log(priceList.includes(10)); // Output: true
+  console.log(priceList.includes(60)); // Output: false
+  ```
+
+## Array Method 2: `indexOf()`
+
+- find the index of the first occurance of array element.
+  ```js
+  let names = ["Rodgers", "Nyangweso"];
+  console.log(names.indexOf("Rodgers")); // Output: 0
+  ```
+
 ## Array Method 1: `push()` and `pop()`
 
 - JavaScript arrays are dynamic, hence we can add elements using the `push()` method and remove the last element using the `pop()` method.
@@ -23,14 +43,6 @@
 
   names.pop();
   console.log(names); // Output: [ 'Rodgers']
-  ```
-
-## Array Method 2: `indexOf()`
-
-- find the index of the first occurance of array element.
-  ```js
-  let names = ["Rodgers", "Nyangweso"];
-  console.log(names.indexOf("Rodgers")); // Output: 0
   ```
 
 ## Array Method 3: `sort()`
@@ -163,8 +175,6 @@
 ## Array Method 8: `flatMap`
 
 ## Array Method 10: `fill`
-
-## Array Method 11: `includes`
 
 ## Array Method 12: `every`
 
