@@ -33,6 +33,17 @@
   console.log(names.indexOf("Rodgers")); // Output: 0
   ```
 
+## Array Method 3: `sort()`
+
+- `sort()` used to sort the elements of an array and returning the sorting array.
+- _NOTE:_ this method is mutating the original array
+
+  ```js
+  const numbers = [2, 9, 3, 5, 1, 8];
+  numbers.sort((a, b) => a - b);
+  console.log(numbers); // Output: [ 1, 2, 3, 5, 8, 9 ]
+  ```
+
 ## Array Method 1: `forEach()`
 
 - `forEach()` executes the given function once for each of the array elements. The **callback function** does not expect a `return` value, and the `forEach()` method itself also returns `undefined`.
@@ -48,7 +59,7 @@
     });
   };
   itemPrices(); // Output: 10, 20, 30, 40, 50
-````
+  ```
 
 ## Array Method 2: `filter()`
 
@@ -88,10 +99,6 @@
 
   console.log(generatePositiveNumbers(10, 100));
   ```
-
-## Array Method 5: `sort`
-
-## Array Method 6: `indexOf`
 
 ## Array Method 7: `flat`
 
