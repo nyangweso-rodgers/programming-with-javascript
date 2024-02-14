@@ -121,6 +121,17 @@
   console.log(priceList.includes(60)); // Output: false
   ```
 
+## Array Method 7: `find()`
+
+- `find()` behaves similarly to the `filter()` method, but it only returns a single element.
+- this method will stop at the first element that 'pass the test' and return that. if none exists, it will return `undefined`.
+
+  ```js
+  var numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var even = numberList.find((n) => n === 3);
+  console.log(even); // Output: 3
+  ```
+
 # Methods to Iterate Array Objects
 
 # Methods to Transform Array Objects
