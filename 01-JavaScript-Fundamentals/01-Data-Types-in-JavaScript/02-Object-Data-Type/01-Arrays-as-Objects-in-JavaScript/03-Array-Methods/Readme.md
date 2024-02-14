@@ -109,6 +109,18 @@
   console.log(names.indexOf("Omondi")); // Output: -1
   ```
 
+## Array Method 6: `includes()`
+
+- `includes()` checks if an array includes a certain value among its elements, returning `true` or `false`
+
+  ```js
+  // includes() Method
+  var priceList = [10, 20, 30, 40, 50];
+
+  console.log(priceList.includes(10)); // Output: true
+  console.log(priceList.includes(60)); // Output: false
+  ```
+
 # Methods to Iterate Array Objects
 
 # Methods to Transform Array Objects
