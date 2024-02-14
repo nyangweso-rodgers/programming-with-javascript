@@ -42,15 +42,16 @@
     for (let i = a; i <= b; i++) {
       arrayOfPositiveNumbers.push(i);
     }
-    //console.log(arrayOfPositiveNumbers);
+    console.log("Array of Positive Numbers: ", arrayOfPositiveNumbers);
     return arrayOfPositiveNumbers;
   };
+
+  generatePositiveNumbers(start, end);
 
   const removeElementsUsingSplice = (array) => {
     array.splice(1, 2); // starting from index 1, remove 2 elements
     return array;
   };
-  console.log("Generated Array:", generatePositiveNumbers(start, end)); // Output: [1,2,3,4,5,6,7,8,9,10]
   console.log(removeElementsUsingSplice(arrayOfPositiveNumbers)); // Output: [1,4,5,6,7,8,9,10]
   ```
 
@@ -202,6 +203,17 @@
 
 - Notes:
   - The `forEach()` method is not executed for empty elements.
+
+## Array Method 11: `reduce(...)`
+
+- `reduce()` method runs a function on each array element to produce (reduce it to) a single value.
+- Examples:
+  - find the sum of all numbers in an array:
+    ```js
+    var numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var sumList = numberList.reduce((acc, n) => acc + n);
+    console.log(sumList); // Output: 45
+    ```
 
 # Methods to Transform Array Objects
 
