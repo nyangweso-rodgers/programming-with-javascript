@@ -219,6 +219,75 @@
   console.log(doublePriceList[0]); // Output: 20
   ```
 
+## Array Method 12: `sort()`
+
+- `sort()` used to sort the elements of an array and returning the sorting array.
+- _NOTE:_ this method is mutating the original array
+
+  ```js
+  const numbers = [2, 9, 3, 5, 1, 8];
+  numbers.sort((a, b) => a - b);
+  console.log(numbers); // Output: [ 1, 2, 3, 5, 8, 9 ]
+  ```
+
+- Examples:
+
+  - Define a `sortNumbers` function to sort arrays of numbers in Accessing order.
+
+    ```js
+    // sort() method
+    const numbersArray = [2, 9, 3, 5, 1, 8];
+
+    const sortNumbers = (array) => {
+      array.sort((a, b) => {
+        return a - b;
+      });
+      return array;
+    };
+    console.log(sortNumbers(numbersArray)); // Output: [ 1, 2, 3, 5, 8, 9 ]
+    ```
+
+    - Note: the above `sortNumbers` function is sorting the array in ascending order, which is the default behavior of the `sort()` method when no compare function is provided. So, we might not need to explicitly specify the **compare function**.
+    - Here is a simplified version:
+
+      ```js
+      // sort() method
+      const numbersArray = [2, 9, 3, 5, 1, 8];
+
+      const sortNumbers = (array) => {
+        return array.sort();
+      };
+      console.log(sortNumbers(numbersArray)); // Output: [ 1, 2, 3, 5, 8, 9 ]
+      ```
+
+    - If we want to sort the numbers in descending order, we can use `reverse()` method.
+
+      ```js
+      // sort() method
+      const numbersArray = [2, 9, 3, 5, 1, 8];
+
+      const sortNumbers = (array) => {
+        return array.sort().reverse();
+      };
+      console.log(sortNumbers(numbersArray)); // Output: [ 9, 8, 5, 3, 2, 1 ]
+      ```
+
+## Array Method 13: `reverse()`
+
+- `reverse()` reverses the order of the elements in the array
+
+  ```js
+  // reverse() Method
+
+  var priceList = [10, 20, 30, 40, 50];
+
+  const reverseFunction = (array) => {
+    return array.reverse();
+  };
+
+  console.log(reverseFunction(priceList)); // Output: [ 50, 40, 30, 20, 10 ]
+  ```
+
 # Resources
 
 1. [w3schools - JavaScript Array Methods](https://www.w3schools.com/js/js_array_methods.asp)
