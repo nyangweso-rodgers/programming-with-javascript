@@ -132,6 +132,17 @@
   console.log(even); // Output: 3
   ```
 
+## Array Method 8: `findIndex()`
+
+- `findIndex()` behaves similarly to the `find()` method, but it returns an index instead of the element.
+- this method will stop at the first element that 'pass the test' and return the index. if none exists, it will return `-1`
+
+  ```js
+  var numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var indexThree = numberList.findIndex((n) => n === 3);
+  console.log(indexThree); // Output: 2
+  ```
+
 # Methods to Iterate Array Objects
 
 # Methods to Transform Array Objects
