@@ -98,6 +98,17 @@
 
 # Methods To Search Array
 
+- These methods are used to perform a search in an array.
+
+## Array Method 5: `indexOf()`
+
+- find the index of the first occurance of array element.
+  ```js
+  let names = ["Rodgers", "Nyangweso"];
+  console.log(names.indexOf("Rodgers")); // Output: 0
+  console.log(names.indexOf("Omondi")); // Output: -1
+  ```
+
 # Methods to Iterate Array Objects
 
 # Methods to Transform Array Objects
