@@ -25,3 +25,5 @@
   - `codeString` consists of digits from `1` to `9`
   - `criticalDigit` is a digit from `1` to `9`
   - `criticalDigit` occurs at least once in `codeString`
+
+# Solution
