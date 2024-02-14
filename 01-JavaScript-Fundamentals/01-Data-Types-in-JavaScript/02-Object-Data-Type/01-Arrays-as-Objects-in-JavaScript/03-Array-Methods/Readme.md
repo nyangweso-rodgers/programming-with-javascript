@@ -34,7 +34,6 @@
 
   ```js
   // splice method
-
   let start = 1;
   let end = 10;
   const arrayOfPositiveNumbers = [];
@@ -201,9 +200,24 @@
   itemPrices(); // Output: 10, 20, 30, 40, 50
   ```
 
+- Notes:
+  - The `forEach()` method is not executed for empty elements.
+
 # Methods to Transform Array Objects
 
 - these are used to transform and reorder the array
+
+## Array Method 11: `map()`
+
+- `map()` creates a new array populated with the return value of the **callback function** for each element in the array
+
+  ```js
+  var priceList = [10, 20, 30, 40, 50];
+
+  var doublePriceList = priceList.map((value) => value * 2);
+  console.log(doublePriceList); // Output: [ 20, 40, 60, 80, 100 ]
+  console.log(doublePriceList[0]); // Output: 20
+  ```
 
 # Resources
 
