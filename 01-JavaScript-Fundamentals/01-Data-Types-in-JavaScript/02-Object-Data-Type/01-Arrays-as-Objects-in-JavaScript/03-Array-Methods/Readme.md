@@ -83,6 +83,19 @@
   console.log(sliceFunction(arrayOfPositiveNumbers)); // Output: [ 2, 3 ]
   ```
 
+## Array Method 4: `concat()`
+
+- `concat()` allows you to join arrays and create an entirely new array
+
+  ```js
+  var priceList = [10, 20, 30, 40, 50];
+  console.log(priceList); // Output: priceList = [ 10, 20, 30, 40, 50 ]
+  var newPriceItem = [35];
+
+  priceList = priceList.concat(newPriceItem);
+  console.log(priceList); // Output: [ 10, 20, 30, 40, 50, 35 ]
+  ```
+
 # Methods To Search Array
 
 # Methods to Iterate Array Objects
