@@ -63,4 +63,22 @@ priceList[1] = 90;
 console.log(priceList); // Output: 90
 ```
 
+# Spread in Array Literals
+
+- before **ES6**, we used the following syntax to add item at the middle of an array:
+
+  ```js
+  var sampleArray = ["one", "two", "five"];
+  sampleArray.splice(2, 0, "three");
+  console.log(sampleArray); // Output: [ 'one', 'two', 'three', 'five' ]
+  ```
+
+- **Remark**:
+  - you can use methods such as `push`, `splice`, and `concat`, for example, to achiee this different positions of the array. however, in **ES6**, the **spread operator** let us do this more easily
+    ```js
+    let sampleArray = ["one", "two", "five"];
+    let newArray = ["Three", "Four", ...sampleArray];
+    console.log(newArray); // Output: [ 'Three', 'Four', 'one', 'two', 'five' ]
+    ```
+
 # Resources
