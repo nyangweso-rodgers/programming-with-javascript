@@ -107,7 +107,7 @@ const modalFormValidation = (event) => {
     newTaskDiv.classList.add("task-item", "border", "border-primary", "p-3");
 
     // populate content based on data
-    const latestEntry = modalFormData[modalFormData.length - 1];
+    const latestEntry = modalFormData[modalFormData.length];
     newTaskDiv.innerHTML = `<h3>Title: ${latestEntry.title}</h3> <p>Due Date: ${latestEntry.dueDate}</p>
     <p>Description: ${latestEntry.description}</p><div class="task-actions"></div>`;
 
@@ -125,15 +125,6 @@ const modalFormValidation = (event) => {
     deleteIcon.className = "fas fa-trash delete-icon";
     // Append the delete icon after the edit icon
     newTaskDiv.querySelector(".task-actions").appendChild(deleteIcon);
-
-    // attach an event handler to delete a task
-    // event delegation for deleting tasks
-    tasksContainer.addEventListener("click", (event) => {
-      const clickedElement = event.target;
-      if (clickedElement.classList.contains("delete-icon")) {
-        handleDeleteTask(clickedElement.closest(".task-item"));
-      }
-    });
   } else {
     // Display an appropriate message if form submission is blocked due to errors
     console.log("Form submission failed due to validation errors!");
@@ -142,11 +133,6 @@ const modalFormValidation = (event) => {
 };
 // Attach event listener
 modalFormToAddTasks.addEventListener("submit", modalFormValidation);
-
-// define delete task functionality
-const handleDeleteTask = (taskToBeDeleted) => {
-  tasksContainer.removeChild(taskToBeDeleted);
-};
 
 // clear form fields
 const clearFormFields = () => {
@@ -158,4 +144,85 @@ const clearFormFields = () => {
   titleErrorElement.innerHTML = "";
   dueDateErrorElement.innerHTML = "";
   descriptionErrorElement.innerHTML = "";
+};
+
+// attach an event handler to delete a task
+tasksContainer.addEventListener("click", (event) => {
+  const clickedElement = event.target;
+  if (clickedElement.classList.contains("delete-icon")) {
+    handleDeleteTask(clickedElement.closest(".task-item"));
+  }
+});
+
+// define delete task functionality
+const handleDeleteTask = (taskItemToDelete) => {
+  tasksContainer.removeChild(taskItemToDelete);
+};
+
+// Add event listener for edit icon clicks
+tasksContainer.addEventListener("click", (event) => {
+  const clickedElement = event.target;
+  if (clickedElement.classList.contains("edit-icon")) {
+    handleEditTask(clickedElement.closest(".task-item"));
+  }
+});
+// define function to handle edit form submission
+const handleEditFormSubmission = (event) => {
+  event.preventDefault();
+
+  // Validate the updated data (reuse existing validation functions)
+  if (
+    validateModalTitleInput(modalDueDateInput.value) &&
+    validateModalDueDateInput(modalDueDateInput.value) &&
+    validateModalDescriptionInput(modalDescriptionInput.value)
+  ) {
+    // Update the task data in the array
+    const index = modalFormData.findIndex(
+      (task) => task.title === taskData.title
+    ); // assuming title is unique
+    modalFormData[index] = {
+      title: modalTitleInput.value,
+      dueDate: modalDueDateInput.value,
+      description: modalDescriptionInput.value,
+    };
+    // Update the task item content in the HTML
+    taskItemToEdit.querySelector("h3").textContent = modalTitleInput.value;
+    taskItemToEdit.querySelector("p:nth-child(2)").textContent =
+      modalDueDateInput.value;
+    taskItemToEdit.querySelector("p:nth-child(3)").textContent =
+      modalDescriptionInput.value;
+
+    // Hide the modal
+    modalFormToAddTasks.style.display = "none";
+
+    // Clear form fields
+    clearFormFields();
+
+    // Remove the specific submit event listener for editing
+    modalFormToAddTasks.removeEventListener("submit", handleEditFormSubmission);
+  } else {
+    // Handle validation errors
+  }
+};
+// Define function to handle task editing
+const handleEditTask = (taskItemToEdit) => {
+  // get the task data from the task item
+  const taskData = {
+    title: taskItemToEdit.querySelector("h3").textContent.trim(),
+    dueDate: taskItemToEdit.querySelector("p:nth-child(2)").textContent.trim(),
+    description: taskItemToEdit
+      .querySelector("p:nth-child(3)")
+      .textContent.trim(),
+  };
+
+  // pre-fill the modal form with the task data
+  modalTitleInput.value = taskData.title;
+  modalDueDateInput.value = taskData.dueDate;
+  modalDescriptionInput.value = taskData.description;
+
+  // Show the modal
+  modalFormToAddTasks.style.display = "block";
+
+  // Add a submit event listener specifically for editing
+  modalFormToAddTasks.addEventListener("submit", handleEditFormSubmission);
 };
