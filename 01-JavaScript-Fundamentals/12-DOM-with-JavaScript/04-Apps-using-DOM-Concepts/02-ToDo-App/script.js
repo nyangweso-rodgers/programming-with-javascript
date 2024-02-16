@@ -146,6 +146,10 @@ const clearFormFields = () => {
   descriptionErrorElement.innerHTML = "";
 };
 
+// define delete task functionality
+const handleDeleteTask = (taskItemToDelete) => {
+  tasksContainer.removeChild(taskItemToDelete);
+};
 // attach an event handler to delete a task
 tasksContainer.addEventListener("click", (event) => {
   const clickedElement = event.target;
@@ -153,11 +157,6 @@ tasksContainer.addEventListener("click", (event) => {
     handleDeleteTask(clickedElement.closest(".task-item"));
   }
 });
-
-// define delete task functionality
-const handleDeleteTask = (taskItemToDelete) => {
-  tasksContainer.removeChild(taskItemToDelete);
-};
 
 // Add event listener for edit icon clicks
 tasksContainer.addEventListener("click", (event) => {
