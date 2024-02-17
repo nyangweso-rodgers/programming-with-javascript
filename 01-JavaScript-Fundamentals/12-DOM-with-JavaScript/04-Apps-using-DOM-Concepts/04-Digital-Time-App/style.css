@@ -1,0 +1,14 @@
+body {
+  font-family: "Trirong", serif;
+  height: 100vh;
+  background-color: #f0edcc;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+main {
+  border: 2px dotted #ff004d;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
