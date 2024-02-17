@@ -1,0 +1,42 @@
+body {
+    font-family: "Trirong", serif;
+  }
+  section {
+    border: 2px dotted #ff004d;
+    padding: 40px 0;
+  }
+  
+  .exam-header-row {
+    background-color: #057dcd;
+    text-align: center;
+    padding: 60px 0;
+  }
+  
+  .exam-body-row {
+    padding: 40px 0;
+  }
+  
+  .btn-row {
+    text-align: center;
+    margin: 18px 0;
+  }
+  
+  .btn {
+    background-color: #34495e;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  .submit-btn-row {
+    padding: 16px 0;
+  }
+  .submit-btn-col {
+    display: flex;
+    justify-content: center;
+  }
+  
