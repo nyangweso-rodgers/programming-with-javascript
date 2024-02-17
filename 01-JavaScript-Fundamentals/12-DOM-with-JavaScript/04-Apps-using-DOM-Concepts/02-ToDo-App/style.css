@@ -34,7 +34,10 @@ textarea {
   color: red;
 }
 
-
 .task-actions {
   padding: 0 10px;
+}
+
+.fas {
+  font-size: 20px;
 }

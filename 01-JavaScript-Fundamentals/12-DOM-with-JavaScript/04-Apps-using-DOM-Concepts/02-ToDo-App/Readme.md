@@ -222,6 +222,10 @@
 
 # Bonus Contents
 
+## Deploy Application to Vercel
+
 ## Dockerize the application
 
 # Resources
+
+1. [freecodecamp - Learn CRUD Operations in JavaScript by Building TODO APP](https://www.freecodecamp.org/news/learn-crud-operations-in-javascript-by-building-todo-app/)
