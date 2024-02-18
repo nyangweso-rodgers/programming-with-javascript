@@ -2,33 +2,15 @@
 
 ## Table Of Contents
 
-# DOM Methods
+# Introduction to DOM Methods
 
-## 1. Accessing DOM Elements
+- **DOM methods** are functions provided by the **DOM API** that allow you to interact with and manipulate elements in the **DOM**. i.e., manipulate content, style, or behavior.
+- These methods are typically called using the `dot` notation on specific DOM elements or the document object. E,g.,
 
-### 1.1`getElementById()`
-
-- `getElementById()` Returns the element that has the ID attribute with the specified value
-
-### 1.2 `getElementsByClassName()`
-
-- `getElementsByClassName()` Returns an HTMLCollection containing all elements with the specified class name
-
-### 1.3 `getElementsByName()`
-
-- `getElementsByName()` Returns an live NodeList containing all elements with the specified name
-
-### 1.4 `getElementsByTagName()`
-
-- `getElementsByTagName()` Returns an HTMLCollection containing all elements with the specified tag name
-
-### 1.5 `querySelector()`
-
-- `querySelector()` Returns the first element that matches a specified CSS selector(s) in the document
-
-### 1.6 `querySelectorAll()`
-
-- `querySelectorAll()` Returns a static NodeList containing all elements that matches a specified CSS selector(s) in the document
+  1. `document.getElementById()`
+  2. `document.createElement()`
+  3. `document.appendChild()`
+  4. e.t.c.,
 
 ## Adding Elements Methods
 
