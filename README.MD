@@ -1,4 +1,5 @@
-# Programming with `JavaScript`
+# Programming with JavaScript
+![](./images/java-script.jpg)
 
 ## Table of Contents
 
