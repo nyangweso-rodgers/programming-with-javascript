@@ -2,6 +2,14 @@
 
 ## Table Of Contents
 
+# Introduction to DOM Properties
+
+- **DOM Properties** represent **attributes** or **characteristics** of DOM elements. Examples include:
+  1. `textContent` - represents text with an element
+  2. `innerHTML` - represents the `HTML` content within an element
+  3. `id` - represents the unique identifier of an element
+  4. `className` - represents the css classes applied to the element
+
 ## HTML DOM Proprty 1: `parentElement`
 
 - `parentElement` Returns the parent element node of an element
