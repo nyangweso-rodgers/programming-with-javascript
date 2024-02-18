@@ -1,4 +1,5 @@
 # Building Web Applications with JavaScript
+![](../images/html-js-and-css.png)
 
 ## Table of Contents
 
