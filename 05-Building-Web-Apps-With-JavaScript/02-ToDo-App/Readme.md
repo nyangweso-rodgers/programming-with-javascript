@@ -365,6 +365,9 @@
 
 ## 1. Deploy Application to Vercel
 
+- [Live Preview](https://building-a-to-do-app-with-javascript.vercel.app/)
+- [GitHub Repository](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/05-Building-Web-Apps-With-JavaScript/02-ToDo-App)
+
 ## 2. Dockerize the application
 
 ## 3. Consider Frontend Framework
