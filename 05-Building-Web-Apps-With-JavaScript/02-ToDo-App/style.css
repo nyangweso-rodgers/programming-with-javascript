@@ -13,11 +13,33 @@ main {
   justify-content: center;
   padding: 40px;
 }
-.btn {
-  padding: 10px 30px;
+
+.to-do-app-row {
+  text-align: start;
+  padding: 10px 0;
+  /*border: 2px dotted #ff004d;*/
+}
+
+.add-new-task-button {
+  padding: 20px 30px;
   background: #436850;
-  cursor: pointer;
   color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+}
+
+.add-new-task-button:hover {
+  background-color: #1c550e;
+  color: #fff;
+}
+
+.my-tasks-row {
+  /*border: 2px dotted #ff004d;*/
+  padding: 10px 20px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 input,
@@ -40,4 +62,20 @@ textarea {
 
 .fas {
   font-size: 20px;
+}
+
+#modalCloseButton,
+#modalSubmitButton {
+  padding: 10px 30px;
+}
+
+/* Styles for the created div in JavaScript */
+.task-item {
+  text-align: center;
+  border: 3px solid #abcea1;
+}
+
+.task-item,
+.fas {
+  padding: 0 5px;
 }

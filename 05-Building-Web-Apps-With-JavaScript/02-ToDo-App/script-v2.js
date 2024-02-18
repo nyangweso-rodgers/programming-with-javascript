@@ -27,54 +27,7 @@ modalFormToAddTasks.addEventListener("submit", (event) => {
 // define an array to store the form inputs
 let modalFormData = [];
 
-/*
-// create and display submitted tasks
-let createAndDisplayTasks = () => {
-  modalFormData.push({
-    title: modalTitleInput.value,
-    dueDate: modalDueDateInput.value,
-    description: modalDescriptionInput.value,
-  });
-
-  const newTaskDiv = document.createElement("div");
-  newTaskDiv.classList.add("task-item", "border", "border-primary", "p-3");
-
-  // populate content based on data
-  const latestEntry = modalFormData[modalFormData.length - 1];
-
-  const titleElement = document.createElement("h3");
-  titleElement.innerHTML = `${latestEntry.title}`;
-
-  const dueDateElement = document.createElement("p");
-  dueDateElement.innerHTML = `${latestEntry.dueDate}`;
-
-  const descriptionElement = document.createElement("p");
-  descriptionElement.innerHTML = `${latestEntry.description}`;
-
-  // Create edit icon element with styles (optional)
-  const editIcon = document.createElement("i");
-  editIcon.classList.add("fas", "fa-edit", "edit-icon");
-  editIcon.style.cursor = "pointer"; // Optional: add hover/clickable behavior
-
-  // Create the delete icon element
-  const deleteIcon = document.createElement("i");
-  deleteIcon.className = "fas fa-trash delete-icon";
-
-  const editAndDeleteElement = document.createElement("span");
-  editAndDeleteElement.appendChild(editIcon);
-  editAndDeleteElement.appendChild(deleteIcon);
-
-  // append the new task to the container
-  newTaskDiv.appendChild(titleElement);
-  newTaskDiv.appendChild(dueDateElement);
-  newTaskDiv.appendChild(descriptionElement);
-  newTaskDiv.appendChild(editAndDeleteElement);
-  tasksContainer.appendChild(newTaskDiv);
-
-  clearFormFields();
-  console.log("modalFormData:", modalFormData); //TODO: log submitted form data
-};
-*/
+//TODO: define createAndDisplayTasks function to handle submitted tasks
 let createAndDisplayTasks = (taskData) => {
   if (taskData) {
     // If taskData is provided, it means we're editing an existing task
@@ -108,7 +61,7 @@ let createAndDisplayTasks = (taskData) => {
 
     // Create new task item and append it to the tasksContainer
     const newTaskDiv = document.createElement("div");
-    newTaskDiv.classList.add("task-item", "border", "border-primary", "p-3");
+    newTaskDiv.classList.add("task-item", "p-3");
     newTaskDiv.setAttribute("data-title", newTaskData.title);
 
     // Populate content based on the latest entry in modalFormData
@@ -149,7 +102,7 @@ let createAndDisplayTasks = (taskData) => {
   console.log("modalFormData:", modalFormData);
 };
 
-// define a helper function that consolidates the logic of 3 validation functions for the title, due date and description
+//TODO: define a helper function that consolidates the logic of 3 validation functions for the title, due date and description
 let validateModalForm = () => {
   if (
     validateModalTitleInput(modalTitleInput.value) &&
@@ -164,7 +117,7 @@ let validateModalForm = () => {
   }
 };
 
-// clear form fields
+//TODO: Define clearFormFields function to clear the form inputs after data submission
 const clearFormFields = () => {
   modalTitleInput.value = "";
   modalDueDateInput.value = "";
@@ -176,16 +129,7 @@ const clearFormFields = () => {
   descriptionErrorElement.innerHTML = "";
 };
 
-//ToDo: define a
-
-//TODO: Define deleteTask Function
-/*
-const deleteTask = (taskItemToDelete) => {
-  tasksContainer.removeChild(taskItemToDelete);
-  //modalFormData.splice(taskItemToDelete.id, 1);
-  console.log("Form Data After Deletion: ", modalFormData); // Output after deletion
-};
-*/
+//TODO: Define deleteTask Function to delete submitted tasks
 const deleteTask = (taskItemToDelete) => {
   // Find the index of the task to delete in modalFormData
   const index = modalFormData.findIndex(
@@ -209,7 +153,7 @@ tasksContainer.addEventListener("click", (event) => {
   }
 });
 
-//TODO: Define editTask Function
+//TODO: Define editTask Function to edit submitted functions
 // define handleEditTask function to pre-fill the modal form with the task data when the edit icon is clicked:
 const handleEditTask = (taskItemToEdit) => {
   // get the task data from the task item
@@ -242,112 +186,6 @@ tasksContainer.addEventListener("click", (event) => {
 });
 
 // implement the handleEditFormSubmission function to update the task item content when the form is submitted:
-/*
-const handleEditFormSubmission = (event) => {
-  event.preventDefault();
-
-  // Get the task item to edit
-  const taskItemToEdit = event.target.closest(".task-item");
-
-  // Get the task data from the form
-  const taskData = {
-    title: modalTitleInput.value,
-    dueDate: modalDueDateInput.value,
-    description: modalDescriptionInput.value,
-  };
-
-  // Validate the updated data (reuse existing validation functions)
-  if (validateModalForm) {
-    // Call createAndDisplayTasks with edited task data
-    createAndDisplayTasks(taskData);
-
-    // Hide the modal
-    const modal = bootstrap.Modal.getInstance(modalFormToAddTasks);
-    modal.hide();
-  } else {
-    // Handle validation errors
-  }
-};
-*/
-/*
-const handleEditFormSubmission = (event) => {
-  event.preventDefault();
-
-  // Get the task item to edit
-  const taskItemToEdit = event.target.closest(".task-item");
-
-  // Get the task data from the form
-  const taskData = {
-    title: modalTitleInput.value,
-    dueDate: modalDueDateInput.value,
-    description: modalDescriptionInput.value,
-  };
-
-  // Validate the updated data (reuse existing validation functions)
-  if (validateModalForm()) {
-    // Update the task item content in the HTML
-    taskItemToEdit.querySelector("h3").textContent = taskData.title;
-    taskItemToEdit.querySelector("p:nth-child(2)").textContent =
-      taskData.dueDate;
-    taskItemToEdit.querySelector("p:nth-child(3)").textContent =
-      taskData.description;
-
-    // Update modalFormData
-    const index = modalFormData.findIndex(
-      (task) => task.title === taskData.title
-    );
-    if (index !== -1) {
-      modalFormData[index] = taskData;
-    }
-
-    // Hide the modal
-    const modal = bootstrap.Modal.getInstance(modalFormToAddTasks);
-    modal.hide();
-
-    // Update modalFormData
-    console.log("Updated modalFormData:", modalFormData);
-  } else {
-    // Handle validation errors
-  }
-};
-*/
-/*
-const handleEditFormSubmission = (event) => {
-  event.preventDefault();
-
-  // Get the task item to edit
-  const taskItemToEdit = event.target.closest(".task-item");
-
-  // Get the task data from the form
-  const taskData = {
-    title: modalTitleInput.value,
-    dueDate: modalDueDateInput.value,
-    description: modalDescriptionInput.value,
-  };
-
-  // Validate the updated data (reuse existing validation functions)
-  if (validateModalForm()) {
-    // Delete the old task data from modalFormData
-    deleteTask(taskItemToEdit);
-
-    // Update the task item content in the HTML
-    taskItemToEdit.querySelector("h3").textContent = taskData.title;
-    taskItemToEdit.querySelector("p:nth-child(2)").textContent =
-      taskData.dueDate;
-    taskItemToEdit.querySelector("p:nth-child(3)").textContent =
-      taskData.description;
-
-    // Update modalFormData with the edited task data
-    modalFormData.push(taskData);
-
-    // Hide the modal
-    const modal = bootstrap.Modal.getInstance(modalFormToAddTasks);
-    modal.hide();
-  } else {
-    // Handle validation errors
-  }
-};*/
-
 const handleEditFormSubmission = (event) => {
   event.preventDefault();
 
@@ -396,7 +234,7 @@ const handleEditFormSubmission = (event) => {
   }
 };
 
-//TODO: validate task title
+//TODO: define validateModalTitleInput function to valiodate title modal form input
 const validateModalTitleInput = (titleInput) => {
   if (titleInput.trim() === "") {
     //alert("Title Input is blank!"); //TODO: uncomment to for an alert box to dipaly error message
@@ -411,7 +249,7 @@ const validateModalTitleInput = (titleInput) => {
   return true;
 };
 
-//TODO: validate due date
+//TODO: define validateModalDueDateInput function to validate due date modal form input
 const validateModalDueDateInput = (dueDateInput) => {
   try {
     const currentDate = new Date();
@@ -431,7 +269,7 @@ const validateModalDueDateInput = (dueDateInput) => {
   }
 };
 
-//TODO: validate description
+//TODO: define validateModalDescriptionInput to validate description modal form input
 const validateModalDescriptionInput = (descriptionInput) => {
   if (descriptionInput.trim() == "") {
     descriptionErrorElement.innerHTML = "Description Input is blank!";

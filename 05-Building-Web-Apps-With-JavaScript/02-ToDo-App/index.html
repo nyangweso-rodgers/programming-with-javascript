@@ -39,19 +39,19 @@
     <main>
       <section class="border">
         <div class="container">
-          <div class="row">
-            <div class=""><h4>ToDo App</h4></div>
+          <div class="row to-do-app-row box">
+            <h2>ToDo App</h2>
           </div>
           <div class="row">
-            <div class="">
+            <div>
               <button
                 type="button"
-                id=""
-                class="btn btn-outline-info"
+                class="btn add-new-task-button"
                 data-bs-toggle="modal"
                 data-bs-target="#modalFormToAddTasks"
               >
-                Add Task
+                Add New Task
+                <span><i class="fas fa-plus"></i></span>
               </button>
               <!--Modal-->
               <form
@@ -141,10 +141,10 @@
               </form>
             </div>
           </div>
-          <div class="row">
+          <div class="row my-tasks-row box">
             <div class=""><h3>My Tasks</h3></div>
           </div>
-          <div class="row tasks-container"></div>
+          <div class="row box tasks-container"></div>
         </div>
       </section>
     </main>
