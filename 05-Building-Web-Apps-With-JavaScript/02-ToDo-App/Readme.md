@@ -1,6 +1,26 @@
 # ToDo App
 
+![](./images/to-do-list-apps.png)
+
 ## Table Of Contents
+
+- [ToDo App](#todo-app)
+  - [Table Of Contents](#table-of-contents)
+- [Objective](#objective)
+- [Steps to building a Todo App with JavaScript](#steps-to-building-a-todo-app-with-javascript)
+  - [Step 1:Retrieve HTML Element References](#step-1retrieve-html-element-references)
+  - [Step 2: Handle Form Validations](#step-2-handle-form-validations)
+  - [Step 3: Handling Form Submission Data](#step-3-handling-form-submission-data)
+  - [Step 4: Clear Form After Submission](#step-4-clear-form-after-submission)
+  - [Step 6: Implement Delete Functionality](#step-6-implement-delete-functionality)
+  - [Step 7: Implement Edit Functionality](#step-7-implement-edit-functionality)
+  - [Step 9: Attach Event Listener](#step-9-attach-event-listener)
+- [Bonus Content](#bonus-content)
+  - [1. Deploy Application to Vercel](#1-deploy-application-to-vercel)
+  - [2. Dockerize the application](#2-dockerize-the-application)
+  - [3. Consider Frontend Framework](#3-consider-frontend-framework)
+- [Next Steps](#next-steps)
+- [Resources and References](#resources-and-references)
 
 # Objective
 
@@ -11,7 +31,7 @@
 - The steps outlined covers various functionalities including adding,editing, and deleting tasks, as well as form validations.
 - We structure the code in a such away that it seperate various concerns. Functions are defined to handle specific tasks, such as validation, creation,deletion and, editing of tasks.
 
-## Step 1:Retrieve Element References
+## Step 1:Retrieve HTML Element References
 
 - Obtain references to the form, input fields, and error message elements using `document.getElementById`.
 
