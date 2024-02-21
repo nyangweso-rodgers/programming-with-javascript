@@ -14,15 +14,6 @@
 
 # Project Requirements
 
-- Install `Node.js` from [nodejs.org](https://nodejs.org/en/)
-  - use CLI if the installation is successful
-    ```sh
-        # for node.js
-        node -v
-        # for npm
-        npm -v
-    ```
-
 # Introduction to `npm` package manager
 
 - `npm` is the standard package manager for `Node.js` and `js`. It is the default package manager that comes bundled with `Node.js`.
@@ -172,60 +163,6 @@
        npm run prod
      ```
 
-# How to setup a `Node.js` project
-
-- from the command line, create a `node-project` folder and navigate to the project
-  ```sh
-      # create a project
-      mkdir node-project
-      # navigate to the project
-      cd node-project
-  ```
-- initialize the project
-  ```sh
-      # initialize the project
-      npm init
-  ```
-- a new file, `package.json` is added to the project. we use this file to add modules to the project.
-- add the following line before the closing curly brace to enable `ES6` import:
-  ```json
-      "type": "module"
-  ```
-
-# Node.js Folder Structure
-
-- my-app/
-
-  - public/
-    - index.html
-    - styles.css
-    - scripts.js
-  - node_modules/
-  - src/
-    - components/
-    - services/
-    - utils/
-    - app.js
-    - index.js
-  - tests/
-  - package.json
-  - Readme.md
-
-- `public/`: acts like a storage for files everyone can see, like images, styles and scripts.
-- `app.js`: acts like a control center of web applications. It's where you set up and manage everything.
-- `utils/`: These are like handy tools you use to make your website better, like checking if someone's email is valid or formatting dates nicely.
-
-# `Node.js` Utilities
-
-1. `nodemon`
-   - this is a utility that monitors for changes in your source code files and automatically restarts the `Node.js` application when changes are detected
-   - Example:
-     ```json
-      "scripts": {
-        "dev": "nodemon index.js"
-     ```
-   - In this case, it's configured to run `index.js` with `nodemon`, allowing you to have an automatic restart of your server whenever you make changes to your code. This is beneficial because you don't have to manually stop and restart your server after every code modification during development.
-
 # `Node.js` Frameworks and Libraries
 
 - Here is a list of frameworks/libraries built on `Node.js`
@@ -241,5 +178,3 @@
   2. `Next.js`
      - Next can be used to create full-stack web applications by extending React features with server-side functionalities.
      - It uses a structural approach to build complex backend consistently and supports modules to integrate other technologies.
-
-# Common APIs in `Node.js`
