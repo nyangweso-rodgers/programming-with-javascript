@@ -2,12 +2,6 @@
 
 ## Table of Contents
 
-- [Further Reading]()
-  1. [Node.js official website](https://nodejs.org/en)
-  2. [Node.js Documentation](https://nodejs.org/docs/)
-  3. [npm website](https://www.npmjs.com/)
-  4. [Node.js cheatsheet - javacodegeeks.com](https://www.javacodegeeks.com/node-js-cheatsheet.html?ref=dailydev)
-
 # Introduction to `Node.js`
 
 - `Node.js` is used to run backend applications written in `js`
@@ -178,3 +172,10 @@
   2. `Next.js`
      - Next can be used to create full-stack web applications by extending React features with server-side functionalities.
      - It uses a structural approach to build complex backend consistently and supports modules to integrate other technologies.
+
+# Resources
+
+1. [Node.js official website](https://nodejs.org/en)
+2. [Node.js Documentation](https://nodejs.org/docs/)
+3. [npm website](https://www.npmjs.com/)
+4. [Node.js cheatsheet - javacodegeeks.com](https://www.javacodegeeks.com/node-js-cheatsheet.html?ref=dailydev)
