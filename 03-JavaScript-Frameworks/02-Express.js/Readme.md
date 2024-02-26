@@ -4,7 +4,26 @@
 
 # Introduction to Express.js
 
-- Express is a framework for developing software that listens for and responds to HTTP requests over the internet. The requests come from clients (e.g., browsers) that can make a request via HTTP.
+- Express is a Node.js framework for developing software that listens for and responds to HTTP requests over the internet. The requests come from clients (e.g., browsers) that can make a request via HTTP.
+
+# From `HTTP` Module in Node.js to Express.js
+
+- Node.js has a built-in module, `HTTP`, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
+  ```js
+  // http server
+  ```
+- we use Express.js to re-write the above code as follows (we avoid writing repetitive code):
+
+  ```js
+  // server.js
+
+  const express = require("express");
+
+  // create an express application object
+  const app = express();
+
+  // rest of code goes here
+  ```
 
 # Concepts of Express.js
 
@@ -40,6 +59,8 @@
 ## Concept #5: The Router() Object
 
 - The Router() object was released with Express Version 4 and allows developers to group route handlers by site sections and access these groups using a shared route-prefix.
+
+# Getting Started with Express.js
 
 # Resources
 
