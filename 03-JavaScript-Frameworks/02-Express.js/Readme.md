@@ -60,7 +60,80 @@
 
 - The Router() object was released with Express Version 4 and allows developers to group route handlers by site sections and access these groups using a shared route-prefix.
 
-# Getting Started with Express.js
+# Setting Up a Express.js App
+
+## Step #1: Create a Project Folder and Initilize it
+
+```sh
+  mkdir project_folder
+  cd project_folder
+```
+
+- Initialize the project by running the following command:
+  ```sh
+    npm init -y
+  ```
+- This will generate `package.json` file with default settings.
+
+## Step #2: Installing Dependencies
+
+- Install necessary packages for the project, including `express`, `nodemon`, `mongoose`, and `dotenv`
+  ```sh
+    npm i express nodemon mongoose dotenv
+  ```
+- `express` is for building the web server
+- `mongoose`: An ODM (Object Data Modeling) library for MongoDB.
+- `dotenv`: For loading environment variables from a .env file.
+- we are using `nodemon` for development, because when our app is deployed, `nodemon` does not have to be installed on any server where we will run our application.
+  ```sh
+    npm i nodemon --save--dev
+  ```
+
+## Step #3: Create an `server.js` file in the root directory
+
+- Create a `server.js` and add the following code:
+
+  ```js
+  // server.js
+
+  const express = require("express");
+
+  // create an express application object
+  const app = express();
+
+  // create a PORT that the server is listening on
+  const PORT = process.env.PORT || 3000; //use environment variables and if not, 3000
+
+  // define routes
+  app.get("/", (req, res) => {
+    res.send("Hello World!"); //Sending back a text response
+  });
+
+  app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}`);
+  });
+  ```
+
+- This is a code from [express.com - hello-world](https://expressjs.com/en/starter/hello-world.html)
+- We first, specify a [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods?retiredLocale=de),`GET` is the default one used to open web pages, hence `app.get(...)`.
+  - The first argument is the path. We're specifying `/` as it is the home page opened. This could be anything like `/my-page` or more complicated paths.
+  - The second argument is a **callback function**. This function is executed once somebody requests this web page/route. There are two arguments for this callback function, `req` with request information from the visitor and `res` with the response information that you send back. In this case, we're sending back (`res.send(...);`) the text "`Hello World!`". This could contain all sorts of stuff - from images to HTML.
+
+## Step #4: Run the application
+
+- Modify the generated `package.json` file with the following:
+  ```json
+    "scripts": {"start": "node server.js", "dev": "nodemon server.js"}
+  ```
+- This step accomplishes two things:
+  - it allows `nodemon` to automatically restart the server whenever you make changes to your server side code
+  - we no longer have to use the command "`node server.js`" to start the server. The server can now be started with the command "`npm start`".
+- In the terminal, execute:
+  ```sh
+    npm run dev
+  ```
+  - this will run the dev script and print "Listening on port 3000" in the terminal implying that the server is running.
+- Open up your browser and go to http://localhost:3000 where youll see "Cannot GET /". This means that the server is running but we have not defined a "get" route for "/".
 
 # Resources
 
