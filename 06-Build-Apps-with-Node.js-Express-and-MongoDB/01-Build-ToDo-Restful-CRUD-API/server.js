@@ -1,7 +1,7 @@
 // server.js
 import express from "express";
 import mongoose, { mongo } from "mongoose";
-import portfinder from "portfinder";
+import morgan from "morgan";
 import dotenv from "dotenv";
 import ToDo from "./model/toDoSchemaModel.js";
 
@@ -19,6 +19,7 @@ const app = express();
 
 //middleware provided by Express to parse incoming JSON requests.
 app.use(express.json());
+app.use(morgan("dev"));
 
 //define routes
 
@@ -69,17 +70,10 @@ app.delete("/todos/:id", async (req, res) => {
   }
 });
 
-// Use portfinder to dynamically find an available port
-portfinder
-  .getPortPromise()
-  .then((port) => {
-    // Set the port for the server to listen on
-    const PORT = process.env.PORT || port;
+//create a port that the server is listening on
+//const PORT = process.env.PORT || 3000; //use environment variables and if not, 3000
+const PORT = 3000;
 
-    app.listen(PORT, () => {
-      console.log(`Server listening on port: ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Error finding an available port:", err);
-  });
+app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
+});

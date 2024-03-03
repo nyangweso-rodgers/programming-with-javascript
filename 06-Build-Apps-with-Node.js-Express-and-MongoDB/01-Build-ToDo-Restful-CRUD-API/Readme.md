@@ -2,6 +2,10 @@
 
 ## Table Of Contents
 
+# Project Description
+
+- Create, Read, Update and Delete To Do Lists Items using an API.
+
 # Step 1: Setup the Application
 
 - Follow these steps, on how to setup and run the application with Docker.
@@ -23,7 +27,8 @@
 
     EXPOSE 3000
 
-    CMD ["npm", "run", "dev"]
+    #CMD ["npm", "run", "dev"]
+    CMD ["node", "server.js"]
   ```
 
 - Build a **Docker Image** with a `docker build` command, `to-do-restful-api-image` is the name of our **Docker image**
@@ -31,6 +36,12 @@
     # build a docker image
     docker build -t to-do-restful-api-image .
   ```
+  - Remark:
+    - to re-build a **Docker Image**, run the following command
+      ```sh
+        # re-build a docker image
+        docker build -t to-do-restful-api-image .
+      ```
 - Run the **Docker Container** by:
   ```sh
     # run a docker container
@@ -44,11 +55,11 @@
 - To stop and remove an existing container using:
 
   ```sh
-    # stop docker container
+    #stop docker container
     docker stop to-do-restful-api-container
 
-    # remove docker container
-    docker rm docker-restful-api-container
+    #remove docker container
+    docker rm to-do-restful-api-container
   ```
 
 - Access the running server/application from http://localhost:3000 in the browser.
@@ -96,8 +107,9 @@
   app.use(express.json());
   ```
 
-### Step 4.1: `CREATE`
+### Step 4.1: `CREATE` Operation
 
+- we define a code to handle requests to create a new todo item. It tries to create the item, and if successful, it responds with the created item. If there’s an issue during the process, it responds with an error message.
 - how to create a to do item:
 
   ```js
@@ -119,7 +131,14 @@
   // ...
   ```
 
-### Step 4.2: `READ`
+- Here:
+  - There’s an `HTTP` `POST` endpoint `/todos/create` for creating a new todo item.
+  - When a `POST` request is made to `/todos/create`, the code inside the `async` function is executed.
+  - It uses the `ToDo.create` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)) to create a new todo item based on the data in the request body (req.body).
+  - If the creation is successful, it responds with a status code `201` and sends the newly created todo item in `JSON` format as a response.
+  - If there’s an error during the process, it catches the error and responds with a status code 500 and error message Internal Server Error.
+
+### Step 4.2: `READ` Operation
 
 - how to read a to do item:
 
@@ -143,7 +162,14 @@
   // ...
   ```
 
-### Step 4.2: `UPDATE`
+- Here,
+  - there is an `HTTP` `GET` endpoint `/todos` for getting the todo items.
+  - When a `GET` request is made to `/todos`, the code inside the `async` function is executed.
+  - It uses the `ToDo.find` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)) to fetch all the todo items from the database.
+  - If the fetching is successful, it responds with a status code `200` and sends all the todo items in `JSON` format as a response.
+  - If there’s an error during the process, it catches the error and responds with a status code `500` and error message `Internal Server Error`.
+
+### Step 4.2: `UPDATE` Operation
 
 - how to update a to do item:
 
@@ -172,7 +198,15 @@
   // ...
   ```
 
-### Step 4.2: `DELETE`
+- Here:
+  - There’s an `HTTP` `PUT` endpoint `/todos/:id`, where `:id `is a placeholder for a specific todo item’s id.
+  - When a `PUT` request is made, it tries to update a todo in the database with the specified ID (`req.params.id`) using the `ToDo.findByIdAndUpdate` method ([All methods for models](https://mongoosejs.com/docs/api/model.html))..
+  - The new data for the todo is expected to be in the request body (`req.body`). This data is sent by the client making the `PUT` request.
+  - The third argument { `new: true` } ensures that the method returns the updated todo after the update operation.
+  - If the update is successful, it responds with a status `200` and sends the updated todo in `JSON` format in the response body.
+  - If any error occurs during the update process (for example, if the specified ID is not found), it catches the error and responds with status `500` and error message `Internal Server Error`.
+
+### Step 4.2: `DELETE` Operation
 
 - how to delete a to do item:
 
@@ -195,6 +229,14 @@
   // ...
   ```
 
+- here,
+  - There’s an `HTTP` `DELETE` endpoint `/todos/:id`, where `:id` is a placeholder for a specific todo item’s id.
+  - When a `DELETE` request is made, it tries to delete a todo in the database with the specified ID (`req.params.id`) using the `ToDo.findByIdAndDelete` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)).
+  - If the deletion is successful, it responds with a status 204(No Content).
+  - If any error occurs during the deleting process (for example, if the specified ID is not found), it catches the error and responds with status 500 and error message Internal Server Error.
+
+## Step 5: Testing API
+
 # Resources
 
-1. []()
+1. [Building a Restful CRUD API with Node JS, Express, and MongoDB by Suhail Kakar](https://blog.suhailkakar.com/building-a-restful-crud-api-with-node-js-express-and-mongodb)
