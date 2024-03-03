@@ -4,26 +4,54 @@
 
 # From `HTTP` Module in Node.js to Express.js
 
-- Node.js has a built-in module, `HTTP`, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
+- Node.js has a built-in module, `HTTP`, which allows Node.js to transfer data over the HTTP.
+
   ```js
   // http server
+  const http = require("http");
+
+  // create a server
+  const server = http.createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("Hello World!"); //write a response to the client
+    res.end(); //end the response
+  });
+
+  server.listen(3000, () => {
+    console.log("Server is running on port 3000");
+  }); //the server object listens on port 8080
   ```
+
 - we use Express.js to re-write the above code as follows (we avoid writing repetitive code):
 
   ```js
-  // server.js
+  //server.js
+  import express from "express";
+  import morgan from "morgan";
 
-  const express = require("express");
-
-  // create an express application object
   const app = express();
 
-  // rest of code goes here
+  app.use(morgan("dev"));
+
+  app.use("/", (req, res) => {
+    res.send("<h1>Welcome to the world of Express.js</h1>");
+  });
+
+  const PORT = 8080;
+
+  app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}`);
+  });
   ```
 
 # Introduction to Express.js
 
 - **Express** is a **Node.js** framework for developing software that listens for and responds to `HTTP` requests over the internet. The requests come from clients (e.g., browsers) that can make a request via `HTTP`.
+
+## Pros of Express.js
+
+1. Built-in route
+2. Includes various middleware modules which you can use to perform additional tasks on `request` and `response`.
 
 # Concepts of Express.js
 
@@ -33,6 +61,38 @@
   - Request,
   - Response, and
   - Router
+
+## Routing in Express.js
+
+### Routing Methods
+
+- `app.get()` to handle `GET` requests
+- `app.post` to handle `POST` requests
+- You can also use the `app.all()` to handle all `HTTP` methods
+- `app.use()` to specify middleware as the callback function.
+
+### Routing Paths
+
+- A **routing path** is a combination of a request method to define the endpoints at which requests can be made by a client.
+- **Route paths** can be `strings`, `string patterns`, or `regular expressions`.
+- Example:
+
+  - Define endpoints for a server based application
+
+    ```js
+    //server.js
+    import express from "express";
+    const app = express();
+
+    //home route
+    app.get("/home", (req, res) => {
+      res.send("<h1>Home Page</h1>");
+    });
+    //about route
+    app.get("/about", (req, res) => {
+      res.send("<h1>About Page</h1>");
+    });
+    ```
 
 ## Express Concept #1: `express()`
 
@@ -403,211 +463,6 @@
   // server.js
   import ToDo from "./model/todo";
   ```
-
-## Step #7: Implement CRUD Operations
-
-- we start by creating `routes` for CRUD Operations
-
-### Step #7.1: Create
-
-- add the following code to the `server.js` file
-
-  ```js
-  // server.js
-
-  //create a todo item
-  app.post("todos/create", async (req, res) => {
-    try {
-      const newTodo = await ToDo.create(req.body);
-      res.status(201).json(newTodo);
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-  ```
-
-- here,
-  - There’s an HTTP POST endpoint `/todos/create` for creating a new todo item.
-  - When a POST request is made to `/todos/create`, the code inside the `async` function is executed.
-  - It uses the `ToDo.create` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)) to create a new todo item based on the data in the request body (req.body).
-  - If the creation is successful, it responds with a status code `201` and sends the newly created todo item in JSON format as a response.
-  - If there’s an error during the process, it catches the error and responds with a status code 500 and error message Internal Server Error.
-- In simpler terms, this code handles requests to create a new todo item. It tries to create the item, and if successful, it responds with the created item. If there’s an issue during the process, it responds with an error message.
-
-### Step #7.2: Read
-
-- we replace the code of `app.get` to the following code in the `server.js` file:
-
-  ```js
-  // server.js
-
-  // define routes
-  app.get("todos/", async (req, res) => {
-    try {
-      const todos = await ToDo.find();
-      res.status(200).json(todos);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-  ```
-
-- here:
-  - There’s an HTTP GET endpoint `/todos` for getting the todo items.
-  - When a GET request is made to /todos, the code inside the async function is executed.
-  - It uses the `ToDo.find` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)) to fetch all the todo items from the database.
-  - If the fetching is successful, it responds with a status code 200 and sends all the todo items in JSON format as a response.
-  - If there’s an error during the process, it catches the error and responds with a status code 500 and error message Internal Server Error.
-
-### Step #7.3: Update
-
-- we add the following lines of code to `server.js`
-
-  ```js
-  //server.js
-
-  //update a todo by ID
-  app.put("/todos/:id", async (req, res) => {
-    try {
-      const updatedToDo = await ToDo.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-          new: true,
-        }
-      );
-      res.status(200).json(updatedToDo);
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-  ```
-
-- here:
-  - There’s an HTTP PUT endpoint `/todos/:id`, where `:id `is a placeholder for a specific todo item’s id.
-  - When a PUT request is made, it tries to update a todo in the database with the specified ID (`req.params.id`) using the `ToDo.findByIdAndUpdate` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)).
-  - The new data for the todo is expected to be in the request body (`req.body`). This data is sent by the client making the PUT request.
-  - The third argument { `new: true` } ensures that the method returns the updated todo after the update operation.
-  - If the update is successful, it responds with a status 200 and sends the updated todo in JSON format in the response body.
-  - If any error occurs during the update process (for example, if the specified ID is not found), it catches the error and responds with status 500 and error message Internal Server Error.
-
-### Step #7.4: Delete
-
-- update `server.js` file with the following lines of code:
-
-  ```js
-  // server.js
-
-  //delete a todo by id
-  app.delete("todos/:id", async (req, res) => {
-    try {
-      await ToDo.findByIdAndDelete(req.params.id);
-      res.status(201).send();
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-  ```
-
-- here:
-  - There’s an HTTP DELETE endpoint `/todos/:id`, where :id is a placeholder for a specific todo item’s id.
-  - When a DELETE request is made, it tries to delete a todo in the database with the specified ID (`req.params.id`) using the `ToDo.findByIdAndDelete` method ([All methods for models](https://mongoosejs.com/docs/api/model.html)).
-  - If the deletion is successful, it responds with a status 204(No Content).
-  - If any error occurs during the deleting process (for example, if the specified ID is not found), it catches the error and responds with status 500 and error message Internal Server Error.
-
-## Step #8: Testing API
-
-- Now, before testing our API, we need to add the following line of code to our `server.js` file, because we will read the data in JSON format.
-  ```js
-  //server.js
-  //middleware provided by Express to parse incoming JSON requests.
-  app.use(express.json());
-  ```
-- Finally, the `server.js` file should look like this:
-
-  ```js
-  // server.js
-
-  //const express = require("express");
-  import express from "express";
-  import mongoose from "mongoose";
-  import dotenv from "dotenv";
-  import ToDo from "./model/todo.js";
-
-  dotenv.config(); // Load environment variables from .env file
-
-  const MONGO_URI = process.env.MONGO_URI;
-
-  mongoose
-    .connect(MONGO_URI)
-    .then(() => console.log("Connected to MongoDB"))
-    .catch((err) => console.error("Error connecting to MongoDB:", err));
-
-  // create an express application object
-  const app = express();
-
-  //middleware provided by Express to parse incoming JSON requests.
-  app.use(express.json());
-
-  // create a PORT that the server is listening on
-  const PORT = process.env.PORT || 3000; //use environment variables and if not, 3000
-
-  //create a todo item
-  app.post("todos/create", async (req, res) => {
-    try {
-      const newTodo = await ToDo.create(req.body);
-      res.status(201).json(newTodo);
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-
-  // read a todo
-  app.get("todos/", async (req, res) => {
-    try {
-      const todos = await ToDo.find();
-      res.status(200).json(todos);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-
-  //update a todo by ID
-  app.put("/todos/:id", async (req, res) => {
-    try {
-      const updatedToDo = await ToDo.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-          new: true,
-        }
-      );
-      res.status(200).json(updatedToDo);
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-
-  //delete a todo by id
-  app.delete("todos/:id", async (req, res) => {
-    try {
-      await ToDo.findByIdAndDelete(req.params.id);
-      res.status(201).send();
-    } catch (error) {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-
-  app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}`);
-  });
-  ```
-
-- we can use POSTMAN for testing purposes
-
-### Step #8.1: Create a new todo item using a POST request
 
 # Resources
 
