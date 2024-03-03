@@ -1,8 +1,8 @@
-# Building Web Applications with Express.js and MongoDB
+# Building Web Applications with Node.js, Express and MongoDB
 
 ## Table Of Contents
 
-# Setting Up Development Environment for Express, MongoDB and Docker
+# Setting Up Development Environment for Node.js, Express, MongoDB and Docker
 
 ## Step #1: Create Project Folder and Initilize it
 
@@ -19,19 +19,54 @@
 
 ## Step #2: Installing Dependencies
 
-- Install necessary packages for the project, including `express`, `nodemon`
+- Install necessary packages for the project, including `express`
   ```sh
-    npm i express nodemon
+    npm i express
   ```
 - `express` is for building the web server
-- we are using `nodemon` for development, because when our app is deployed, `nodemon` does not have to be installed on any server where we will run our application.
+
+- Optional `dev-dependencies` (used for development purposes) include:
   ```sh
-    npm i nodemon --save--dev
+    #install dev-dependencies
+    npm i nodemon morgan --save-dev
   ```
+  - `nodemon`
+  - `morgan`: provides requests details made. , it logs each request in the CLI. You will be able to see some information about the request.
 
 ## Step #3: Create an `server.js` file in the root directory
 
-- Create a `server.js` and add the following code:
+- Create a `server.js`, import `express` module and creat an express application object:
+
+  ```js
+  // server.js
+  import express from "express";
+  import morgan from "morgan";
+
+  // create an express application object
+  const app = express();
+
+  app.use(morgan("dev"));
+
+  // define routes
+  app.get("/", (req, res) => {
+    res.send("Hello World!"); //Sending back a text response
+  });
+  ```
+
+- Define a `PORT` for the server:
+
+  ```js
+  // ...
+
+  //create a port that the server is listening on
+  const PORT = process.env.PORT || 3000; //use environment variables and if not, 3000
+
+  app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}`);
+  });
+  ```
+
+- This step should result in the following:
 
   ```js
   // server.js
@@ -40,18 +75,51 @@
   // create an express application object
   const app = express();
 
-  // create a PORT that the server is listening on
-  const PORT = process.env.PORT || 3000; //use environment variables and if not, 3000
-
   // define routes
   app.get("/", (req, res) => {
     res.send("Hello World!"); //Sending back a text response
   });
 
+  //create a port that the server is listening on
+  //const PORT = process.env.PORT || 3000; //use environment variables and if not, 3000
+  const PORT = 3000; // Choose an available port like 3000, 8000
+
   app.listen(PORT, () => {
     console.log(`Server listening on port: ${PORT}`);
   });
   ```
+
+- **Remark**:
+
+  - we can also use `portfinder` module to dynamically assign available ports in the `server.js` with the following code:
+
+    ```js
+    //server.js
+    import express from "express";
+
+    // create an express application object
+    const app = express();
+
+    // define routes
+    app.get("/", (req, res) => {
+      res.send("Hello World!"); //Sending back a text response
+    });
+
+    // Use portfinder to dynamically find an available port
+    portfinder
+      .getPortPromise()
+      .then((port) => {
+        // Set the port for the server to listen on
+        const PORT = process.env.PORT || port;
+
+        app.listen(PORT, () => {
+          console.log(`Server listening on port: ${PORT}`);
+        });
+      })
+      .catch((err) => {
+        console.error("Error finding an available port:", err);
+      });
+    ```
 
 ## Step #4: Connect to MongoDB Atlas
 
