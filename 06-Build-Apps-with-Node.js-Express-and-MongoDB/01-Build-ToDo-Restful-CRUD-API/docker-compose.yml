@@ -1,0 +1,14 @@
+version: "3"
+services:
+  todo-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: to-do-restful-api-image
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+    environment:
+      - NODE_ENV=development
+    container_name: to-do-restful-api-container

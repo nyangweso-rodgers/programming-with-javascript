@@ -64,6 +64,29 @@
 
 - Access the running server/application from http://localhost:3000 in the browser.
 
+## Step 2.2: Using Docker Compose
+
+- **Docker Compose** is a tool that allows you to define and manage multi-container Docker applications. While `Dockerfile` are used to create individual container images, **Docker Compose** provides a way to manage the configuration of multiple containers, their dependencies, networks, and volumes in a single `YAML` file.
+- Define a `docker-compose.yml` file in the root directory and ..
+  - Define your service/container configuration inside this `YAML` file. In this case, we have one service.
+  - Specify the image, ports, volumes, environment variables, and any other configurations needed for the service.
+    ```yml
+    #docker-compose.yml
+    version: "3"
+    services:
+      todo-api:
+        build:
+          context: .
+          dockerfile: Dockerfile
+        image: to-do-restful-api-image
+        ports:
+          - "3000:3000"
+        volumes:
+          - ./:/app
+        environment:
+          - NODE_ENV=development
+    ```
+
 ## Step 3: Define a Schema
 
 - we can create a simple [schema](https://mongoosejs.com/docs/guide.html) by creating a `model` folder inside the `project_folder/` and add a file
