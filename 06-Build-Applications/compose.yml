@@ -1,0 +1,10 @@
+version: "3"
+services:
+  ToDo-Restful-API:
+    build: ./01-ToDo-Restful-API
+    ports:
+      - "80:80"
+  ToDo-Web-App:
+    build: ./01-ToDo-Web-App
+    ports:
+      - "3000:3000"
