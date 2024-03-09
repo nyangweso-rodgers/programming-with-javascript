@@ -1,0 +1,10 @@
+version: "1"
+services:
+  todo_restuful_crud_api:
+    build:
+      context: ./01-ToDo-Restful-CRUD-API
+      dockerfile: Dockerfile
+    image: todo-restuful-crud-api-image
+    container_name: todo-restful-crud-api-container
+    ports:
+      - "3000:3000"
