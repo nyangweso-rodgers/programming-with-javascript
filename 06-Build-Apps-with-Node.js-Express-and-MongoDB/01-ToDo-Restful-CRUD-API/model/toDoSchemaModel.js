@@ -6,6 +6,8 @@ const toDoSchema = new Schema(
   {
     title: { type: String, required: true },
     description: { type: String, required: true },
+    created_by: { type: String, required: true, default: "Rodgers Nyangweso" },
+    updated_by: { type: String, required: true, default: "Rodgers Nyangweso" },
   },
   { timestamps: true }
 );
