@@ -8,3 +8,12 @@ services:
     container_name: todo-restful-crud-api-container
     ports:
       - "3000:3000"
+  #
+  employees-api:
+    build:
+      context: ./03-Employees-api
+      dockerfile: Dockerfile
+      image: employees-api-image
+      container_name: employees-api-container
+      ports:
+        - "80:80"
