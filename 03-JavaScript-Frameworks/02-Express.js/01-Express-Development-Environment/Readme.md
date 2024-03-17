@@ -89,38 +89,6 @@
   });
   ```
 
-- **Remark**:
-
-  - we can also use `portfinder` module to dynamically assign available ports in the `server.js` with the following code:
-
-    ```js
-    //server.js
-    import express from "express";
-
-    // create an express application object
-    const app = express();
-
-    // define routes
-    app.get("/", (req, res) => {
-      res.send("Hello World!"); //Sending back a text response
-    });
-
-    // Use portfinder to dynamically find an available port
-    portfinder
-      .getPortPromise()
-      .then((port) => {
-        // Set the port for the server to listen on
-        const PORT = process.env.PORT || port;
-
-        app.listen(PORT, () => {
-          console.log(`Server listening on port: ${PORT}`);
-        });
-      })
-      .catch((err) => {
-        console.error("Error finding an available port:", err);
-      });
-    ```
-
 ## Step #4: Connect to MongoDB Atlas
 
 - Head to [MongoDB Atlas](https://account.mongodb.com/account/login) to create an account or sign in to an existing account.
