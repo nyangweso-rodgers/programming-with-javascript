@@ -56,45 +56,13 @@
 # Concepts of Express.js
 
 - Five broad categories of Express.js include:
-  - express(),
+  - `express()`,
   - Application,
   - Request,
   - Response, and
   - Router
 
-## Routing in Express.js
-
-### Routing Methods
-
-- `app.get()` to handle `GET` requests
-- `app.post` to handle `POST` requests
-- You can also use the `app.all()` to handle all `HTTP` methods
-- `app.use()` to specify middleware as the callback function.
-
-### Routing Paths
-
-- A **routing path** is a combination of a request method to define the endpoints at which requests can be made by a client.
-- **Route paths** can be `strings`, `string patterns`, or `regular expressions`.
-- Example:
-
-  - Define endpoints for a server based application
-
-    ```js
-    //server.js
-    import express from "express";
-    const app = express();
-
-    //home route
-    app.get("/home", (req, res) => {
-      res.send("<h1>Home Page</h1>");
-    });
-    //about route
-    app.get("/about", (req, res) => {
-      res.send("<h1>About Page</h1>");
-    });
-    ```
-
-## Express Concept #1: `express()`
+# Express Concept #1: `express()`
 
 - The `express()` function is required to create an Express application.
 - This is a top-level function included in the Express module at the time you download Express into the root folder of your project by issuing this command:
