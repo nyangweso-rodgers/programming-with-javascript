@@ -135,6 +135,32 @@
     import "./global.css";
     ```
 
+## CSS Module
+
+- `Next.js` has a built-in support for **CSS Modules** which are identified using the extension, `.module.css`
+- E.g., we can create a `header.module.css` with the following structure:
+
+  ```css
+  /* header.module.css */
+  .speaker {
+    font-size: 24px;
+  }
+  ```
+
+  - we can then import the above css module directly into our `page.js` file
+
+    ```js
+    import styles from "./header.module.css";
+
+    const Page = () => {
+      return (
+        <>
+          <p className={styles.speaker}>Header</p>
+        </>
+      );
+    };
+    ```
+
 # Images in `Next.js`
 
 ## `next/image` in `Next.js` 13
