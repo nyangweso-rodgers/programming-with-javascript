@@ -25,6 +25,21 @@
 - An in depth knowledge is required for integration the UI into `MVC framework`
 - **Redux** and **Routing** are external tools that need to be learnt, whereas `Angular` has most of these tools inbuilt.
 
+# Features of React
+
+## Feature Of React #1: React Virtual DOM
+
+- **Virtual DOM**: uses a strategy that updates the **DOM** without having to redraw all the webpage elements. Every time the **DOM** changes, browsers need to recalculate entire layout and then repaint the web page which makes the web app slow. To overcome this, we have **virtual DOM**. Evrey time the state of our application changes, the **virtual DOM** gets updates instead of the real **DOM**.
+
+- Whenever the new element is added to the UI, a new **virtual DOM** associated with that element is created. If state of this element chnages, a second new **virtual DOM** is created which will be compared with the previous **virtual DOM**. It then updates ONLY the object on the real **DOM**.
+
+## Feature Of React #2: Unidirectional Data Flow
+
+- In **React**, data flow refers to how data is passed between **components**.
+- **React** employs a **one-way data flow** or **unidirectional data flow**. It is sometimes referred to as the **one-way data binding model**.
+- In a **unidirectional data flow**, data flows in a single direction, which is from a parent component down to its child components. In **React**, this is achieved by passing data down through `props` _which are essential properties that can be passed down from a parent component to its child components._. Once a child component receives `props` from its parent, it can use those `props` to render itself.
+- This **unidirectional flow** of data helps to keep the application's data model simple and also makes it easier to debug the application, as changes to data can be easily traced back to their source.
+
 # Angular vs React
 
 |       Parameter       |                                                                              Angular                                                                              |                                                                                                     React                                                                                                     |
@@ -70,3 +85,7 @@
 - **React Component Keys**
 
 # Resources
+
+1. [react.dev/learn](https://react.dev/learn)
+2. [Hashnode - 7 Best Practices for Keeping a React Project Clean and Efficient](https://theankurtyagi.hashnode.dev/7-best-practices-for-keeping-a-react-project-clean-and-efficient)
+3. [freeCodeCamp - Front End JavaScript Development Handbook – React, Angular, and Vue Compared](https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/)
