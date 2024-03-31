@@ -42,18 +42,28 @@
 
 ## Step #3: Install Dependencies
 
-- Install `react@16.12.0`:
+- Install `react@16.12.0` and `react-dom@16.12.0`
   ```sh
-    npm install react@16.12.0 --save
+    npm install react@16.12.0 react-dom@16.12.0 --save
   ```
-- Install `react-dom@16.12.0`
-  ```sh
-    npm install react-dom@16.12.0 --save
-  ```
-- Install `html-webpack-plugin`:
+- `react@16.12.0` and `react-dom@16.12.0` are two foundational packages for working with React applications.
+- `react@16.12.0` package provides the core functionality of **React**. It includes:
+
+  - **Components**: The building blocks for creating user interfaces. You can define reusable components with `props` and `state` to manage UI elements.
+  - **JSX Syntax**: A syntax extension for JavaScript that allows you to write HTML-like structures within your code. These structures are then transformed into regular JavaScript function calls.
+  - **State Management**: React allows components to maintain internal state, which controls how the component behaves and renders.
+  - **Lifecycle Methods**: Components have lifecycle methods that you can use to perform actions at different stages of their lifecycle (e.g., mounting, updating, unmounting).
+
+- `react-dom@16.12.0` package serves as the bridge between **React** and the **DOM** (Document Object Model) of your web page. It offers functionalities like:
+
+  - **DOM Manipulation**: It allows you to update the browser's DOM by rendering React components.
+  - **Hydration**: This is a process of synchronizing the server-rendered HTML with the in-browser React components, leading to a smoother user experience.
+  - **Legacy Browser Support**: While React itself doesn't directly handle browser compatibility, react-dom provides utilities for supporting older browsers (though using a polyfill library might still be necessary).
+
+- In addition, install `html-webpack-plugin`:
   - This plugin simplifies the creation of `HTML` files to serve your **Webpack** bundles. This is especially useful for Webpack bundles that include a hash in the filename which changes every compilation.
   ```sh
-    npm install --save-dev html-webpack-plugin
+    npm i html-webpack-plugin --save-dev
   ```
 
 ## Step #4: Create a `src/` Directory with `index.html` and `index.js` Files
@@ -65,7 +75,10 @@
       touch index.html index.js
   ```
 
-- inside the `src/` directory, create an `index.html` file with the following boilerplate
+- `index.js` file Acts as the entry point for your React application while `index.html` Provides the initial `HTML` structure and serves as a container for your React application. Here's a breakdown of their roles:
+
+- Inside the `src/` directory, create an `index.html` file with the following boilerplate
+
   ```html
   <!DOCTYPE html>
   <html lang="en">
@@ -79,7 +92,13 @@
     </body>
   </html>
   ```
-- inside the `src/` create an entry-point to the app, i.e., `index.js` and add the following code:
+
+  - This file provides the initial `HTML` structure for your web page.
+  - It includes elements like `<head>` and `<body>` tags, along with meta information and styling.
+  - Crucially, it contains a `div` element with a specific `ID` (usually `id="app"`). This `div` acts as a placeholder where your React application will be rendered.
+  - When your application starts, the `index.js` code renders your React components and injects them into the DOM within this `div` element.
+
+- Inside the `src/` create an entry-point to the app, i.e., `index.js` and add the following code:
 
   ```js
   // index.js
@@ -93,9 +112,13 @@
   render(<Home />, document.getElementById("app"));
   ```
 
+- This file is the starting point where your React application's execution begins.
+- It typically imports the main React component of your application and renders it using the render function from `react-dom`.
+- This establishes the initial state of your React application.
+
 ## Step #5: Configure [Webpack](https://webpack.js.org/)
 
-- [Webpack]() takes the individual building blocks (`JavaScript` files, `HTML`, `CSS`, `images` etc.) and combines them into a single, well-structured building (bundled file) that can be easily understood by a browser.
+- [Webpack](https://webpack.js.org/) takes the individual building blocks (`JavaScript` files, `HTML`, `CSS`, `images` etc.) and combines them into a single, well-structured building (bundled file) that can be easily understood by a browser.
 - **Webpack** achieves this by:
 
   - Identifying dependencies: It analyzes your code to understand how different files depend on each other (imports and exports).
@@ -221,5 +244,7 @@
 - Open your web browser and navigate to http://localhost:9000. You should see your React application running.
 
 # Resources
+
 1. [babeljs.io/](https://babeljs.io/)
 2. [webpack.js.org/](https://webpack.js.org/)
+3. [react.dev/](https://react.dev/)
