@@ -40,6 +40,76 @@
 - In a **unidirectional data flow**, data flows in a single direction, which is from a parent component down to its child components. In **React**, this is achieved by passing data down through `props` _which are essential properties that can be passed down from a parent component to its child components._. Once a child component receives `props` from its parent, it can use those `props` to render itself.
 - This **unidirectional flow** of data helps to keep the application's data model simple and also makes it easier to debug the application, as changes to data can be easily traced back to their source.
 
+## Feature Of React #3: `JSX`
+
+- **React** doesn’t have `HTML` files, `HTML` tags are rendered directly inside `JavaScript`. This approach makes **React** faster.
+- `JSX` is stricter than `HTML`:
+  - You have to close tags like `<br />`.
+  - Your component also can’t return multiple `JSX` tags.
+- Example:
+  ```jsx
+  AboutPage = () => {
+    return (
+      <>
+        <h1>Header 1</h1>
+        <p>
+          Hello there.
+          <br />
+          How do you do?
+        </p>
+      </>
+    );
+  };
+  ```
+- If you have a lot of HTML to port to JSX, you can use an [oneline converter](https://transform.tools/html-to-jsx)
+- 3 Rules of `JSX`:
+
+  1. Return a single root element
+
+     - To return multiple elements from a component, **wrap them with a single parent tag**.
+     - E.g., For example, you can use a `<div>`:
+
+       ```jsx
+       <div>
+         <h1>My header!</h1>
+         <ul>
+           <li></li>
+           <li></li>
+           <li></li>
+         </ul>
+         <button></button>
+       </div>
+       ```
+
+     - If you don’t want to add an extra `<div>` to your markup, you can write `<>` and `</>` instead:
+     - This empty tag is called a [Fragment](https://react.dev/reference/react/Fragment).
+     - **Fragments** let you group things without leaving any trace in the browser `HTML` tree.
+       ```jsx
+       <>
+         <h1>My header!</h1>
+         <ul>
+           <li></li>
+           <li></li>
+           <li></li>
+         </ul>
+         <button></button>
+       </>
+       ```
+
+  2. Close all tags
+
+     - `JSX` requires tags to be explicitly closed: self-closing tags like `<img>` must become `<img />`, and wrapping tags like `<li>`oranges must be written as `<li>`oranges`</li>`.
+
+  3. camelCase, all/most of the things
+
+     - `JSX` turns into `JavaScript` and attributes written in `JSX` become keys of `JavaScript` objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names. For example, their names can’t contain dashes or be reserved words like `class`.
+
+     - This is why, in `React`, many `HTML` and `SVG` attributes are written in **camelCase**. For example, instead of `stroke-width` you use `strokeWidth`. Since class is a reserved word, in `React` you write `className` instead.
+
+       ```jsx
+       <div className="container">This is a div!</div>
+       ```
+
 # Angular vs React
 
 |       Parameter       |                                                                              Angular                                                                              |                                                                                                     React                                                                                                     |
