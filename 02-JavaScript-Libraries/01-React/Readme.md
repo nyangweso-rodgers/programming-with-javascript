@@ -4,11 +4,11 @@
 
 # Introduction to React
 
-- `React` is a `JavaScript library` used to build _User Interfaces_ developed and maintained by **Facebook**. It is capable of building complex and highly interactive single-page web applications.
+- **React** is a **JavaScript library** used to build **User Interfaces** developed and maintained by **Facebook**.
 
-# How does `ReactJS` Work?
+# How does ReactJS Work?
 
-- `ReactJS` creates a **VIRTUAL DOM** in memory. Instead of manipulating the browser's `DOM` directly, `ReactJS` creates a **virtual DOM** in memory, where it does all the necessary manipulating, before making the changes in the browser `DOM`.
+- **React** creates a **VIRTUAL DOM** in memory. Instead of manipulating the browser's `DOM` directly, `ReactJS` creates a **virtual DOM** in memory, where it does all the necessary manipulating, before making the changes in the browser `DOM`.
 - `ReactJS` only changes what needs to be changed! i.e., it finds out what changes have been made, and changes only what needs to be changed.
 
 # Advantages of `ReactJS`
