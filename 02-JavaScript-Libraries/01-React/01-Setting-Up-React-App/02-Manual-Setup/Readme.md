@@ -30,7 +30,7 @@
 
 - Download and install `Node.js` which we use to run the development environment.
 
-## Step #: Create a Directory, `react-app-from-manual-setup`, and Initialize It
+## Step #2: Create a Directory, `react-app-from-manual-setup`, and Initialize It
 
 - Create a directory, `react-app-from-manual-setup` and proceed to create the following files:
   ```sh
@@ -40,16 +40,23 @@
   ```
 - this creates a new empty `package.json` where all the dependencies will be listed
 
-## Step #: Install Dependencies
+## Step #3: Install Dependencies
 
-- install the following dependencies:
+- Install `react@16.12.0`:
   ```sh
-    # install the dependencies
     npm install react@16.12.0 --save
+  ```
+- Install `react-dom@16.12.0`
+  ```sh
     npm install react-dom@16.12.0 --save
   ```
+- Install `html-webpack-plugin`:
+  - This plugin simplifies the creation of `HTML` files to serve your **Webpack** bundles. This is especially useful for Webpack bundles that include a hash in the filename which changes every compilation.
+  ```sh
+    npm install --save-dev html-webpack-plugin
+  ```
 
-## Step #: Create a `src/` Directory with `index.html` and `index.js` Files
+## Step #4: Create a `src/` Directory with `index.html` and `index.js` Files
 
 - Create a `src/` Directory with `index.html` and `index.js` Files
 
@@ -86,26 +93,99 @@
   render(<Home />, document.getElementById("app"));
   ```
 
-## Step #: Configure [Webpack]()
+## Step #5: Configure [Webpack](https://webpack.js.org/)
 
-- With the above necessary source files, we can use [Webpack]() to run the application locally.
-  - Webpack is an extreme powerful and extensible bundler
-  - Webpack also includes a development web server
-- install **webpack** dependencies
+- [Webpack]() takes the individual building blocks (`JavaScript` files, `HTML`, `CSS`, `images` etc.) and combines them into a single, well-structured building (bundled file) that can be easily understood by a browser.
+- **Webpack** achieves this by:
+
+  - Identifying dependencies: It analyzes your code to understand how different files depend on each other (imports and exports).
+  - Bundling: It takes all these files and combines them into a single output file (often named `bundle.js`). This simplifies browser loading and reduces the number of HTTP requests needed.
+  - Loaders: **Webpack** can't understand everything on its own. It uses loaders like **Babel** to transform specific file types (like `JSX`) before bundling them.
+
+- Install **webpack** dependencies by:
   ```sh
-    # save to devDependencies
     # you can specify the specific version of the dependencies
     npm install save-dev webpack webpack-cli webpack-dev-server
   ```
-- Create a file named `webpack.config.js` at the root of your project. This file will contain the Webpack configuration.
+- Create a file named `webpack.config.js` at the root of your project. This file will contain the **Webpack** configuration.
 - Add the following configuration to `webpack.config.js`:
 
-## Step #: Configure [Babel]()
+  ```js
+  import path from "path";
+  import HtmlWebpackPlugin from "html-webpack-plugin";
+  import { fileURLToPath } from "url";
+  import { dirname } from "path";
 
-- We need [Babel]() to:
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
+
+  export default {
+    entry: "./src/index.js",
+    output: {
+      path: path.join(__dirname, "/dist"),
+      filename: "bundle.js",
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+          },
+        },
+      ],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./src/index.html",
+      }),
+    ],
+    devServer: {
+      static: {
+        directory: path.join(__dirname, "dist"),
+      },
+      compress: true,
+      port: 9000,
+    },
+  };
+  ```
+
+- The code in this configuration file:
+  - sets up a **Webpack** configuration for a React application.
+  - It handles JavaScript and JSX files, generates an HTML file, and starts a development server.
+  - The `path` module is used to construct file and directory paths.
+  - The `HtmlWebpackPlugin` creates the `HTML` file that renders the React app.
+  - The `devServer` section configures the local development server.
+- Let's understand this configuration file:
+- **Necessary Imports**:
+  - `import path from "path";`: Imports `Node.js` path module to work with file paths.
+  - `import HtmlWebpackPlugin from "html-webpack-plugin";`: Imports the `HtmlWebpackPlugin`, a plugin that simplifies the creation of `HTML` files to serve your webpack bundles.
+  - `import { fileURLToPath } from "url";`: Imports `fileURLToPath` method from the `url` module, which converts a file `URL` to a path.
+  - `import { dirname } from "path";`: Imports `dirname` method from the path module, which gets the directory name of a path.
+- **Determining File Paths**:
+  - `__filename`: Gets the absolute file path of the current module.
+  - `__dirname`: Gets the directory path of the current module.
+- **Webpack Configuration**:
+  - `entry`: Specifies the starting point of your application (`./src/index.js`).
+  - `output`: Defines where the bundled file should be output (`path`) and its name (`filename: "bundle.js"`).
+  - `module.rules`: Tells **Webpack** how to handle different file types.
+    - Rule for `.js` and `.jsx` files:
+      - Uses `babel-loader` to transpile them.
+  - `plugins`: Specifies `plugins` to be used during the build process
+    - `HtmlWebpackPlugin`: Creates an `HTML` file that references the bundled JavaScript (`template: "./src/index.html"`).
+    - `devServer`: Configures the development server
+      - Serves static files from the `dist` directory.
+      - Compresses responses for faster loading
+      - Runs on port 9000.
+
+## Step #6: Configure [Babel](https://babeljs.io/)
+
+- We can think of **Babel** as a **translator**. **Webpack** might not understand the latest JavaScript features (`JSX`, classes etc.) you might be using in your React code. **Babel** acts as a **translator**, converting your modern `JavaScript` code into a version that older browsers can understand (usually `ES5`). This ensures wider compatibility for your application.
+- We need [Babel](https://babeljs.io/) to:
   - Transpile modern `js`, and
   - Compile `JSX` to `JS`
-- install **Babel** packages needed to transform `JS` to `JSX` via the following command:
+- Install **Babel** packages needed to transform `JS` to `JSX` via the following command:
   ```sh
     # save to devDependencies
     npm install --save-dev @babel/core@7.7.7 @babel/node@7.7.7 babel-loader@8.0.6 @babel/preset-env @babel/preset-react
@@ -116,17 +196,15 @@
     "presets": ["@babel/preset-env", "@babel/preset-react"]
   }
   ```
+- Remarks:
+  - This is how Webpack and Babel work together:
+    - In the setup, **Webpack** uses the `babel-loader` to identify and process your `JSX` files.
+    - The `babel-loader` then uses Babel's presets (`@babel/preset-env` and `@babel/preset-react`) to convert your code to a compatible format.
+    - Finally, **Webpack** bundles the transformed code with your other files into a single bundle.
 
-## Step #: Install `html-webpack-plugin`
+## Step #7: Update `package.json` Scripts
 
-- This plugin simplifies the creation of `HTML` files to serve your Webpack bundles. This is especially useful for Webpack bundles that include a hash in the filename which changes every compilation.
-  ```sh
-    npm install --save-dev html-webpack-plugin
-  ```
-
-## Step #: Update `package.json` Scripts
-
-- In your `package.json`, add a start script to run your application using Webpack Dev Server
+- In your `package.json`, add a start script to run your application using **Webpack Dev Server**
   ```json
     "scripts": {
     "start": "webpack serve --mode development",
@@ -134,7 +212,7 @@
     }
   ```
 
-## Step #: Run Your Application
+## Step #8: Run Your Application
 
 - Start the application by running:
   ```sh
@@ -143,3 +221,5 @@
 - Open your web browser and navigate to http://localhost:9000. You should see your React application running.
 
 # Resources
+1. [babeljs.io/](https://babeljs.io/)
+2. [webpack.js.org/](https://webpack.js.org/)
