@@ -4,28 +4,41 @@
 
 # Setup a `Next.js` 13 App
 
+## Step #1: Run `npx create-next-app@latest <app-name>`
+
 ```sh
     # create a `my-test-app`
-    npx create-next-app@latest my-test-app
+    npx create-next-app@latest test-app
     # move to the my-test-app directory
     cd my-test-app
     # start the server
     npm run dev
 ```
 
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Step #1: Running Development Server
+
+- To confirm everything works, you can view your app by running `npm run dev` inside your terminal and navigating to [localhost:3000](http://localhost:3000/) in the browser. Then, make a small change to the code and save it.
+
+  ```sh
+      # run the development server
+      npm run dev
+  ```
 
 # Folder Structure with `Next.js` 13
 
-1. `node_modules/`
-2. `public/`: Static assets to be served
-3. `src/`: Optional application source folder
+- `node_modules/`
+- `public/`
+  - Static assets to be served
+- `src/app/`
+  - for App router.
+  - It has the following files:
+    - `src/app/favicon.ico`
+    - `src/app/globals.css`
+    - `src/app/layout.js`
+    - `src/app/page.js`
+    - `src/app/page.module.css`
 
-   - `app/`: App router
-     - `app/layout.js`
-     - `page.js`
-
-4. `next.config.js` Configuration file for `Next.js`
+1. `next.config.js` Configuration file for `Next.js`
 
    ```js
    /** @type {import('next').NextConfig} */
@@ -34,11 +47,11 @@
    module.exports = nextConfig;
    ```
 
-5. `package.json` Project dependencies and scripts
-6. `jsconfig.json` Configuration file for JavaScript
-7. `.gitignore` Git files and folders to ignore
-8. `package-lock.json`
-9. `.estlintrc.json` Configuration file for ESLint
+2. `package.json` Project dependencies and scripts
+3. `jsconfig.json` Configuration file for JavaScript
+4. `.gitignore` Git files and folders to ignore
+5. `package-lock.json`
+6. `.estlintrc.json` Configuration file for ESLint
 
 - Remarks:
 
@@ -57,15 +70,27 @@
     module.exports = nextConfig;
     ```
 
+## The `src/app/` Directory
+
+- The `app/` directory in Next.js comes with a lot of features such as:
+  - Layout
+  - Routing
+  - Fonts usage
+  - Loading Component
+  - Error Component
+  - Not Found Component
+  - Template Component
+  - Server Component
+
 # Fonts in `Next.js`
 
 ## `@next/font`
 
-- `Next.js` 13 introduces a new font system, that provides you with easy access to all the fonts stored in [Google fonts](https://fonts.google.com/). These get downloaded when you build your app, so no requests get sent to Google client-side. This helps with speed and performance since the fonts get stored locally. `Next.js` also includes automatic optimization for fonts, similar to how it optimises images with its Image component.
+- `Next.js` 13 introduces a new font system, that provides you with easy access to all the fonts stored in [Google fonts](https://fonts.google.com/). These get downloaded when you build your app, so no requests get sent to Google client-side. This helps with speed and performance since the fonts get stored locally.
+- `Next.js` also includes automatic optimization for fonts, similar to how it optimises images with its Image component.
 - The `Next.js` Font Component comes in a separate package and is not part of the `Next.js` package itself.
 - The package includes:
-  - Built-in automatic self-hosting for any font file.
-- i.e., @next/font will automatically optimize fonts and remove external requests for improved privacy and performance.
+  - Built-in automatic self-hosting for any font file. i.e., `@next/font` will automatically optimize fonts and remove external requests for improved privacy and performance.
 - With `Next.js` Font, you automatically self-host any [Google Font](https://fonts.google.com/) which are automatically included in the deployment and serve from the same domain as your deployment. So, no request is sent to Google by the browser.
 - To get started, install:
   ```sh
@@ -92,9 +117,8 @@
   }
   ```
 
-* **NOTE**:
-  - Resolving **"Built-in next/font"** Error in `Next.js`
-  - to resolve this error which typicaaly occurs when you are using the `@next/font` package in `Next.js` 13.2 and later.
+* **NOTE**: Resolving **"Built-in next/font"** Error in `Next.js`
+  - to resolve this error which typicaly occurs when you are using the `@next/font` package in `Next.js` 13.2 and later.
   - `next/font` will automatically optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance.
   - From version 13.2 onward, `next/font` has been built into `Next.js`, making the `@next/font` package redundant. The `@next/font` package will be completely removed in `Next.js` 14.
   - To resolve this issue, you need to uninstall `@next/font` and replace all `@next/font `imports with `next/font` in your project. This can be done automatically using the `built-in-next-font` codemod:
