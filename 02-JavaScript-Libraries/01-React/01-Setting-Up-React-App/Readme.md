@@ -16,4 +16,26 @@
 
 1. [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 
+# Adding Styles to React Application
+
+- In **React**, you specify a `CSS` class with `className`. It works the same way as the `HTML` class attribute:
+  ```html
+  <img className="someImage" />
+  ```
+- Then you write the `CSS` rules for it in a separate `CSS` file:
+  ```css
+  /* In Your CSS */
+  .someImage {
+    border-radius: 50%;
+  }
+  ```
+- OR,`JSX` elements can also be styled using the `style` attribute.
+- To style a `JSX` element, simply include a `style` attribute with a `js` object that includes the styles you want to apply. Example:
+
+  ```jsx
+  const myElement = (
+    <div style={{ color: red, fontSize: "24px" }}>Some content</div>
+  );
+  ```
+
 # Resources
