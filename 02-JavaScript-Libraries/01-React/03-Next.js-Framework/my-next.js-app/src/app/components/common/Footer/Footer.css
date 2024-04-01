@@ -1,0 +1,45 @@
+footer {
+  background-color: #dce2f0;
+  padding: 40px 0;
+}
+.copyright-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.copyright-col > div {
+  margin: 10px;
+}
+
+.social-media-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.social-media-col > div {
+  margin: 0 6px;
+  text-align: center;
+  padding: 4px;
+}
+
+.bi {
+  padding: 4px;
+}
+
+.bi-linkedin {
+  background-color: #007bb5;
+  color: #fff;
+}
+
+.bi-github {
+  background-color: #333333;
+  color: #fff;
+}
+
+.bi-twitter-x {
+  background-color: #000;
+  color: #fff;
+}
