@@ -1,0 +1,28 @@
+
+.image-gallery-section {
+    padding: 60px 0;
+    text-align: center;
+    background: #34495e;
+}
+
+.image-gallery-container h2 {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.image-border {
+    width: 240px;
+    height: 4px;
+    background: #3498db;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.name {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0;
+}
