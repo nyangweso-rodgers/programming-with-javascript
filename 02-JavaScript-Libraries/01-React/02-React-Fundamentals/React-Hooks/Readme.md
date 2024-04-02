@@ -1,3 +1,13 @@
+# React Hooks
+
+# Introduction to React Hooks
+
+- **Hooks** let you manage **state** and other **React** feature without writing the **class component**. It was first introduced in `React 16.8`
+- Remarks:
+  - **React Hooks** only work with the **functional component**.
+  - You cannot call **Hooks** inside loops, conditions, or nested functions.
+  - **React hooks** are **backward compatible**. i.e., if you have a React application that uses React version older than 16.8, you can update to a newer version of React that supports hooks without breaking your existing code.
+
 # State
 
 - **Components** often need to change what’s on the screen as a result of an interaction. Typing into the form should update the input field, clicking `“next”` on an image carousel should change which image is displayed, clicking “buy” should put a product in the shopping cart. **Components** need to “remember” things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called **state**.

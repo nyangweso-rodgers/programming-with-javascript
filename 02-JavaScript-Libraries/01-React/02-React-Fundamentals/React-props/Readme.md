@@ -1,7 +1,30 @@
 # React `props`
 
-- `props` (**properties**) allows passing of data from a **parent** to **children** components. i.e., `props` are like function parameters.
-- Examples:
+## Table Of Contents
+
+# Introduction to React `props`
+
+- **React components** use `props` (short for **properties**) to communicate with each other. These properties are read-only. i.e., `props` allows passing of data from a **parent** to **children** components. i.e., `props` are like function parameters.
+- `Props` might remind you of `HTML` **attributes**, but you can pass any `JavaScript` value through them, including `objects`, `arrays`, `functions`, and even `JSX`!
+- E,g.,
+
+  ```jsx
+  function Hello(props) {
+    return <h1>Hello, {props.name}</h1>;
+  }
+
+  function App() {
+    return (
+      <div>
+        <Hello name="Rodgers" />
+        <Hello name="Omondi" />
+        <Hello name="Nyangweso" />
+      </div>
+    );
+  }
+  ```
+
+- Example usage:
 
   - Parent Component:
 
@@ -48,7 +71,7 @@
 - the `Product` component takes multiple `props` to render details about a product, including its `name`, `price`, and whether it's on sale.
 - The expression `{props.isOnSale && <p>On Sale!</p>}` conditionally renders the "On Sale!" message if the isOnSale prop is true.
 
-# Default `props`
+# Default `props` in React
 
 ```js
 const ChildComponent = (props) => {
@@ -62,6 +85,8 @@ ChildComponent.defaultProps = {
 
 # Using `propTypes`
 
+- `PropTypes` are used to make sure the values passed through `props` are valid. i.e., `PropTypes` includes `props` and their respective `PropTypes` for type checking.
+- The main benefit of type checking is that it makes the code base more robust and bug free.
 - you can specify the expected types for your `props` using `propTypes`.
 - example:
 
@@ -72,3 +97,15 @@ ChildComponent.defaultProps = {
     name: PropTypes.string.isRequired,
   };
   ```
+
+# `State` vs. `Props`
+
+- `Props` are passed to `components`, and from one `component` to another. `State` on the other hand is not passed from one `component` to the other, it is passed within the `component` only. The `state` is local data used and maintained by one `component` only. Two `components` cannot use or maintain one state.
+
+- `Props` are _immutable_, which means that they cannot be modified. Once a `props` is passed to a `component`, that `component` cannot change the value of the `props`. `State` on the reverse is _mutable_. `States` can be changed at will in the `component`.
+
+- So props are read-only while states are read-and-write. Props are used for communication uni-directional or bi-directional, while the state is used to render dynamic data in the component.
+
+# Resources
+
+1. [nextjs.org/learn/foundations/from-javascript-to-react/displaying-data-with-props](https://nextjs.org/learn/foundations/from-javascript-to-react/displaying-data-with-props)
