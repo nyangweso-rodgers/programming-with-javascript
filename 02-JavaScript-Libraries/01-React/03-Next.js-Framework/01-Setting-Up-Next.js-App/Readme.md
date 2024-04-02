@@ -281,6 +281,10 @@
       # install bootstrap
       npm install bootstrap@5.1.3
   ```
+- Or, download the latest version of `bootstrap` by:
+  ```sh
+    npm i bootstrap@latest
+  ```
 - Import `bootstrap.css` to the `pages.js` file.
   ```js
   // pages.js
