@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
+import { Trirong } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const trirong = Trirong({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata = {
   title: "Next.js App",
@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={trirong.className}>{children}</body>
     </html>
   );
 }
