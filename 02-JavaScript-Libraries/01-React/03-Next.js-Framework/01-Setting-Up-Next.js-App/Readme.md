@@ -251,12 +251,7 @@
   - Faster Page Loads: The images load when they enter the viewport, with blur-up placeholders as an option.
   - Asset Flexibility: Resize photos stored on remote servers on the fly
 
-- To use the `Next.js` Image Component, `Image` component from the `Next.js` package via `next/image`.
 
-  ```js
-  // pages/index.js
-  import Image from "next/image";
-  ```
 
 - Required attributes:
 
