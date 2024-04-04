@@ -2,14 +2,17 @@ import Image from "next/image";
 import About from "./common/About/page.js";
 import Header from "./common/Header/Header";
 import NextJsCards from "./Cards/NextJsCards/NextJsCards";
-import BlogCard from "./Cards/BlogCards/BlogCard";
+
 import ConferenceSpeakersCards from "./Cards/ConferenceSpeakersCards/ConferenceSpeakersCards";
+import CenterAlignedCards from "./Cards/BlogCards/CenterAlignedBlogCards/CenterAlignedCards";
+import LeftAlignBlogCards from "./Cards/BlogCards/LeftAlignBlogCards/LeftAlignBlogCards";
 
 const App = () => {
   return (
     <>
       <ConferenceSpeakersCards />
-      <BlogCard />
+      <CenterAlignedCards />
+      <LeftAlignBlogCards />
     </>
   );
 };
