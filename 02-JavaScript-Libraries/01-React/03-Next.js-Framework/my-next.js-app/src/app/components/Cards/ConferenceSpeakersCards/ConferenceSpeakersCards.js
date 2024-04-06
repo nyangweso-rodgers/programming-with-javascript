@@ -16,6 +16,11 @@ const ConferenceSpeakersCards = () => {
   return (
     <section className="border border-primary">
       <div className="container border">
+        <div className="row">
+          <div className="col">
+            <h4>Our speakers</h4>
+          </div>
+        </div>
         <div className="row border border-dark">
           <div className="col-sm-4">
             <div className="card">
