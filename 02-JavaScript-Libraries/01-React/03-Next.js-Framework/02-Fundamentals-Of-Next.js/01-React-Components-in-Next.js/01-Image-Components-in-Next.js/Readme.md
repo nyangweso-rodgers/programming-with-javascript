@@ -62,4 +62,5 @@
 
 # Resources
 
-1. [nextjs.org/docs/pages/api-reference/components/image](https://nextjs.org/docs/pages/api-reference/components/image)
+1. [nextjs.org/learn/react-foundations](https://nextjs.org/learn/react-foundations)
+2. [nextjs.org/docs/pages/api-reference/components/image](https://nextjs.org/docs/pages/api-reference/components/image)

@@ -240,32 +240,6 @@
     };
     ```
 
-# Images in `Next.js`
-
-## `next/image` in `Next.js` 13
-
-- Some of the optimizations built into the `Image` component include:
-
-  - Improved Performance: Always deliver images of the correct size for each device, using updated image formats.
-  - Visual Stability: Prevent an unexpected shift layout as the page loads automatically
-  - Faster Page Loads: The images load when they enter the viewport, with blur-up placeholders as an option.
-  - Asset Flexibility: Resize photos stored on remote servers on the fly
-
-
-
-- Required attributes:
-
-  - `src`: This is the path to the image.
-  - `alt`: This specifies the alternate text for an image.
-  - `width`: This specifies the width of the image in `px`.
-  - `height`: This specifies the height of the image in `px`.
-
-- Making `Next.js` images responsive using `layout` prop which has 4 options:
-
-  - `fixed`: The image is not scalable. The image’s width and height are specified regardless of the device’s size displayed.
-  - `intrinsic`: The image scales down to fit the container’s width on smaller viewports. The image does not scale up beyond its actual size on a larger viewport. The container width is set to 100%.
-  - `responsive`: On different viewports, the image is scaled down or up depending on the container’s width while retaining the aspect ratio.
-  - `fill`: Stretches the image’s width and height to fill the parent container.
 
 # Additonal Libraries (Modules) to `Next.js` App
 
