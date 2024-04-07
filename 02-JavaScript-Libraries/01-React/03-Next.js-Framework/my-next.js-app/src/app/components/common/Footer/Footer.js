@@ -3,14 +3,14 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="container">
+        <div className="container border border-danger">
           <div className="row">
             <hr className="hr" />
           </div>
           <div className="row">
             <div className="col-sm-9 copyright-col">
               <div className="">
-                &copy; 2023 Rodgers Nyangweso. All Rights Reserved.
+                &copy; 2024 Rodgers Nyangweso. All Rights Reserved.
               </div>
               <div className="">
                 <a className="text-decoration-none" href="#">

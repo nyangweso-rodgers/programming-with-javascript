@@ -58,12 +58,6 @@ const TextBlogCards = () => {
           </div>
           <div className="row">
             <div className="col">
-              <button
-                className="btn btn-primary"
-                onClick={() => alert("Test Message")}
-              >
-                Test Button
-              </button>
             </div>
           </div>
         </div>
