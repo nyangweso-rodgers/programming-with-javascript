@@ -159,3 +159,4 @@
 1. [react.dev/learn](https://react.dev/learn)
 2. [Hashnode - 7 Best Practices for Keeping a React Project Clean and Efficient](https://theankurtyagi.hashnode.dev/7-best-practices-for-keeping-a-react-project-clean-and-efficient)
 3. [freeCodeCamp - Front End JavaScript Development Handbook – React, Angular, and Vue Compared](https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/)
+4. [freecodecamp.org/news/new-react-19-features/](https://www.freecodecamp.org/news/new-react-19-features/)
