@@ -1,9 +1,9 @@
-import "./Header.css";
+import styles from "./Header.module.css";
 
 const Header = () => {
   return (
     <>
-      <header className="border border-danger p-5">
+      <header>
         <nav className="navbar navbar-expand-sm fixed-top">
           <div className="container">
             <a className="navbar-brand" href="#">

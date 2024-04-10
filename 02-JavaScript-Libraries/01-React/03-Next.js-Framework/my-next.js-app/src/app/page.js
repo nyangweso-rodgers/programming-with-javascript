@@ -2,14 +2,10 @@
 import "bootstrap/dist/css/bootstrap.css";
 import styles from "./page.module.css";
 
-import App from "./components/App";
+import App from "./Components/App";
 
 const Home = () => {
-  return (
-    <main>
-      <App />
-    </main>
-  );
+  return <App />;
 };
 
 export default Home;

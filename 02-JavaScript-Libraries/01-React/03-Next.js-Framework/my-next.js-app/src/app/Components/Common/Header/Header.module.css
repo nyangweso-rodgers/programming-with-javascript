@@ -5,7 +5,6 @@ header {
   align-items: center;
   
   transition: height 0.3s ease;
-  position: fixed;
   right: 0;
   right: 0;
   left: 0;
@@ -15,15 +14,12 @@ header {
   justify-content: space-between;
 }
 */
-header {
-  background-color: #213547;
-  width: 100%;
-}
-
+/*
 .navbar-brand {
   padding: 1.5em;
   font-size: 2rem;
 }
+*/
 
 .navbar-toggler {
   background-color: #fff;
