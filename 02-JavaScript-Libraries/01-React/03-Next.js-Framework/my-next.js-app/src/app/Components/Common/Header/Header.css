@@ -1,8 +1,9 @@
+/*
 header {
-  width: 100%;
+  
   display: flex;
   align-items: center;
-  background-color: #213547;
+  
   transition: height 0.3s ease;
   position: fixed;
   right: 0;
@@ -13,8 +14,19 @@ header {
   backdrop-filter: saturate(180%) blur(20px);
   justify-content: space-between;
 }
+*/
+header {
+  background-color: #213547;
+  width: 100%;
+}
 
-.logo {
-  height: 6em;
+.navbar-brand {
   padding: 1.5em;
+  font-size: 2rem;
+}
+
+.navbar-toggler {
+  background-color: #fff;
+  width: 80px;
+  border-color: transparent;
 }
