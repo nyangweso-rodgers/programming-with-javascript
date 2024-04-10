@@ -73,6 +73,13 @@ const CenterAlignedCards = () => {
               </div>
             </div>
           </div>
+          <div className="row">
+            <div>
+              <a href="#" className="btn btn-info">
+                Explore the Blog
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </>

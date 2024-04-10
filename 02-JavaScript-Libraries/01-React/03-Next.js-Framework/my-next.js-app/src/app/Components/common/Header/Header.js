@@ -4,9 +4,9 @@ const Header = () => {
   return (
     <>
       <header>
-        <nav>
-          <div>
-            <a className="" href="#">
+        <nav className="">
+          <div className="">
+            <a className="logo" href="#">
               Rodgers Nyangweso
             </a>
           </div>
