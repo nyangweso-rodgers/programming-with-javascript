@@ -1,16 +1,20 @@
-import styles from "./Header.module.css";
+"use client";
+import { useEffect } from "react";
 
 const Header = () => {
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap");
+  }, []);
   return (
     <>
       <header>
         <nav className="navbar navbar-expand-sm fixed-top">
           <div className="container">
             <a className="navbar-brand" href="#">
-              Rodgers Nyangweso
+              App Header
             </a>
             <button
-              className="navbar-toggler"
+              className="navbar-toggler collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarCollapseContent"
@@ -31,12 +35,7 @@ const Header = () => {
                 </li>
                 <li className="nav-item">
                   <a href="#" className="nav-link">
-                    Blog
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link">
-                    Code Snippets
+                    Services
                   </a>
                 </li>
                 <li className="nav-item">

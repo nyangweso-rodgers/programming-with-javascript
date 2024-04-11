@@ -4,17 +4,40 @@
   margin: 0;
 }
 
-header {
-  background-color: #213547;
-  width: 100%;
-  border: 1px solid red;
-  padding: 40px 0;
+.navbar {
+  background-color: #192655;
+  margin-bottom: 0;
 }
-.navbar-brand {
-  font-size: 2rem;
-  padding: 12px;
-  /*font-weight: bold;*/
+.navbar li a,
+.navbar .navbar-brand {
+  color: #fff;
+  font-size: 1.2rem;
   font-weight: 400;
+  /*padding: 1.5em;*/
+}
+
+.navbar .navbar-toggler {
+  background-color: #fff;
+  border-color: transparent;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+  color: #fff;
+  background-color: #c1d3fe;
+}
+
+h2 {
+  font-size: 24px;
+  /*text-transform: uppercase;*/
+  /*color: #303030;*/
+  /*font-weight: 500;*/
+}
+h4 {
+  font-size: 19px;
+  /*line-height: 1.375em;*
+    /*color: #303030;*/
+  /*font-weight: 400;*/
 }
 footer {
   background-color: #dce2f0;

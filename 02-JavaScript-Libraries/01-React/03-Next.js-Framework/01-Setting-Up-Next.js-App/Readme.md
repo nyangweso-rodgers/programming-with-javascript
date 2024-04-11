@@ -53,7 +53,7 @@
 5. `package-lock.json`
 6. `.estlintrc.json` Configuration file for ESLint
 
-- Remarks:
+- **Remarks**:
 
   - with `Next.js` 13, the file-based routing can be done from the `src/app` folder. Previously, the routing was done from the `pages/` folder instead.
   - To setup pages and routing from the `src/app` folder, we add a setting within the `next.config.js` file as follows:
@@ -240,47 +240,55 @@
     };
     ```
 
-
 # Additonal Libraries (Modules) to `Next.js` App
 
-## `bootstrap@5.3.2` Module
+# `bootstrap` Module
 
-- Run the following command in the terminal:
+- To use `bootstrap` in `Next.js` App, install specific version by:
   ```sh
-      # install bootstrap
       npm install bootstrap@5.1.3
   ```
-- Or, download the latest version of `bootstrap` by:
-  ```sh
-    npm i bootstrap@latest
-  ```
+  - Or, download the latest version of `bootstrap` by:
+    ```sh
+      npm i bootstrap@latest
+    ```
 - Import `bootstrap.css` to the `pages.js` file.
   ```js
   // pages.js
-  // import bootstrap to pages.js
   import "bootstrap/dist/css/bootstrap.css";
   ```
+- To include `Bootstrap's` JavaScript in your `Next.js` component, like `Header` Component, we use `useEffect` Hook with
 
-## `bootstrap-icons` Module
-
-- install [bootstrap icons](https://icons.getbootstrap.com/) with `npm`
-  ```sh
-    # install bootstrap icons
-    npm install bootstrap-icons
-  ```
-- import to the `page.js` file:
   ```js
-  // import to the `page.js` file
-  // import bootstrap-icons
-  import "bootstrap-icons/font/bootstrap-icons.css";
+  //Header component
+  "use client";
+  import { useEffect } from "react";
+  import styles from "../../../globals.css";
+
+  const Header = () => {
+    useEffect(() => {
+      import("bootstrap/dist/js/bootstrap");
+    }, []);
+    return (
+      <>
+        <header></header>
+      </>
+    );
+  };
+
+  export default Header;
   ```
 
-## Font Awesome
+- Remarks:
+  - `Next.js` offers code splitting capabilities to improve initial page load performance. This means unnecessary libraries like `Bootstrap's `JavaScript might not be included initially.
+  - The `useEffect` hook allows you to run code after the component has rendered.
+  - By using `import("bootstrap/dist/js/bootstrap")`; within the `useEffect` hook with an empty dependency array `([])`, you're dynamically importing Bootstrap's JavaScript only after the component mounts (renders). This ensures it's available for the toggler functionality.
+
+# Font Awesome Library
 
 - [Font Awesome](https://fontawesome.com/) is an icon's library and toolkit.
 - Run the following command in the terminal to install Font Awesome to `Next.js`
   ```sh
-      # install Font Awesome
       # npm uninstall @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
       npm install --save-dev @fortawesome/fontawesome-free
   ```
