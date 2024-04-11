@@ -43,3 +43,22 @@ footer {
   background-color: #dce2f0;
   padding: 40px 0;
 }
+
+.fa-brands {
+  text-decoration: none;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.fa-brands:hover {
+  opacity: 0.7;
+}
+
+.fa-github,
+.fa-x-twitter {
+  color: #333333;
+}
+
+.fa-hashnode {
+  color: #2563eb;
+}
