@@ -26,7 +26,10 @@
   color: #fff;
   background-color: #c1d3fe;
 }
-
+main {
+  padding: 40px 0;
+  border: 1px dotted #9d2323;
+}
 h2 {
   font-size: 24px;
   /*text-transform: uppercase;*/
@@ -39,11 +42,44 @@ h4 {
     /*color: #303030;*/
   /*font-weight: 400;*/
 }
+
+textarea {
+  box-shadow: 1px 1px 12px #aaa;
+  resize: none;
+  padding: 10px;
+  margin: 10px 0;
+  letter-spacing: 1.3px;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  transition: 0.5s;
+}
+textarea:focus {
+  outline: 1px solid rgb(14, 51, 14);
+}
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin: 2px 0;
+}
+input[type="submit"] {
+  background-color: #34495e;
+  color: #fff;
+  padding: 8px 10px;
+  margin: 2px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
 footer {
   background-color: #dce2f0;
   padding: 60px 0;
 }
-
 .fa-brands {
   text-decoration: none;
   font-size: 2rem;

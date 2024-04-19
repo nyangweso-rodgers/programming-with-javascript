@@ -1,13 +1,16 @@
 import "../globals.css";
-import Header from './Common/Header/Header';
+import BlogHeader from './Common/Header/BlogHeader/BlogHeader';
+import SurveyFormHeader from "./Common/Header/SurveyFormHeader/SurveyFormHeader";
+import ExhibitorsSurveyForm from "../Components/Forms/SurveyFormTemplate/ExhibitorsSurveyForm/ExhibitorsSurveyForm"
+import ContactForm from "./Forms/ContactForm/ContactForm";
 import FooterTemplate from "./Common/Footer/FooterTemplate/FooterTemplate";
-import Footer from "./Common/Footer/Footer";
+//import Footer from "./Common/Footer/Footer";
 
 const App = () => {
   return (
     <>
-      <Header />
-      <FooterTemplate />
+      <SurveyFormHeader />
+      <ContactForm />
     </>
   );
 };
