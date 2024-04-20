@@ -4,29 +4,24 @@
 
 # History of `NextJS`
 
-- Released in Oct. 2016 by **Vercel** with the goal of resolving the following drawbacks of `React.js`
+- Released in Oct. 2016 by **Vercel** with the goal of resolving the following drawbacks of **React.js**
   1. Performance issues
   2. Routing
   3. Server-side rendering
   4. SEO
 
-# Introduction to `Next.js` 13
+# Introduction to `Next.js`
 
-- `Next.js` is a `React` Framework that enables:
+- `Next.js` is a **React** Framework that enables:
   1. Server-side rendering (SSR)
   2. Additional server-side functionality
   3. An improved development and deployment toolchain
-- You use `React` Components to build user interfaces, and `Next.js` for additional features and optimizations.
-- By framework, we mean `Next.js` handles the tooling and configuration needed for `React`, and provides additional structure, features, and optimizations for your application.
+- You use **React** Components to build user interfaces, and `Next.js` for additional features and optimizations.
+- By framework, we mean `Next.js` handles the **tooling** and **configuration** needed for **React**, and provides additional structure, features, and optimizations for your application.
 - It's significant for web app development because it helps with things like:
   - page routing,
   - server-side rendering, and
   - quick loading times, which are critical for generating a great user experience.
-
-# `Next.js` vs. `create-react-app` Toolchains
-
-- `create-react-app` does not easily help with generating server-side rendered apps.
-- `Next.js` comes with speed, and SEO.
 
 # How `Next.js` Works
 

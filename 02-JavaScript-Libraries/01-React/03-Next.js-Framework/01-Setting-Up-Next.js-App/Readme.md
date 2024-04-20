@@ -2,6 +2,13 @@
 
 ## Table Of Contents
 
+# Introduction to Setting Up `Next.js` Application
+
+# `Next.js` vs. `create-react-app` Toolchains
+
+- `create-react-app` does not easily help with generating server-side rendered apps.
+- `Next.js` comes with speed, and SEO.
+
 # Setup a `Next.js` 13 App
 
 ## Step #1: Run `npx create-next-app@latest <app-name>`
@@ -186,8 +193,6 @@
       # uninstall @next/font
       npm uninstall @next/font
     ```
-
-
 
 # Resources
 
