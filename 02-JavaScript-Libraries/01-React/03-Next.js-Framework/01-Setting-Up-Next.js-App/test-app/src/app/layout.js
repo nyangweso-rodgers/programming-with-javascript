@@ -1,4 +1,4 @@
-import {Trirong}  from "next/font";
+import {Trirong}  from "next/font/google";
 import "./globals.css";
 
 const trirong = Trirong({ subsets: ["latin"], weight: ["400"] });
