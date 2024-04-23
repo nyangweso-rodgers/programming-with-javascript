@@ -56,6 +56,25 @@ import Link from "next/link";
 2. `prefetch`
 
    - helps to fetch page in the background automatically, and it helps to improve web performance. It is by default `true`
+   - You can use Next.js's "Link" component with prefetching:
+
+     ```js
+     import Link from "next/link";
+
+     const Navigation = () => {
+       return (
+         <>
+           <main>
+             <Link href="/about" prefetch>
+               About
+             </Link>
+           </main>
+         </>
+       );
+     };
+
+     export default Navigation;
+     ```
 
 3. `replace`
 4. `scroll`
