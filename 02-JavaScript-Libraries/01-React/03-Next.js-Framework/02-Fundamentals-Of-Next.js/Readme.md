@@ -4,7 +4,14 @@
 
 # Data Fetching in `Next.js`
 
-- Data fetching in `Next.js` can be done on a page-by-page basis.
+- Initially `Next.js` was well known to be a **Server-Side Rendering** Framework, now there are 4 methods to fetch data.
+
+## Client-Side Rendering (CSR)
+
+- CSR is the usual kind of data fetching using `useEffect`, it will fetch the data from the API every single page request on the client-side (after the page is rendered, then the function will run).
+
+## Static Site Generation (SSG)
+
 - The default data fetching in `Next.js` is called **static data fetching** also known as **static site generation**.
 
   - In this approach, data is fetched at build time once then cached. The cached data is then reused on every request.
@@ -12,10 +19,14 @@
   - This boosts performance to some extent since the pages are now static and the content are retrieved from the cache instead.
   - This method ensures that the load on the database is reduced by minimizing the number of requests.
 
+## Incremental Static Regeneration
+
 - Another data fetching method in `Next.js` is called **Incremental Static Regeneration** (ISR).
 
   - In this approach, data is fetched and cached which is then reused on each request until it reaches a specific internal of time.
   - This method is useful if the data changes and you want to ensure the application shows the latest version without having to rebuild the application.
+
+## Server Side Rendering (SSR)
 
 - Final approach of data fetching in `Next.js` is called **Dynamic Data Fetching** or **Server-Side Rendering**
   - In this method, the data is fetched on each request.
