@@ -6,40 +6,9 @@
 
 - Head to [MongoDB Atlas](https://account.mongodb.com/account/login) to create an account or sign in to an existing account.
 
-# Setup
+## Step #1: Set up `Node.js` Development Environment
 
-## Step #1: Create Project Folder and Initilize it
-
-```sh
-  mkdir my-express-app
-  cd my-express-app
-```
-
-- Initialize the project by running the following command:
-  ```sh
-    npm init -y
-  ```
-- This will generate `package.json` file with default settings.
-
-## Step #2: Install Dependencies
-
-- Install necessary packages for the project, including `express`
-
-  ```sh
-    npm i express mongoose dotenv
-  ```
-
-  - `express` is for building the web server
-  - `dotenv` is for loading environment variables from a `.env` file.
-  - `mongoose`: An ODM (Object Data Modeling) library for MongoDB.
-
-- Optional `dev-dependencies` (used for development purposes) include:
-  ```sh
-    #install dev-dependencies
-    npm i nodemon morgan --save-dev
-  ```
-  - `nodemon`
-  - `morgan`: provides requests details made. , it logs each request in the CLI. You will be able to see some information about the request.
+- Check my, [](), github repo on how to setup a Node.js development environment with Docker.
 
 ## Step #3: Connect to MongoDB Atlas
 
