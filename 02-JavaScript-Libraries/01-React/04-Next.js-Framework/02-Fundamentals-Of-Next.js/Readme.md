@@ -1,4 +1,4 @@
-# Fundamentals Of Next.js
+# Fundamentals Of `Next.js`
 
 ## Table Of Contents
 
@@ -8,7 +8,7 @@
 
 ## Client-Side Rendering (CSR)
 
-- CSR is the usual kind of data fetching using `useEffect`, it will fetch the data from the API every single page request on the client-side (after the page is rendered, then the function will run).
+- **CSR** is the usual kind of data fetching using `useEffect`, it will fetch the data from the API every single page request on the **client-side** (after the page is rendered, then the function will run).
 
 ## Static Site Generation (SSG)
 
@@ -28,9 +28,8 @@
 
 ## Server Side Rendering (SSR)
 
-- Final approach of data fetching in `Next.js` is called **Dynamic Data Fetching** or **Server-Side Rendering**
-  - In this method, the data is fetched on each request.
-  - Dynamic data changes often and could be specific to users like a shopping cart.
+- **Server-Side Rendering** is also referred to as **Dynamic Data Fetching**. In this method, the data is fetched on each request.
+- Dynamic data changes often and could be specific to users like a shopping cart.
 
 # Resources
 

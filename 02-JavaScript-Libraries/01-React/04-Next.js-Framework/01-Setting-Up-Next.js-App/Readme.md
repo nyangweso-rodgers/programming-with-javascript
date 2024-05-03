@@ -1,8 +1,8 @@
-# Setting Up Next.js App
+# Set and Run `Next.js` App
 
 ## Table Of Contents
 
-# Introduction to Setting Up `Next.js` Application
+# Introduction to Setting Up `Next.js` App
 
 # `Next.js` vs. `create-react-app` Toolchains
 
@@ -30,6 +30,16 @@
       # run the development server
       npm run dev
   ```
+
+- Remarks:
+  - We can change the default port of `Next.js` App from `3000` to any other port by modfying the `package.json` File to add `-p <port_number>` flag. Example:
+    ```json
+      "scripts": {
+      //...
+      "dev": "next dev -p 3002",
+      "start": "next start -p 3002",
+      },
+    ```
 
 # Folder Structure with `Next.js` 13
 
