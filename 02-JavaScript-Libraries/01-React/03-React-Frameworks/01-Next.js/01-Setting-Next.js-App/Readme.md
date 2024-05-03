@@ -89,11 +89,11 @@
 
 # Bonus
 
-## Step #: Deploy Next.js App
+## Step #3: Deploy Next.js App
 
 - The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Step #: Set Up Speed Insights
+## Step #4: Set Up Speed Insights
 
 - To start collecting **performance insights**, run the following command
   ```sh
@@ -122,7 +122,7 @@
   ```
 - Deploy your changes and visit the deployment to collect your first data points. If you don't see data after a 30 seconds, please check for content blockers and try to navigate between pages on your site.
 
-## Step #: Set Up Web Analytics
+## Step #5: Set Up Web Analytics
 
 - To start counting visitors and page views, follow these steps.
 - Step #1: Start by installing `@vercel/analytics` in your existing project.
@@ -161,6 +161,36 @@
 
 - Deploy your changes and visit the deployment to collect your page views.
 
+## Step #6: Adding authentication with `Auth.js`
+
+- `Auth.js` is an open source project created by Vercel. With Auth.js we can integrate many different providers into our applications, giving us the power to use them to log in and out.
+
+## Step #7: Configure Docker development environment
+
+- Add the below configuration to the `docker-compose.yml` file:
+  ```yml
+  #docker-compose.yml
+  services:
+    my-app:
+      container_name: my-app
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+      volumes:
+        - ./my-app/src/:app/src
+        - ./my-app/public:/app/public
+      ports:
+        - 3001: 3001
+  ```
+- Add the following to the `Dockerfile`:
+
+  ```Dockerfile
+    FROM node:18-alpine
+
+    WORKDIR /app
+  ```
+
 # Resources and Further Reading
 
 1. [the Next.js GitHub repository](https://github.com/vercel/next.js/)
@@ -168,3 +198,4 @@
 3. [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 4. [Next.js deployment documentation](https://nextjs.org/docs/deployment)
 5. [Add the `SpeedInsights` component to your app](https://vercel.com/docs/speed-insights/quickstart#add-the-speedinsights-component-to-your-app)
+6. [dev.to - How to build and deploy a modern-day Next.js application](https://dev.to/livecycle/how-to-build-and-deploy-a-modern-day-nextjs-application-mgn)
