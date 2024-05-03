@@ -9,14 +9,17 @@
 
 ## Step #1: Run `npx create-next-app@latest <app-name>`
 
-```sh
-    # create a `my-test-app`
-    npx create-next-app@latest test-app
-    # move to the my-test-app directory
-    cd my-test-app
-    # start the server
-    npm run dev
-```
+- Run the latest version of `Next.js` by:
+
+  ```sh
+      npx create-next-app@latest next.js-test-app
+  ```
+
+- Run a specific version of `Next.js` by:
+
+  ```sh
+     npx create-next-app@14.1.4 next.js-test-app
+  ```
 
 - This step should generate the below **folder Structure**:
 
