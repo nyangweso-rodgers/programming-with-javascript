@@ -6,40 +6,9 @@
 
 # The `app` Router
 
-- In version 13, `Next.js` introduced a new **App Router** which supports shared layouts, nested routing, loading states, error handling, and more. The **App Router** works in the `app` directory which works alongside the `pages` directory to allow for incremental adoption.
-
-# Roles of Folders and Files
-
-- Next.js uses a file-system based router where:
-  - **Folders** are used to define **routes**. A **route** is a single path of nested folders, following the file-system hierarchy from the root folder down to a final leaf folder that includes a `page.js` file.
-  - **Files** are used to create UI that is shown for a route segment.
-
-# Creating Routes in `Next.js`
-
-- Note that `Next.js` uses a file-system based router where folders are used to define routes.
-- Each folder represents a **route segment** that maps to a URL segment. To create a nested route, you can nest folders inside each other.
-- A special `page.js` file is used to make route segments publicly accessible.
-- Task: Create a `Blog/` Route:
-  - Step #1: Create a `Blog/` directory and add `page.js` to it.
-    ```js
-    //Blog/
-    const Page = () => {
-      return (
-        <>
-          <section className="border border-primary p-5">
-            <div className="container border border-secondary p-4">
-              <div className="row border border-info p-3">
-                <div>
-                  <h1>Hello, Blog Page!</h1>
-                </div>
-              </div>
-            </div>
-          </section>
-        </>
-      );
-    };
-    export default Page;
-    ```
+- In version 13, `Next.js` introduced a new **App Router** which supports shared **layouts**, nested routing, loading states, error handling, and more. The **App Router** works in the `app` directory.
+- `Next.js` **App Router** uses the file-system-based router, where you create directories(folders) to define **routes**. You must create a special file called `page.js`(or .ts/.jsx/.tsx) under the directory to create a page for the route. The top-level `app/` directory acts as the root route(`/`), and any directory you create under the app directory will create other route segments that map to a URL segment.
+- If a directory doesn't have a corresponding `page.js` file, the respective route will be inaccessible and result in a `404`, page not found error.
 
 # Linking and Navigating
 
@@ -67,6 +36,11 @@
     );
   };
   ```
+
+# Dynamic Routes in `Next.js`
+
+- You create **dynamic routes** when you do not know the route segment name and want to create with dynamic data. For example, you may have a static route called `/blog`. Creating individual blog post routes under it will be too much overhead. You may want to create them using any dynamic data like `id`, `name`. or a `slug`.
+  - `Slug` is an unique part of an `URL` that provides information about a web page. It appears at the end part of the `URL` after the backslash (“`/`”). Example: `first-blog` is the slug of the URL `https://example.com/blog/first-blog`
 
 # Resources
 
