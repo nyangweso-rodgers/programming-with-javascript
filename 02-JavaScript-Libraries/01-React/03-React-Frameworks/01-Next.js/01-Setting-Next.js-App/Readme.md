@@ -165,31 +165,82 @@
 
 - `Auth.js` is an open source project created by Vercel. With Auth.js we can integrate many different providers into our applications, giving us the power to use them to log in and out.
 
-## Step #7: Configure Docker development environment
+## Step #7: Configure `Next.js` to work with Docker
 
-- Add the below configuration to the `docker-compose.yml` file:
-  ```yml
-  #docker-compose.yml
-  services:
-    my-app:
-      container_name: my-app
-      build:
-        context: .
-        dockerfile: Dockerfile
-      environment:
-      volumes:
-        - ./my-app/src/:app/src
-        - ./my-app/public:/app/public
-      ports:
-        - 3001: 3001
+- According to [Next.js documentation](), `Next.js` can automatically create a standalone folder that copies only the necessary files for a production deployment including select files in `node_modules`.
+- To reduce image size we need to add `output: "standalone"` in the `next.config.js` file.
+  ```javascript
+  //next.config.js
+  const config = {
+    reactStrictMode: true,
+    output: "standalone",
+    // ...
+  };
   ```
-- Add the following to the `Dockerfile`:
+- Add `.dockerignore` file at the root of the project directory to exclude unnecessary files from the **Docker image**.
+  ```dockerignore
+    .env
+    Dockerfile
+    .dockerignore
+    .next
+    .git
+    .gitignore
+    node_modules
+    npm-debug.log
+    README.md
+  ```
+- Create a `Dockerfile` for `Next.js` application:
 
   ```Dockerfile
     FROM node:18-alpine
 
+    COPY ../package.json ../package-lock.json ./app
+
     WORKDIR /app
+
+    RUN npm ci
+
+    CMD ["npm", "run", "dev"]
   ```
+
+  - Here,
+    - We are uing the `node:18-alpine` image as a base image. It is a lightweight image that contains `Node.js 18` and `npm`.
+    - Using 'clean install' (`npm ci`) instead of 'install' (`npm i`) is a good practice for **Docker images**. It will ensure that the dependencies are installed from the `package-lock.json` file and not from the `node_modules` cache. This is faster than 'install', which is especially important for CI/CD pipelines where you want to keep the build time as short as possible.
+
+- Create a `docker-compose.yml` file.
+  - `docker-component.yml` file is used to define and run multi-container Docker applications with a single command `docker-compose up`.
+    ```yml
+    #docker-compose.yml
+    version: "3"
+    services:
+      my-app:
+        container_name: next.js-app
+        build:
+          context: .
+          dockerfile: Dockerfile
+        ports:
+          - 3001: 3001
+        environment:
+        depends_on:
+          - db
+        volumes:
+          - ./my-app/src/:app/src
+          - ./my-app/public:/app/public
+      db:
+        image: postgres:15.3
+        container_name: postgres
+        ports:
+          - 5432:5432
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: myapp-db
+        volumes:
+          - postgres-data:/var/lib/postgresql/data
+    volumes:
+      postgres-data:
+    ```
+- Run the application by `docker-compose up`
 
 # Resources and Further Reading
 
