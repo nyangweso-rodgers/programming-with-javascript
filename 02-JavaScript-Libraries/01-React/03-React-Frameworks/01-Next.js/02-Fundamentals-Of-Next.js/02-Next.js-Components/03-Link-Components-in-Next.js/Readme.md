@@ -95,5 +95,5 @@ import Link from "next/link";
 
 # Resources
 
-1. [nextjs.org/learn/react-foundations](https://nextjs.org/learn/react-foundations)
-2. [nextjs.org/docs/pages/api-reference/components/link](https://nextjs.org/docs/pages/api-reference/components/link)
+1. [nextjs.org/docs/pages/api-reference/components/link](https://nextjs.org/docs/pages/api-reference/components/link)
+2. [refine.dev - Introduction to Next.js Link component with examples](https://refine.dev/blog/next-js-link-component/#introduction)
