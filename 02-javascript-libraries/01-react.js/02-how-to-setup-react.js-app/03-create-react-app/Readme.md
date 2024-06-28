@@ -122,13 +122,6 @@
 - We can create a folder, i.e., `src/main-page/` inside a `src/` folder then move `src/App.js`, `src/App.css` and `src/logo.svg` inside the `src/main-page/`
 - You can then rename `App.js` to `index.js` and `App.css` to `main-page.css` for clarity.
 
-# Alternatives to `create-react-app`
-
-- `CRA` is a good tool for setting up a new `React` project. But there are newer tools that can do the job better:
-  1. [Vite]()
-  2. [Speedy Web Compiler (SWC)]()
-- These new and improved alternatives are faster and easier to configure than `webpack` and `Babel`. This makes it easier to adjust the configuration which is difficult to do in `create-react-app` without ejecting.
-
 # Resources
 
 1. [Create React App - Official Documentation](https://create-react-app.dev/)

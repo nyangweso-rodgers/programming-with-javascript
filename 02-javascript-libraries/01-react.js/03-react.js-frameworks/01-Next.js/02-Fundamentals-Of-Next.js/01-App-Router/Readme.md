@@ -1,4 +1,4 @@
-# The `app` Router in `Next.js`
+# The `app` Router in `Next.js` 13
 
 ## Table Of Contents
 
@@ -14,6 +14,16 @@
 - The **App Router** works in the `app` directory.
 - **App Router** uses the file-system-based router, where you create directories(folders) to define **routes**. You must create a special file called `page.js`(or `.ts`/`.jsx`/`.tsx`) under the directory to create a page for the route. The top-level `app/` directory acts as the root route(`/`), and any directory you create under the app directory will create other route segments that map to a URL segment.
 - If a directory doesn't have a corresponding `page.js` file, the respective route will be inaccessible and result in a `404`, `page not found error`.
+
+# Enhanced Router
+
+- we can create various types of components in the app directory using a specific filename convention specific to `Next.js`:
+  - pages are defined as `page.js`
+  - layouts are defined as `layout.js`
+  - templates are defined as `template.js`
+  - errors are defined as `error.js`
+  - loading states are defined as `loading.js`
+  - not found pages are defined as `not-found.js`
 
 # Linking and Navigating
 

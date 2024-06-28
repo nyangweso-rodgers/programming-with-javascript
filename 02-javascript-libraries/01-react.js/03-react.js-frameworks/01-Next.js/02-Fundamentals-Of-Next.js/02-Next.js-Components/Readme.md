@@ -29,18 +29,31 @@
 
 ## Server Components
 
-- All components inside the `/app` directory are **server components** by default. You can choose to use a **client component** instead by specifying it explicitly.
+- **React Server Components** are useful for rendering the skeleton of a page, while leaving the interactive bits to the so-called "client components". They can be useful because they allows us to:
+
+  - render pages faster
+  - reduce the amount of JavaScript that needs to be sent to the Client
+  - improve the routing performance of server-rendered pages
+
+- In short, we use **Server Components** to fetch data from the server and render the skeleton of a page: then, we can pass the data to the "client components".
+
+- **Server Components** are a new type of **React components** that run on the server and return compiled `JSX` that is sent to the client. `Next.js`, with its new `app` directory released in `Next.js` 13, fully embraced **Server Components** by making them the default type components. i.e., All components inside the `/app` directory are **server components** by default. You can choose to use a **client component** instead by specifying it explicitly.
 - **Server components** allow you to render components on the server and reduce the amount of `js` sent to the client.
-- User **Server components** when:
+
+- Use **Server components** when:
+
   - Fetching data
-  - Soring sensitive information on server (tokens, API keys, etc.)
+  - Storing sensitive information on server (tokens, API keys, etc.)
   - access backend resources directly.
   - keep large dependencies on the server
 
+- There are some constraints to using **Server Components** that we need to keep in mind:
+  - Server components cannot use browser-only APIs
+  - Server components cannot use **React hooks**
+  - Server components cannot use `Context`
 
 # Handling Events in `Next.js`
 
 # Resources
+
 1. [nextjs.org/learn/react-foundations](https://nextjs.org/learn/react-foundations)
-
-
