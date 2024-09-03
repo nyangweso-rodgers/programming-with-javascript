@@ -154,6 +154,65 @@
   - _Life cycle methonds_:
 - **React Component Keys**
 
+# React Frameworks
+
+- Some of the drawbacks of the CRA (create-react-app) library include:
+  1. Build time is slower when compared with alternative
+  2. Limited control over build customization
+  3. Lack of Server-Side Rendering(SSR)
+  4. Outdated as there has been no major update to CRA since 2021.
+- Performance Comparision metrics include:
+  1. time taken for the development server to start
+  2. build time
+  3. deployment time, and
+  4. first contentful paint
+
+## 1. Next.js
+
+- Next.js by Vercel is the full-stack React framework for the web.
+- **Features** include:
+  1. Server Side Rendering: Performance can be improved by using the SSR, with pre-rendered pages for faster load times.
+  2. API Routes: With API routes, we can integrate full-stack development in NextJS.
+  3. Automatic Code Splitting: By following the recommended project structure, we can have better code splitting. Thus improving performance.
+  4. Easy Integration with Vercel: NextJS was built by the Vercel team. So, it became easy to deploy with Vercel.
+- Use Case:
+  - It is best suited for building a Serverless application that has no or little integration with the server.
+
+## 2. ViteJs
+
+- **Vite** is more focused on performance for building projects that are quick and have less loading time. In contrast to traditional bundlers like Webpack, Vite uses a development server that provides near-instant hot module replacement (HMR) without needing to bundle the entire application. In this way, they can have a faster development server.
+- Features include:
+  1. Faster Development Server: With native ES modules and modern browser capabilities it provides a faster development server.
+  2. Rich Plugin Support: Vite has flexible plugin support. You can easily integrate different plugins to extend the capabilities of Vite.
+  3. Optimized Build Process: Tree shaking, code splitting, and other performance enhancements are implemented at build time.
+  4. SSR and SSG: Vite also supports Server Side Rendering and Static Site Generation for better performance.
+- Use Case:
+  - Vite best suites for developing a portfolio or blog website with better performance.
+
+## 3. Remix
+
+- Remix is a full-stack web framework that lets you focus on the user interface and work back through web standards to deliver a fast, slick, and resilient user experience.
+- Remix focuses on building a better user experience. It can be used to build a full-stack application. If you're familiar with server-side MVC web frameworks like Rails and Laravel, Remix is the View and Controller.
+- Features include:
+  1. Data Loading: It uses loaders to fetch data on the server before rendering the page. 0
+  2. Easy Routing: It provides a file-based routing system. It provides routing based on the directories you are going to create. This feature is also supported in NextJS.
+  3. Server Side Rendering: It also supports the SSR for providing better performance.
+  4. Forms and Actions: Remix includes built-in support for form handling and actions. This helps manage form submissions and actions efficiently.
+- Use Case:
+  - It is best suited for building a project that requires advanced routing, SSR, and a focus on performance.
+
+## 4. Gatsby
+
+- Gatsby is a React-based open-source framework with performance, scalability, and security built-in.
+- Gatsby is another framework based on React that is focused on building fast, secure, and optimized websites. It is primarily used for creating static sites but also supports dynamic content through APIs and integrations.
+- Features include:
+  1. Server Side Generation(SSG): It also supports Gatsby and pre-renders content to static HTML files.
+  2. Progressive Web App: Gatsby has built-in PWA capabilities, enabling fast, offline-ready web experiences with native app-like functionality.
+  3. JAMstack: JavaScript, APIs, and Markup let you build websites by serving static files from a CDN and using APIs.
+  4. Content Management System: In Gatsby, it serves as a backend where content is authored and Gatsby pulls this content into its static site build process.
+- Use Case:
+  - Best suites for building a blog using a Content Management System through Gatsby.
+
 # Resources
 
 1. [react.dev/learn](https://react.dev/learn)
