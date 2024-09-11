@@ -19,6 +19,61 @@
   - Improved performance for database interactions
 - **Prisma** supports databases such as PostgreSQL, MySQL, SQLite, SQL server, MongoDB, and cockroach DB
 
+# Why Use Prisma?
+
+# Features of Prisma
+
+# Prisma Concepts
+
+## 1. Prisma Schema
+
+- The **Prisma schema** allows us to define application **models** in an intuitive data modeling language. It also contains the connection to a database and defines a generator:
+- For **Relational Database**:
+
+  ```prisma
+    datasource db {
+      provider = "postgresql"
+      url      = env("DATABASE_URL")
+    }
+
+    generator client {
+      provider = "prisma-client-js"
+    }
+
+    model User {
+      id    Int     @id @default(autoincrement())
+      email String  @unique
+      name  String?
+      posts Post[]
+    }
+  ```
+
+- For **MongoDB**:
+
+  ```prisma
+    datasource db {
+      provider = "mongodb"
+      url      = env("DATABASE_URL")
+    }
+
+    generator client {
+      provider = "prisma-client-js"
+    }
+
+    model User {
+      id    String  @id @default(auto()) @map("_id") @db.ObjectId
+      email String  @unique
+      name  String?
+    }
+  ```
+
+- Here, we have configured 3 things:
+  - **Data source**: Specifies your database connection (via an environment variable)
+  - **Generator**: Indicates that you want to generate Prisma Client
+  - **Data model**: Defines your application models
+
+## 2. Prisma Migrate
+
 # How to Configure Prisma
 
 ## Step 1: Installing the Prisma Client
