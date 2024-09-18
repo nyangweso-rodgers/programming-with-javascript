@@ -7,6 +7,28 @@
 - `create-react-app` does not easily help with generating server-side rendered apps.
 - `Next.js` comes with speed, and SEO.
 
+# Next.js Application Project Structure
+
+- A robust directory structure optimized for large Next.js projects:
+  1. `app/` directory houses the core logic and routing for your application:
+     - `(auth)`: Group authentication-related pages like login and registration.
+     - `dashboard`: Contains the dashboard page and layout files.
+     - `api`: Includes API routes, enabling serverless functions within your app.
+     - `layout.tsx`: Defines the main layout, shared across multiple pages.
+     - `page.tsx`: The main entry point, often used for the homepage.
+  2. `components/` Reusable Building Blocks
+     - `ui`: General UI components like buttons and cards.
+     - `forms`: Specific components for handling forms, such as LoginForm.
+     - `layouts`: Layout components like headers and footers, ensuring consistent UI across pages.
+  3. `lib/` directory contains core functionality and utility functions:
+     - `api.ts`: API client setup and functions for interacting with backend services.
+     - `utils.ts`: Utility functions used throughout the application.
+  4. `hooks/`: Store your custom React hooks in the `hooks/` directory:
+     - `useUser.ts`: Manages user-related state and logic.
+     - `useAuth.ts`: Handles authentication processes.
+
+# Setup
+
 ## Step 1: Run `npx create-next-app@latest <app-name>` Command
 
 - Run the laest version of Next.js by:
@@ -14,10 +36,21 @@
     npx create-next-app <app-name>
   ```
 - **Remark**:
+
   - To run a specific version of Next.js, use:
     ```sh
       npx create-next-app@14.1.4 <app-name>
     ```
+  - To upgrade to the latest Next.js version, run:
+
+    ```sh
+      #using npm
+      npm i next@rc react@rc react-dom@rc eslint-config-next@rc
+
+      #using yarn
+      yarn add next@rc react@rc react-dom@rc eslint-config-next@rc
+    ```
+
 - This stp should generate the below folder Structure:
   1. node_modules/
   2. public/
@@ -29,7 +62,7 @@
   8. .gitignore
 - Remark
   - With **Next.js 13**, the file-based routing can be done from the `src/app` folder. Previously, the routing was done from the `pages/` folder instead.
-  - The app/ directory in Next.js comes with a lot of **features** such as:
+  - The `app/` directory in Next.js comes with a lot of **features** such as:
     1. Layout
     2. Routing
     3. Font Usage
@@ -288,11 +321,263 @@
 
 - Deploy your changes and visit the deployment to collect your page views.
 
-## Step 8: Adding authentication with `Auth.js`
+## Step 8: Prisma and Next.js
+
+- [Prisma](https://www.prisma.io/) is an open-source ORM tool for Node.js and TypeScript, that simplifies connection, querying, migrations, and data modeling to SQL databases.
+- There are many ways in Next.js where we can fetch data. Next.js has three unique functions we can use to fetch data for pre-rendering:
+  1. `getStaticProps` (Static Generation)
+  2. `getServerSideProps` (Server-side Rendering)
+  3. API Routes
+
+### Step 8.1: `getStaticProps` (Static Generation)
+
+- `getStaticProps` (**Static Generation**): Fetch data at build time. We will use the **Prisma client** to perform queries to our DB.
+- Example:
+
+  - Example 1:
+
+    ```js
+    import { PrismaClient } from "@prisma/client";
+
+    const prisma = new PrismaClient();
+
+    export async function getStaticProps() {
+      // Get all foods in the "food" db
+      const allfoods = await prisma.food.findMany();
+
+      return {
+        props: allFoods,
+      };
+    }
+    ```
+
+  - Next.js will perform the query during build time to fetch the data, then we return the results in the `props` object, this will make Next.js pass the results to the `props` of the corresponding component.
+
+### Step 8.2: `getServerSideProps` (Server-side Rendering)
+
+- `getServerSideProps` (**Server-side Rendering**) Runs when the page is being **pre-rendered** on each request. We can also call the **Prisma client** methods here to fetch data that we want to pass to the Next.js components.
+- Examples:
+
+  - Example 1:
+
+    ```js
+    import { PrismaClient } from "@prisma/client";
+
+    const prisma = new PrismaClient();
+
+    export async function getServerSideProps() {
+      // Get all foods in the "food" db
+      const allfoods = await prisma.food.findMany();
+
+      return {
+        props: allFoods,
+      };
+    }
+    ```
+
+### Step 8.3: API Routes
+
+- **API routes** in Next.js are kept in the `app/api` folder. Each file and folder maps to an API endpoint. They are served under the same URL path as the frontend code, localhost:3000. So as localhost:3000/foods renders the food page, so also localhost:3000/api/getAllFoods is an API endpoint that returns lists of food recipes from the Next.js app.
+- We can make calls to our database via **Prisma** from here. For e.g localhost:3000/api/getAllFoods endpoint can query the database to retrieve all the food recipes and send it as a response:
+
+  ```js
+  // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+  import { PrismaClient } from "@prisma/client";
+
+  const prisma = new PrismaClient();
+
+  export default async (req, res) => {
+    const data = req.body;
+    try {
+      const result = await prisma.foods.findMany();
+      res.status(200).json(result);
+    } catch (err) {
+      console.log(err);
+      res.status(403).json({ err: "Error occured." });
+    }
+  };
+  ```
+
+### Step 8.4: Prisma Setup
+
+#### 8.4.1: Install `prisma` Dependencies
+
+- Start by installing the Prisma CLI via npm:
+  ```sh
+    npm install prisma --save-dev
+  ```
+
+#### 8.4.2: Prisma Initialization
+
+- Run the below command:
+  ```sh
+    npx prisma init
+  ```
+- This command will create a `prisma/` folder inside your root project and a `.env` file. The `prisma/` folder will contain a `schema.prisma` file, this is where we declare our Prisma database models.
+
+#### 8.4.3: Setup Prisma Connection to the Database
+
+- Open the `.env`, we will see it has a `DATABASE_URL`:
+  ```env
+    #.env
+    DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+  ```
+- This is the URL connection to a Postgres database server.
+  1. johndoe is the name of the database user.
+  2. randompassword is the password for the database user.
+  3. localhost is the host of the database.
+  4. 5432 is the port number, it is always 5432 by default.
+  5. mydb is the name of the database you want to connect to. Create this in your Postgres server.
+- Remark:
+  - Now change them to your own Postgres details.
+    ```.env
+      DATABASE_URL="postgresql://postgres:0000@localhost:5432/food"
+    ```
+
+#### 8.4.4: Define Model
+
+- Add model definition to the `schema.prisma` file.
+- Examples
+
+  - Add the following **model definitions** to your `schema.prisma` so that it looks like this:
+
+    ```prisma
+      // schema.prisma
+      generator client {
+        provider = "prisma-client-js"
+      }
+
+      datasource db {
+        provider = "postgresql"
+        url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+        directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+      }
+
+      model Post {
+        id        String     @default(cuid()) @id
+        title     String
+        content   String?
+        published Boolean @default(false)
+        author    User?   @relation(fields: [authorId], references: [id])
+        authorId  String?
+      }
+
+      model User {
+        id            String       @default(cuid()) @id
+        name          String?
+        email         String?   @unique
+        createdAt     DateTime  @default(now()) @map(name: "created_at")
+        updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+        posts         Post[]
+        @@map(name: "users")
+      }
+    ```
+
+  - This **Prisma schema** defines two models, each of which will map to a table in the underlying database: `User` and `Post`. Notice that there's also a relation (one-to-many) between the two models, via the `author` field on `Post` and the `posts` field on `User`.
+
+#### 8.4.5: Run Migrations
+
+- Running migrations, will create an SQL migration file for the current schema, and run the migrations against the database. Migrations run whenever we update the schema. Migrations are just SQL commands that are generated based on what was performed on the schema. If we create a new Model in the schema, the migrations will create an SQL command to create a table, eg:
+
+  ```sql
+    -- CreateTable
+    CREATE TABLE "newTable" (
+        "id" SERIAL NOT NULL,
+        "name" TEXT,
+
+        PRIMARY KEY ("id")
+    );
+  ```
+
+- This SQL command will then be executed to create the table in the database. That's the summary of running migrations. So whenever you hear of migrations, bear in mind that this is what is being done.
+- Now, we run the below command to run migrations on our Postgres database:
+  ```sh
+    npx prisma migrate dev --name init
+  ```
+- This command will generate the migrations file and run them against your db. The `--name` sub-arg sets the name of the **migration**. The value which is `init` will be the name of the migrations folder generated. The output is: `{NUMBER_GENERATED_BY_PRISMA}_init`. So this will generate a folder/file inside the `prisma/migrations` folder. A new folder with a `migration.sql` SQL file will be generated for each migration run. In my machine the command generated this:
+
+## Step 8: Setup Prisma and create the database schema
+
+-
+
+- At this stage, the **Prisma studio** is the fastest way to create data; to launch the studio and add data, run the following command:
+  ```sh
+    npx prisma studio
+  ```
+  - The studio will launch at http://localhost:5555/
+- To actually create the tables in your database, you now can use the following command of the Prisma CLI:
+  ```sh
+    npx prisma db push
+  ```
+- You should see the following output:
+
+  ```sh
+    Environment variables loaded from /Users/nikolasburk/Desktop/nextjs-guide/blogr-starter/.env.development.local
+    Prisma schema loaded from prisma/schema.prisma
+
+    Your database is now in sync with your schema. Done in 2.10s
+  ```
+
+### Step 8.2: Fetching and reading data from database
+
+- We must establish a [Prisma client](https://www.prisma.io/docs/orm/prisma-client?utm_source=hackmamba&utm_medium=blog&utm_id=HMBcommunity) instance to enable smooth interaction with our database. In the root of our application, create a `lib` folder and a `prisma.js` or `prisma.ts` file with the following snippets:
+  ```js
+  //lib/prisma.js
+  import { PrismaClient } from "@prisma/client";
+  let prisma;
+  if (process.env.NODE_ENV === "production") {
+    prisma = new PrismaClient();
+  } else {
+    if (!global.prisma) {
+      global.prisma = new PrismaClient();
+    }
+    prisma = global.prisma;
+  }
+  export default prisma;
+  ```
+
+### Step 8.1: Install and generate Prisma Client
+
+- Before you can access your database from Next.js using **Prisma**, you first need to install **Prisma Client** in your app. You can install it via `npm` as follows:
+  ```sh
+    npm install @prisma/client
+  ```
+- Because **Prisma Client** is tailored to your own schema, you need to update it every time your **Prisma schema** file is changing by running the following command:
+  ```sh
+    npx prisma generate
+  ```
+- You'll use a single `PrismaClient` instance that you can import into any file where it's needed. The instance will be created in a `prisma.ts` file inside the `lib/` directory. Go ahead and create the missing directory and file:
+  ```sh
+    mkdir lib && touch lib/prisma.ts
+  ```
+- Now, add the following code to this file:
+
+  ```ts
+  //lib/prisma.ts
+
+  import { PrismaClient } from "@prisma/client";
+
+  let prisma: PrismaClient;
+
+  if (process.env.NODE_ENV === "production") {
+    prisma = new PrismaClient();
+  } else {
+    if (!global.prisma) {
+      global.prisma = new PrismaClient();
+    }
+    prisma = global.prisma;
+  }
+
+  export default prisma;
+  ```
+
+- Now, whenever you need access to your database you can import the `prisma` instance into the file where it's needed.
+
+## Step 9: Adding authentication with `Auth.js`
 
 - `Auth.js` is an open source project created by Vercel. With Auth.js we can integrate many different providers into our applications, giving us the power to use them to log in and out.
 
-## Step 9: Configure `Next.js` to work with Docker
+## Step 10: Configure `Next.js` to work with Docker
 
 - According to [Next.js documentation](), `Next.js` can automatically create a standalone folder that copies only the necessary files for a production deployment including select files in `node_modules`.
 - To reduce image size we need to add `output: "standalone"` in the `next.config.js` file.
