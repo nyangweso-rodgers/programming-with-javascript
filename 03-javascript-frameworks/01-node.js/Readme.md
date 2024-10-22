@@ -179,3 +179,4 @@
 2. [Node.js Documentation](https://nodejs.org/docs/)
 3. [npm website](https://www.npmjs.com/)
 4. [Node.js cheatsheet - javacodegeeks.com](https://www.javacodegeeks.com/node-js-cheatsheet.html?ref=dailydev)
+5. [freecodecamp - How to Deploy Your Node.js App on Azure](https://www.freecodecamp.org/news/how-to-deploy-node-js-app-on-azure/?ref=dailydev)
