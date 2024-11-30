@@ -153,3 +153,4 @@
 2. [vitejs.dev/](https://vitejs.dev/)
 3. [Hashnode - ReactJS 101: Let's Build Robust Web Applications with React. by Gatere Mark](https://gateremark.hashnode.dev/reactjs-101-lets-build-robust-web-applications-with-react?ref=twitter-share)
 4. [Why Vite - vitejs.dev/guide](https://vitejs.dev/guide/why.html)
+5. [https://blog.openreplay.com/why-choose-vite-over-create-react-app/?ref=dailydev](https://blog.openreplay.com/why-choose-vite-over-create-react-app/?ref=dailydev)
