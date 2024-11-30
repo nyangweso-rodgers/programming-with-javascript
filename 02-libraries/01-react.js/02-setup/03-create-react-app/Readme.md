@@ -1,34 +1,46 @@
-# `create-react-app` (CRA) React Toolchain
+# Create React App (CRA)
 
 ## Table Of Contents
 
-# What is `create-react-app`?
+# Overview of CRA
 
-- It is a tool that generates a new **React** site for us along with all of the **configuration** and **dependencies** it needs to run. This means it does all the heavy lifting for us when creating a new **React App**.
+- **CRA** is a popular tool built upon [Babel](https://babeljs.io/) and [Webpack](https://webpack.js.org/) to help developers quickly set up a React project. The React team has officially announced its support for the tool, making it a popular and reliable choice.
+- This React tool comes with a preconfigured environment that takes care of most of the configuration, which would otherwise be burdened on the developers’ shoulders. This helps React developers focus on writing code rather than worrying about the configuration files. In addition, CRA can create scripts and dependencies.
+- Some prominent features that distinguish it from other tools include:
+  1. production building,
+  2. hot module replacement,
+  3. and a local development server.
+- However, as the app grows, **CRA** performance and speed deteriorate.
 
-# Features of `create-react-app`
+# Benefits of CRA
+
+1. **Official Support** - The React team is maintaining this tool. Getting support from the official team is a huge advantage for all those developers employing React in their projects. This also means that the official React team will bear the responsibility of fixing bugs and adding new advanced features to CRA tool. They are also expected to release regular updates.
+2. **Mature Ecosystem** - CRA is not a new tool in the community. It’s a mature tool with the support of a large and vibrant community. Numerous third-party plugins are available for it. This allows you to use this tool with various development frameworks, IDEs, and libraries. You can refer to online tutorials and detailed documentation for guidance or when you come across any problem. In short, the tool boasts an extensive ecosystem.
+3. **Automatic Configuration** - When writing React code with a CRA, you no longer have to worry about building configurations. The tool does all the heavy lifting by handling configurations and helping developers reduce development time. Not getting involved in mundane and repetitive tasks significantly benefits developers, especially beginners.
+4. **Opinionated Defaults** - With CRA, you follow best practices and utilize sensible defaults, helping you lay a solid foundation for your React project. Opinionated defaults also give a headstart in the development process, saving valuable time and increasing productivity along the way.
+
+# Disadvantages of CRA
+
+1. Very large stack makes troubleshooting problems complicated.
+2. Difficult to implement features not already supported.
+
+# How CRA Works?
+
+1. **Webpack** forms a tree of dependencies from your project’s modules, leveraging the `index.js` file and the application’s entry point.
+2. Next, the **Babel** transpiles your code.
+3. After that, **CRA** bundles the code and serves it through the Express web server.
+4. In the end, CRA sets up sockets to manage hot module replacement.
+
+- Remark:
+  - This is a quick approach to software development with an intense focus on coding. But despite all its benefits, it has a noteworthy flaw. Whenever you implement changes in the React code, the **Webpack** repeats the bundling process every single time, no matter if it’s a single or tiny change.
+  - This will slow down your React application as its source code grows more extensive, increasing the time it takes to run a dev server and create a new project.
+
+# Features of CRA
 
 - It automatically generates `express`, `babel` and `webpack` configurations.
 - It includes command line utilities for updating and maintaining project.
 
-# How CRA Works
-
-- `create-react-app` uses two popular **packages**:
-  1. `webpack` which is a web bundler that optimizes all of the assets in your project, such as `JavaScript`, `CSS`, and `images`.,
-  2. `Babel`: which is a tool that allows you to use newer `JavaScript` features, even if some browsers don’t support them.
-
-# Advantages of `create-react-app`
-
-- Little to no understanding of full stack web development to use `create-react-app`
-- `create-react-app` is an industry standard tool
-- `create-react-app` automatically created directory structure based on best practices.
-
-# Disadvantages of `create-react-app`
-
-- Very large stack makes troubleshooting problems complicated.
-- Difficult to implement features not already supported.
-
-# Steps to Running React Application with `create-react-app`
+# Steps to Running React Application with CRA
 
 ## Step #1: Install latest version of `node.js`
 
