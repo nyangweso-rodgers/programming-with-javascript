@@ -288,29 +288,128 @@
 
 # Database
 
-## 1. Postgres Database
+- There are many ways in **Next.js** where we can fetch data. **Next.js** has three unique functions we can use to fetch data for **pre-rendering**:
 
-- [Prisma](https://www.prisma.io/) is an open-source ORM tool for Node.js and TypeScript, that simplifies connection, querying, migrations, and data modeling to SQL databases.
-- There are many ways in Next.js where we can fetch data. Next.js has three unique functions we can use to fetch data for pre-rendering:
   1. `getStaticProps` (Static Generation)
   2. `getServerSideProps` (Server-side Rendering)
   3. API Routes
-- Using [Prisma ORM](https://www.prisma.io/) to abstract away the database layer.
-- Step :
+
+- **Data Fetching Using** `getStaticProps` (**Static Generation**)
+
+  - `getStaticProps` (**Static Generation**): Fetch data at build time. We will use the **Prisma client** to perform queries to our DB.
+  - Example:
+
+    ```js
+    import { PrismaClient } from "@prisma/client";
+
+    const prisma = new PrismaClient();
+
+    export async function getStaticProps() {
+      // Get all foods in the "food" db
+      const allfoods = await prisma.food.findMany();
+
+      return {
+        props: allFoods,
+      };
+    }
+    ```
+
+  - **Next.js** will perform the query during build time to fetch the data, then we return the results in the `props` object, this will make Next.js pass the results to the `props` of the corresponding component.
+
+- Data Fetching Using `getServerSideProps` (**Server-side Rendering**)
+
+  - `getServerSideProps` (**Server-side Rendering**) Runs when the page is being **pre-rendered** on each request. We can also call the **Prisma client** methods here to fetch data that we want to pass to the Next.js components.
+  - Examples:
+
+    ```js
+    import { PrismaClient } from "@prisma/client";
+
+    const prisma = new PrismaClient();
+
+    export async function getServerSideProps() {
+      // Get all foods in the "food" db
+      const allfoods = await prisma.food.findMany();
+
+      return {
+        props: allFoods,
+      };
+    }
+    ```
+
+- Data Fetching Using **API Routes**
+
+  - **API routes** in **Next.js** are kept in the `app/api` folder. Each file and folder maps to an API endpoint. They are served under the same URL path as the frontend code, localhost:3000. So as localhost:3000/foods renders the food page, so also localhost:3000/api/getAllFoods is an API endpoint that returns lists of food recipes from the Next.js app.
+  - We can make calls to our database via **Prisma** from here. For e.g localhost:3000/api/getAllFoods endpoint can query the database to retrieve all the food recipes and send it as a response:
+
+  ```js
+  // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+  import { PrismaClient } from "@prisma/client";
+
+  const prisma = new PrismaClient();
+
+  export default async (req, res) => {
+    const data = req.body;
+    try {
+      const result = await prisma.foods.findMany();
+      res.status(200).json(result);
+    } catch (err) {
+      console.log(err);
+      res.status(403).json({ err: "Error occured." });
+    }
+  };
+  ```
+
+## 1. Local Postgres Database with Prisma
+
+- [Prisma](https://www.prisma.io/) is an open-source ORM tool for Node.js and TypeScript, that simplifies connection, querying, migrations, and data modeling to SQL databases.
+
+- Step 1: Install Prisma and it's dependencies
+
   ```sh
     npm install prisma --save-dev
   ```
-- Step : Install Prisma Client
+
+- Step 2: Install Prisma Client
+
+  - Before you can access your database from **Next.js** using **Prisma**, you first need to install **Prisma Client** in your app. You can install it via `npm` as follows:
+
   ```sh
     npm install @prisma/client
   ```
-- Step : Initialize Prisma
+
+  - Because **Prisma Client** is tailored to your own schema, you need to update it every time your **Prisma schema** file is changing by running the following command:
+
+  ```sh
+    npx prisma generate
+  ```
+
+- Step 3: **Initialize Prisma**
 
   ```sh
     npx prisma init
   ```
 
-  - This auto-generates your `prisma/schema.prisma` file.
+  - This command will create a `prisma/` folder inside your root project and a `.env` file. The `prisma/` folder will contain a `schema.prisma` file, this is where we declare our Prisma database models.
+  - Open the `.env`, we will see it has a `DATABASE_URL`:
+    ```env
+      #.env
+      DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+    ```
+  - This is the URL connection to a Postgres database server.
+
+    1. `johndoe` is the name of the database user.
+    2. `randompassword` is the password for the database user.
+    3. `localhost` is the host of the database.
+    4. `5432` is the port number, it is always `5432` by default.
+    5. `mydb` is the name of the database you want to connect to. Create this in your Postgres server.
+
+  - **Remark**:
+    - Now change them to your own Postgres details.
+      ```.env
+        DATABASE_URL="postgresql://postgres:0000@localhost:5432/food"
+      ```
+
+- **Step 4**: **Setup Prisma Connection to the Database**
 
   ```prisma
     generator client {
@@ -333,21 +432,89 @@
   }
   ```
 
-  - Add a `aUserProfile` model to it, which has an `email` and a `name` and a boolean whether they accepted your terms and conditions.
+  - Add a `UserProfile` model to it, which has an `email` and a `name` and a boolean whether they accepted your terms and conditions.
   - If you ran `npx prisma init`, rename your `.env` file to `.env.local`, otherwise create it and make sure it contains the credentials for your Prisma database.
 
   ```env
     DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
   ```
 
-- Step : Now create a `src/lib/prisma.ts` or `src/lib/prisma.js` file, which will contain your Prisma client connection.
+- **Step 5**: **Establish Client Connection**
 
-## 2. Vercel Postgres
+  - We must establish a [Prisma client](https://www.prisma.io/docs/orm/prisma-client?utm_source=hackmamba&utm_medium=blog&utm_id=HMBcommunity) instance to enable smooth interaction with our database. In the root of our application, create a `lib` folder and a `prisma.js` or `prisma.ts` file with the following snippets:
+    ```javascript
+    //lib/prisma.js
+    import { PrismaClient } from "@prisma/client";
+    let prisma;
+    if (process.env.NODE_ENV === "production") {
+      prisma = new PrismaClient();
+    } else {
+      if (!global.prisma) {
+        global.prisma = new PrismaClient();
+      }
+      prisma = global.prisma;
+    }
+    export default prisma;
+    ```
+  - For **TypeScript** support:
 
-- To use [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres) for your production deployment:
-- To set up a database in your Vercel project, follow these steps:
+    ```ts
+    //lib/prisma.ts
 
-- Step :
+    import { PrismaClient } from "@prisma/client";
+
+    let prisma: PrismaClient;
+
+    if (process.env.NODE_ENV === "production") {
+      prisma = new PrismaClient();
+    } else {
+      if (!global.prisma) {
+        global.prisma = new PrismaClient();
+      }
+      prisma = global.prisma;
+    }
+
+    export default prisma;
+    ```
+
+  - Now, whenever you need access to your database you can import the `prisma` instance into the file where it's needed.
+
+## 2. Integrate Next.js App with Prisma, and Vercel Postgres
+
+- **Requirements**
+
+  1. [Next.js](https://nextjs.org/) as the React framework
+  2. [Next.js API Routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) for server-side API routes as the backend
+  3. [Prisma](https://www.prisma.io/) as the ORM for migrations and database access
+  4. [Vercel Postgres](https://vercel.com/storage/postgres) as the database
+  5. [NextAuth.js](https://next-auth.js.org/) for authentication via GitHub (OAuth)
+  6. [TypeScript](https://www.typescriptlang.org/) or [JavaScript]() as the programming language
+  7. [Vercel]() for deployment
+
+- **Prerequisites**
+
+  1. Node.js
+  2. A Vercel Account (to set up a free Postgres database and deploy the app)
+  3. A GitHub Account (to create an OAuth app)
+
+- **Remarks**: **Vercel CLI**
+
+  - **Vercel** gives you multiple ways to interact with and configure your Vercel Projects. With the command-line interface (CLI) you can interact with the Vercel platform using a terminal, or through an automated system, enabling you to retrieve logs, manage certificates, replicate your deployment environment locally, manage Domain Name System (DNS) records, and more.
+  - To download and install **Vercel CLI**, run the following command:
+    ```sh
+      npm i -g vercel
+    ```
+  - When there is a new release of Vercel CLI, running any command will show you a message letting you know that an update is available.
+  - If you have installed our command-line interface through npm or Yarn, the easiest way to update it is by running the installation command yet again.
+    ```sh
+      npm i -g vercel@latest
+    ```
+  - The `--version` option can be used to verify the version of Vercel CLI currently being used.
+    ```sh
+      vercel --version
+    ```
+
+- **Steps**: **Set up your Vercel Postgres database**
 
   1. Go to the **Storage** tab and click the **Create Database** button.
   2. When the **Browse Storage** modal opens, choose **Postgres** and click **Continue**.
@@ -374,6 +541,83 @@
   ```sh
     vercel env pull .env
   ```
+
+# Dockerize Next.js App
+
+- According to [Next.js documentation](), **Next.js** can automatically create a standalone folder that copies only the necessary files for a production deployment including select files in `node_modules`.
+- To reduce image size we need to add `output: "standalone"` in the `next.config.js` file.
+  ```javascript
+  //next.config.js
+  const config = {
+    reactStrictMode: true,
+    output: "standalone",
+    // ...
+  };
+  ```
+- Add `.dockerignore` file at the root of the project directory to exclude unnecessary files from the **Docker image**.
+  ```dockerignore
+    .env
+    Dockerfile
+    .dockerignore
+    .next
+    .git
+    .gitignore
+    node_modules
+    npm-debug.log
+    README.md
+  ```
+- Create a `Dockerfile` for **Next.js** application:
+
+  ```Dockerfile
+    FROM node:18-alpine
+
+    COPY ../package.json ../package-lock.json ./app
+
+    WORKDIR /app
+
+    RUN npm ci
+
+    CMD ["npm", "run", "dev"]
+  ```
+
+  - Here,
+    - We are uing the `node:18-alpine` image as a base image. It is a lightweight image that contains `Node.js 18` and `npm`.
+    - Using 'clean install' (`npm ci`) instead of 'install' (`npm i`) is a good practice for **Docker images**. It will ensure that the dependencies are installed from the `package-lock.json` file and not from the `node_modules` cache. This is faster than 'install', which is especially important for CI/CD pipelines where you want to keep the build time as short as possible.
+
+- Create a `docker-compose.yml` file.
+  - `docker-component.yml` file is used to define and run multi-container Docker applications with a single command `docker-compose up`.
+    ```yml
+    #docker-compose.yml
+    version: "3"
+    services:
+      my-app:
+        container_name: next.js-app
+        build:
+          context: .
+          dockerfile: Dockerfile
+        ports:
+          - 3001: 3001
+        environment:
+        depends_on:
+          - db
+        volumes:
+          - ./my-app/src/:app/src
+          - ./my-app/public:/app/public
+      db:
+        image: postgres:15.3
+        container_name: postgres
+        ports:
+          - 5432:5432
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: myapp-db
+        volumes:
+          - postgres-data:/var/lib/postgresql/data
+    volumes:
+      postgres-data:
+    ```
+- Run the application by `docker-compose up`
 
 # GitHub Actions
 
@@ -594,6 +838,28 @@
 
   - Deploy your changes and visit the deployment to collect your page views.
 
+# Sending Emails with `nodemailer` in Next.js
+
+- How to seamlessly incorporate email sending capabilities into Next.js applications
+- Step 1: Gmail Account Configurations
+
+  - In order to utilize this service, you will have to enable **2-Step Verification** in your **Google** account.
+  - After enabling 2-Step Verification Go to the Link: https://myaccount.google.com/apppasswords in your browser and generate a password for your new app
+
+- Step 2: Install Dependencies
+
+  - Install required dependencies by:
+    ```sh
+      npm i nodemailer dotenv
+    ```
+
 # Resources and Further Reading
 
-1. [medium - How to Set Up Next.js 15 for Production in 2024](https://medium.com/@jan.hesters/how-to-set-up-next-js-15-for-production-in-2024-347f542922b4)
+1. [the Next.js GitHub repository](https://github.com/vercel/next.js/)
+2. [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+4. [Next.js deployment documentation](https://nextjs.org/docs/deployment)
+5. [Add the `SpeedInsights` component to your app](https://vercel.com/docs/speed-insights/quickstart#add-the-speedinsights-component-to-your-app)
+6. [dev.to - How to build and deploy a modern-day Next.js application](https://dev.to/livecycle/how-to-build-and-deploy-a-modern-day-nextjs-application-mgn)
+7. [medium - How to Set Up Next.js 15 for Production in 2024](https://medium.com/@jan.hesters/how-to-set-up-next-js-15-for-production-in-2024-347f542922b4)
+8. [Medium - Sending Emails with Nodemailer in Next.js 2023: A Complete Guide to Integrating Gmail Mailer for Enhanced Communication](https://blog.devgenius.io/sending-emails-with-nodemailer-in-next-js-ccada06abfc9)
