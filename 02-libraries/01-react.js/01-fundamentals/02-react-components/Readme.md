@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-# Introduction Of React Components
+# React Components
 
 - **Components** are the foundation upon which you build UI.
 - **React components** are **js functions** that return **markup** which can be as small as a `button`, or as large as an entire page.
@@ -32,6 +32,10 @@
 
   - `<SubmitButton />` starts with a capital letter. That’s how you know it’s a **React component**
   - **React component** names must always start with a capital letter, while `HTML` tags must be lowercase.
+  - Why do **React components** need to start with capital letters?
+    - In **JSX**, **React components** are written in a syntax that gets transformed into plain **JavaScript** using the `React.createElement API`, thanks to **Babel**. Here’s where the capital letter comes in:
+    - When **Babel** encounters a name starting with a capital letter, it knows it’s dealing with a **React component** and converts it into a **React Fiber object** (a key part of React’s rendering system).
+    - On the other hand, if the name starts with a lowercase letter, **Babel** treats it as a `string` rather than a component. This helps **React** differentiate between native HTML elements and custom components!
   - The `export default` keywords specify the main component in the file.
 
 - To use **Component** with `JSX`, you must import them and then use them as an element in your `JSX` code. This allows you to reuse the component multiple times within your project.
