@@ -5,6 +5,7 @@
 ## Table of Contents
 
 1. [JavaScript Fundamentals](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/01-JavaScript-Fundamentals)
+
    1. [Data Types]()
    2. [Variables]()
    3. [Control Structures]()
@@ -15,13 +16,19 @@
    7. [JSON]()
    8. [APIs]()
    9. [DOM]()
+
 2. [JavaScript Frameworks](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/03-JavaScript-Frameworks)
+
    1. [Node.js]()
+
 3. [JavaScript Libraries]()
+
    1. [React.js]()
       1. [Create-React-App]()
       2. [Next.js]()
+
 4. [JavaScript Challenge Programs](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/04-JavaScript-Challenge-Programs)
+
 5. [Building Web Apps with JavaScript](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/05-Building-Web-Apps-With-JavaScript)
    1. [Display Data on Button Click App](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/05-Building-Web-Apps-With-JavaScript/01-Display-Data-on-Button-Click)
    2. [ToDo App](https://github.com/nyangweso-rodgers/Programming-with-JavaScript/tree/main/05-Building-Web-Apps-With-JavaScript/02-ToDo-App)
@@ -34,6 +41,14 @@
 6. [Resources](#Resources)
 
 # JavaScript
+
+# Use Cases Of JavaScript
+
+- JavaScript can be used to create many different kinds of apps. For example:
+  1. Running a Node.js HTTP server. This includes projects made with e.g. Express.js, Redwood, and meta-frameworks like Next/Nuxt/Astro in SSR mode.
+  2. Producing static HTML, CSS, and JS files and serving them with a non-JS HTTP server. This includes projects made with e.g. static site generators like Eleventy or Docusaurus, meta-frameworks like Next/Nuxt/Astro used in SSG mode, Create React App etc.
+  3. Desktop apps.
+  4. Mobile apps.
 
 # How JS works behind the scenes?
 
