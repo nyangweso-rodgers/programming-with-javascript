@@ -33,7 +33,7 @@
 5. **Image Optimization**: Automatically optimize images for better performance.
 6. **Built-in CSS Support**: Use CSS Modules, Sass, and other styling options out of the box.
 
-# Steps
+# Setting up a Next.js Project
 
 ## Step 1: Run `create-next-app` Command
 
@@ -79,7 +79,7 @@
 
 - **Remark**:
 
-  - To run a specific version of Next.js, use:
+  - To run a specific version of **Next.js**, use:
     ```sh
       npx create-next-app@14.1.4 <app-name>
     ```
@@ -92,6 +92,127 @@
       #using yarn
       yarn add next@rc react@rc react-dom@rc eslint-config-next@rc
     ```
+
+  - **Engine locking**
+
+    - Ensuring consistent **Node.js** versions across environments is essential for predictable functionality in both development and production. Specify the supported **Node.js** version in your `package.json`:
+      ```json
+        //package.json
+        {
+        ...
+        "engines": {
+          "node": ">18.8.x"
+        }
+        ...
+      }
+      ```
+    - Add a `.npmrc` file next to `package.json`. This `.npmrc` configuration enforces the **Node.js** version specified in `package.json`, preventing incompatible **Node.js** versions from being used.
+      ```npmrc
+      // npmrc
+        engine-strict=true
+      ```
+    - The `engine-strict` setting tells your package manager to stop with an error on unsupported versions. This looks like:
+
+      ```sh
+        ERR_PNPM_UNSUPPORTED_ENGINE  Unsupported environment (bad pnpm and/or Node.js version)
+
+        Your Node version is incompatible with "next@15.0.3(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)".
+
+        Expected version: ^18.18.0 || ^19.8.0 || >= 20.0.0
+        Got: v18.12.1
+
+        This is happening because the package's manifest has an engines.node field specified.
+        To fix this issue, install the required Node version.
+      ```
+
+  - **Add Prettier**
+
+    - **Prettier** is an opinionated code formatter that automatically formats our files based on a predefined set of rules.
+    - It is only used during development, so I’ll add it as a **devDependency**:
+      ```sh
+        pnpm add --save-dev --save-exact prettier
+      ```
+    - Next, create a config file `.prettierrc` with the following content:
+      ```prettierrc
+      //prettierrc
+        {
+          "endOfLine": "lf",
+          "semi": false,
+          "singleQuote": false,
+          "tabWidth": 2,
+          "trailingComma": "es5"
+        }
+      ```
+    - Next, create a `.prettierignore` file that lists the different directories/files we don’t want prettier to format:
+      ```prettierignore
+      //prettierignore
+        node_modules
+        .next
+      ```
+    - Add the following scripts to format files manually or check formatting status in CI environments:
+      ```json
+      //package.json
+        {
+          ...
+          "scripts": {
+            ...
+            // format all files
+            "format": "prettier --write .",
+            // check if files are formatted, this is useful in CI environments
+            "format:check": "prettier --check ."
+          },
+          ...
+        }
+      ```
+    - You can now run:
+
+      ```sh
+        # format files
+        pnpm run format
+
+        # check if files are formatted
+        pnpm run format:check
+      ```
+
+  - **Sorting Imports**
+    - Next up, we will be adding `@ianvs/prettier-plugin-sort-imports` to our prettier config , this will allow us to sort import declarations using RegEX order.
+    - First, install it as a **devDependency**:
+      ```sh
+        pnpm add -D @ianvs/prettier-plugin-sort-imports
+      ```
+    - Then, update your `.prettierrc` file to be as follows:
+      ```prettierrc
+      //prettierrc
+      {
+      "endOfLine": "lf",
+      "semi": false,
+      "singleQuote": false,
+      "tabWidth": 2,
+      "trailingComma": "es5",
+      "plugins": [
+        "prettier-plugin-tailwindcss",
+        "@ianvs/prettier-plugin-sort-imports"
+      ],
+      "importOrder": [
+        "^(react/(.*)$)|^(react$)",
+        "^(next/(.*)$)|^(next$)",
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^types$",
+        "^@/types/(.*)$",
+        "^@/config/(.*)$",
+        "^@/lib/(.*)$",
+        "^@/hooks/(.*)$",
+        "^@/components/ui/(.*)$",
+        "^@/components/(.*)$",
+        "^@/styles/(.*)$",
+        "^@/app/(.*)$",
+        "",
+        "^[./]"
+      ],
+      "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"]
+      }
+      ```
 
 ## Step 2: Run Development Server
 
@@ -996,3 +1117,4 @@
 7. [medium - How to Set Up Next.js 15 for Production in 2024](https://medium.com/@jan.hesters/how-to-set-up-next-js-15-for-production-in-2024-347f542922b4)
 8. [Medium - Sending Emails with Nodemailer in Next.js 2023: A Complete Guide to Integrating Gmail Mailer for Enhanced Communication](https://blog.devgenius.io/sending-emails-with-nodemailer-in-next-js-ccada06abfc9)
 9. [Running Next.js with Docker](https://markus.oberlehner.net/blog/running-nextjs-with-docker/?ref=dailydev)
+10. [daily.dev - Setting up a Next.js Project with Essential Best practices](https://ouassim.tech/notes/setting-up-a-nextjs-project-with-essential-best-practices/?ref=dailydev)
