@@ -4,7 +4,7 @@
 
 # Node.js Dependency Management Tools
 
-# What Are npm Packages?
+# What Are `npm` Packages?
 
 - **npm** is the standard package manager for **Node.js** and js. It is the default package manager that comes bundled with **Node.js**. **yarn** and **pnpm** are alternatives to **npm**
 - **npm packages** are modules or libraries shared by the Node.js community to solve common problems or add functionality to your applications.
@@ -27,6 +27,23 @@
      - **Dependencies** are packages that a `Node.js` project relies on to function correctly. These dependencies are listed in the project’s `package.json` file.
      - When you run `npm install`, NPM reads the `package.json` and downloads the specified dependencies from the registry.
      - Managing dependencies ensures that your application can be easily replicated on different systems.
+
+- **How npm works**
+  - Think of `npm` as a digital store for software components. When you start a new Node.js project, you’ll need various tools and libraries to build it. Instead of reinventing the wheel, you can use `npm` to fetch and install these pre-built packages. It works by maintaining a vast online registry of packages, each with its unique name and version.
+  - When you use the `npm install` command, `npm` downloads the specified package and its dependencies, placing them in a local directory named `node_modules`, a central place where all project dependencies and versions are tracked. A local installation means that the package will be available only within the project where you install it. The command looks like this:
+    ```sh
+      npm install <package-name>
+    ```
+  - Beyond simple package installation, `npm` also offers **version control** for each package, which lets you specify the exact versions you want. This is critical for avoiding potential issues caused by breaking changes in newer versions.
+  - Additionally, `npm` provides a way to define scripts within `package.json` — these are commands that automate tasks like **starting a server**, **running tests**, or **building a project**. In your `package.json`, you might define a script like this:
+    ```json
+    {
+      "scripts": {
+        "start": "node index.js",
+        "test": "jest"
+      }
+    }
+    ```
 
 # Working with `npm`
 
